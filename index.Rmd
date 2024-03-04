@@ -37,17 +37,35 @@ Lubbock, TX 79409
 
 # Research
 
-#### Field of Interest: Empirical Macroeconomics 
-My research focuses on how beliefs and predictions of people interact with the economy. I try to quantify the timing and accuracy of the information that people gather, and I aim to understand how the gathered information contributes to macro business cycles.
+My research focuses on how beliefs and predictions of people interact with the economy. I try to quantify the timing and accuracy of the information that people gather, and I aim to understand how the gathered information contributes to macro business cycles. Below are selected papers that highlight my work:
+
+#### Diverging Macroeconomic Expectations and Business Cycles
+
+(with Xiaohan Ma)
+
+In this paper, we present a novel Relative Financial Confidence (RFC) measure constructed from the Survey of Professional Forecasters (SPF), which is a new metric for detecting boom-bust business cycles. Our findings suggest that economic booms that are driven by or propagated through financial markets can be prone to reversal to subsequent busts. RFC's ability to identify these dynamics renders it highly effective in recognizing phases pertaining to fluctuations in financial markets that lead to boom-bust cycles in the real economy, establishing it as an effective tool for identifying such episodes. [[Download This Paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4739011){target="_blank"}]
 
 
-#### Working Paper (2018/19 Job Market Paper)
-
-[Identification of Rational Expectations Models Under Information Frictions](research/Ludwig ID of RE Models under IF.pdf){target="_blank"} \
-Identification of full information rational expectations (FIRE) models suffers from Manski's (1993) reflection problem. I extend the standard rational expectations (RE) model to allow for a more general information structure and introduce a new framework to identify the generalized model with forecaster data. Identification is no longer subject to the reflection problem when two changes are made to the information structure: the addition of news shocks and imperfect information. News shocks provide additional variation in expectations about the future. Imperfect information provides changes in beliefs about past states, through which the feedback between expectations and decisions goes only in one direction. Expectations data are consistent with both. An application to Greenbook forecasts illustrates the importance of both news shocks and learning about the past. When I apply this framework to a Blanchard and Quah (1989) decomposition, I reach qualitatively new results. For example, expansionary supply shocks decrease unemployment. Supply shocks are also particularly subject to both news and information rigidities, so relaxing the information structure is key to correctly identifying these shocks. \
-[[PDF](research/Ludwig ID of RE Models under IF.pdf){target="_blank"}]
 
 
+#### Identification of Rational Expectations Models Under Information Frictions
+
+Identification of full information rational expectations (FIRE) models suffers from Manski's (1993) reflection problem. I extend the standard rational expectations (RE) model to allow for a more general information structure and introduce a new framework to identify the generalized model with forecaster data. Identification is no longer subject to the reflection problem when two changes are made to the information structure: the addition of news shocks and imperfect information. News shocks provide additional variation in expectations about the future. Imperfect information provides changes in beliefs about past states, through which the feedback between expectations and decisions goes only in one direction. Expectations data are consistent with both. An application to Greenbook forecasts illustrates the importance of both news shocks and learning about the past. When I apply this framework to a Blanchard and Quah (1989) decomposition, I reach qualitatively new results. For example, expansionary supply shocks decrease unemployment. Supply shocks are also particularly subject to both news and information rigidities, so relaxing the information structure is key to correctly identifying these shocks. [[Download This Paper](research/Ludwig ID of RE Models under IF.pdf){target="_blank"}]
+
+
+
+#### Multiple Instruments in IV-Local Projections: Heterogeneous Treatment Effects Analysis with an Application to Monetary Policy Shocks
+
+This paper examines the instrumental variable local projection (IV-LP) method when multiple instruments are employed. I show that a single equation IV-LP can be replicated with a recursively identified multivariate LP, where the dependent variable is ordered after the explanatory variable, and the explanatory variable is ordered after the instruments. The impulse response functions (IRFs) to the shocks corresponding to the instruments are normalized to increase the explanatory variable by one unit on impact, and their weighted average is computed, reflecting their contribution to the variance of the explanatory variable. This resulting IRF is equivalent to the IRF derived by the single equation IV-LP. Furthermore, I reveal that under the assumption of constant parameters, the shape of the IRFs corresponding to different instruments should be identical. If they are not, it implies either a violation of the instruments' exclusion restriction or the presence of heterogeneous treatment effects of the explanatory variable on the dependent variable. In the latter case, the local projection estimates an average of these heterogeneous treatment effects, with different instruments emphasizing distinct effects. I discuss the conditions for such interpretation and apply the framework to identify IRFs to monetary policy shocks, using various instruments from the literature.
+
+
+
+
+#### State-Level Impact of Economic Uncertainty 
+
+(with Xiaohan Ma)
+
+This study presents a novel econometric framework to analyze the state-level impacts of economic uncertainty in the United States. Utilizing a structural vector-autoregressive (SVAR) model that includes both aggregate and state-specific variables, the research explores the heterogeneous responses of states to various types of uncertainty, such as macroeconomic, policy, and industry uncertainties. The findings reveal significant differences in how states react to uncertainty shocks, influenced by diverse regional characteristics like industry composition and labor market conditions. This paper contributes to the understanding of uncertainty's transmission mechanisms and offers insights for policy-making at the state level, highlighting the importance of regional specificity in economic analysis.
 
 
 $~$
@@ -56,11 +74,18 @@ $~$
 
 #### Courses Offered
 
-ECO 5316 Time Series Econometrics \
-ECO 5311 Macroeconomic Theory and Policy \
-ECO 4306 Economic and Business Forecasting \
+ECO 3323 Principles of Money, Banking and Credit \
+ECO 3363 Economic Data Analysis I \
+ECO 3364 Economic Data Analysis II \
 ECO 4300 Economic Research: Data-Driven Analysis  ([Lecture Notes](daer){target="_blank"}) \
-ECO 3323 Principles of Money, Banking and Credit
+ECO 4306 Economic and Business Forecasting \
+ECO 5311 Macroeconomic Theory and Policy \
+ECO 5316 Time Series Econometrics
+
+
+#### Textbook
+
+"Economic Data Analysis" by Julian F. Ludwig, accessible for free at [www.julianfludwig.com/eda](https://www.julianfludwig.com/eda) (preliminary version). This text explains how to use software to present economic and financial data. It is recommended for courses ECO 3323, ECO 3363, and ECO 3364.
 
 
 #### Course Software
