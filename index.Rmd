@@ -41,7 +41,7 @@ My research focuses on how beliefs and predictions of people interact with the e
 
 #### Diverging Macroeconomic Expectations and Business Cycles
 
-(with Xiaohan Ma)
+(with [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"})
 
 In this paper, we present a novel Relative Financial Confidence (RFC) measure constructed from the Survey of Professional Forecasters (SPF), which is a new metric for detecting boom-bust business cycles. Our findings suggest that economic booms that are driven by or propagated through financial markets can be prone to reversal to subsequent busts. RFC's ability to identify these dynamics renders it highly effective in recognizing phases pertaining to fluctuations in financial markets that lead to boom-bust cycles in the real economy, establishing it as an effective tool for identifying such episodes. [[Download This Paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4739011){target="_blank"}]
 
@@ -54,18 +54,17 @@ Identification of full information rational expectations (FIRE) models suffers f
 
 
 
+#### State-Level Impact of Economic Uncertainty 
+
+(with [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"})
+
+This study presents a novel econometric framework to analyze the state-level impacts of economic uncertainty in the United States. Utilizing a structural vector-autoregressive (SVAR) model that includes both aggregate and state-specific variables, the research explores the heterogeneous responses of states to various types of uncertainty, such as macroeconomic, policy, and industry uncertainties. The findings reveal significant differences in how states react to uncertainty shocks, influenced by diverse regional characteristics like industry composition and labor market conditions. This paper contributes to the understanding of uncertainty's transmission mechanisms and offers insights for policy-making at the state level, highlighting the importance of regional specificity in economic analysis.
+
+
 #### Multiple Instruments in IV-Local Projections: Heterogeneous Treatment Effects Analysis with an Application to Monetary Policy Shocks
 
 This paper examines the instrumental variable local projection (IV-LP) method when multiple instruments are employed. I show that a single equation IV-LP can be replicated with a recursively identified multivariate LP, where the dependent variable is ordered after the explanatory variable, and the explanatory variable is ordered after the instruments. The impulse response functions (IRFs) to the shocks corresponding to the instruments are normalized to increase the explanatory variable by one unit on impact, and their weighted average is computed, reflecting their contribution to the variance of the explanatory variable. This resulting IRF is equivalent to the IRF derived by the single equation IV-LP. Furthermore, I reveal that under the assumption of constant parameters, the shape of the IRFs corresponding to different instruments should be identical. If they are not, it implies either a violation of the instruments' exclusion restriction or the presence of heterogeneous treatment effects of the explanatory variable on the dependent variable. In the latter case, the local projection estimates an average of these heterogeneous treatment effects, with different instruments emphasizing distinct effects. I discuss the conditions for such interpretation and apply the framework to identify IRFs to monetary policy shocks, using various instruments from the literature.
 
-
-
-
-#### State-Level Impact of Economic Uncertainty 
-
-(with Xiaohan Ma)
-
-This study presents a novel econometric framework to analyze the state-level impacts of economic uncertainty in the United States. Utilizing a structural vector-autoregressive (SVAR) model that includes both aggregate and state-specific variables, the research explores the heterogeneous responses of states to various types of uncertainty, such as macroeconomic, policy, and industry uncertainties. The findings reveal significant differences in how states react to uncertainty shocks, influenced by diverse regional characteristics like industry composition and labor market conditions. This paper contributes to the understanding of uncertainty's transmission mechanisms and offers insights for policy-making at the state level, highlighting the importance of regional specificity in economic analysis.
 
 
 $~$
@@ -85,7 +84,7 @@ ECO 5316 Time Series Econometrics
 
 #### Textbook
 
-"Economic Data Analysis" by Julian F. Ludwig, accessible for free at [www.julianfludwig.com/eda](https://www.julianfludwig.com/eda) (preliminary version). This text explains how to use software to present economic and financial data. It is recommended for courses ECO 3323, ECO 3363, and ECO 3364.
+"Economic Data Analysis" by Julian F. Ludwig, accessible for free at [www.julianfludwig.com/eda](https://www.julianfludwig.com/eda){target="_blank"} (preliminary version). This text explains how to use software to present economic and financial data. It is recommended for courses ECO 3323, ECO 3363, and ECO 3364.
 
 
 #### Course Software
