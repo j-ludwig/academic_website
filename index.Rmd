@@ -22,6 +22,7 @@ Assistant Professor \
 Department of Economics \
 Texas Tech University \
 253 Holden Hall \
+1011 Boston Ave \
 Lubbock, TX 79409
 
 <br>
@@ -39,11 +40,20 @@ Lubbock, TX 79409
 
 My research focuses on how beliefs and predictions of people interact with the economy. I try to quantify the timing and accuracy of the information that people gather, and I aim to understand how the gathered information contributes to macro business cycles. Below are selected papers that highlight my work:
 
+
+#### The Effects of Expectation: Evidence from Text-Based Infectious Disease Data
+
+(with [Ram Joshi](https://www.linkedin.com/in/ram-joshi-694b09158/) and [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"})
+
+Economic agents' expectations about the current and future states of the economy are considered in the literature as a key factor in contributing to economic fluctuations. Using text-based data on infectious diseases as an instrumental variable, we directly assess the macroeconomic effects of expectations, and find that a 1% decline in GDP forecast can generate a decline in real GDP by up to 0.49%. Furthermore, this effect is transitory, and once expectations realign with the truth, aggregate variables return to their steady state. [[Download This Paper](https://ssrn.com/abstract=4844096){target="_blank"}]
+
+
+
 #### Diverging Macroeconomic Expectations and Business Cycles
 
 (with [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"})
 
-In this paper, we present a novel Relative Financial Confidence (RFC) measure constructed from the Survey of Professional Forecasters (SPF), which is a new metric for detecting boom-bust business cycles. Our findings suggest that economic booms that are driven by or propagated through financial markets can be prone to reversal to subsequent busts. RFC's ability to identify these dynamics renders it highly effective in recognizing phases pertaining to fluctuations in financial markets that lead to boom-bust cycles in the real economy, establishing it as an effective tool for identifying such episodes. [[Download This Paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4739011){target="_blank"}]
+In this paper, we present a novel Relative Financial Confidence (RFC) measure constructed from the Survey of Professional Forecasters (SPF), which is a new metric for detecting boom-bust business cycles. Our findings suggest that economic booms that are driven by or propagated through financial markets can be prone to reversal to subsequent busts. RFC's ability to identify these dynamics renders it highly effective in recognizing phases pertaining to fluctuations in financial markets that lead to boom-bust cycles in the real economy, establishing it as an effective tool for identifying such episodes. [[Download This Paper](https://ssrn.com/abstract=4739011){target="_blank"}]
 
 
 
@@ -76,7 +86,7 @@ $~$
 ECO 3323 Principles of Money, Banking and Credit \
 ECO 3363 Economic Data Analysis I \
 ECO 3364 Economic Data Analysis II \
-ECO 4300 Economic Research: Data-Driven Analysis  ([Lecture Notes](daer){target="_blank"}) \
+ECO 4300 Economic Research: Data-Driven Analysis \
 ECO 4306 Economic and Business Forecasting \
 ECO 5311 Macroeconomic Theory and Policy \
 ECO 5316 Time Series Econometrics
@@ -84,7 +94,7 @@ ECO 5316 Time Series Econometrics
 
 #### Textbook
 
-"Economic Data Analysis" by Julian F. Ludwig, accessible for free at [www.julianfludwig.com/eda](https://www.julianfludwig.com/eda){target="_blank"} (preliminary version). This text explains how to use software to present economic and financial data. It is recommended for courses ECO 3323, ECO 3363, and ECO 3364.
+"Economic Data Analysis" by Julian F. Ludwig, accessible for free at [www.julianfludwig.com/eda](https://www.julianfludwig.com/eda){target="_blank"} (preliminary version). This text explains how to use software to present economic and financial data. It is recommended for courses ECO 3323, ECO 3363, ECO 3364, and ECO 4300.
 
 
 #### Course Software
