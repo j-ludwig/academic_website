@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Write Reports with R Markdown | Economic Data Analysis</title>
+  <meta name="description" content="Chapter 6 Write Reports with R Markdown | Economic Data Analysis" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Write Reports with R Markdown | Economic Data Analysis" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://www.julianfludwig.com/eda/files/bookcover.png" />
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Write Reports with R Markdown | Economic Data Analysis" />
+  
+  
+  <meta name="twitter:image" content="https://www.julianfludwig.com/eda/files/bookcover.png" />
+
+
+
+<meta name="date" content="2024-05-28" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="process-data-in-r.html"/>
+<link rel="next" href="part-ii.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+<script src="libs/tabwid-1.1.3/tabwid.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html">Economic Data Analysis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><em>Preface</em></a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#author"><i class="fa fa-check"></i>Author</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-navigation"><i class="fa fa-check"></i>Book Navigation</a></li>
+</ul></li>
+<li class="part"><span><b>Part I</b></span></li>
+<li class="chapter" data-level="" data-path="part-i.html"><a href="part-i.html"><i class="fa fa-check"></i><em>Part I: Introduction to R</em></a></li>
+<li class="chapter" data-level="1" data-path="software-overview.html"><a href="software-overview.html"><i class="fa fa-check"></i><b>1</b> Software Overview</a></li>
+<li class="chapter" data-level="2" data-path="software-installation.html"><a href="software-installation.html"><i class="fa fa-check"></i><b>2</b> Software Installation</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="software-installation.html"><a href="software-installation.html#install-r"><i class="fa fa-check"></i><b>2.1</b> Install R</a></li>
+<li class="chapter" data-level="2.2" data-path="software-installation.html"><a href="software-installation.html#install-rstudio"><i class="fa fa-check"></i><b>2.2</b> Install RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="software-installation.html"><a href="software-installation.html#install-r-markdown"><i class="fa fa-check"></i><b>2.3</b> Install R Markdown</a></li>
+<li class="chapter" data-level="2.4" data-path="software-installation.html"><a href="software-installation.html#install-latex"><i class="fa fa-check"></i><b>2.4</b> Install LaTeX</a></li>
+<li class="chapter" data-level="2.5" data-path="software-installation.html"><a href="software-installation.html#install-r-packages"><i class="fa fa-check"></i><b>2.5</b> Install R Packages</a></li>
+<li class="chapter" data-level="2.6" data-path="software-installation.html"><a href="software-installation.html#step-test"><i class="fa fa-check"></i><b>2.6</b> 18-Step Test</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>3</b> R Basics</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r-basics.html"><a href="r-basics.html#rstudio-interface"><i class="fa fa-check"></i><b>3.1</b> RStudio Interface</a></li>
+<li class="chapter" data-level="3.2" data-path="r-basics.html"><a href="r-basics.html#basic-operations"><i class="fa fa-check"></i><b>3.2</b> Basic Operations</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="r-basics.html"><a href="r-basics.html#arithmetic-operations"><i class="fa fa-check"></i><b>3.2.1</b> Arithmetic Operations</a></li>
+<li class="chapter" data-level="3.2.2" data-path="r-basics.html"><a href="r-basics.html#logical-operations"><i class="fa fa-check"></i><b>3.2.2</b> Logical Operations</a></li>
+<li class="chapter" data-level="3.2.3" data-path="r-basics.html"><a href="r-basics.html#string-operations"><i class="fa fa-check"></i><b>3.2.3</b> String Operations</a></li>
+<li class="chapter" data-level="3.2.4" data-path="r-basics.html"><a href="r-basics.html#variables"><i class="fa fa-check"></i><b>3.2.4</b> Variables</a></li>
+<li class="chapter" data-level="3.2.5" data-path="r-basics.html"><a href="r-basics.html#data-types"><i class="fa fa-check"></i><b>3.2.5</b> Data Types</a></li>
+<li class="chapter" data-level="3.2.6" data-path="r-basics.html"><a href="r-basics.html#data-structures"><i class="fa fa-check"></i><b>3.2.6</b> Data Structures</a></li>
+<li class="chapter" data-level="3.2.7" data-path="r-basics.html"><a href="r-basics.html#vector-operations"><i class="fa fa-check"></i><b>3.2.7</b> Vector Operations</a></li>
+<li class="chapter" data-level="3.2.8" data-path="r-basics.html"><a href="r-basics.html#missing-values"><i class="fa fa-check"></i><b>3.2.8</b> Missing Values</a></li>
+<li class="chapter" data-level="3.2.9" data-path="r-basics.html"><a href="r-basics.html#attributes"><i class="fa fa-check"></i><b>3.2.9</b> Attributes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="r-basics.html"><a href="r-basics.html#dates-and-times"><i class="fa fa-check"></i><b>3.3</b> Dates and Times</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="r-basics.html"><a href="r-basics.html#posixct"><i class="fa fa-check"></i><b>3.3.1</b> Time Class (<code>POSIXct</code>)</a></li>
+<li class="chapter" data-level="3.3.2" data-path="r-basics.html"><a href="r-basics.html#date"><i class="fa fa-check"></i><b>3.3.2</b> Date Class (<code>Date</code>)</a></li>
+<li class="chapter" data-level="3.3.3" data-path="r-basics.html"><a href="r-basics.html#custom-date-and-time-formats"><i class="fa fa-check"></i><b>3.3.3</b> Custom Date and Time Formats</a></li>
+<li class="chapter" data-level="3.3.4" data-path="r-basics.html"><a href="r-basics.html#operations-with-dates-and-times"><i class="fa fa-check"></i><b>3.3.4</b> Operations with Dates and Times</a></li>
+<li class="chapter" data-level="3.3.5" data-path="r-basics.html"><a href="r-basics.html#current-date-and-time"><i class="fa fa-check"></i><b>3.3.5</b> Current Date and Time</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="r-basics.html"><a href="r-basics.html#graphs"><i class="fa fa-check"></i><b>3.4</b> Graphs</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="r-basics.html"><a href="r-basics.html#scatter-plot"><i class="fa fa-check"></i><b>3.4.1</b> Scatter Plot</a></li>
+<li class="chapter" data-level="3.4.2" data-path="r-basics.html"><a href="r-basics.html#line-graph"><i class="fa fa-check"></i><b>3.4.2</b> Line Graph</a></li>
+<li class="chapter" data-level="3.4.3" data-path="r-basics.html"><a href="r-basics.html#bar-chart"><i class="fa fa-check"></i><b>3.4.3</b> Bar Chart</a></li>
+<li class="chapter" data-level="3.4.4" data-path="r-basics.html"><a href="r-basics.html#frequency-bar-chart"><i class="fa fa-check"></i><b>3.4.4</b> Frequency Bar Chart</a></li>
+<li class="chapter" data-level="3.4.5" data-path="r-basics.html"><a href="r-basics.html#histogram"><i class="fa fa-check"></i><b>3.4.5</b> Histogram</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="r-basics.html"><a href="r-basics.html#functions"><i class="fa fa-check"></i><b>3.5</b> Functions</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="r-basics.html"><a href="r-basics.html#how-functions-operate"><i class="fa fa-check"></i><b>3.5.1</b> How Functions Operate</a></li>
+<li class="chapter" data-level="3.5.2" data-path="r-basics.html"><a href="r-basics.html#infix-operators"><i class="fa fa-check"></i><b>3.5.2</b> Infix Operators</a></li>
+<li class="chapter" data-level="3.5.3" data-path="r-basics.html"><a href="r-basics.html#control-flow-operators"><i class="fa fa-check"></i><b>3.5.3</b> Control-Flow Operators</a></li>
+<li class="chapter" data-level="3.5.4" data-path="r-basics.html"><a href="r-basics.html#help-and-documentation"><i class="fa fa-check"></i><b>3.5.4</b> Help and Documentation</a></li>
+<li class="chapter" data-level="3.5.5" data-path="r-basics.html"><a href="r-basics.html#default-inputs"><i class="fa fa-check"></i><b>3.5.5</b> Default Inputs</a></li>
+<li class="chapter" data-level="3.5.6" data-path="r-basics.html"><a href="r-basics.html#custom-functions"><i class="fa fa-check"></i><b>3.5.6</b> Custom Functions</a></li>
+<li class="chapter" data-level="3.5.7" data-path="r-basics.html"><a href="r-basics.html#functions-from-r-packages"><i class="fa fa-check"></i><b>3.5.7</b> Functions from R Packages</a></li>
+<li class="chapter" data-level="3.5.8" data-path="r-basics.html"><a href="r-basics.html#indirect-functions"><i class="fa fa-check"></i><b>3.5.8</b> Indirect Functions</a></li>
+<li class="chapter" data-level="3.5.9" data-path="r-basics.html"><a href="r-basics.html#apply-functions"><i class="fa fa-check"></i><b>3.5.9</b> Apply Functions</a></li>
+<li class="chapter" data-level="3.5.10" data-path="r-basics.html"><a href="r-basics.html#advanced-higher-order-functions"><i class="fa fa-check"></i><b>3.5.10</b> Advanced Higher-Order Functions</a></li>
+<li class="chapter" data-level="3.5.11" data-path="r-basics.html"><a href="r-basics.html#wrapper-functions"><i class="fa fa-check"></i><b>3.5.11</b> Wrapper Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="r-basics.html"><a href="r-basics.html#r-packages"><i class="fa fa-check"></i><b>3.6</b> R Packages</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="r-basics.html"><a href="r-basics.html#cran"><i class="fa fa-check"></i><b>3.6.1</b> CRAN</a></li>
+<li class="chapter" data-level="3.6.2" data-path="r-basics.html"><a href="r-basics.html#load-and-update-packages"><i class="fa fa-check"></i><b>3.6.2</b> Load and Update Packages</a></li>
+<li class="chapter" data-level="3.6.3" data-path="r-basics.html"><a href="r-basics.html#noteworthy-packages"><i class="fa fa-check"></i><b>3.6.3</b> Noteworthy Packages</a></li>
+<li class="chapter" data-level="3.6.4" data-path="r-basics.html"><a href="r-basics.html#package-documentation"><i class="fa fa-check"></i><b>3.6.4</b> Package Documentation</a></li>
+<li class="chapter" data-level="3.6.5" data-path="r-basics.html"><a href="r-basics.html#function-name-conflicts"><i class="fa fa-check"></i><b>3.6.5</b> Function Name Conflicts</a></li>
+<li class="chapter" data-level="3.6.6" data-path="r-basics.html"><a href="r-basics.html#non-exported-functions"><i class="fa fa-check"></i><b>3.6.6</b> Non-Exported Functions</a></li>
+<li class="chapter" data-level="3.6.7" data-path="r-basics.html"><a href="r-basics.html#the-tidyverse"><i class="fa fa-check"></i><b>3.6.7</b> The Tidyverse</a></li>
+<li class="chapter" data-level="3.6.8" data-path="r-basics.html"><a href="r-basics.html#citing-r-packages"><i class="fa fa-check"></i><b>3.6.8</b> Citing R Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="r-basics.html"><a href="r-basics.html#file-management"><i class="fa fa-check"></i><b>3.7</b> File Management</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="r-basics.html"><a href="r-basics.html#find-folder-path"><i class="fa fa-check"></i><b>3.7.1</b> Find Folder Path</a></li>
+<li class="chapter" data-level="3.7.2" data-path="r-basics.html"><a href="r-basics.html#set-working-directory"><i class="fa fa-check"></i><b>3.7.2</b> Set Working Directory</a></li>
+<li class="chapter" data-level="3.7.3" data-path="r-basics.html"><a href="r-basics.html#download-files"><i class="fa fa-check"></i><b>3.7.3</b> Download Files</a></li>
+<li class="chapter" data-level="3.7.4" data-path="r-basics.html"><a href="r-basics.html#import-files"><i class="fa fa-check"></i><b>3.7.4</b> Import Files</a></li>
+<li class="chapter" data-level="3.7.5" data-path="r-basics.html"><a href="r-basics.html#export-files"><i class="fa fa-check"></i><b>3.7.5</b> Export Files</a></li>
+<li class="chapter" data-level="3.7.6" data-path="r-basics.html"><a href="r-basics.html#delete-files"><i class="fa fa-check"></i><b>3.7.6</b> Delete Files</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="r-basics.html"><a href="r-basics.html#optimal-workflow"><i class="fa fa-check"></i><b>3.8</b> Optimal Workflow</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="r-basics.html"><a href="r-basics.html#execute-as-you-write"><i class="fa fa-check"></i><b>3.8.1</b> Execute as You Write</a></li>
+<li class="chapter" data-level="3.8.2" data-path="r-basics.html"><a href="r-basics.html#key-shortcuts"><i class="fa fa-check"></i><b>3.8.2</b> Key Shortcuts</a></li>
+<li class="chapter" data-level="3.8.3" data-path="r-basics.html"><a href="r-basics.html#separate-window-for-r-script"><i class="fa fa-check"></i><b>3.8.3</b> Separate Window for R Script</a></li>
+<li class="chapter" data-level="3.8.4" data-path="r-basics.html"><a href="r-basics.html#conclusion"><i class="fa fa-check"></i><b>3.8.4</b> Conclusion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html"><i class="fa fa-check"></i><b>4</b> Data Structures in R</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#scalar"><i class="fa fa-check"></i><b>4.1</b> Scalar</a></li>
+<li class="chapter" data-level="4.2" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#vector"><i class="fa fa-check"></i><b>4.2</b> Vector</a></li>
+<li class="chapter" data-level="4.3" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#matrix"><i class="fa fa-check"></i><b>4.3</b> Matrix (<code>matrix</code>)</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#create-a-matrix"><i class="fa fa-check"></i><b>4.3.1</b> Create a Matrix</a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#inspect-a-matrix"><i class="fa fa-check"></i><b>4.3.2</b> Inspect a Matrix</a></li>
+<li class="chapter" data-level="4.3.3" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#select-and-modify-matrix"><i class="fa fa-check"></i><b>4.3.3</b> Select and Modify</a></li>
+<li class="chapter" data-level="4.3.4" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#add-labels-matrix"><i class="fa fa-check"></i><b>4.3.4</b> Add Labels</a></li>
+<li class="chapter" data-level="4.3.5" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#handle-missing-values-matrix"><i class="fa fa-check"></i><b>4.3.5</b> Handle Missing Values</a></li>
+<li class="chapter" data-level="4.3.6" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#element-wise-operations"><i class="fa fa-check"></i><b>4.3.6</b> Element-Wise Operations</a></li>
+<li class="chapter" data-level="4.3.7" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#linear-algebra-operations"><i class="fa fa-check"></i><b>4.3.7</b> Linear Algebra Operations</a></li>
+<li class="chapter" data-level="4.3.8" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#combine-matrices"><i class="fa fa-check"></i><b>4.3.8</b> Combine Matrices</a></li>
+<li class="chapter" data-level="4.3.9" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#apply-family-matrix"><i class="fa fa-check"></i><b>4.3.9</b> Apply Family</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#list"><i class="fa fa-check"></i><b>4.4</b> List (<code>list</code>)</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#create-a-list"><i class="fa fa-check"></i><b>4.4.1</b> Create a List</a></li>
+<li class="chapter" data-level="4.4.2" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#inspect-a-list"><i class="fa fa-check"></i><b>4.4.2</b> Inspect a List</a></li>
+<li class="chapter" data-level="4.4.3" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#select-and-modify-list"><i class="fa fa-check"></i><b>4.4.3</b> Select and Modify</a></li>
+<li class="chapter" data-level="4.4.4" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#add-labels-list"><i class="fa fa-check"></i><b>4.4.4</b> Add Labels</a></li>
+<li class="chapter" data-level="4.4.5" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#combine-lists"><i class="fa fa-check"></i><b>4.4.5</b> Combine Lists</a></li>
+<li class="chapter" data-level="4.4.6" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#apply-family-list"><i class="fa fa-check"></i><b>4.4.6</b> Apply Family</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#data.frame"><i class="fa fa-check"></i><b>4.5</b> Data Frame (<code>data.frame</code>)</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#create-a-data-frame"><i class="fa fa-check"></i><b>4.5.1</b> Create a Data Frame</a></li>
+<li class="chapter" data-level="4.5.2" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#inspect-a-data-frame"><i class="fa fa-check"></i><b>4.5.2</b> Inspect a Data Frame</a></li>
+<li class="chapter" data-level="4.5.3" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#select-and-modify-data.frame"><i class="fa fa-check"></i><b>4.5.3</b> Select and Modify</a></li>
+<li class="chapter" data-level="4.5.4" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#add-labels-data.frame"><i class="fa fa-check"></i><b>4.5.4</b> Add Labels</a></li>
+<li class="chapter" data-level="4.5.5" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#handle-missing-values-data.frame"><i class="fa fa-check"></i><b>4.5.5</b> Handle Missing Values</a></li>
+<li class="chapter" data-level="4.5.6" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#combine-data-frames"><i class="fa fa-check"></i><b>4.5.6</b> Combine Data Frames</a></li>
+<li class="chapter" data-level="4.5.7" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#apply-family-data.frame"><i class="fa fa-check"></i><b>4.5.7</b> Apply Family</a></li>
+<li class="chapter" data-level="4.5.8" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#reshape-data-frames"><i class="fa fa-check"></i><b>4.5.8</b> Reshape Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#tibble"><i class="fa fa-check"></i><b>4.6</b> Tibble (<code>tbl_df</code>)</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#create-a-tibble"><i class="fa fa-check"></i><b>4.6.1</b> Create a Tibble</a></li>
+<li class="chapter" data-level="4.6.2" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#inspect-a-tibble"><i class="fa fa-check"></i><b>4.6.2</b> Inspect a Tibble</a></li>
+<li class="chapter" data-level="4.6.3" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#select-and-modify-tibble"><i class="fa fa-check"></i><b>4.6.3</b> Select and Modify</a></li>
+<li class="chapter" data-level="4.6.4" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#add-labels-tibble"><i class="fa fa-check"></i><b>4.6.4</b> Add Labels</a></li>
+<li class="chapter" data-level="4.6.5" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#handle-missing-values-tibble"><i class="fa fa-check"></i><b>4.6.5</b> Handle Missing Values</a></li>
+<li class="chapter" data-level="4.6.6" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#combine-tibbles"><i class="fa fa-check"></i><b>4.6.6</b> Combine Tibbles</a></li>
+<li class="chapter" data-level="4.6.7" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#apply-family-tibble"><i class="fa fa-check"></i><b>4.6.7</b> Apply Family</a></li>
+<li class="chapter" data-level="4.6.8" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#reshape-tibbles"><i class="fa fa-check"></i><b>4.6.8</b> Reshape Tibbles</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#data.table"><i class="fa fa-check"></i><b>4.7</b> Data Table (<code>data.table</code>)</a></li>
+<li class="chapter" data-level="4.8" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#xts"><i class="fa fa-check"></i><b>4.8</b> Extensible Time Series (<code>xts</code>)</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#create-an-xts-object"><i class="fa fa-check"></i><b>4.8.1</b> Create an <code>xts</code> Object</a></li>
+<li class="chapter" data-level="4.8.2" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#inspect-an-xts-object"><i class="fa fa-check"></i><b>4.8.2</b> Inspect an <code>xts</code> Object</a></li>
+<li class="chapter" data-level="4.8.3" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#select-and-modify-xts"><i class="fa fa-check"></i><b>4.8.3</b> Select and Modify</a></li>
+<li class="chapter" data-level="4.8.4" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#add-labels-xts"><i class="fa fa-check"></i><b>4.8.4</b> Add Labels</a></li>
+<li class="chapter" data-level="4.8.5" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#handle-missing-values-xts"><i class="fa fa-check"></i><b>4.8.5</b> Handle Missing Values</a></li>
+<li class="chapter" data-level="4.8.6" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#combine-xts-objects"><i class="fa fa-check"></i><b>4.8.6</b> Combine xts Objects</a></li>
+<li class="chapter" data-level="4.8.7" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#time-series-transformations"><i class="fa fa-check"></i><b>4.8.7</b> Time Series Transformations</a></li>
+<li class="chapter" data-level="4.8.8" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#apply-family-xts"><i class="fa fa-check"></i><b>4.8.8</b> Apply Family</a></li>
+<li class="chapter" data-level="4.8.9" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#resources-xts"><i class="fa fa-check"></i><b>4.8.9</b> Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="process-data-in-r.html"><a href="process-data-in-r.html"><i class="fa fa-check"></i><b>5</b> Process Data in R</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-bitcoin-price-data"><i class="fa fa-check"></i><b>5.1</b> Process Bitcoin Price Data</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="process-data-in-r.html"><a href="process-data-in-r.html#download-dsv-file"><i class="fa fa-check"></i><b>5.1.1</b> Download DSV File</a></li>
+<li class="chapter" data-level="5.1.2" data-path="process-data-in-r.html"><a href="process-data-in-r.html#import-dsv-file"><i class="fa fa-check"></i><b>5.1.2</b> Import DSV File</a></li>
+<li class="chapter" data-level="5.1.3" data-path="process-data-in-r.html"><a href="process-data-in-r.html#inspect-data"><i class="fa fa-check"></i><b>5.1.3</b> Inspect Data</a></li>
+<li class="chapter" data-level="5.1.4" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-bitcoin-price-data-clean-data"><i class="fa fa-check"></i><b>5.1.4</b> Clean Data</a></li>
+<li class="chapter" data-level="5.1.5" data-path="process-data-in-r.html"><a href="process-data-in-r.html#visualize-data"><i class="fa fa-check"></i><b>5.1.5</b> Visualize Data</a></li>
+<li class="chapter" data-level="5.1.6" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-bitcoin-price-data-export-data"><i class="fa fa-check"></i><b>5.1.6</b> Export Data</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-stock-and-oil-prices"><i class="fa fa-check"></i><b>5.2</b> Process Stock and Oil Prices</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="process-data-in-r.html"><a href="process-data-in-r.html#web-api"><i class="fa fa-check"></i><b>5.2.1</b> Web API</a></li>
+<li class="chapter" data-level="5.2.2" data-path="process-data-in-r.html"><a href="process-data-in-r.html#download-via-quantmod"><i class="fa fa-check"></i><b>5.2.2</b> Download via <code>quantmod</code></a></li>
+<li class="chapter" data-level="5.2.3" data-path="process-data-in-r.html"><a href="process-data-in-r.html#download-via-quandl"><i class="fa fa-check"></i><b>5.2.3</b> Download via <code>Quandl</code></a></li>
+<li class="chapter" data-level="5.2.4" data-path="process-data-in-r.html"><a href="process-data-in-r.html#clean-data"><i class="fa fa-check"></i><b>5.2.4</b> Clean Data</a></li>
+<li class="chapter" data-level="5.2.5" data-path="process-data-in-r.html"><a href="process-data-in-r.html#plot-apple-stock-prices"><i class="fa fa-check"></i><b>5.2.5</b> Plot Apple Stock Prices</a></li>
+<li class="chapter" data-level="5.2.6" data-path="process-data-in-r.html"><a href="process-data-in-r.html#plot-crude-oil-prices"><i class="fa fa-check"></i><b>5.2.6</b> Plot Crude Oil Prices</a></li>
+<li class="chapter" data-level="5.2.7" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-stock-and-oil-prices-merge-data"><i class="fa fa-check"></i><b>5.2.7</b> Merge Data</a></li>
+<li class="chapter" data-level="5.2.8" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-stock-and-oil-prices-transform-data"><i class="fa fa-check"></i><b>5.2.8</b> Transform Data</a></li>
+<li class="chapter" data-level="5.2.9" data-path="process-data-in-r.html"><a href="process-data-in-r.html#tabulate-key-statistics"><i class="fa fa-check"></i><b>5.2.9</b> Tabulate Key Statistics</a></li>
+<li class="chapter" data-level="5.2.10" data-path="process-data-in-r.html"><a href="process-data-in-r.html#visualize-correlations"><i class="fa fa-check"></i><b>5.2.10</b> Visualize Correlations</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-house-price-data"><i class="fa fa-check"></i><b>5.3</b> Process House Price Data</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="process-data-in-r.html"><a href="process-data-in-r.html#download-excel-workbook"><i class="fa fa-check"></i><b>5.3.1</b> Download Excel Workbook</a></li>
+<li class="chapter" data-level="5.3.2" data-path="process-data-in-r.html"><a href="process-data-in-r.html#import-excel-workbook"><i class="fa fa-check"></i><b>5.3.2</b> Import Excel Workbook</a></li>
+<li class="chapter" data-level="5.3.3" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-house-price-data-inspect-and-clean-data"><i class="fa fa-check"></i><b>5.3.3</b> Inspect and Clean Data</a></li>
+<li class="chapter" data-level="5.3.4" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-house-price-data-reshape-data"><i class="fa fa-check"></i><b>5.3.4</b> Reshape Data</a></li>
+<li class="chapter" data-level="5.3.5" data-path="process-data-in-r.html"><a href="process-data-in-r.html#layered-line-graphs"><i class="fa fa-check"></i><b>5.3.5</b> Layered Line Graphs</a></li>
+<li class="chapter" data-level="5.3.6" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-house-price-data-merge-data"><i class="fa fa-check"></i><b>5.3.6</b> Merge Data</a></li>
+<li class="chapter" data-level="5.3.7" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-house-price-data-transform-data"><i class="fa fa-check"></i><b>5.3.7</b> Transform Data</a></li>
+<li class="chapter" data-level="5.3.8" data-path="process-data-in-r.html"><a href="process-data-in-r.html#stationary-data"><i class="fa fa-check"></i><b>5.3.8</b> Stationary Data</a></li>
+<li class="chapter" data-level="5.3.9" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-house-price-data-export-data"><i class="fa fa-check"></i><b>5.3.9</b> Export Data</a></li>
+<li class="chapter" data-level="5.3.10" data-path="process-data-in-r.html"><a href="process-data-in-r.html#organize-data"><i class="fa fa-check"></i><b>5.3.10</b> Organize Data</a></li>
+<li class="chapter" data-level="5.3.11" data-path="process-data-in-r.html"><a href="process-data-in-r.html#univariate-statistics"><i class="fa fa-check"></i><b>5.3.11</b> Univariate Statistics</a></li>
+<li class="chapter" data-level="5.3.12" data-path="process-data-in-r.html"><a href="process-data-in-r.html#associative-statistics"><i class="fa fa-check"></i><b>5.3.12</b> Associative Statistics</a></li>
+<li class="chapter" data-level="5.3.13" data-path="process-data-in-r.html"><a href="process-data-in-r.html#layered-scatter-plots"><i class="fa fa-check"></i><b>5.3.13</b> Layered Scatter Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-data-resources"><i class="fa fa-check"></i><b>5.4</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html"><i class="fa fa-check"></i><b>6</b> Write Reports with R Markdown</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html#create-an-r-markdown-document"><i class="fa fa-check"></i><b>6.1</b> Create an R Markdown Document</a></li>
+<li class="chapter" data-level="6.2" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html#yaml-header"><i class="fa fa-check"></i><b>6.2</b> YAML Header</a></li>
+<li class="chapter" data-level="6.3" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html#markdown-syntax"><i class="fa fa-check"></i><b>6.3</b> Markdown Syntax</a></li>
+<li class="chapter" data-level="6.4" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html#r-chunks"><i class="fa fa-check"></i><b>6.4</b> R Chunks</a></li>
+<li class="chapter" data-level="6.5" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html#embed-r-variables-into-text"><i class="fa fa-check"></i><b>6.5</b> Embed R Variables into Text</a></li>
+<li class="chapter" data-level="6.6" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html#latex-syntax-for-math"><i class="fa fa-check"></i><b>6.6</b> LaTeX Syntax for Math</a></li>
+<li class="chapter" data-level="6.7" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html#print-tables"><i class="fa fa-check"></i><b>6.7</b> Print Tables</a></li>
+<li class="chapter" data-level="6.8" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html#escape-characters"><i class="fa fa-check"></i><b>6.8</b> Escape Characters</a>
+<ul>
+<li class="chapter" data-level="" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html#escape-in-markdown-text"><i class="fa fa-check"></i>Escape in Markdown Text</a></li>
+<li class="chapter" data-level="" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html#escape-in-code-chunks"><i class="fa fa-check"></i>Escape in Code Chunks</a></li>
+<li class="chapter" data-level="" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html#escaped-characters"><i class="fa fa-check"></i>Escaped Characters</a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html#summary-and-resources"><i class="fa fa-check"></i><b>6.9</b> Summary and Resources</a></li>
+</ul></li>
+<li class="part"><span><b>Part II</b></span></li>
+<li class="chapter" data-level="" data-path="part-ii.html"><a href="part-ii.html"><i class="fa fa-check"></i><em>Part II: Measurement in Economics</em></a></li>
+<li class="chapter" data-level="7" data-path="economic-data-sources.html"><a href="economic-data-sources.html"><i class="fa fa-check"></i><b>7</b> Economic Data Sources</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="economic-data-sources.html"><a href="economic-data-sources.html#types-of-indicators"><i class="fa fa-check"></i><b>7.1</b> Types of Indicators</a></li>
+<li class="chapter" data-level="7.2" data-path="economic-data-sources.html"><a href="economic-data-sources.html#data-source"><i class="fa fa-check"></i><b>7.2</b> Data Source</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="economic-data-sources.html"><a href="economic-data-sources.html#data-supplier-vs.-distributor"><i class="fa fa-check"></i><b>7.2.1</b> Data Supplier vs. Distributor</a></li>
+<li class="chapter" data-level="7.2.2" data-path="economic-data-sources.html"><a href="economic-data-sources.html#bureau-of-economic-analysis-bea"><i class="fa fa-check"></i><b>7.2.2</b> Bureau of Economic Analysis (BEA)</a></li>
+<li class="chapter" data-level="7.2.3" data-path="economic-data-sources.html"><a href="economic-data-sources.html#u.s.-census-bureau"><i class="fa fa-check"></i><b>7.2.3</b> U.S. Census Bureau</a></li>
+<li class="chapter" data-level="7.2.4" data-path="economic-data-sources.html"><a href="economic-data-sources.html#bureau-of-labor-statistics-bls"><i class="fa fa-check"></i><b>7.2.4</b> Bureau of Labor Statistics (BLS)</a></li>
+<li class="chapter" data-level="7.2.5" data-path="economic-data-sources.html"><a href="economic-data-sources.html#federal-reserve-board-of-governors"><i class="fa fa-check"></i><b>7.2.5</b> Federal Reserve Board of Governors</a></li>
+<li class="chapter" data-level="7.2.6" data-path="economic-data-sources.html"><a href="economic-data-sources.html#u.s.-department-of-the-treasury"><i class="fa fa-check"></i><b>7.2.6</b> U.S. Department of the Treasury</a></li>
+<li class="chapter" data-level="7.2.7" data-path="economic-data-sources.html"><a href="economic-data-sources.html#financial-market-exchanges"><i class="fa fa-check"></i><b>7.2.7</b> Financial Market Exchanges</a></li>
+<li class="chapter" data-level="7.2.8" data-path="economic-data-sources.html"><a href="economic-data-sources.html#federal-reserve-economic-data-fred"><i class="fa fa-check"></i><b>7.2.8</b> Federal Reserve Economic Data (FRED)</a></li>
+<li class="chapter" data-level="7.2.9" data-path="economic-data-sources.html"><a href="economic-data-sources.html#u.s.-department-of-agriculture-economic-research-service-ers"><i class="fa fa-check"></i><b>7.2.9</b> U.S. Department of Agriculture Economic Research Service (ERS)</a></li>
+<li class="chapter" data-level="7.2.10" data-path="economic-data-sources.html"><a href="economic-data-sources.html#bloomberg"><i class="fa fa-check"></i><b>7.2.10</b> Bloomberg</a></li>
+<li class="chapter" data-level="7.2.11" data-path="economic-data-sources.html"><a href="economic-data-sources.html#yahoo-finance"><i class="fa fa-check"></i><b>7.2.11</b> Yahoo Finance</a></li>
+<li class="chapter" data-level="7.2.12" data-path="economic-data-sources.html"><a href="economic-data-sources.html#conclusion-1"><i class="fa fa-check"></i><b>7.2.12</b> Conclusion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="business-accounting.html"><a href="business-accounting.html"><i class="fa fa-check"></i><b>8</b> Business Accounting</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="business-accounting.html"><a href="business-accounting.html#accounting-standards"><i class="fa fa-check"></i><b>8.1</b> Accounting Standards</a></li>
+<li class="chapter" data-level="8.2" data-path="business-accounting.html"><a href="business-accounting.html#accounting-equation"><i class="fa fa-check"></i><b>8.2</b> Accounting Equation</a></li>
+<li class="chapter" data-level="8.3" data-path="business-accounting.html"><a href="business-accounting.html#balance-sheet"><i class="fa fa-check"></i><b>8.3</b> Balance Sheet</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="business-accounting.html"><a href="business-accounting.html#assets"><i class="fa fa-check"></i><b>8.3.1</b> Assets</a></li>
+<li class="chapter" data-level="8.3.2" data-path="business-accounting.html"><a href="business-accounting.html#liabilities"><i class="fa fa-check"></i><b>8.3.2</b> Liabilities</a></li>
+<li class="chapter" data-level="8.3.3" data-path="business-accounting.html"><a href="business-accounting.html#equity"><i class="fa fa-check"></i><b>8.3.3</b> Equity</a></li>
+<li class="chapter" data-level="8.3.4" data-path="business-accounting.html"><a href="business-accounting.html#transactions"><i class="fa fa-check"></i><b>8.3.4</b> Transactions</a></li>
+<li class="chapter" data-level="8.3.5" data-path="business-accounting.html"><a href="business-accounting.html#book-vs.-market-value"><i class="fa fa-check"></i><b>8.3.5</b> Book vs. Market Value</a></li>
+<li class="chapter" data-level="8.3.6" data-path="business-accounting.html"><a href="business-accounting.html#public-company"><i class="fa fa-check"></i><b>8.3.6</b> Public Company</a></li>
+<li class="chapter" data-level="8.3.7" data-path="business-accounting.html"><a href="business-accounting.html#financial-firm"><i class="fa fa-check"></i><b>8.3.7</b> Financial Firm</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="business-accounting.html"><a href="business-accounting.html#ledger"><i class="fa fa-check"></i><b>8.4</b> Ledger</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="business-accounting.html"><a href="business-accounting.html#ledger-accounts"><i class="fa fa-check"></i><b>8.4.1</b> Ledger Accounts</a></li>
+<li class="chapter" data-level="8.4.2" data-path="business-accounting.html"><a href="business-accounting.html#t-accounts"><i class="fa fa-check"></i><b>8.4.2</b> T-Accounts</a></li>
+<li class="chapter" data-level="8.4.3" data-path="business-accounting.html"><a href="business-accounting.html#basis-for-financial-statements"><i class="fa fa-check"></i><b>8.4.3</b> Basis for Financial Statements</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="business-accounting.html"><a href="business-accounting.html#income-statement"><i class="fa fa-check"></i><b>8.5</b> Income Statement</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="business-accounting.html"><a href="business-accounting.html#stock-vs.-flow-variables"><i class="fa fa-check"></i><b>8.5.1</b> Stock vs. Flow Variables</a></li>
+<li class="chapter" data-level="8.5.2" data-path="business-accounting.html"><a href="business-accounting.html#profit-equation"><i class="fa fa-check"></i><b>8.5.2</b> Profit Equation</a></li>
+<li class="chapter" data-level="8.5.3" data-path="business-accounting.html"><a href="business-accounting.html#gross-profit"><i class="fa fa-check"></i><b>8.5.3</b> Gross Profit</a></li>
+<li class="chapter" data-level="8.5.4" data-path="business-accounting.html"><a href="business-accounting.html#operating-income-ebit"><i class="fa fa-check"></i><b>8.5.4</b> Operating Income (EBIT)</a></li>
+<li class="chapter" data-level="8.5.5" data-path="business-accounting.html"><a href="business-accounting.html#net-income-before-taxes-ebt"><i class="fa fa-check"></i><b>8.5.5</b> Net Income Before Taxes (EBT)</a></li>
+<li class="chapter" data-level="8.5.6" data-path="business-accounting.html"><a href="business-accounting.html#net-income-eat"><i class="fa fa-check"></i><b>8.5.6</b> Net Income (EAT)</a></li>
+<li class="chapter" data-level="8.5.7" data-path="business-accounting.html"><a href="business-accounting.html#transactions-1"><i class="fa fa-check"></i><b>8.5.7</b> Transactions</a></li>
+<li class="chapter" data-level="8.5.8" data-path="business-accounting.html"><a href="business-accounting.html#corporate-income-tax"><i class="fa fa-check"></i><b>8.5.8</b> Corporate Income Tax</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="business-accounting.html"><a href="business-accounting.html#cash-flow-statement"><i class="fa fa-check"></i><b>8.6</b> Cash Flow Statement</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="business-accounting.html"><a href="business-accounting.html#operating-activities"><i class="fa fa-check"></i><b>8.6.1</b> Operating Activities</a></li>
+<li class="chapter" data-level="8.6.2" data-path="business-accounting.html"><a href="business-accounting.html#investing-activities"><i class="fa fa-check"></i><b>8.6.2</b> Investing Activities</a></li>
+<li class="chapter" data-level="8.6.3" data-path="business-accounting.html"><a href="business-accounting.html#financing-activities"><i class="fa fa-check"></i><b>8.6.3</b> Financing Activities</a></li>
+<li class="chapter" data-level="8.6.4" data-path="business-accounting.html"><a href="business-accounting.html#net-change-in-cash"><i class="fa fa-check"></i><b>8.6.4</b> Net Change in Cash</a></li>
+<li class="chapter" data-level="8.6.5" data-path="business-accounting.html"><a href="business-accounting.html#supplemental-information"><i class="fa fa-check"></i><b>8.6.5</b> Supplemental Information</a></li>
+<li class="chapter" data-level="8.6.6" data-path="business-accounting.html"><a href="business-accounting.html#free-cash-flows"><i class="fa fa-check"></i><b>8.6.6</b> Free Cash Flows</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="business-accounting.html"><a href="business-accounting.html#conclusion-2"><i class="fa fa-check"></i><b>8.7</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html"><i class="fa fa-check"></i><b>9</b> Financial Performance Indicators</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#profitability-indicators"><i class="fa fa-check"></i><b>9.1</b> Profitability Indicators</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#net-profit-margin"><i class="fa fa-check"></i><b>9.1.1</b> Net Profit Margin</a></li>
+<li class="chapter" data-level="9.1.2" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#return-on-assets-roa"><i class="fa fa-check"></i><b>9.1.2</b> Return on Assets (ROA)</a></li>
+<li class="chapter" data-level="9.1.3" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#return-on-investment-roi"><i class="fa fa-check"></i><b>9.1.3</b> Return on Investment (ROI)</a></li>
+<li class="chapter" data-level="9.1.4" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#return-on-equity-roe"><i class="fa fa-check"></i><b>9.1.4</b> Return on Equity (ROE)</a></li>
+<li class="chapter" data-level="9.1.5" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#earnings-per-share-eps"><i class="fa fa-check"></i><b>9.1.5</b> Earnings Per Share (EPS)</a></li>
+<li class="chapter" data-level="9.1.6" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#operating-margin"><i class="fa fa-check"></i><b>9.1.6</b> Operating Margin</a></li>
+<li class="chapter" data-level="9.1.7" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#dividend-yield"><i class="fa fa-check"></i><b>9.1.7</b> Dividend Yield</a></li>
+<li class="chapter" data-level="9.1.8" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#gross-profit-margin"><i class="fa fa-check"></i><b>9.1.8</b> Gross Profit Margin</a></li>
+<li class="chapter" data-level="9.1.9" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#return-on-capital-employed-roce"><i class="fa fa-check"></i><b>9.1.9</b> Return on Capital Employed (ROCE)</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#liquidity-indicators"><i class="fa fa-check"></i><b>9.2</b> Liquidity Indicators</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#current-ratio"><i class="fa fa-check"></i><b>9.2.1</b> Current Ratio</a></li>
+<li class="chapter" data-level="9.2.2" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#quick-ratio"><i class="fa fa-check"></i><b>9.2.2</b> Quick Ratio</a></li>
+<li class="chapter" data-level="9.2.3" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#cash-ratio"><i class="fa fa-check"></i><b>9.2.3</b> Cash Ratio</a></li>
+<li class="chapter" data-level="9.2.4" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#operating-cash-flow-ratio"><i class="fa fa-check"></i><b>9.2.4</b> Operating Cash Flow Ratio</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#leverage-indicators"><i class="fa fa-check"></i><b>9.3</b> Leverage Indicators</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#debt-to-equity-de-ratio"><i class="fa fa-check"></i><b>9.3.1</b> Debt-to-Equity (D/E) Ratio</a></li>
+<li class="chapter" data-level="9.3.2" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#interest-coverage-ratio"><i class="fa fa-check"></i><b>9.3.2</b> Interest Coverage Ratio</a></li>
+<li class="chapter" data-level="9.3.3" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#debt-ratio"><i class="fa fa-check"></i><b>9.3.3</b> Debt Ratio</a></li>
+<li class="chapter" data-level="9.3.4" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#debt-to-capital-ratio"><i class="fa fa-check"></i><b>9.3.4</b> Debt-to-Capital Ratio</a></li>
+<li class="chapter" data-level="9.3.5" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#equity-multiplier"><i class="fa fa-check"></i><b>9.3.5</b> Equity Multiplier</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#efficiency-indicators"><i class="fa fa-check"></i><b>9.4</b> Efficiency Indicators</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#asset-turnover-ratio"><i class="fa fa-check"></i><b>9.4.1</b> Asset Turnover Ratio</a></li>
+<li class="chapter" data-level="9.4.2" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#inventory-turnover-ratio"><i class="fa fa-check"></i><b>9.4.2</b> Inventory Turnover Ratio</a></li>
+<li class="chapter" data-level="9.4.3" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#receivables-turnover-ratio"><i class="fa fa-check"></i><b>9.4.3</b> Receivables Turnover Ratio</a></li>
+<li class="chapter" data-level="9.4.4" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#payables-turnover-ratio"><i class="fa fa-check"></i><b>9.4.4</b> Payables Turnover Ratio</a></li>
+<li class="chapter" data-level="9.4.5" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#days-sales-outstanding-dso"><i class="fa fa-check"></i><b>9.4.5</b> Days Sales Outstanding (DSO)</a></li>
+<li class="chapter" data-level="9.4.6" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#fixed-asset-turnover-ratio"><i class="fa fa-check"></i><b>9.4.6</b> Fixed Asset Turnover Ratio</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#valuation-indicators"><i class="fa fa-check"></i><b>9.5</b> Valuation Indicators</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#price-to-book-pb-ratio"><i class="fa fa-check"></i><b>9.5.1</b> Price-to-Book (P/B) Ratio</a></li>
+<li class="chapter" data-level="9.5.2" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#price-to-earnings-pe-ratio"><i class="fa fa-check"></i><b>9.5.2</b> Price-to-Earnings (P/E) Ratio</a></li>
+<li class="chapter" data-level="9.5.3" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#price-to-sales-ps-ratio"><i class="fa fa-check"></i><b>9.5.3</b> Price-to-Sales (P/S) Ratio</a></li>
+<li class="chapter" data-level="9.5.4" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#enterprise-value-to-ebitda-evebitda"><i class="fa fa-check"></i><b>9.5.4</b> Enterprise Value-to-EBITDA (EV/EBITDA)</a></li>
+<li class="chapter" data-level="9.5.5" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#dividend-yield-1"><i class="fa fa-check"></i><b>9.5.5</b> Dividend Yield</a></li>
+<li class="chapter" data-level="9.5.6" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#price-to-cash-flow-pcf-ratio"><i class="fa fa-check"></i><b>9.5.6</b> Price-to-Cash Flow (P/CF) Ratio</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#cash-flow-indicators"><i class="fa fa-check"></i><b>9.6</b> Cash Flow Indicators</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#free-cash-flow-to-equity-fcfe-1"><i class="fa fa-check"></i><b>9.6.1</b> Free Cash Flow to Equity (FCFE)</a></li>
+<li class="chapter" data-level="9.6.2" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#free-cash-flow-to-the-firm-fcff-1"><i class="fa fa-check"></i><b>9.6.2</b> Free Cash Flow to the Firm (FCFF)</a></li>
+<li class="chapter" data-level="9.6.3" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#operating-cash-flow-ocf"><i class="fa fa-check"></i><b>9.6.3</b> Operating Cash Flow (OCF)</a></li>
+<li class="chapter" data-level="9.6.4" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#fcf-margin"><i class="fa fa-check"></i><b>9.6.4</b> FCF Margin</a></li>
+<li class="chapter" data-level="9.6.5" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#cash-conversion-cycle-ccc"><i class="fa fa-check"></i><b>9.6.5</b> Cash Conversion Cycle (CCC)</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#temporal-dimensions"><i class="fa fa-check"></i><b>9.7</b> Temporal Dimensions</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#trailing-twelve-months-ttm"><i class="fa fa-check"></i><b>9.7.1</b> Trailing Twelve Months (TTM)</a></li>
+<li class="chapter" data-level="9.7.2" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#annual-reporting"><i class="fa fa-check"></i><b>9.7.2</b> Annual Reporting</a></li>
+<li class="chapter" data-level="9.7.3" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#quarterly-and-monthly-reporting"><i class="fa fa-check"></i><b>9.7.3</b> Quarterly and Monthly Reporting</a></li>
+<li class="chapter" data-level="9.7.4" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#example-and-explanation"><i class="fa fa-check"></i><b>9.7.4</b> Example and Explanation</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#conclusion-3"><i class="fa fa-check"></i><b>9.8</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html"><i class="fa fa-check"></i><b>10</b> Macroeconomic Accounting</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#important-terms-and-definitions"><i class="fa fa-check"></i><b>10.1</b> Important Terms and Definitions</a></li>
+<li class="chapter" data-level="10.2" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#national-accounts"><i class="fa fa-check"></i><b>10.2</b> National Accounts</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#production-approach"><i class="fa fa-check"></i><b>10.2.1</b> Production Approach</a></li>
+<li class="chapter" data-level="10.2.2" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#expenditure-approach"><i class="fa fa-check"></i><b>10.2.2</b> Expenditure Approach</a></li>
+<li class="chapter" data-level="10.2.3" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#income-approach"><i class="fa fa-check"></i><b>10.2.3</b> Income Approach</a></li>
+<li class="chapter" data-level="10.2.4" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#other-flow-measures"><i class="fa fa-check"></i><b>10.2.4</b> Other Flow Measures</a></li>
+<li class="chapter" data-level="10.2.5" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#stock-measures"><i class="fa fa-check"></i><b>10.2.5</b> Stock Measures</a></li>
+<li class="chapter" data-level="10.2.6" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#implicit-price-deflators"><i class="fa fa-check"></i><b>10.2.6</b> Implicit Price Deflators</a></li>
+<li class="chapter" data-level="10.2.7" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#data-collection"><i class="fa fa-check"></i><b>10.2.7</b> Data Collection</a></li>
+<li class="chapter" data-level="10.2.8" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#resources"><i class="fa fa-check"></i><b>10.2.8</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#balance-of-payments"><i class="fa fa-check"></i><b>10.3</b> Balance of Payments</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#current-account"><i class="fa fa-check"></i><b>10.3.1</b> Current Account</a></li>
+<li class="chapter" data-level="10.3.2" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#capital-account"><i class="fa fa-check"></i><b>10.3.2</b> Capital Account</a></li>
+<li class="chapter" data-level="10.3.3" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#financial-account"><i class="fa fa-check"></i><b>10.3.3</b> Financial Account</a></li>
+<li class="chapter" data-level="10.3.4" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#stock-measures-1"><i class="fa fa-check"></i><b>10.3.4</b> Stock Measures</a></li>
+<li class="chapter" data-level="10.3.5" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#data-collection-1"><i class="fa fa-check"></i><b>10.3.5</b> Data Collection</a></li>
+<li class="chapter" data-level="10.3.6" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#resources-1"><i class="fa fa-check"></i><b>10.3.6</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#labor-market-accounts"><i class="fa fa-check"></i><b>10.4</b> Labor Market Accounts</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#labor-force"><i class="fa fa-check"></i><b>10.4.1</b> Labor Force</a></li>
+<li class="chapter" data-level="10.4.2" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#employment-unemployment-and-hours-worked"><i class="fa fa-check"></i><b>10.4.2</b> Employment, Unemployment, and Hours Worked</a></li>
+<li class="chapter" data-level="10.4.3" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#productivity-measures"><i class="fa fa-check"></i><b>10.4.3</b> Productivity Measures</a></li>
+<li class="chapter" data-level="10.4.4" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#wage-and-labor-earnings"><i class="fa fa-check"></i><b>10.4.4</b> Wage and Labor Earnings</a></li>
+<li class="chapter" data-level="10.4.5" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#job-vacancy-and-turnover-rate"><i class="fa fa-check"></i><b>10.4.5</b> Job Vacancy and Turnover Rate</a></li>
+<li class="chapter" data-level="10.4.6" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#job-creation-and-destruction"><i class="fa fa-check"></i><b>10.4.6</b> Job Creation and Destruction</a></li>
+<li class="chapter" data-level="10.4.7" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#data-collection-2"><i class="fa fa-check"></i><b>10.4.7</b> Data Collection</a></li>
+<li class="chapter" data-level="10.4.8" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#resources-2"><i class="fa fa-check"></i><b>10.4.8</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#fiscal-accounts"><i class="fa fa-check"></i><b>10.5</b> Fiscal Accounts</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#government-budget"><i class="fa fa-check"></i><b>10.5.1</b> Government Budget</a></li>
+<li class="chapter" data-level="10.5.2" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#types-of-taxes"><i class="fa fa-check"></i><b>10.5.2</b> Types of Taxes</a></li>
+<li class="chapter" data-level="10.5.3" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#types-of-subsidies"><i class="fa fa-check"></i><b>10.5.3</b> Types of Subsidies</a></li>
+<li class="chapter" data-level="10.5.4" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#non-tax-revenue"><i class="fa fa-check"></i><b>10.5.4</b> Non-Tax Revenue</a></li>
+<li class="chapter" data-level="10.5.5" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#data-collection-3"><i class="fa fa-check"></i><b>10.5.5</b> Data Collection</a></li>
+<li class="chapter" data-level="10.5.6" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#resources-3"><i class="fa fa-check"></i><b>10.5.6</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#monetary-and-financial-accounts"><i class="fa fa-check"></i><b>10.6</b> Monetary and Financial Accounts</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#monetary-aggregates"><i class="fa fa-check"></i><b>10.6.1</b> Monetary Aggregates</a></li>
+<li class="chapter" data-level="10.6.2" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#interest-rates"><i class="fa fa-check"></i><b>10.6.2</b> Interest Rates</a></li>
+<li class="chapter" data-level="10.6.3" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#banking-reserves"><i class="fa fa-check"></i><b>10.6.3</b> Banking Reserves</a></li>
+<li class="chapter" data-level="10.6.4" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#credit-aggregates"><i class="fa fa-check"></i><b>10.6.4</b> Credit Aggregates</a></li>
+<li class="chapter" data-level="10.6.5" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#exchange-rates"><i class="fa fa-check"></i><b>10.6.5</b> Exchange Rates</a></li>
+<li class="chapter" data-level="10.6.6" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#parity-conditions"><i class="fa fa-check"></i><b>10.6.6</b> Parity Conditions</a></li>
+<li class="chapter" data-level="10.6.7" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#industrial-production-and-capacity-utilization"><i class="fa fa-check"></i><b>10.6.7</b> Industrial Production and Capacity Utilization</a></li>
+<li class="chapter" data-level="10.6.8" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#data-collection-4"><i class="fa fa-check"></i><b>10.6.8</b> Data Collection</a></li>
+<li class="chapter" data-level="10.6.9" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#resources-4"><i class="fa fa-check"></i><b>10.6.9</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#price-level-and-inflation"><i class="fa fa-check"></i><b>10.7</b> Price Level and Inflation</a>
+<ul>
+<li class="chapter" data-level="10.7.1" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#implicit-measurement"><i class="fa fa-check"></i><b>10.7.1</b> Implicit Measurement</a></li>
+<li class="chapter" data-level="10.7.2" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#direct-measurement"><i class="fa fa-check"></i><b>10.7.2</b> Direct Measurement</a></li>
+<li class="chapter" data-level="10.7.3" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#inflation"><i class="fa fa-check"></i><b>10.7.3</b> Inflation</a></li>
+<li class="chapter" data-level="10.7.4" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#data-collection-5"><i class="fa fa-check"></i><b>10.7.4</b> Data Collection</a></li>
+<li class="chapter" data-level="10.7.5" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#resources-5"><i class="fa fa-check"></i><b>10.7.5</b> Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="financial-market-indicators.html"><a href="financial-market-indicators.html"><i class="fa fa-check"></i><b>11</b> Financial Market Indicators</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="financial-market-indicators.html"><a href="financial-market-indicators.html#interest-rates-1"><i class="fa fa-check"></i><b>11.1</b> Interest Rates</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="financial-market-indicators.html"><a href="financial-market-indicators.html#import-csv-file"><i class="fa fa-check"></i><b>11.1.1</b> Import CSV File</a></li>
+<li class="chapter" data-level="11.1.2" data-path="financial-market-indicators.html"><a href="financial-market-indicators.html#plotting-historical-yields"><i class="fa fa-check"></i><b>11.1.2</b> Plotting Historical Yields</a></li>
+<li class="chapter" data-level="11.1.3" data-path="financial-market-indicators.html"><a href="financial-market-indicators.html#plotting-yield-curve"><i class="fa fa-check"></i><b>11.1.3</b> Plotting Yield Curve</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Part III</b></span></li>
+<li class="chapter" data-level="" data-path="part-iii.html"><a href="part-iii.html"><i class="fa fa-check"></i><em>Part III: Economic Data Processing</em></a></li>
+<li class="chapter" data-level="12" data-path="data-categorization.html"><a href="data-categorization.html"><i class="fa fa-check"></i><b>12</b> Data Categorization</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="data-categorization.html"><a href="data-categorization.html#qualitative-vs.-quantitative"><i class="fa fa-check"></i><b>12.1</b> Qualitative vs. Quantitative</a></li>
+<li class="chapter" data-level="12.2" data-path="data-categorization.html"><a href="data-categorization.html#discrete-vs.-continuous"><i class="fa fa-check"></i><b>12.2</b> Discrete vs. Continuous</a></li>
+<li class="chapter" data-level="12.3" data-path="data-categorization.html"><a href="data-categorization.html#levels-of-measurement"><i class="fa fa-check"></i><b>12.3</b> Levels of Measurement</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="data-categorization.html"><a href="data-categorization.html#nominal-scale-variables"><i class="fa fa-check"></i><b>12.3.1</b> Nominal Scale Variables</a></li>
+<li class="chapter" data-level="12.3.2" data-path="data-categorization.html"><a href="data-categorization.html#ordinal-scale-variables"><i class="fa fa-check"></i><b>12.3.2</b> Ordinal Scale Variables</a></li>
+<li class="chapter" data-level="12.3.3" data-path="data-categorization.html"><a href="data-categorization.html#interval-scale-variables"><i class="fa fa-check"></i><b>12.3.3</b> Interval Scale Variables</a></li>
+<li class="chapter" data-level="12.3.4" data-path="data-categorization.html"><a href="data-categorization.html#ratio-scale-variables"><i class="fa fa-check"></i><b>12.3.4</b> Ratio Scale Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="data-categorization.html"><a href="data-categorization.html#index-vs.-absolute-data"><i class="fa fa-check"></i><b>12.4</b> Index vs. Absolute Data</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="data-categorization.html"><a href="data-categorization.html#index-data"><i class="fa fa-check"></i><b>12.4.1</b> Index Data</a></li>
+<li class="chapter" data-level="12.4.2" data-path="data-categorization.html"><a href="data-categorization.html#absolute-data"><i class="fa fa-check"></i><b>12.4.2</b> Absolute Data</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="data-categorization.html"><a href="data-categorization.html#stock-vs.-flow"><i class="fa fa-check"></i><b>12.5</b> Stock vs. Flow</a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="data-categorization.html"><a href="data-categorization.html#stock-variables"><i class="fa fa-check"></i><b>12.5.1</b> Stock Variables</a></li>
+<li class="chapter" data-level="12.5.2" data-path="data-categorization.html"><a href="data-categorization.html#flow-variables"><i class="fa fa-check"></i><b>12.5.2</b> Flow Variables</a></li>
+<li class="chapter" data-level="12.5.3" data-path="data-categorization.html"><a href="data-categorization.html#accounting"><i class="fa fa-check"></i><b>12.5.3</b> Accounting</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="data-categorization.html"><a href="data-categorization.html#data-dimensions"><i class="fa fa-check"></i><b>12.6</b> Data Dimensions</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="data-categorization.html"><a href="data-categorization.html#cross-sectional-data"><i class="fa fa-check"></i><b>12.6.1</b> Cross-Sectional Data</a></li>
+<li class="chapter" data-level="12.6.2" data-path="data-categorization.html"><a href="data-categorization.html#time-series-data"><i class="fa fa-check"></i><b>12.6.2</b> Time Series Data</a></li>
+<li class="chapter" data-level="12.6.3" data-path="data-categorization.html"><a href="data-categorization.html#panel-data"><i class="fa fa-check"></i><b>12.6.3</b> Panel Data</a></li>
+<li class="chapter" data-level="12.6.4" data-path="data-categorization.html"><a href="data-categorization.html#spatial-data"><i class="fa fa-check"></i><b>12.6.4</b> Spatial Data</a></li>
+<li class="chapter" data-level="12.6.5" data-path="data-categorization.html"><a href="data-categorization.html#clustered-data"><i class="fa fa-check"></i><b>12.6.5</b> Clustered Data</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="data-categorization.html"><a href="data-categorization.html#conclusion-data-categorization"><i class="fa fa-check"></i><b>12.7</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>13</b> Data Transformation</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="data-transformation.html"><a href="data-transformation.html#example-data"><i class="fa fa-check"></i><b>13.1</b> Example Data</a></li>
+<li class="chapter" data-level="13.2" data-path="data-transformation.html"><a href="data-transformation.html#growth"><i class="fa fa-check"></i><b>13.2</b> Growth</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="data-transformation.html"><a href="data-transformation.html#definition-growth-rates"><i class="fa fa-check"></i><b>13.2.1</b> Definition</a></li>
+<li class="chapter" data-level="13.2.2" data-path="data-transformation.html"><a href="data-transformation.html#log-approximation"><i class="fa fa-check"></i><b>13.2.2</b> Log Approximation</a></li>
+<li class="chapter" data-level="13.2.3" data-path="data-transformation.html"><a href="data-transformation.html#relativity"><i class="fa fa-check"></i><b>13.2.3</b> Relativity</a></li>
+<li class="chapter" data-level="13.2.4" data-path="data-transformation.html"><a href="data-transformation.html#return-and-inflation"><i class="fa fa-check"></i><b>13.2.4</b> Return and Inflation</a></li>
+<li class="chapter" data-level="13.2.5" data-path="data-transformation.html"><a href="data-transformation.html#applicability-growth"><i class="fa fa-check"></i><b>13.2.5</b> Applicability</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="data-transformation.html"><a href="data-transformation.html#differentiation"><i class="fa fa-check"></i><b>13.3</b> Differentiation</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="data-transformation.html"><a href="data-transformation.html#definition-differentiation"><i class="fa fa-check"></i><b>13.3.1</b> Definition</a></li>
+<li class="chapter" data-level="13.3.2" data-path="data-transformation.html"><a href="data-transformation.html#pp"><i class="fa fa-check"></i><b>13.3.2</b> Percentage Points (pp)</a></li>
+<li class="chapter" data-level="13.3.3" data-path="data-transformation.html"><a href="data-transformation.html#bp"><i class="fa fa-check"></i><b>13.3.3</b> Basis Points (bp)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="data-transformation.html"><a href="data-transformation.html#log"><i class="fa fa-check"></i><b>13.4</b> Natural Logarithm</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="data-transformation.html"><a href="data-transformation.html#definition-natural-logarithm"><i class="fa fa-check"></i><b>13.4.1</b> Definition</a></li>
+<li class="chapter" data-level="13.4.2" data-path="data-transformation.html"><a href="data-transformation.html#motivation-natural-logarithm"><i class="fa fa-check"></i><b>13.4.2</b> Motivation</a></li>
+<li class="chapter" data-level="13.4.3" data-path="data-transformation.html"><a href="data-transformation.html#applicability-natural-logarithm"><i class="fa fa-check"></i><b>13.4.3</b> Applicability</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="data-transformation.html"><a href="data-transformation.html#ratio"><i class="fa fa-check"></i><b>13.5</b> Ratio</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="data-transformation.html"><a href="data-transformation.html#definition-ratio"><i class="fa fa-check"></i><b>13.5.1</b> Definition</a></li>
+<li class="chapter" data-level="13.5.2" data-path="data-transformation.html"><a href="data-transformation.html#per-capita"><i class="fa fa-check"></i><b>13.5.2</b> Per Capita</a></li>
+<li class="chapter" data-level="13.5.3" data-path="data-transformation.html"><a href="data-transformation.html#real-vs.-nominal"><i class="fa fa-check"></i><b>13.5.3</b> Real vs. Nominal</a></li>
+<li class="chapter" data-level="13.5.4" data-path="data-transformation.html"><a href="data-transformation.html#growth-of-ratios"><i class="fa fa-check"></i><b>13.5.4</b> Growth of Ratios</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="data-transformation.html"><a href="data-transformation.html#gap"><i class="fa fa-check"></i><b>13.6</b> Gap</a></li>
+<li class="chapter" data-level="13.7" data-path="data-transformation.html"><a href="data-transformation.html#filtering"><i class="fa fa-check"></i><b>13.7</b> Filtering</a>
+<ul>
+<li class="chapter" data-level="13.7.1" data-path="data-transformation.html"><a href="data-transformation.html#frequency-filtering"><i class="fa fa-check"></i><b>13.7.1</b> Frequency Filtering</a></li>
+<li class="chapter" data-level="13.7.2" data-path="data-transformation.html"><a href="data-transformation.html#detrending"><i class="fa fa-check"></i><b>13.7.2</b> Detrending</a></li>
+<li class="chapter" data-level="13.7.3" data-path="data-transformation.html"><a href="data-transformation.html#seasonal-adjustment"><i class="fa fa-check"></i><b>13.7.3</b> Seasonal Adjustment</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="statistical-measures.html"><a href="statistical-measures.html"><i class="fa fa-check"></i><b>14</b> Statistical Measures</a></li>
+<li class="chapter" data-level="15" data-path="data-aggregation.html"><a href="data-aggregation.html"><i class="fa fa-check"></i><b>15</b> Data Aggregation</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="data-aggregation.html"><a href="data-aggregation.html#annualization"><i class="fa fa-check"></i><b>15.1</b> Annualization</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="data-aggregation.html"><a href="data-aggregation.html#motivation"><i class="fa fa-check"></i><b>15.1.1</b> Motivation</a></li>
+<li class="chapter" data-level="15.1.2" data-path="data-aggregation.html"><a href="data-aggregation.html#annualized-flow-variables"><i class="fa fa-check"></i><b>15.1.2</b> Annualized Flow Variables</a></li>
+<li class="chapter" data-level="15.1.3" data-path="data-aggregation.html"><a href="data-aggregation.html#annualized-growth-rates"><i class="fa fa-check"></i><b>15.1.3</b> Annualized Growth Rates</a></li>
+<li class="chapter" data-level="15.1.4" data-path="data-aggregation.html"><a href="data-aggregation.html#annualized-log-difference"><i class="fa fa-check"></i><b>15.1.4</b> Annualized Log-Difference</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="data-aggregation.html"><a href="data-aggregation.html#yoy"><i class="fa fa-check"></i><b>15.2</b> Year over Year (YoY)</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="data-aggregation.html"><a href="data-aggregation.html#year-over-year-yoy-growth-rates"><i class="fa fa-check"></i><b>15.2.1</b> Year over Year (YoY) Growth Rates</a></li>
+<li class="chapter" data-level="15.2.2" data-path="data-aggregation.html"><a href="data-aggregation.html#comparing-yoy-measures-with-moving-averages"><i class="fa fa-check"></i><b>15.2.2</b> Comparing YoY Measures with Moving Averages</a></li>
+<li class="chapter" data-level="15.2.3" data-path="data-aggregation.html"><a href="data-aggregation.html#sliding-window-vs.-fixed-window-aggregation"><i class="fa fa-check"></i><b>15.2.3</b> Sliding Window vs. Fixed Window Aggregation</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Part IV</b></span></li>
+<li class="chapter" data-level="" data-path="part-iv.html"><a href="part-iv.html"><i class="fa fa-check"></i><em>Part IV: Patterns in Economics</em></a></li>
+<li class="chapter" data-level="16" data-path="temporal-patterns.html"><a href="temporal-patterns.html"><i class="fa fa-check"></i><b>16</b> Temporal Patterns</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="temporal-patterns.html"><a href="temporal-patterns.html#time-series-data-1"><i class="fa fa-check"></i><b>16.1</b> Time Series Data</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="temporal-patterns.html"><a href="temporal-patterns.html#definition"><i class="fa fa-check"></i><b>16.1.1</b> Definition</a></li>
+<li class="chapter" data-level="16.1.2" data-path="temporal-patterns.html"><a href="temporal-patterns.html#features"><i class="fa fa-check"></i><b>16.1.2</b> Features</a></li>
+<li class="chapter" data-level="16.1.3" data-path="temporal-patterns.html"><a href="temporal-patterns.html#visualization"><i class="fa fa-check"></i><b>16.1.3</b> Visualization</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="temporal-patterns.html"><a href="temporal-patterns.html#trend"><i class="fa fa-check"></i><b>16.2</b> Trend</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="temporal-patterns.html"><a href="temporal-patterns.html#sustained-growth"><i class="fa fa-check"></i><b>16.2.1</b> Sustained Growth</a></li>
+<li class="chapter" data-level="16.2.2" data-path="temporal-patterns.html"><a href="temporal-patterns.html#decrease-in-poverty"><i class="fa fa-check"></i><b>16.2.2</b> Decrease in Poverty</a></li>
+<li class="chapter" data-level="16.2.3" data-path="temporal-patterns.html"><a href="temporal-patterns.html#aging-population"><i class="fa fa-check"></i><b>16.2.3</b> Aging Population</a></li>
+<li class="chapter" data-level="16.2.4" data-path="temporal-patterns.html"><a href="temporal-patterns.html#productivity-labor-trade-off"><i class="fa fa-check"></i><b>16.2.4</b> Productivity-Labor Trade-Off</a></li>
+<li class="chapter" data-level="16.2.5" data-path="temporal-patterns.html"><a href="temporal-patterns.html#trend-inflation"><i class="fa fa-check"></i><b>16.2.5</b> Trend Inflation</a></li>
+<li class="chapter" data-level="16.2.6" data-path="temporal-patterns.html"><a href="temporal-patterns.html#decline-in-labor-share"><i class="fa fa-check"></i><b>16.2.6</b> Decline in Labor Share</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="temporal-patterns.html"><a href="temporal-patterns.html#seasonality"><i class="fa fa-check"></i><b>16.3</b> Seasonality</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="temporal-patterns.html"><a href="temporal-patterns.html#holiday-season"><i class="fa fa-check"></i><b>16.3.1</b> Holiday Season</a></li>
+<li class="chapter" data-level="16.3.2" data-path="temporal-patterns.html"><a href="temporal-patterns.html#seasonal-weather"><i class="fa fa-check"></i><b>16.3.2</b> Seasonal Weather</a></li>
+<li class="chapter" data-level="16.3.3" data-path="temporal-patterns.html"><a href="temporal-patterns.html#seasonal-employment"><i class="fa fa-check"></i><b>16.3.3</b> Seasonal Employment</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="temporal-patterns.html"><a href="temporal-patterns.html#business-cycle"><i class="fa fa-check"></i><b>16.4</b> Business Cycle</a>
+<ul>
+<li class="chapter" data-level="16.4.1" data-path="temporal-patterns.html"><a href="temporal-patterns.html#costs-of-business-cycles"><i class="fa fa-check"></i><b>16.4.1</b> Costs of Business Cycles</a></li>
+<li class="chapter" data-level="16.4.2" data-path="temporal-patterns.html"><a href="temporal-patterns.html#cyclicality-and-timing"><i class="fa fa-check"></i><b>16.4.2</b> Cyclicality and Timing</a></li>
+<li class="chapter" data-level="16.4.3" data-path="temporal-patterns.html"><a href="temporal-patterns.html#consumption-smoothing"><i class="fa fa-check"></i><b>16.4.3</b> Consumption Smoothing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="regional-patterns.html"><a href="regional-patterns.html"><i class="fa fa-check"></i><b>17</b> Regional Patterns</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="regional-patterns.html"><a href="regional-patterns.html#regional-data"><i class="fa fa-check"></i><b>17.1</b> Regional Data</a></li>
+<li class="chapter" data-level="17.2" data-path="regional-patterns.html"><a href="regional-patterns.html#county-level-patterns"><i class="fa fa-check"></i><b>17.2</b> County-Level Patterns</a></li>
+<li class="chapter" data-level="17.3" data-path="regional-patterns.html"><a href="regional-patterns.html#state-level-patterns"><i class="fa fa-check"></i><b>17.3</b> State-Level Patterns</a></li>
+<li class="chapter" data-level="17.4" data-path="regional-patterns.html"><a href="regional-patterns.html#country-level-patterns"><i class="fa fa-check"></i><b>17.4</b> Country-Level Patterns</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="microeconomic-patterns.html"><a href="microeconomic-patterns.html"><i class="fa fa-check"></i><b>18</b> Microeconomic Patterns</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="microeconomic-patterns.html"><a href="microeconomic-patterns.html#microeconomic-data"><i class="fa fa-check"></i><b>18.1</b> Microeconomic Data</a></li>
+<li class="chapter" data-level="18.2" data-path="microeconomic-patterns.html"><a href="microeconomic-patterns.html#firm-patterns"><i class="fa fa-check"></i><b>18.2</b> Firm Patterns</a></li>
+<li class="chapter" data-level="18.3" data-path="microeconomic-patterns.html"><a href="microeconomic-patterns.html#household-patterns"><i class="fa fa-check"></i><b>18.3</b> Household Patterns</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="causal-relationships.html"><a href="causal-relationships.html"><i class="fa fa-check"></i><b>19</b> Causal Relationships</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="causal-relationships.html"><a href="causal-relationships.html#elasticities"><i class="fa fa-check"></i><b>19.1</b> Elasticities</a></li>
+<li class="chapter" data-level="19.2" data-path="causal-relationships.html"><a href="causal-relationships.html#multipliers"><i class="fa fa-check"></i><b>19.2</b> Multipliers</a></li>
+<li class="chapter" data-level="19.3" data-path="causal-relationships.html"><a href="causal-relationships.html#causality"><i class="fa fa-check"></i><b>19.3</b> Causality</a></li>
+</ul></li>
+<li class="part"><span><b>Part V</b></span></li>
+<li class="chapter" data-level="" data-path="part-v.html"><a href="part-v.html"><i class="fa fa-check"></i><em>Part V: Insights From Real-Time Data and Surveys</em></a></li>
+<li class="chapter" data-level="20" data-path="why-subjective-information-matters.html"><a href="why-subjective-information-matters.html"><i class="fa fa-check"></i><b>20</b> Why Subjective Information Matters</a></li>
+<li class="chapter" data-level="21" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html"><i class="fa fa-check"></i><b>21</b> Insights From Consumer Surveys</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#introduction-1"><i class="fa fa-check"></i><b>21.1</b> Introduction</a></li>
+<li class="chapter" data-level="21.2" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#conducting-the-survey"><i class="fa fa-check"></i><b>21.2</b> Conducting the Survey</a></li>
+<li class="chapter" data-level="21.3" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#michigan-consumer-indices"><i class="fa fa-check"></i><b>21.3</b> Michigan Consumer Indices</a>
+<ul>
+<li class="chapter" data-level="21.3.1" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#index-of-consumer-sentiment-ics"><i class="fa fa-check"></i><b>21.3.1</b> Index of Consumer Sentiment (ICS)</a></li>
+<li class="chapter" data-level="21.3.2" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#index-of-current-economic-conditions-icc"><i class="fa fa-check"></i><b>21.3.2</b> Index of Current Economic Conditions (ICC)</a></li>
+<li class="chapter" data-level="21.3.3" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#index-of-consumer-expectations-ice"><i class="fa fa-check"></i><b>21.3.3</b> Index of Consumer Expectations (ICE)</a></li>
+<li class="chapter" data-level="21.3.4" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#importing-in-r"><i class="fa fa-check"></i><b>21.3.4</b> Importing in R</a></li>
+<li class="chapter" data-level="21.3.5" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#import-tsv-file"><i class="fa fa-check"></i><b>21.3.5</b> Import TSV File</a></li>
+<li class="chapter" data-level="21.3.6" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#plotting-consumer-indices"><i class="fa fa-check"></i><b>21.3.6</b> Plotting Consumer Indices</a></li>
+</ul></li>
+<li class="chapter" data-level="21.4" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#creating-custom-consumer-indices"><i class="fa fa-check"></i><b>21.4</b> Creating Custom Consumer Indices</a></li>
+<li class="chapter" data-level="21.5" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#importing-and-cleaning-individual-level-surveys"><i class="fa fa-check"></i><b>21.5</b> Importing and Cleaning Individual-Level Surveys</a>
+<ul>
+<li class="chapter" data-level="21.5.1" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#data-source-1"><i class="fa fa-check"></i><b>21.5.1</b> Data Source</a></li>
+<li class="chapter" data-level="21.5.2" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#data-labels"><i class="fa fa-check"></i><b>21.5.2</b> Data Labels</a></li>
+<li class="chapter" data-level="21.5.3" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#importing-the-data-set"><i class="fa fa-check"></i><b>21.5.3</b> Importing the Data Set</a></li>
+<li class="chapter" data-level="21.5.4" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#long-format"><i class="fa fa-check"></i><b>21.5.4</b> Long Format</a></li>
+<li class="chapter" data-level="21.5.5" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#saving-the-data"><i class="fa fa-check"></i><b>21.5.5</b> Saving the Data</a></li>
+</ul></li>
+<li class="chapter" data-level="21.6" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#exploring-individual-level-data"><i class="fa fa-check"></i><b>21.6</b> Exploring Individual-Level Data</a></li>
+<li class="chapter" data-level="21.7" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#replicate-ics"><i class="fa fa-check"></i><b>21.7</b> Replicate ICS</a></li>
+<li class="chapter" data-level="21.8" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#conclusion-4"><i class="fa fa-check"></i><b>21.8</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="insights-from-real-time-data.html"><a href="insights-from-real-time-data.html"><i class="fa fa-check"></i><b>22</b> Insights From Real-Time Data</a></li>
+<li class="chapter" data-level="23" data-path="insights-from-forecaster-data.html"><a href="insights-from-forecaster-data.html"><i class="fa fa-check"></i><b>23</b> Insights From Forecaster Data</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="insights-from-forecaster-data.html"><a href="insights-from-forecaster-data.html#tealbook"><i class="fa fa-check"></i><b>23.1</b> Tealbook</a>
+<ul>
+<li class="chapter" data-level="23.1.1" data-path="insights-from-forecaster-data.html"><a href="insights-from-forecaster-data.html#import-excel-workbook-1"><i class="fa fa-check"></i><b>23.1.1</b> Import Excel Workbook</a></li>
+<li class="chapter" data-level="23.1.2" data-path="insights-from-forecaster-data.html"><a href="insights-from-forecaster-data.html#nowcast-and-backcast"><i class="fa fa-check"></i><b>23.1.2</b> Nowcast and Backcast</a></li>
+<li class="chapter" data-level="23.1.3" data-path="insights-from-forecaster-data.html"><a href="insights-from-forecaster-data.html#information-date-and-realization-date"><i class="fa fa-check"></i><b>23.1.3</b> Information Date and Realization Date</a></li>
+<li class="chapter" data-level="23.1.4" data-path="insights-from-forecaster-data.html"><a href="insights-from-forecaster-data.html#plotting-forecasts"><i class="fa fa-check"></i><b>23.1.4</b> Plotting Forecasts</a></li>
+<li class="chapter" data-level="23.1.5" data-path="insights-from-forecaster-data.html"><a href="insights-from-forecaster-data.html#plotting-forecast-errors"><i class="fa fa-check"></i><b>23.1.5</b> Plotting Forecast Errors</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Part VI</b></span></li>
+<li class="chapter" data-level="" data-path="part-vi.html"><a href="part-vi.html"><i class="fa fa-check"></i><em>Part VI: Insights From Textual Data</em></a></li>
+<li class="chapter" data-level="24" data-path="text-analysis-and-mining.html"><a href="text-analysis-and-mining.html"><i class="fa fa-check"></i><b>24</b> Text Analysis and Mining</a></li>
+<li class="chapter" data-level="25" data-path="insights-from-google-trends.html"><a href="insights-from-google-trends.html"><i class="fa fa-check"></i><b>25</b> Insights From Google Trends</a></li>
+<li class="chapter" data-level="26" data-path="insights-from-newspapers.html"><a href="insights-from-newspapers.html"><i class="fa fa-check"></i><b>26</b> Insights From Newspapers</a></li>
+<li class="chapter" data-level="27" data-path="insights-from-social-media.html"><a href="insights-from-social-media.html"><i class="fa fa-check"></i><b>27</b> Insights From Social Media</a></li>
+<li class="appendix"><span><b>Modules</b></span></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html"><i class="fa fa-check"></i><em>Modules</em></a>
+<ul>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#modules-breakdown"><i class="fa fa-check"></i>Modules Breakdown</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#textbook"><i class="fa fa-check"></i>Textbook Engagement</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#datacamp"><i class="fa fa-check"></i>Learn R with DataCamp</a>
+<ul>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#prepare-for-the-course"><i class="fa fa-check"></i>Prepare for the Course</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#xp-system-and-course-completion"><i class="fa fa-check"></i>XP System and Course Completion</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#develope-your-skills"><i class="fa fa-check"></i>Develope Your Skills</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#datareport"><i class="fa fa-check"></i>Data Report Instructions</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#module-a"><i class="fa fa-check"></i>Module A: Introduction to R</a>
+<ul>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#overview-a"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#objectives-a"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#activities-a"><i class="fa fa-check"></i>Learning Activities &amp; Assessments</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#report-a"><i class="fa fa-check"></i>Data Report on Stock Returns</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#module-b"><i class="fa fa-check"></i>Module B: Financial Performance Indicators</a>
+<ul>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#overview-b"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#objectives-b"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#activities-b"><i class="fa fa-check"></i>Learning Activities &amp; Assessments</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#report-b"><i class="fa fa-check"></i>Data Report on Financial Performance Indicators</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#module-c"><i class="fa fa-check"></i>Module C: Macroeconomic Accounting</a>
+<ul>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#overview-c"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#objectives-c"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#activities-c"><i class="fa fa-check"></i>Learning Activities &amp; Assessments</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#report-c"><i class="fa fa-check"></i>Data Report on Macroeconomic Indicators</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#module-d"><i class="fa fa-check"></i>Module D: Financial Market Indicators</a>
+<ul>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#overview-d"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#objectives-d"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#activities-d"><i class="fa fa-check"></i>Learning Activities &amp; Assessments</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#report-d"><i class="fa fa-check"></i>Data Report on Yield Curves</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://www.julianfludwig.com/" target="blank">Julian F. Ludwig</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Economic Data Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="write-reports-with-r-markdown" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Write Reports with R Markdown<a href="write-reports-with-r-markdown.html#write-reports-with-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>R Markdown is a tool for creating documents that combine text, R code, and the results of that R code. It simplifies the process of incorporating graphs and other data outputs into a document, removing the need for separate R and word processing operations. It allows for the automation of data retrieval and updating, making it useful for maintaining up-to-date financial reports, among other applications. With R Markdown, you can produce documents in various formats, including HTML, PDF, and Word, directly from your R code. Markdown facilitates the formatting of text in a plain text syntax, while embedded R code chunks ensure the reproducibility of analysis and reports.</p>
+<div id="create-an-r-markdown-document" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Create an R Markdown Document<a href="write-reports-with-r-markdown.html#create-an-r-markdown-document" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here is the step-by-step guide to create a new R Markdown document in RStudio:</p>
+<ol style="list-style-type: decimal">
+<li>Click on the top-left plus sign <img src="files/icons-rstudio/plus.png" alt="plus" />, then select <code>R Markdown...</code></li>
+<li>In the dialog box that appears, select <code>Document</code> and choose <code>PDF</code>, then click <code>OK</code>.</li>
+</ol>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:new-rmarkdown-2"></span>
+<img src="files/icons-rstudio/openrmarkdown-big.png" alt="New R Markdown" width="80%" />
+<p class="caption">
+Figure 6.1: New R Markdown
+</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>You should now see a file populated with text and code. Save this file by clicking <code>File</code> -&gt; <code>Save As...</code> and select an appropriate folder.</li>
+<li>To generate a document from your R Markdown file, click <code>Knit</code>: <img src="files/icons-rstudio/knit.png" alt="knit" /> (or use the shortcut <code>Ctrl</code> + <code>Shift</code> + <code>K</code> or <code>Cmd</code> + <code>Shift</code> + <code>K</code>).</li>
+<li>Lastly, the <code>Knit</code> drop-down menu <img src="files/icons-rstudio/knitdown.png" alt="knitdown" /> lets you export your file in different formats, such as HTML or Word, in addition to PDF.</li>
+</ol>
+<p>The R Markdown template includes:</p>
+<ul>
+<li>A <strong>YAML header</strong>, enclosed by <code>---</code>, which holds the document’s metadata, such as the title, author, date, and output format.</li>
+<li>Examples of <strong>Markdown syntax</strong>, demonstrating how to use it.</li>
+<li>Examples of <strong>R code chunks</strong>, showing how to write and utilize them in your document.</li>
+</ul>
+<p>The R code chunks are enclosed by <code>```{r}</code> at the beginning and <code>```</code> at the end, such as:</p>
+<pre class="rmarkdown"><code>```{r cars}
+summary(cars)
+```</code></pre>
+<p>Anything written within these markers is evaluated as R code. On the other hand, anything outside these markers is considered text, formatted using Markdown syntax, and, for mathematical expressions, LaTeX syntax. Hence, when you click <code>Knit</code> <img src="files/icons-rstudio/knit.png" alt="knit" />, the output - either a PDF, HTML, or Word file - integrates the text and the R code output into a single document.</p>
+</div>
+<div id="yaml-header" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> YAML Header<a href="write-reports-with-r-markdown.html#yaml-header" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The YAML header at the top of the R Markdown document, enclosed in <code>---</code>, specifies high-level metadata and options that influence the whole document. It might look like this:</p>
+<div class="sourceCode" id="cb1026"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1026-1"><a href="write-reports-with-r-markdown.html#cb1026-1" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb1026-2"><a href="write-reports-with-r-markdown.html#cb1026-2" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;My Document&quot;</span></span>
+<span id="cb1026-3"><a href="write-reports-with-r-markdown.html#cb1026-3" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Your Name&quot;</span></span>
+<span id="cb1026-4"><a href="write-reports-with-r-markdown.html#cb1026-4" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;1/1/2023&quot;</span></span>
+<span id="cb1026-5"><a href="write-reports-with-r-markdown.html#cb1026-5" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_document</span></span>
+<span id="cb1026-6"><a href="write-reports-with-r-markdown.html#cb1026-6" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<p>In this YAML header, the <code>title</code>, <code>author</code>, and <code>date</code> fields define the title, author, and date of the document. The <code>output</code> field specifies the output format of the document (which can be <code>html_document</code>, <code>pdf_document</code>, or <code>word_document</code>, among others).</p>
+</div>
+<div id="markdown-syntax" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Markdown Syntax<a href="write-reports-with-r-markdown.html#markdown-syntax" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Markdown allows you to add formatting elements to plain text. Here are some key elements and their syntax:</p>
+<ul>
+<li><p><strong>Bold</strong>: Use <code>**text**</code> or <code>__text__</code> to make text bold.</p>
+<div class="sourceCode" id="cb1027"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1027-1"><a href="write-reports-with-r-markdown.html#cb1027-1" tabindex="-1"></a>**text**</span></code></pre></div>
+<p><strong>text</strong></p></li>
+<li><p><strong>Italic</strong>: Use <code>*text*</code> or <code>_text_</code> to italicize text.</p>
+<div class="sourceCode" id="cb1028"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1028-1"><a href="write-reports-with-r-markdown.html#cb1028-1" tabindex="-1"></a>*text*</span></code></pre></div>
+<p><em>text</em></p></li>
+<li><p><strong>Strikethrough</strong>: Use <code>~~text~~</code> to strike through text.</p>
+<div class="sourceCode" id="cb1029"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1029-1"><a href="write-reports-with-r-markdown.html#cb1029-1" tabindex="-1"></a>~~text~~</span></code></pre></div>
+<p><del>text</del></p></li>
+<li><p><strong>Line Break</strong>: Creating a new line or line break is not achieved with a single Enter key press or a single line break in the text file. Instead, you need two line breaks (essentially a blank line) to separate paragraphs.</p></li>
+<li><p><strong>Line Break Inside a Paragraph</strong>: If you want to create a new line without a paragraph break, you can insert two spaces at the end of the line before hitting Enter.</p></li>
+<li><p><strong>Inline Space</strong>: In Markdown, multiple spaces in a row are collapsed into a single space when the document is rendered. Markdown does not support multiple spaces or custom spacing between words like you might do with the spacebar in a word processor.</p></li>
+<li><p><strong>Headers</strong>: Use <code>#</code> for primary headers, <code>##</code> for secondary headers, and so on. For example, <code># Main Title</code> creates a primary header.</p>
+<div class="sourceCode" id="cb1030"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1030-1"><a href="write-reports-with-r-markdown.html#cb1030-1" tabindex="-1"></a><span class="fu"># Main Title</span></span>
+<span id="cb1030-2"><a href="write-reports-with-r-markdown.html#cb1030-2" tabindex="-1"></a><span class="fu">## Subsection</span></span>
+<span id="cb1030-3"><a href="write-reports-with-r-markdown.html#cb1030-3" tabindex="-1"></a><span class="fu">### Lower-level Subsection</span></span></code></pre></div></li>
+<li><p><strong>Lists</strong>: For ordered lists, use <code>1.</code> for numbers, and you can also use <code>a.</code> or <code>A.</code> for alphabetic lists. Unordered lists can be created with <code>-</code> or <code>*</code>.</p>
+<div class="sourceCode" id="cb1031"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1031-1"><a href="write-reports-with-r-markdown.html#cb1031-1" tabindex="-1"></a><span class="ss">1. </span>Item One</span>
+<span id="cb1031-2"><a href="write-reports-with-r-markdown.html#cb1031-2" tabindex="-1"></a><span class="ss">   1. </span>Sub-item One</span>
+<span id="cb1031-3"><a href="write-reports-with-r-markdown.html#cb1031-3" tabindex="-1"></a><span class="ss">   1. </span>Sub-item Two</span>
+<span id="cb1031-4"><a href="write-reports-with-r-markdown.html#cb1031-4" tabindex="-1"></a><span class="ss">1. </span>Item Two</span>
+<span id="cb1031-5"><a href="write-reports-with-r-markdown.html#cb1031-5" tabindex="-1"></a>a. Alphabetic Item One</span>
+<span id="cb1031-6"><a href="write-reports-with-r-markdown.html#cb1031-6" tabindex="-1"></a>a. Alphabetic Item Two</span>
+<span id="cb1031-7"><a href="write-reports-with-r-markdown.html#cb1031-7" tabindex="-1"></a><span class="ss">- </span>Unordered Item One</span>
+<span id="cb1031-8"><a href="write-reports-with-r-markdown.html#cb1031-8" tabindex="-1"></a><span class="ss">- </span>Unordered Item Two</span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li>Item One
+<ol style="list-style-type: decimal">
+<li>Sub-item One</li>
+<li>Sub-item Two</li>
+</ol></li>
+<li>Item Two</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Alphabetic Item One</li>
+<li>Alphabetic Item Two</li>
+</ol>
+<ul>
+<li>Unordered Item One</li>
+<li>Unordered Item Two</li>
+</ul></li>
+<li><p><strong>Horizontal Rule</strong>: Use <code>---</code> to create a horizontal line (only works for HTML).</p>
+<div class="sourceCode" id="cb1032"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1032-1"><a href="write-reports-with-r-markdown.html#cb1032-1" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1032-2"><a href="write-reports-with-r-markdown.html#cb1032-2" tabindex="-1"></a><span class="co">This text is separated by horizontal lines.</span></span>
+<span id="cb1032-3"><a href="write-reports-with-r-markdown.html#cb1032-3" tabindex="-1"></a><span class="co">---</span></span></code></pre></div>
+<table>
+<tbody>
+<tr class="odd">
+<td>This text is separated by horizontal lines.</td>
+</tr>
+</tbody>
+</table></li>
+<li><p><strong>Links</strong>: To insert links, use <code>[Link text](url)</code>. You can specify that the link should open in a new tab by adding <code>{target="_blank"}</code> immediately after the URL.</p>
+<div class="sourceCode" id="cb1033"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1033-1"><a href="write-reports-with-r-markdown.html#cb1033-1" tabindex="-1"></a><span class="co">[</span><span class="ot">Google</span><span class="co">](https://www.google.com/)</span>{target=&quot;_blank&quot;}</span></code></pre></div>
+<p><a href="https://www.google.com/" target="_blank">Google</a></p></li>
+<li><p><strong>Images</strong>: In Markdown, use <code>![alt text](url)</code> for online images or <code>![alt text](path)</code> for local images. You can adjust the size to <code>X%</code> of its original width using <code>width=X%</code>.</p>
+<div class="sourceCode" id="cb1034"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1034-1"><a href="write-reports-with-r-markdown.html#cb1034-1" tabindex="-1"></a><span class="al">![TTU Logo](files/icons-ttu/tt.png)</span>{width=10%}</span></code></pre></div>
+<div class="float">
+<img src="files/icons-ttu/tt.png" style="width:10.0%" alt="TTU Logo" />
+<div class="figcaption">TTU Logo</div>
+</div></li>
+<li><p><strong>Footnotes</strong>: Use <code>^[Footnote text]</code> to create an inline footnote.</p>
+<div class="sourceCode" id="cb1035"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1035-1"><a href="write-reports-with-r-markdown.html#cb1035-1" tabindex="-1"></a>This is a text with a footnote.^<span class="co">[</span><span class="ot">This is the footnote text.</span><span class="co">]</span></span></code></pre></div>
+<p>This is a text with a footnote.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p></li>
+<li><p><strong>Blockquotes</strong>: Use <code>&gt;</code> to create a blockquote.</p>
+<div class="sourceCode" id="cb1036"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1036-1"><a href="write-reports-with-r-markdown.html#cb1036-1" tabindex="-1"></a><span class="at">&gt; This is a blockquote.</span></span></code></pre></div>
+<blockquote>
+<p>This is a blockquote.</p>
+</blockquote></li>
+<li><p><strong>Tables</strong>: Use <code>|</code> and <code>-</code> to create tables.</p>
+<div class="sourceCode" id="cb1037"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1037-1"><a href="write-reports-with-r-markdown.html#cb1037-1" tabindex="-1"></a><span class="pp">|</span> Header 1 <span class="pp">|</span> Header 2 <span class="pp">|</span></span>
+<span id="cb1037-2"><a href="write-reports-with-r-markdown.html#cb1037-2" tabindex="-1"></a><span class="pp">|----------|----------|</span></span>
+<span id="cb1037-3"><a href="write-reports-with-r-markdown.html#cb1037-3" tabindex="-1"></a><span class="pp">|</span> data1    <span class="pp">|</span> data2    <span class="pp">|</span></span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th>Header 1</th>
+<th>Header 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>data1</td>
+<td>data2</td>
+</tr>
+</tbody>
+</table></li>
+<li><p><strong>Checklists</strong>: Use <code>- [ ]</code> for unchecked items and <code>- [x]</code> for checked items.</p>
+<div class="sourceCode" id="cb1038"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1038-1"><a href="write-reports-with-r-markdown.html#cb1038-1" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> To-Do Item</span>
+<span id="cb1038-2"><a href="write-reports-with-r-markdown.html#cb1038-2" tabindex="-1"></a><span class="ss">- </span><span class="va">[x]</span> Completed Item</span></code></pre></div>
+<ul class="task-list">
+<li><label><input type="checkbox" />To-Do Item</label></li>
+<li><label><input type="checkbox" checked="" />Completed Item</label></li>
+</ul></li>
+<li><p><strong>Code Blocks</strong>: Use triple backticks to create code blocks.</p>
+<div class="sourceCode" id="cb1039"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1039-1"><a href="write-reports-with-r-markdown.html#cb1039-1" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1039-2"><a href="write-reports-with-r-markdown.html#cb1039-2" tabindex="-1"></a><span class="in">code</span></span>
+<span id="cb1039-3"><a href="write-reports-with-r-markdown.html#cb1039-3" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<pre><code>code</code></pre></li>
+<li><p><strong>Inline Code</strong>: Use single backticks for inline code.</p>
+<div class="sourceCode" id="cb1041"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1041-1"><a href="write-reports-with-r-markdown.html#cb1041-1" tabindex="-1"></a>This is <span class="in">`inline code`</span>.</span></code></pre></div>
+<p>This is <code>inline code</code>.</p></li>
+<li><p><strong>Math Formulas</strong>: Use <code>$$</code> for block-level math formulas.</p>
+<div class="sourceCode" id="cb1042"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb1042-1"><a href="write-reports-with-r-markdown.html#cb1042-1" tabindex="-1"></a><span class="ss">$$ E=mc^2 $$</span></span></code></pre></div>
+<p><span class="math display">\[ E=mc^2 \]</span></p></li>
+<li><p><strong>Inline Math Formulas</strong>: Use <code>$</code> for inline math formulas.</p>
+<div class="sourceCode" id="cb1043"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb1043-1"><a href="write-reports-with-r-markdown.html#cb1043-1" tabindex="-1"></a>This formula <span class="ss">$E=mc^2$</span> is inline math.</span></code></pre></div>
+<p>This formula <span class="math inline">\(E=mc^2\)</span> is inline math.</p></li>
+</ul>
+<p>By familiarizing yourself with these basic Markdown elements, you’ll be well-equipped to format text documents effectively.</p>
+</div>
+<div id="r-chunks" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> R Chunks<a href="write-reports-with-r-markdown.html#r-chunks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In R Markdown, you can embed chunks of R code. These chunks begin with <code>```{r}</code> and end with <code>```</code>.</p>
+<pre class="rmarkdown"><code>```{r}
+1 + 2
+```</code></pre>
+<div class="sourceCode" id="cb1045"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1045-1"><a href="write-reports-with-r-markdown.html#cb1045-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>The code contained in these chunks is executed when the document is rendered, and the output (e.g., numbers, plots, tables) is inserted into the final document.</p>
+<p>Following the <code>r</code> in the chunk declaration, you can include a variety of options in a comma-separated list to control chunk behavior. For instance, <code>```{r, echo = FALSE}</code> runs the code in the chunk and includes its output in the document, but the code itself is not printed in the rendered document. Detailed documentation on these options is available in the “References” section of <code>?knitr::opts_chunk</code>.</p>
+<p>Here are some of the most commonly used chunk options:</p>
+<ul>
+<li><code>echo</code>: If set to <code>FALSE</code>, the code chunk will not be shown in the final output. The default is <code>TRUE</code>.</li>
+<li><code>eval</code>: If set to <code>FALSE</code>, the code chunk will not be executed. The default is <code>TRUE</code>.</li>
+<li><code>include</code>: If set to <code>FALSE</code>, neither the code nor its results are included in the final document. The default is <code>TRUE</code>.</li>
+<li><code>message</code>: If set to <code>FALSE</code>, suppresses all messages in the output. The default is <code>TRUE</code>.</li>
+<li><code>warning</code>: If set to <code>FALSE</code>, suppresses all warnings in the output. The default is <code>TRUE</code>.</li>
+<li><code>fig.cap</code>: Adds a caption to graphical results. For instance, <code>fig.cap="My Plot Caption"</code>.</li>
+<li><code>fig.align</code>: Aligns the plot in the document. For example, <code>fig.align='center'</code> aligns the plot to the center.</li>
+<li><code>out.width</code>: Controls the width of the plot output. For example, <code>out.width="50%"</code> will make the plot take up 50% of the text width.</li>
+<li><code>comment</code>: Adds a comment string at the beginning of each line of the R output when displayed in the final document. The default is <code>"##"</code>. Setting it to an empty string <code>""</code> will remove the comment string. For example, <code>comment=""</code> will produce output without the default comment markers.</li>
+<li><code>collapse</code>: If <code>TRUE</code>, all the code and results in the chunk are rendered as a single block. If <code>FALSE</code>, each line of code and its results are rendered separately. The default is <code>FALSE</code>.</li>
+<li><code>results</code>: The <code>results</code> argument provides options to control the display of chunk output in the final document. When set to <code>results='hide'</code>, the text output is concealed, while <code>results='hold'</code> displays the output after the code. Additionally, <code>results='asis'</code> allows direct inclusion of unmodified output, ideal for text or tables. <code>results='markup'</code> formats output as Markdown, for seamless integration into surrounding text, particularly useful when the R output is written in Markdown syntax. <code>results='verbatim'</code> displays the output as plain text, which is useful when the text includes special characters.</li>
+<li><code>fig.path</code>: Specifies the directory where the figures produced by the chunk should be saved.</li>
+<li><code>fig.width</code> and <code>fig.height</code>: Specifies the width and height of the plot, in inches. For example, <code>fig.width=6, fig.height=4</code> will make the plot 6x4 inches.</li>
+<li><code>dpi</code>: Specifies the resolution of the plot in dots per inch. For example, <code>dpi = 300</code> will generate a high-resolution image.</li>
+<li><code>error</code>: If <code>TRUE</code>, any error that occurs in the chunk will stop the knitting process. If <code>FALSE</code>, errors will be displayed in the output but will not stop the knitting process.</li>
+</ul>
+<p>Here’s an example:</p>
+<pre class="rmarkdown"><code>```{r, echo=FALSE, fig.cap=&quot;Title&quot;, out.width = &quot;50%&quot;, fig.align=&#39;center&#39;, dpi = 300}
+plot(cars)
+```</code></pre>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-445"></span>
+<img src="_main_files/figure-html/unnamed-chunk-445-1.png" alt="Title" width="50%" />
+<p class="caption">
+Figure 6.2: Title
+</p>
+</div>
+<p>This chunk will create a plot, add a caption to it, set the width of the plot to 50% of the text width, align the plot to the center of the document, and output the plot with a resolution of 300 DPI. The actual R code will not be displayed in the final document.</p>
+<p>Instead of specifying options for each code chunk, you can modify the default settings for all code chunks in your document using the <code>knitr::opts_chunk$set()</code> function. For instance, I often include the following code at the start of an R Markdown document, right after the YAML header:</p>
+<pre class="rmarkdown"><code>```{r}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, 
+                      fig.align = &quot;center&quot;, out.width = &quot;60%&quot;)
+```</code></pre>
+<p>The aforementioned code modifies the default settings for all chunks in the document, as described below:</p>
+<ul>
+<li><code>echo = FALSE</code>: Each chunk’s code will be omitted from the final document, a sensible practice for official documents, as recipients don’t require visibility of code used for graph creation.</li>
+<li><code>message = FALSE</code>: All messages generated by code chunks will be muted.</li>
+<li><code>warning = FALSE</code>: Warnings produced by code chunks will be silenced.</li>
+<li><code>fig.align = "center"</code>: All generated figures will be centrally aligned.</li>
+<li><code>out.width = "60%"</code>: The width of any generated figures will be set to 60% of the text width.</li>
+</ul>
+</div>
+<div id="embed-r-variables-into-text" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Embed R Variables into Text<a href="write-reports-with-r-markdown.html#embed-r-variables-into-text" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A key strength of R Markdown is the ability to incorporate R variables directly within the Markdown text. This enables a dynamic text where the values are updated as the variables change. You can accomplish this by using the <code>`r variable`</code> syntax. Furthermore, you can format these numbers for enhanced readability.</p>
+<p>To insert the value of an R variable into your text, you encase the variable name in backticks and prepend it with <code>r</code>. Here’s an illustration:</p>
+<div class="sourceCode" id="cb1049"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1049-1"><a href="write-reports-with-r-markdown.html#cb1049-1" tabindex="-1"></a><span class="co"># R variable defined inside R chunk</span></span>
+<span id="cb1049-2"><a href="write-reports-with-r-markdown.html#cb1049-2" tabindex="-1"></a>my_var <span class="ot">&lt;-</span> <span class="fl">123234.53983</span></span></code></pre></div>
+<p>To refer to this variable in your Markdown text, you can write the following text (outside of an R chunk):</p>
+<div class="sourceCode" id="cb1050"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1050-1"><a href="write-reports-with-r-markdown.html#cb1050-1" tabindex="-1"></a>The total amount is <span class="in">`r my_var`</span> USD.</span></code></pre></div>
+<p>The output will be: “The total amount is 1.2323454^{5} USD.”</p>
+<p>That’s because when the R Markdown document is knitted, <code>`r my_var`</code> will be replaced by the current value of <code>my_var</code> in your R environment, dynamically embedding the value of <code>my_var</code> into your text.</p>
+<p>Additionally, you can format numbers for better readability by avoiding scientific notation, rounding, and adding a comma as a thousands separator. To do this, you can use the <code>formatC()</code> function in R as follows:</p>
+<div class="sourceCode" id="cb1051"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1051-1"><a href="write-reports-with-r-markdown.html#cb1051-1" tabindex="-1"></a><span class="co"># R variable with formatting, defined inside R chunk</span></span>
+<span id="cb1051-2"><a href="write-reports-with-r-markdown.html#cb1051-2" tabindex="-1"></a>my_var_formatted <span class="ot">&lt;-</span> <span class="fu">formatC</span>(my_var, <span class="at">format =</span> <span class="st">&quot;f&quot;</span>, <span class="at">digits =</span> <span class="dv">2</span>, <span class="at">big.mark =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
+<p>Then, in your text:</p>
+<div class="sourceCode" id="cb1052"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1052-1"><a href="write-reports-with-r-markdown.html#cb1052-1" tabindex="-1"></a>The total amount is <span class="in">`r my_var_formatted`</span> USD.</span></code></pre></div>
+<p>The output will be: “The total amount is 123,234.54 USD.”</p>
+<p>In this case, <code>format = "f"</code> ensures fixed decimal notation, <code>digits = 2</code> makes sure there are always two decimal places, and <code>big.mark = ","</code> adds comma as the thousand separator.</p>
+<p>By properly formatting your numbers in your R Markdown documents, you enhance their clarity and make your work more professional and easier to read.</p>
+</div>
+<div id="latex-syntax-for-math" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> LaTeX Syntax for Math<a href="write-reports-with-r-markdown.html#latex-syntax-for-math" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>LaTeX is a high-quality typesetting system that is widely used for scientific and academic papers, particularly in mathematics and engineering. LaTeX provides a robust way to typeset mathematical symbols and equations. Thankfully, R Markdown supports LaTeX notation for mathematical formulas, which is rendered in the HTML output.</p>
+<p>In R Markdown, you can include mathematical notation within the text by wrapping it with dollar signs (<code>$</code>). For example, <code>$a^2 + b^2 = c^2$</code> will be rendered as <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
+<p>Here are some basic LaTeX commands for mathematical symbols:</p>
+<ul>
+<li>Subscripts: To create a subscript, use the underscore (<code>_</code>). For example, <code>$a_i$</code> is rendered as <span class="math inline">\(a_i\)</span>.</li>
+<li>Superscripts: To create a superscript (useful for exponents), use the caret (<code>^</code>). For example, <code>$e^x$</code> is rendered as <span class="math inline">\(e^x\)</span>.</li>
+<li>Greek letters: Use a backslash (<code>\</code>) followed by the name of the letter. For example, <code>$\alpha$</code> is rendered as <span class="math inline">\(\alpha\)</span>, <code>$\beta$</code> as <span class="math inline">\(\beta\)</span>, and so on.</li>
+<li>Sums and integrals: Use <code>\sum</code> for summation and <code>\int</code> for integration. For example, <code>$\sum_{i=1}^n i^2$</code> is rendered as <span class="math inline">\(\sum_{i=1}^n i^2\)</span> and <code>$\int_a^b f(x) dx$</code> is rendered as <span class="math inline">\(\int_a^b f(x) dx\)</span>.</li>
+<li>Fractions: Use <code>\frac{numerator}{denominator}</code> to create a fraction. For example, <code>$\frac{a}{b}$</code> is rendered as <span class="math inline">\(\frac{a}{b}\)</span>.</li>
+<li>Square roots: Use <code>\sqrt</code> for square roots. For example, <code>$\sqrt{a}$</code> is rendered as <span class="math inline">\(\sqrt{a}\)</span>.</li>
+</ul>
+<p>If you want to display an equation on its own line, you can use double dollar signs (<code>$$</code>). For example:</p>
+<div class="sourceCode" id="cb1053"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb1053-1"><a href="write-reports-with-r-markdown.html#cb1053-1" tabindex="-1"></a><span class="ss">$$</span></span>
+<span id="cb1053-2"><a href="write-reports-with-r-markdown.html#cb1053-2" tabindex="-1"></a><span class="sc">\%</span><span class="ss"> </span><span class="sc">\Delta</span><span class="ss"> Y_t </span></span>
+<span id="cb1053-3"><a href="write-reports-with-r-markdown.html#cb1053-3" tabindex="-1"></a><span class="sc">\equiv</span><span class="ss"> 100 </span><span class="sc">\left</span><span class="ss">( </span><span class="sc">\frac</span><span class="ss">{Y_t - Y_{t-1}}{Y_{t-1}}</span><span class="sc">\right</span><span class="ss">)   </span><span class="sc">\%</span></span>
+<span id="cb1053-4"><a href="write-reports-with-r-markdown.html#cb1053-4" tabindex="-1"></a><span class="sc">\approx</span><span class="ss"> 100 </span><span class="sc">\left</span><span class="ss">( </span><span class="sc">\ln</span><span class="ss"> Y_t - </span><span class="sc">\ln</span><span class="ss"> Y_{t-1} </span><span class="sc">\right</span><span class="ss">) </span><span class="sc">\%</span></span>
+<span id="cb1053-5"><a href="write-reports-with-r-markdown.html#cb1053-5" tabindex="-1"></a><span class="ss">$$</span></span></code></pre></div>
+<p>This will be rendered as:
+<span class="math display" id="eq:growth">\[
+\% \Delta Y_t \equiv 100 \left(\frac{Y_t - Y_{t-1}}{Y_{t-1}}\right) \% \approx 100 \left( \ln Y_t - \ln Y_{t-1} \right) \% \tag{6.1}
+\]</span></p>
+<p>LaTeX and R Markdown together make it easy to include mathematical notation in your reports. With practice, you can write complex mathematical expressions and equations using LaTeX in your R Markdown documents.</p>
+</div>
+<div id="print-tables" class="section level2 hasAnchor" number="6.7">
+<h2><span class="header-section-number">6.7</span> Print Tables<a href="write-reports-with-r-markdown.html#print-tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The R packages <code>kable</code> and <code>kableExtra</code> are great tools for creating professionally formatted tables in your R Markdown documents. Directly printing data without any formatting is not usually advisable as it lacks professionalism and can often be challenging to read and interpret. By contrast, these packages allow you to control the appearance of your tables, leading to better readability and aesthetics.</p>
+<p>You’ll first need to install and load the necessary packages. You can do so by executing <code>install.packages(c("knitr", "kableExtra"))</code> in your console and then load the two packages in the beginning of your code:</p>
+<div class="sourceCode" id="cb1054"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1054-1"><a href="write-reports-with-r-markdown.html#cb1054-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;knitr&quot;</span>)</span>
+<span id="cb1054-2"><a href="write-reports-with-r-markdown.html#cb1054-2" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;kableExtra&quot;</span>)</span></code></pre></div>
+<p>Let’s assume we have a table that we want to print:</p>
+<div class="sourceCode" id="cb1055"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1055-1"><a href="write-reports-with-r-markdown.html#cb1055-1" tabindex="-1"></a>financial_metrics <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb1055-2"><a href="write-reports-with-r-markdown.html#cb1055-2" tabindex="-1"></a>  <span class="at">Company =</span> <span class="fu">c</span>(<span class="st">&quot;Apple&quot;</span>, <span class="st">&quot;Microsoft&quot;</span>, <span class="st">&quot;Tesla&quot;</span>),</span>
+<span id="cb1055-3"><a href="write-reports-with-r-markdown.html#cb1055-3" tabindex="-1"></a>  <span class="st">`</span><span class="at">Market Cap</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">2796.21</span>, <span class="fl">2434.47</span>, <span class="fl">797.05</span>),</span>
+<span id="cb1055-4"><a href="write-reports-with-r-markdown.html#cb1055-4" tabindex="-1"></a>  <span class="st">`</span><span class="at">P/E Ratio</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.30</span>, <span class="fl">0.34</span>, <span class="fl">0.67</span>),</span>
+<span id="cb1055-5"><a href="write-reports-with-r-markdown.html#cb1055-5" tabindex="-1"></a>  <span class="st">`</span><span class="at">Dividend Yield</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.52</span>, <span class="fl">0.82</span>, <span class="fl">0.00</span>)</span>
+<span id="cb1055-6"><a href="write-reports-with-r-markdown.html#cb1055-6" tabindex="-1"></a>)</span>
+<span id="cb1055-7"><a href="write-reports-with-r-markdown.html#cb1055-7" tabindex="-1"></a>financial_metrics</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 4
+##   Company   `Market Cap` `P/E Ratio` `Dividend Yield`
+##   &lt;chr&gt;            &lt;dbl&gt;       &lt;dbl&gt;            &lt;dbl&gt;
+## 1 Apple            2796.        0.3              0.52
+## 2 Microsoft        2434.        0.34             0.82
+## 3 Tesla             797.        0.67             0</code></pre>
+<p>Note that the table is structured as a tibble (<code>tbl_df</code>) instead of a simple data frame (<code>data.frame</code>) to allow for column names with spaces.</p>
+<p>To improve the readability of financial metrics, avoid scientific notation, round to appropriate decimal places, and add a thousands separator. You can achieve this using R’s <code>formatC()</code> function:</p>
+<div class="sourceCode" id="cb1057"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1057-1"><a href="write-reports-with-r-markdown.html#cb1057-1" tabindex="-1"></a><span class="co"># Format numbers representing market cap values</span></span>
+<span id="cb1057-2"><a href="write-reports-with-r-markdown.html#cb1057-2" tabindex="-1"></a>financial_metrics<span class="sc">$</span><span class="st">`</span><span class="at">Market Cap</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">formatC</span>(</span>
+<span id="cb1057-3"><a href="write-reports-with-r-markdown.html#cb1057-3" tabindex="-1"></a>    financial_metrics<span class="sc">$</span><span class="st">`</span><span class="at">Market Cap</span><span class="st">`</span>, <span class="at">format =</span> <span class="st">&quot;f&quot;</span>, <span class="at">digits =</span> <span class="dv">2</span>, <span class="at">big.mark =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
+<p>You can create a basic table using the <code>kable</code> function from the <code>knitr</code> package:</p>
+<div class="sourceCode" id="cb1058"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1058-1"><a href="write-reports-with-r-markdown.html#cb1058-1" tabindex="-1"></a><span class="fu">kable</span>(financial_metrics)</span></code></pre></div>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Company
+</th>
+<th style="text-align:left;">
+Market Cap
+</th>
+<th style="text-align:right;">
+P/E Ratio
+</th>
+<th style="text-align:right;">
+Dividend Yield
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Apple
+</td>
+<td style="text-align:left;">
+2,796.21
+</td>
+<td style="text-align:right;">
+0.30
+</td>
+<td style="text-align:right;">
+0.52
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Microsoft
+</td>
+<td style="text-align:left;">
+2,434.47
+</td>
+<td style="text-align:right;">
+0.34
+</td>
+<td style="text-align:right;">
+0.82
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tesla
+</td>
+<td style="text-align:left;">
+797.05
+</td>
+<td style="text-align:right;">
+0.67
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+</tbody>
+</table>
+<p>This will generate a simple, well-formatted table. However, you can further customize the table’s appearance using functions from the <code>kableExtra</code> package:</p>
+<div class="sourceCode" id="cb1059"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1059-1"><a href="write-reports-with-r-markdown.html#cb1059-1" tabindex="-1"></a>financial_metrics <span class="sc">%&gt;%</span></span>
+<span id="cb1059-2"><a href="write-reports-with-r-markdown.html#cb1059-2" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">align =</span> <span class="st">&quot;lrrr&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1059-3"><a href="write-reports-with-r-markdown.html#cb1059-3" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="st">&quot;striped&quot;</span>, </span>
+<span id="cb1059-4"><a href="write-reports-with-r-markdown.html#cb1059-4" tabindex="-1"></a>                <span class="at">full_width =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb1059-5"><a href="write-reports-with-r-markdown.html#cb1059-5" tabindex="-1"></a>                <span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">&quot;hold_position&quot;</span>, <span class="st">&quot;striped&quot;</span>))</span></code></pre></div>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Company
+</th>
+<th style="text-align:right;">
+Market Cap
+</th>
+<th style="text-align:right;">
+P/E Ratio
+</th>
+<th style="text-align:right;">
+Dividend Yield
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Apple
+</td>
+<td style="text-align:right;">
+2,796.21
+</td>
+<td style="text-align:right;">
+0.30
+</td>
+<td style="text-align:right;">
+0.52
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Microsoft
+</td>
+<td style="text-align:right;">
+2,434.47
+</td>
+<td style="text-align:right;">
+0.34
+</td>
+<td style="text-align:right;">
+0.82
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tesla
+</td>
+<td style="text-align:right;">
+797.05
+</td>
+<td style="text-align:right;">
+0.67
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+</tbody>
+</table>
+<p>In this code:</p>
+<ul>
+<li><code>align = "lrrr"</code> specifies the alignment for each column. The letters “l” and “r” stand for left and right alignment, respectively. The columns are aligned in the order given: “Company” is left-aligned, and the remaining columns are right-aligned.</li>
+<li><code>bootstrap_options = "striped"</code> alternates the row colors to make the table easier to read. This option is effective for HTML outputs but doesn’t apply to LaTeX/PDF output (see <code>latex_options</code> for LaTeX-specific styling).</li>
+<li><code>full_width = FALSE</code> specifies that the table should only take up as much width as it needs, rather than expanding to fill the page. This option isn’t relevant for LaTeX/PDF output as LaTeX automatically adjusts table widths by default.</li>
+<li><code>latex_options = c("hold_position", "striped")</code> provides LaTeX-specific table settings. The <code>"hold_position"</code> option ensures the table appears immediately after the corresponding code chunk, overriding LaTeX’s default ‘floating’ behavior. The <code>"striped"</code> option similarly adds alternating row colors, but specifically for LaTeX output.</li>
+</ul>
+<p>Adding a caption to your table is straightforward. Simply provide the <code>caption</code> argument to the <code>kable</code> function:</p>
+<div class="sourceCode" id="cb1060"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1060-1"><a href="write-reports-with-r-markdown.html#cb1060-1" tabindex="-1"></a>financial_metrics <span class="sc">%&gt;%</span></span>
+<span id="cb1060-2"><a href="write-reports-with-r-markdown.html#cb1060-2" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">align =</span> <span class="st">&quot;lrrr&quot;</span>,</span>
+<span id="cb1060-3"><a href="write-reports-with-r-markdown.html#cb1060-3" tabindex="-1"></a>        <span class="at">caption =</span> <span class="st">&quot;Financial Metrics as of October 2023&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1060-4"><a href="write-reports-with-r-markdown.html#cb1060-4" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="st">&quot;striped&quot;</span>, </span>
+<span id="cb1060-5"><a href="write-reports-with-r-markdown.html#cb1060-5" tabindex="-1"></a>                <span class="at">full_width =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb1060-6"><a href="write-reports-with-r-markdown.html#cb1060-6" tabindex="-1"></a>                <span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">&quot;hold_position&quot;</span>, <span class="st">&quot;striped&quot;</span>))</span></code></pre></div>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-454">Table 6.1: </span>Financial Metrics as of October 2023
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Company
+</th>
+<th style="text-align:right;">
+Market Cap
+</th>
+<th style="text-align:right;">
+P/E Ratio
+</th>
+<th style="text-align:right;">
+Dividend Yield
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Apple
+</td>
+<td style="text-align:right;">
+2,796.21
+</td>
+<td style="text-align:right;">
+0.30
+</td>
+<td style="text-align:right;">
+0.52
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Microsoft
+</td>
+<td style="text-align:right;">
+2,434.47
+</td>
+<td style="text-align:right;">
+0.34
+</td>
+<td style="text-align:right;">
+0.82
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tesla
+</td>
+<td style="text-align:right;">
+797.05
+</td>
+<td style="text-align:right;">
+0.67
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+</tbody>
+</table>
+<p>This code generates the same striped table, but now with a caption: “Financial Metrics as of October 2023.”</p>
+<p>These are just the basics. Both <code>kable</code> and <code>kableExtra</code> provide numerous options for customizing your tables. I encourage you to explore their documentation and experiment with different settings.</p>
+</div>
+<div id="escape-characters" class="section level2 hasAnchor" number="6.8">
+<h2><span class="header-section-number">6.8</span> Escape Characters<a href="write-reports-with-r-markdown.html#escape-characters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In Markdown, certain characters have special meanings. For instance, the <code>#</code> symbol is used for section headers, and the asterisk (<code>*</code>) is used for italicizing text when it wraps a word or phrase, like <code>*italic*</code>. If you want to include these special characters as plain text in your document, you’ll need to escape them.</p>
+<p>Additionally, characters may need to be escaped differently depending on whether the final output is in HTML or LaTeX, which have their own special characters and escape mechanisms.</p>
+<ul>
+<li><p><strong>HTML</strong>: Special characters are escaped using ampersand codes, such as <code>&amp;amp;</code> for <code>&amp;</code> and <code>&amp;percnt;</code> for <code>%</code>.</p></li>
+<li><p><strong>LaTeX</strong>: You can usually use a backslash (<code>\</code>) to escape special characters in LaTeX. For example, <code>\%</code> will produce a literal percent symbol. Note that the backslash itself is a special character in LaTeX (escape character), so to include a backslash, you use <code>\\</code>.</p></li>
+</ul>
+<div id="escape-in-markdown-text" class="section level3 unnumbered hasAnchor">
+<h3>Escape in Markdown Text<a href="write-reports-with-r-markdown.html#escape-in-markdown-text" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In the text of an R Markdown document, you can generally use a single backslash (<code>\</code>) to escape special characters. For instance, to include an asterisk symbol <code>*</code>, you could use <code>\*</code> to write *.</p>
+</div>
+<div id="escape-in-code-chunks" class="section level3 unnumbered hasAnchor">
+<h3>Escape in Code Chunks<a href="write-reports-with-r-markdown.html#escape-in-code-chunks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Inside R code chunks, the escape mechanism is different due to R’s own syntax rules for strings. Specifically, <code>\n</code> inserts a line break and <code>\t</code> adds a tab. The <code>cat()</code> function is employed to concatenate and display strings:</p>
+<div class="sourceCode" id="cb1061"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1061-1"><a href="write-reports-with-r-markdown.html#cb1061-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Welcome!</span><span class="sc">\n</span><span class="st">This is a new line.&quot;</span>,</span>
+<span id="cb1061-2"><a href="write-reports-with-r-markdown.html#cb1061-2" tabindex="-1"></a>    <span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">This is a new line with two line breaks.&quot;</span>,</span>
+<span id="cb1061-3"><a href="write-reports-with-r-markdown.html#cb1061-3" tabindex="-1"></a>    <span class="st">&quot;</span><span class="sc">\n\t</span><span class="st">And this new line is indented.&quot;</span>)</span></code></pre></div>
+<pre><code>## Welcome!
+## This is a new line. 
+## 
+## This is a new line with two line breaks. 
+##  And this new line is indented.</code></pre>
+<p>To render this text directly as Markdown, use the <code>results='asis'</code> code chunk option. It’s worth noting that in Markdown, a single break <code>\n</code> doesn’t produce a new line and <code>\t</code> has no effect. For a new Markdown line, two line breaks <code>\n\n</code> are required:</p>
+<div class="sourceCode" id="cb1063"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1063-1"><a href="write-reports-with-r-markdown.html#cb1063-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Welcome!</span><span class="sc">\n</span><span class="st">This is a new line.&quot;</span>,</span>
+<span id="cb1063-2"><a href="write-reports-with-r-markdown.html#cb1063-2" tabindex="-1"></a>    <span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">This is a new line with two line breaks.&quot;</span>,</span>
+<span id="cb1063-3"><a href="write-reports-with-r-markdown.html#cb1063-3" tabindex="-1"></a>    <span class="st">&quot;</span><span class="sc">\n\t</span><span class="st">And this new line is indented.&quot;</span>)</span></code></pre></div>
+<hr />
+<p>Welcome!
+This is a new line.</p>
+<p>This is a new line with two line breaks.
+And this new line is indented.</p>
+<hr />
+<p>To include a literal backslash inside an R string, you’ll need to escape it with another backslash. For instance, to display an asterisk symbol (<code>*</code>) in an R Markdown document from an R code chunk, you’ll need to use <code>\\*</code>:</p>
+<div class="sourceCode" id="cb1064"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1064-1"><a href="write-reports-with-r-markdown.html#cb1064-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Here is a percentage symbol printed inside an R chunk: </span><span class="sc">\\</span><span class="st">*.&quot;</span>)</span></code></pre></div>
+<hr />
+<p>Here is a percentage symbol printed inside an R chunk: *.</p>
+<hr />
+<p>Why two backslashes? The first backslash escapes the second, resulting in a single <code>\</code>. When combined with <code>*</code>, this forms <code>\*</code>, which is the R Markdown-compatible sequence that renders as a literal <code>*</code> in the output.</p>
+<p>As another example, to write expression <a href="write-reports-with-r-markdown.html#eq:growth">(6.1)</a> within a code chunk set to <code>results='asis</code>:</p>
+<div class="sourceCode" id="cb1065"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1065-1"><a href="write-reports-with-r-markdown.html#cb1065-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;$$</span></span>
+<span id="cb1065-2"><a href="write-reports-with-r-markdown.html#cb1065-2" tabindex="-1"></a><span class="sc">\\</span><span class="st">% </span><span class="sc">\\</span><span class="st">Delta Y_t </span><span class="sc">\\</span><span class="st">equiv 100 </span><span class="sc">\\</span><span class="st">left(</span><span class="sc">\\</span><span class="st">frac{Y_t - Y_{t-1}}{Y_{t-1}}</span><span class="sc">\\</span><span class="st">right) </span><span class="sc">\\</span><span class="st">% </span></span>
+<span id="cb1065-3"><a href="write-reports-with-r-markdown.html#cb1065-3" tabindex="-1"></a><span class="sc">\\</span><span class="st">approx 100 </span><span class="sc">\\</span><span class="st">left( </span><span class="sc">\\</span><span class="st">ln Y_t - </span><span class="sc">\\</span><span class="st">ln Y_{t-1} </span><span class="sc">\\</span><span class="st">right) </span><span class="sc">\\</span><span class="st">%</span></span>
+<span id="cb1065-4"><a href="write-reports-with-r-markdown.html#cb1065-4" tabindex="-1"></a><span class="st">$$&quot;</span>)</span></code></pre></div>
+<hr />
+<p><span class="math display">\[
+\% \Delta Y_t \equiv 100 \left(\frac{Y_t - Y_{t-1}}{Y_{t-1}}\right) \%
+\approx 100 \left( \ln Y_t - \ln Y_{t-1} \right) \%
+\]</span></p>
+<hr />
+<p>Here, escaping ensures that LaTeX code is correctly displayed when the document is knit.</p>
+</div>
+<div id="escaped-characters" class="section level3 unnumbered hasAnchor">
+<h3>Escaped Characters<a href="write-reports-with-r-markdown.html#escaped-characters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Here is a list of escaped characters across LaTeX, HTML, Markdown, and R code:</p>
+<div id="latex" class="section level4 unnumbered hasAnchor">
+<h4>LaTeX<a href="write-reports-with-r-markdown.html#latex" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><code>%</code>: <code>\%</code> — Comment symbol</li>
+<li><code>#</code>: <code>\#</code> — Macro parameter symbol</li>
+<li><code>&amp;</code>: <code>\&amp;</code> — Table cell separator</li>
+<li><code>$</code>: <code>\$</code> — To start or stop inline math mode</li>
+<li><code>_</code>: <code>\_</code> — Subscript in math mode</li>
+<li><code>{</code>: <code>\{</code> — Open curly brace</li>
+<li><code>}</code>: <code>\}</code> — Close curly brace</li>
+<li><code>~</code>: <code>\textasciitilde</code> or <code>\\~{}</code> — Non-breaking space</li>
+<li><code>^</code>: <code>\^</code> — Superscript in math mode</li>
+<li><code>\</code>: <code>\textbackslash</code> — Backslash itself</li>
+<li><code>&lt;</code>: <code>\textless</code> — Less than symbol</li>
+<li><code>&gt;</code>: <code>\textgreater</code> — Greater than symbol</li>
+</ul>
+</div>
+<div id="html" class="section level4 unnumbered hasAnchor">
+<h4>HTML<a href="write-reports-with-r-markdown.html#html" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><code>%</code>: <code>&amp;percnt;</code> — Percent symbol</li>
+<li><code>#</code>: <code>&amp;num;</code> — Number symbol</li>
+<li><code>&amp;</code>: <code>&amp;amp;</code> — Ampersand</li>
+<li><code>$</code>: <code>&amp;dollar;</code> — Dollar symbol</li>
+<li><code>&lt;</code>: <code>&amp;lt;</code> — Less than symbol</li>
+<li><code>&gt;</code>: <code>&amp;gt;</code> — Greater than symbol</li>
+<li><code>"</code>: <code>&amp;quot;</code> — Double quote</li>
+<li><code>'</code>: <code>&amp;apos;</code> — Single quote</li>
+</ul>
+</div>
+<div id="markdown" class="section level4 unnumbered hasAnchor">
+<h4>Markdown<a href="write-reports-with-r-markdown.html#markdown" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><code>#</code>: <code>\#</code> — To use the hash symbol literally, and avoid it being interpreted as a header</li>
+<li><code>*</code>: <code>\*</code> — To use the asterisk literally, and avoid it being interpreted as emphasis or a bullet point</li>
+<li><code>_</code>: <code>\_</code> — To use the underscore literally, and avoid it being interpreted as emphasis</li>
+<li><code>-</code>: <code>\-</code> — To use the hyphen literally, and avoid it being interpreted as a bullet point</li>
+<li><code>`</code>: ``` — To use the backtick literally, and avoid it being interpreted as inline code</li>
+</ul>
+</div>
+<div id="r-code" class="section level4 unnumbered hasAnchor">
+<h4>R Code<a href="write-reports-with-r-markdown.html#r-code" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><code>\</code>: <code>\\</code> — To escape a backslash itself</li>
+<li><code>"</code>: <code>\"</code> — To include a double quote inside a string enclosed by double quotes</li>
+<li><code>'</code>: <code>\'</code> — To include a single quote inside a string enclosed by single quotes</li>
+<li><code>%</code>: <code>\%</code> — To include a percent symbol inside a string</li>
+<li><code>n</code>: <code>\n</code> — Newline character to create a line break in the text</li>
+<li><code>t</code>: <code>\t</code> — Tab character to insert a tabulation in the text</li>
+</ul>
+<p>By understanding how to escape characters, you can include special characters in your text without confusing R Markdown’s formatting engine. This will allow for more flexibility and clarity in your reports.</p>
+</div>
+</div>
+</div>
+<div id="summary-and-resources" class="section level2 hasAnchor" number="6.9">
+<h2><span class="header-section-number">6.9</span> Summary and Resources<a href="write-reports-with-r-markdown.html#summary-and-resources" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R Markdown provides a powerful framework for dynamically generating reports in R. The “dynamic” part of “dynamically generating reports” means that the document is able to update automatically when your data changes. By understanding and effectively using Markdown syntax, R code chunks, chunk options, and YAML headers, you can create sophisticated, reproducible documents with ease like the document you are currently reading.</p>
+<p>For an in-depth understanding of R Markdown, you may want to delve into <a href="https://bookdown.org/yihui/rmarkdown/" target="_blank">R Markdown: The Definitive Guide</a>, an extensive resource on the topic. Additionally, DataCamp’s course <a href="https://learn.datacamp.com/courses/reporting-with-rmarkdown" target="_blank">Reporting with R Markdown</a> provides practical lessons on how to create compelling reports using this tool.</p>
+
+</div>
+</div>
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p>This is the footnote text.<a href="write-reports-with-r-markdown.html#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="process-data-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="part-ii.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["eda.pdf", "PDF"]],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -4,33 +4,33 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>19 Why Subjective Information Matters | Economic Data Analysis</title>
-  <meta name="description" content="19 Why Subjective Information Matters | Economic Data Analysis" />
-  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+  <title>Chapter 20 Why Subjective Information Matters | Economic Data Analysis</title>
+  <meta name="description" content="Chapter 20 Why Subjective Information Matters | Economic Data Analysis" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="19 Why Subjective Information Matters | Economic Data Analysis" />
+  <meta property="og:title" content="Chapter 20 Why Subjective Information Matters | Economic Data Analysis" />
   <meta property="og:type" content="book" />
-  
+  <meta property="og:image" content="https://www.julianfludwig.com/eda/files/bookcover.png" />
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="19 Why Subjective Information Matters | Economic Data Analysis" />
+  <meta name="twitter:title" content="Chapter 20 Why Subjective Information Matters | Economic Data Analysis" />
   
   
-  
+  <meta name="twitter:image" content="https://www.julianfludwig.com/eda/files/bookcover.png" />
 
 
 
-<meta name="date" content="2023-07-31" />
+<meta name="date" content="2024-05-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="module-iii.html"/>
-<link rel="next" href="michigan-consumer-survey.html"/>
+<link rel="prev" href="part-v.html"/>
+<link rel="next" href="insights-from-consumer-surveys.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -53,11 +53,13 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+<script src="libs/tabwid-1.1.3/tabwid.js"></script>
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -147,6 +149,7 @@ div.csl-indent {
 }
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -159,17 +162,17 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="index.html">Data Analysis for Economic Research</a></li>
+<li><a href="index.html">Economic Data Analysis</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i><em>Preface</em></a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><em>Preface</em></a>
 <ul>
-<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#author"><i class="fa fa-check"></i>Author</a></li>
-<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#book-navigation"><i class="fa fa-check"></i>Book Navigation</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#author"><i class="fa fa-check"></i>Author</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-navigation"><i class="fa fa-check"></i>Book Navigation</a></li>
 </ul></li>
-<li class="part"><span><b>Module I</b></span></li>
-<li class="chapter" data-level="" data-path="module-i.html"><a href="module-i.html"><i class="fa fa-check"></i><em>Introduction to R for Economic Research</em></a></li>
+<li class="part"><span><b>Part I</b></span></li>
+<li class="chapter" data-level="" data-path="part-i.html"><a href="part-i.html"><i class="fa fa-check"></i><em>Part I: Introduction to R</em></a></li>
 <li class="chapter" data-level="1" data-path="software-overview.html"><a href="software-overview.html"><i class="fa fa-check"></i><b>1</b> Software Overview</a></li>
 <li class="chapter" data-level="2" data-path="software-installation.html"><a href="software-installation.html"><i class="fa fa-check"></i><b>2</b> Software Installation</a>
 <ul>
@@ -180,240 +183,626 @@ div.csl-indent {
 <li class="chapter" data-level="2.5" data-path="software-installation.html"><a href="software-installation.html#install-r-packages"><i class="fa fa-check"></i><b>2.5</b> Install R Packages</a></li>
 <li class="chapter" data-level="2.6" data-path="software-installation.html"><a href="software-installation.html#step-test"><i class="fa fa-check"></i><b>2.6</b> 18-Step Test</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="rstudio-interface.html"><a href="rstudio-interface.html"><i class="fa fa-check"></i><b>3</b> RStudio Interface</a>
+<li class="chapter" data-level="3" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>3</b> R Basics</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="rstudio-interface.html"><a href="rstudio-interface.html#rstudio-sections"><i class="fa fa-check"></i><b>3.1</b> RStudio Sections</a></li>
-<li class="chapter" data-level="3.2" data-path="rstudio-interface.html"><a href="rstudio-interface.html#r-scripts"><i class="fa fa-check"></i><b>3.2</b> R Scripts</a></li>
+<li class="chapter" data-level="3.1" data-path="r-basics.html"><a href="r-basics.html#rstudio-interface"><i class="fa fa-check"></i><b>3.1</b> RStudio Interface</a></li>
+<li class="chapter" data-level="3.2" data-path="r-basics.html"><a href="r-basics.html#basic-operations"><i class="fa fa-check"></i><b>3.2</b> Basic Operations</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="r-basics.html"><a href="r-basics.html#arithmetic-operations"><i class="fa fa-check"></i><b>3.2.1</b> Arithmetic Operations</a></li>
+<li class="chapter" data-level="3.2.2" data-path="r-basics.html"><a href="r-basics.html#logical-operations"><i class="fa fa-check"></i><b>3.2.2</b> Logical Operations</a></li>
+<li class="chapter" data-level="3.2.3" data-path="r-basics.html"><a href="r-basics.html#string-operations"><i class="fa fa-check"></i><b>3.2.3</b> String Operations</a></li>
+<li class="chapter" data-level="3.2.4" data-path="r-basics.html"><a href="r-basics.html#variables"><i class="fa fa-check"></i><b>3.2.4</b> Variables</a></li>
+<li class="chapter" data-level="3.2.5" data-path="r-basics.html"><a href="r-basics.html#data-types"><i class="fa fa-check"></i><b>3.2.5</b> Data Types</a></li>
+<li class="chapter" data-level="3.2.6" data-path="r-basics.html"><a href="r-basics.html#data-structures"><i class="fa fa-check"></i><b>3.2.6</b> Data Structures</a></li>
+<li class="chapter" data-level="3.2.7" data-path="r-basics.html"><a href="r-basics.html#vector-operations"><i class="fa fa-check"></i><b>3.2.7</b> Vector Operations</a></li>
+<li class="chapter" data-level="3.2.8" data-path="r-basics.html"><a href="r-basics.html#missing-values"><i class="fa fa-check"></i><b>3.2.8</b> Missing Values</a></li>
+<li class="chapter" data-level="3.2.9" data-path="r-basics.html"><a href="r-basics.html#attributes"><i class="fa fa-check"></i><b>3.2.9</b> Attributes</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html"><i class="fa fa-check"></i><b>4</b> R Data Types and Structures</a>
+<li class="chapter" data-level="3.3" data-path="r-basics.html"><a href="r-basics.html#dates-and-times"><i class="fa fa-check"></i><b>3.3</b> Dates and Times</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#scalar"><i class="fa fa-check"></i><b>4.1</b> Scalar</a></li>
-<li class="chapter" data-level="4.2" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#vector"><i class="fa fa-check"></i><b>4.2</b> Vector</a></li>
-<li class="chapter" data-level="4.3" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#matrix-matrix"><i class="fa fa-check"></i><b>4.3</b> Matrix (<code>matrix</code>)</a></li>
-<li class="chapter" data-level="4.4" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#list-list"><i class="fa fa-check"></i><b>4.4</b> List (<code>list</code>)</a></li>
-<li class="chapter" data-level="4.5" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#data.frame"><i class="fa fa-check"></i><b>4.5</b> Data Frame (<code>data.frame</code>)</a></li>
-<li class="chapter" data-level="4.6" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#tibble"><i class="fa fa-check"></i><b>4.6</b> Tibble (<code>tbl_df</code>)</a></li>
-<li class="chapter" data-level="4.7" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#data-table-data.table"><i class="fa fa-check"></i><b>4.7</b> Data Table (<code>data.table</code>)</a></li>
-<li class="chapter" data-level="4.8" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#xts"><i class="fa fa-check"></i><b>4.8</b> Extensible Time Series (<code>xts</code>)</a></li>
+<li class="chapter" data-level="3.3.1" data-path="r-basics.html"><a href="r-basics.html#posixct"><i class="fa fa-check"></i><b>3.3.1</b> Time Class (<code>POSIXct</code>)</a></li>
+<li class="chapter" data-level="3.3.2" data-path="r-basics.html"><a href="r-basics.html#date"><i class="fa fa-check"></i><b>3.3.2</b> Date Class (<code>Date</code>)</a></li>
+<li class="chapter" data-level="3.3.3" data-path="r-basics.html"><a href="r-basics.html#custom-date-and-time-formats"><i class="fa fa-check"></i><b>3.3.3</b> Custom Date and Time Formats</a></li>
+<li class="chapter" data-level="3.3.4" data-path="r-basics.html"><a href="r-basics.html#operations-with-dates-and-times"><i class="fa fa-check"></i><b>3.3.4</b> Operations with Dates and Times</a></li>
+<li class="chapter" data-level="3.3.5" data-path="r-basics.html"><a href="r-basics.html#current-date-and-time"><i class="fa fa-check"></i><b>3.3.5</b> Current Date and Time</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html"><i class="fa fa-check"></i><b>5</b> Importing Data in R</a>
+<li class="chapter" data-level="3.4" data-path="r-basics.html"><a href="r-basics.html#graphs"><i class="fa fa-check"></i><b>3.4</b> Graphs</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#working-directory"><i class="fa fa-check"></i><b>5.1</b> Working Directory</a></li>
-<li class="chapter" data-level="5.2" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#yield-curve"><i class="fa fa-check"></i><b>5.2</b> Yield Curve</a>
-<ul>
-<li class="chapter" data-level="5.2.1" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#import-csv-file"><i class="fa fa-check"></i><b>5.2.1</b> Import CSV File</a></li>
-<li class="chapter" data-level="5.2.2" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#plotting-historical-yields"><i class="fa fa-check"></i><b>5.2.2</b> Plotting Historical Yields</a></li>
-<li class="chapter" data-level="5.2.3" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#plotting-yield-curve"><i class="fa fa-check"></i><b>5.2.3</b> Plotting Yield Curve</a></li>
+<li class="chapter" data-level="3.4.1" data-path="r-basics.html"><a href="r-basics.html#scatter-plot"><i class="fa fa-check"></i><b>3.4.1</b> Scatter Plot</a></li>
+<li class="chapter" data-level="3.4.2" data-path="r-basics.html"><a href="r-basics.html#line-graph"><i class="fa fa-check"></i><b>3.4.2</b> Line Graph</a></li>
+<li class="chapter" data-level="3.4.3" data-path="r-basics.html"><a href="r-basics.html#bar-chart"><i class="fa fa-check"></i><b>3.4.3</b> Bar Chart</a></li>
+<li class="chapter" data-level="3.4.4" data-path="r-basics.html"><a href="r-basics.html#frequency-bar-chart"><i class="fa fa-check"></i><b>3.4.4</b> Frequency Bar Chart</a></li>
+<li class="chapter" data-level="3.4.5" data-path="r-basics.html"><a href="r-basics.html#histogram"><i class="fa fa-check"></i><b>3.4.5</b> Histogram</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#michigan-survey"><i class="fa fa-check"></i><b>5.3</b> Michigan Survey</a>
+<li class="chapter" data-level="3.5" data-path="r-basics.html"><a href="r-basics.html#functions"><i class="fa fa-check"></i><b>3.5</b> Functions</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#import-tsv-file"><i class="fa fa-check"></i><b>5.3.1</b> Import TSV File</a></li>
-<li class="chapter" data-level="5.3.2" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#plotting-consumer-indices"><i class="fa fa-check"></i><b>5.3.2</b> Plotting Consumer Indices</a></li>
+<li class="chapter" data-level="3.5.1" data-path="r-basics.html"><a href="r-basics.html#how-functions-operate"><i class="fa fa-check"></i><b>3.5.1</b> How Functions Operate</a></li>
+<li class="chapter" data-level="3.5.2" data-path="r-basics.html"><a href="r-basics.html#infix-operators"><i class="fa fa-check"></i><b>3.5.2</b> Infix Operators</a></li>
+<li class="chapter" data-level="3.5.3" data-path="r-basics.html"><a href="r-basics.html#control-flow-operators"><i class="fa fa-check"></i><b>3.5.3</b> Control-Flow Operators</a></li>
+<li class="chapter" data-level="3.5.4" data-path="r-basics.html"><a href="r-basics.html#help-and-documentation"><i class="fa fa-check"></i><b>3.5.4</b> Help and Documentation</a></li>
+<li class="chapter" data-level="3.5.5" data-path="r-basics.html"><a href="r-basics.html#default-inputs"><i class="fa fa-check"></i><b>3.5.5</b> Default Inputs</a></li>
+<li class="chapter" data-level="3.5.6" data-path="r-basics.html"><a href="r-basics.html#custom-functions"><i class="fa fa-check"></i><b>3.5.6</b> Custom Functions</a></li>
+<li class="chapter" data-level="3.5.7" data-path="r-basics.html"><a href="r-basics.html#functions-from-r-packages"><i class="fa fa-check"></i><b>3.5.7</b> Functions from R Packages</a></li>
+<li class="chapter" data-level="3.5.8" data-path="r-basics.html"><a href="r-basics.html#indirect-functions"><i class="fa fa-check"></i><b>3.5.8</b> Indirect Functions</a></li>
+<li class="chapter" data-level="3.5.9" data-path="r-basics.html"><a href="r-basics.html#apply-functions"><i class="fa fa-check"></i><b>3.5.9</b> Apply Functions</a></li>
+<li class="chapter" data-level="3.5.10" data-path="r-basics.html"><a href="r-basics.html#advanced-higher-order-functions"><i class="fa fa-check"></i><b>3.5.10</b> Advanced Higher-Order Functions</a></li>
+<li class="chapter" data-level="3.5.11" data-path="r-basics.html"><a href="r-basics.html#wrapper-functions"><i class="fa fa-check"></i><b>3.5.11</b> Wrapper Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#tealbook"><i class="fa fa-check"></i><b>5.4</b> Tealbook</a>
+<li class="chapter" data-level="3.6" data-path="r-basics.html"><a href="r-basics.html#r-packages"><i class="fa fa-check"></i><b>3.6</b> R Packages</a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#import-excel-workbook"><i class="fa fa-check"></i><b>5.4.1</b> Import Excel Workbook</a></li>
-<li class="chapter" data-level="5.4.2" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#nowcast-and-backcast"><i class="fa fa-check"></i><b>5.4.2</b> Nowcast and Backcast</a></li>
-<li class="chapter" data-level="5.4.3" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#information-date-and-realization-date"><i class="fa fa-check"></i><b>5.4.3</b> Information Date and Realization Date</a></li>
-<li class="chapter" data-level="5.4.4" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#plotting-forecasts"><i class="fa fa-check"></i><b>5.4.4</b> Plotting Forecasts</a></li>
-<li class="chapter" data-level="5.4.5" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#plotting-forecast-errors"><i class="fa fa-check"></i><b>5.4.5</b> Plotting Forecast Errors</a></li>
+<li class="chapter" data-level="3.6.1" data-path="r-basics.html"><a href="r-basics.html#cran"><i class="fa fa-check"></i><b>3.6.1</b> CRAN</a></li>
+<li class="chapter" data-level="3.6.2" data-path="r-basics.html"><a href="r-basics.html#load-and-update-packages"><i class="fa fa-check"></i><b>3.6.2</b> Load and Update Packages</a></li>
+<li class="chapter" data-level="3.6.3" data-path="r-basics.html"><a href="r-basics.html#noteworthy-packages"><i class="fa fa-check"></i><b>3.6.3</b> Noteworthy Packages</a></li>
+<li class="chapter" data-level="3.6.4" data-path="r-basics.html"><a href="r-basics.html#package-documentation"><i class="fa fa-check"></i><b>3.6.4</b> Package Documentation</a></li>
+<li class="chapter" data-level="3.6.5" data-path="r-basics.html"><a href="r-basics.html#function-name-conflicts"><i class="fa fa-check"></i><b>3.6.5</b> Function Name Conflicts</a></li>
+<li class="chapter" data-level="3.6.6" data-path="r-basics.html"><a href="r-basics.html#non-exported-functions"><i class="fa fa-check"></i><b>3.6.6</b> Non-Exported Functions</a></li>
+<li class="chapter" data-level="3.6.7" data-path="r-basics.html"><a href="r-basics.html#the-tidyverse"><i class="fa fa-check"></i><b>3.6.7</b> The Tidyverse</a></li>
+<li class="chapter" data-level="3.6.8" data-path="r-basics.html"><a href="r-basics.html#citing-r-packages"><i class="fa fa-check"></i><b>3.6.8</b> Citing R Packages</a></li>
 </ul></li>
+<li class="chapter" data-level="3.7" data-path="r-basics.html"><a href="r-basics.html#file-management"><i class="fa fa-check"></i><b>3.7</b> File Management</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="r-basics.html"><a href="r-basics.html#find-folder-path"><i class="fa fa-check"></i><b>3.7.1</b> Find Folder Path</a></li>
+<li class="chapter" data-level="3.7.2" data-path="r-basics.html"><a href="r-basics.html#set-working-directory"><i class="fa fa-check"></i><b>3.7.2</b> Set Working Directory</a></li>
+<li class="chapter" data-level="3.7.3" data-path="r-basics.html"><a href="r-basics.html#download-files"><i class="fa fa-check"></i><b>3.7.3</b> Download Files</a></li>
+<li class="chapter" data-level="3.7.4" data-path="r-basics.html"><a href="r-basics.html#import-files"><i class="fa fa-check"></i><b>3.7.4</b> Import Files</a></li>
+<li class="chapter" data-level="3.7.5" data-path="r-basics.html"><a href="r-basics.html#export-files"><i class="fa fa-check"></i><b>3.7.5</b> Export Files</a></li>
+<li class="chapter" data-level="3.7.6" data-path="r-basics.html"><a href="r-basics.html#delete-files"><i class="fa fa-check"></i><b>3.7.6</b> Delete Files</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="downloading-data-in-r.html"><a href="downloading-data-in-r.html"><i class="fa fa-check"></i><b>6</b> Downloading Data in R</a>
+<li class="chapter" data-level="3.8" data-path="r-basics.html"><a href="r-basics.html#optimal-workflow"><i class="fa fa-check"></i><b>3.8</b> Optimal Workflow</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="downloading-data-in-r.html"><a href="downloading-data-in-r.html#web-api"><i class="fa fa-check"></i><b>6.1</b> Web API</a></li>
-<li class="chapter" data-level="6.2" data-path="downloading-data-in-r.html"><a href="downloading-data-in-r.html#using-getsymbols"><i class="fa fa-check"></i><b>6.2</b> Using <code>getSymbols()</code></a></li>
-<li class="chapter" data-level="6.3" data-path="downloading-data-in-r.html"><a href="downloading-data-in-r.html#using-quandl"><i class="fa fa-check"></i><b>6.3</b> Using <code>Quandl()</code></a></li>
-<li class="chapter" data-level="6.4" data-path="downloading-data-in-r.html"><a href="downloading-data-in-r.html#saving-data"><i class="fa fa-check"></i><b>6.4</b> Saving Data</a></li>
-<li class="chapter" data-level="6.5" data-path="downloading-data-in-r.html"><a href="downloading-data-in-r.html#summary-and-resources"><i class="fa fa-check"></i><b>6.5</b> Summary and Resources</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html"><i class="fa fa-check"></i><b>7</b> Writing Reports with R Markdown</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#creating-an-r-markdown-document"><i class="fa fa-check"></i><b>7.1</b> Creating an R Markdown Document</a></li>
-<li class="chapter" data-level="7.2" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#yaml-header"><i class="fa fa-check"></i><b>7.2</b> YAML Header</a></li>
-<li class="chapter" data-level="7.3" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#markdown-syntax"><i class="fa fa-check"></i><b>7.3</b> Markdown Syntax</a></li>
-<li class="chapter" data-level="7.4" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#r-chunks"><i class="fa fa-check"></i><b>7.4</b> R Chunks</a></li>
-<li class="chapter" data-level="7.5" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#embedding-r-variables-into-text"><i class="fa fa-check"></i><b>7.5</b> Embedding R Variables into Text</a></li>
-<li class="chapter" data-level="7.6" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#latex-syntax-for-math"><i class="fa fa-check"></i><b>7.6</b> LaTeX Syntax for Math</a></li>
-<li class="chapter" data-level="7.7" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#printing-tables"><i class="fa fa-check"></i><b>7.7</b> Printing Tables</a></li>
-<li class="chapter" data-level="7.8" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#summary-and-resources-1"><i class="fa fa-check"></i><b>7.8</b> Summary and Resources</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="learning-r-with-datacamp.html"><a href="learning-r-with-datacamp.html"><i class="fa fa-check"></i><b>8</b> Learning R with DataCamp</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="learning-r-with-datacamp.html"><a href="learning-r-with-datacamp.html#preparing-for-the-course"><i class="fa fa-check"></i><b>8.1</b> Preparing for the Course</a></li>
-<li class="chapter" data-level="8.2" data-path="learning-r-with-datacamp.html"><a href="learning-r-with-datacamp.html#xp-system-and-course-completion"><i class="fa fa-check"></i><b>8.2</b> XP System and Course Completion</a></li>
-<li class="chapter" data-level="8.3" data-path="learning-r-with-datacamp.html"><a href="learning-r-with-datacamp.html#developing-your-skills"><i class="fa fa-check"></i><b>8.3</b> Developing Your Skills</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="data-report-on-yield-curve.html"><a href="data-report-on-yield-curve.html"><i class="fa fa-check"></i><b>9</b> Data Report on Yield Curve</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="data-report-on-yield-curve.html"><a href="data-report-on-yield-curve.html#preparations"><i class="fa fa-check"></i><b>9.1</b> Preparations</a></li>
-<li class="chapter" data-level="9.2" data-path="data-report-on-yield-curve.html"><a href="data-report-on-yield-curve.html#data-guidelines"><i class="fa fa-check"></i><b>9.2</b> Data Guidelines</a></li>
-<li class="chapter" data-level="9.3" data-path="data-report-on-yield-curve.html"><a href="data-report-on-yield-curve.html#r-markdown-guidelines"><i class="fa fa-check"></i><b>9.3</b> R Markdown Guidelines</a></li>
-</ul></li>
-<li class="part"><span><b>Module II</b></span></li>
-<li class="chapter" data-level="" data-path="module-ii.html"><a href="module-ii.html"><i class="fa fa-check"></i><em>Traditional Economic Indicators</em></a></li>
-<li class="chapter" data-level="10" data-path="economic-indicators.html"><a href="economic-indicators.html"><i class="fa fa-check"></i><b>10</b> Economic Indicators</a></li>
-<li class="chapter" data-level="11" data-path="data-categorization.html"><a href="data-categorization.html"><i class="fa fa-check"></i><b>11</b> Data Categorization</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="data-categorization.html"><a href="data-categorization.html#qualitative-vs.-quantitative"><i class="fa fa-check"></i><b>11.1</b> Qualitative vs. Quantitative</a></li>
-<li class="chapter" data-level="11.2" data-path="data-categorization.html"><a href="data-categorization.html#discrete-vs.-continuous"><i class="fa fa-check"></i><b>11.2</b> Discrete vs. Continuous</a></li>
-<li class="chapter" data-level="11.3" data-path="data-categorization.html"><a href="data-categorization.html#levels-of-measurement"><i class="fa fa-check"></i><b>11.3</b> Levels of Measurement</a>
-<ul>
-<li class="chapter" data-level="11.3.1" data-path="data-categorization.html"><a href="data-categorization.html#nominal-scale-variables"><i class="fa fa-check"></i><b>11.3.1</b> Nominal Scale Variables</a></li>
-<li class="chapter" data-level="11.3.2" data-path="data-categorization.html"><a href="data-categorization.html#ordinal-scale-variables"><i class="fa fa-check"></i><b>11.3.2</b> Ordinal Scale Variables</a></li>
-<li class="chapter" data-level="11.3.3" data-path="data-categorization.html"><a href="data-categorization.html#interval-scale-variables"><i class="fa fa-check"></i><b>11.3.3</b> Interval Scale Variables</a></li>
-<li class="chapter" data-level="11.3.4" data-path="data-categorization.html"><a href="data-categorization.html#ratio-scale-variables"><i class="fa fa-check"></i><b>11.3.4</b> Ratio Scale Variables</a></li>
-</ul></li>
-<li class="chapter" data-level="11.4" data-path="data-categorization.html"><a href="data-categorization.html#index-vs.-absolute-data"><i class="fa fa-check"></i><b>11.4</b> Index vs. Absolute Data</a>
-<ul>
-<li class="chapter" data-level="11.4.1" data-path="data-categorization.html"><a href="data-categorization.html#index-data"><i class="fa fa-check"></i><b>11.4.1</b> Index Data</a></li>
-<li class="chapter" data-level="11.4.2" data-path="data-categorization.html"><a href="data-categorization.html#absolute-data"><i class="fa fa-check"></i><b>11.4.2</b> Absolute Data</a></li>
-</ul></li>
-<li class="chapter" data-level="11.5" data-path="data-categorization.html"><a href="data-categorization.html#stock-vs.-flow"><i class="fa fa-check"></i><b>11.5</b> Stock vs. Flow</a>
-<ul>
-<li class="chapter" data-level="11.5.1" data-path="data-categorization.html"><a href="data-categorization.html#stock-variables"><i class="fa fa-check"></i><b>11.5.1</b> Stock Variables</a></li>
-<li class="chapter" data-level="11.5.2" data-path="data-categorization.html"><a href="data-categorization.html#flow-variables"><i class="fa fa-check"></i><b>11.5.2</b> Flow Variables</a></li>
-<li class="chapter" data-level="11.5.3" data-path="data-categorization.html"><a href="data-categorization.html#accounting"><i class="fa fa-check"></i><b>11.5.3</b> Accounting</a></li>
-</ul></li>
-<li class="chapter" data-level="11.6" data-path="data-categorization.html"><a href="data-categorization.html#data-dimensions"><i class="fa fa-check"></i><b>11.6</b> Data Dimensions</a>
-<ul>
-<li class="chapter" data-level="11.6.1" data-path="data-categorization.html"><a href="data-categorization.html#cross-sectional-data"><i class="fa fa-check"></i><b>11.6.1</b> Cross-Sectional Data</a></li>
-<li class="chapter" data-level="11.6.2" data-path="data-categorization.html"><a href="data-categorization.html#time-series-data"><i class="fa fa-check"></i><b>11.6.2</b> Time Series Data</a></li>
-<li class="chapter" data-level="11.6.3" data-path="data-categorization.html"><a href="data-categorization.html#panel-data"><i class="fa fa-check"></i><b>11.6.3</b> Panel Data</a></li>
-<li class="chapter" data-level="11.6.4" data-path="data-categorization.html"><a href="data-categorization.html#spatial-data"><i class="fa fa-check"></i><b>11.6.4</b> Spatial Data</a></li>
-<li class="chapter" data-level="11.6.5" data-path="data-categorization.html"><a href="data-categorization.html#clustered-data"><i class="fa fa-check"></i><b>11.6.5</b> Clustered Data</a></li>
-</ul></li>
-<li class="chapter" data-level="11.7" data-path="data-categorization.html"><a href="data-categorization.html#conclusion-data-categorization"><i class="fa fa-check"></i><b>11.7</b> Conclusion</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>12</b> Data Transformation</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="data-transformation.html"><a href="data-transformation.html#example-data"><i class="fa fa-check"></i><b>12.1</b> Example Data</a></li>
-<li class="chapter" data-level="12.2" data-path="data-transformation.html"><a href="data-transformation.html#growth"><i class="fa fa-check"></i><b>12.2</b> Growth</a>
-<ul>
-<li class="chapter" data-level="12.2.1" data-path="data-transformation.html"><a href="data-transformation.html#definition-growth-rates"><i class="fa fa-check"></i><b>12.2.1</b> Definition</a></li>
-<li class="chapter" data-level="12.2.2" data-path="data-transformation.html"><a href="data-transformation.html#log-approximation"><i class="fa fa-check"></i><b>12.2.2</b> Log Approximation</a></li>
-<li class="chapter" data-level="12.2.3" data-path="data-transformation.html"><a href="data-transformation.html#relativity"><i class="fa fa-check"></i><b>12.2.3</b> Relativity</a></li>
-<li class="chapter" data-level="12.2.4" data-path="data-transformation.html"><a href="data-transformation.html#return-and-inflation"><i class="fa fa-check"></i><b>12.2.4</b> Return and Inflation</a></li>
-<li class="chapter" data-level="12.2.5" data-path="data-transformation.html"><a href="data-transformation.html#applicability-growth"><i class="fa fa-check"></i><b>12.2.5</b> Applicability</a></li>
-</ul></li>
-<li class="chapter" data-level="12.3" data-path="data-transformation.html"><a href="data-transformation.html#differentiation"><i class="fa fa-check"></i><b>12.3</b> Differentiation</a>
-<ul>
-<li class="chapter" data-level="12.3.1" data-path="data-transformation.html"><a href="data-transformation.html#definition-differentiation"><i class="fa fa-check"></i><b>12.3.1</b> Definition</a></li>
-<li class="chapter" data-level="12.3.2" data-path="data-transformation.html"><a href="data-transformation.html#pp"><i class="fa fa-check"></i><b>12.3.2</b> Percentage Points (pp)</a></li>
-<li class="chapter" data-level="12.3.3" data-path="data-transformation.html"><a href="data-transformation.html#bp"><i class="fa fa-check"></i><b>12.3.3</b> Basis Points (bp)</a></li>
-</ul></li>
-<li class="chapter" data-level="12.4" data-path="data-transformation.html"><a href="data-transformation.html#log"><i class="fa fa-check"></i><b>12.4</b> Natural Logarithm</a>
-<ul>
-<li class="chapter" data-level="12.4.1" data-path="data-transformation.html"><a href="data-transformation.html#definition-natural-logarithm"><i class="fa fa-check"></i><b>12.4.1</b> Definition</a></li>
-<li class="chapter" data-level="12.4.2" data-path="data-transformation.html"><a href="data-transformation.html#motivation-natural-logarithm"><i class="fa fa-check"></i><b>12.4.2</b> Motivation</a></li>
-<li class="chapter" data-level="12.4.3" data-path="data-transformation.html"><a href="data-transformation.html#applicability-natural-logarithm"><i class="fa fa-check"></i><b>12.4.3</b> Applicability</a></li>
-</ul></li>
-<li class="chapter" data-level="12.5" data-path="data-transformation.html"><a href="data-transformation.html#ratio"><i class="fa fa-check"></i><b>12.5</b> Ratio</a>
-<ul>
-<li class="chapter" data-level="12.5.1" data-path="data-transformation.html"><a href="data-transformation.html#definition-ratio"><i class="fa fa-check"></i><b>12.5.1</b> Definition</a></li>
-<li class="chapter" data-level="12.5.2" data-path="data-transformation.html"><a href="data-transformation.html#per-capita"><i class="fa fa-check"></i><b>12.5.2</b> Per Capita</a></li>
-<li class="chapter" data-level="12.5.3" data-path="data-transformation.html"><a href="data-transformation.html#real-vs.-nominal"><i class="fa fa-check"></i><b>12.5.3</b> Real vs. Nominal</a></li>
-<li class="chapter" data-level="12.5.4" data-path="data-transformation.html"><a href="data-transformation.html#growth-of-ratios"><i class="fa fa-check"></i><b>12.5.4</b> Growth of Ratios</a></li>
-</ul></li>
-<li class="chapter" data-level="12.6" data-path="data-transformation.html"><a href="data-transformation.html#gap"><i class="fa fa-check"></i><b>12.6</b> Gap</a></li>
-<li class="chapter" data-level="12.7" data-path="data-transformation.html"><a href="data-transformation.html#filtering"><i class="fa fa-check"></i><b>12.7</b> Filtering</a>
-<ul>
-<li class="chapter" data-level="12.7.1" data-path="data-transformation.html"><a href="data-transformation.html#frequency-filtering"><i class="fa fa-check"></i><b>12.7.1</b> Frequency Filtering</a></li>
-<li class="chapter" data-level="12.7.2" data-path="data-transformation.html"><a href="data-transformation.html#detrending"><i class="fa fa-check"></i><b>12.7.2</b> Detrending</a></li>
-<li class="chapter" data-level="12.7.3" data-path="data-transformation.html"><a href="data-transformation.html#seasonal-adjustment"><i class="fa fa-check"></i><b>12.7.3</b> Seasonal Adjustment</a></li>
+<li class="chapter" data-level="3.8.1" data-path="r-basics.html"><a href="r-basics.html#execute-as-you-write"><i class="fa fa-check"></i><b>3.8.1</b> Execute as You Write</a></li>
+<li class="chapter" data-level="3.8.2" data-path="r-basics.html"><a href="r-basics.html#key-shortcuts"><i class="fa fa-check"></i><b>3.8.2</b> Key Shortcuts</a></li>
+<li class="chapter" data-level="3.8.3" data-path="r-basics.html"><a href="r-basics.html#separate-window-for-r-script"><i class="fa fa-check"></i><b>3.8.3</b> Separate Window for R Script</a></li>
+<li class="chapter" data-level="3.8.4" data-path="r-basics.html"><a href="r-basics.html#conclusion"><i class="fa fa-check"></i><b>3.8.4</b> Conclusion</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="data-aggregation.html"><a href="data-aggregation.html"><i class="fa fa-check"></i><b>13</b> Data Aggregation</a></li>
-<li class="chapter" data-level="14" data-path="data-source.html"><a href="data-source.html"><i class="fa fa-check"></i><b>14</b> Data Source</a>
+<li class="chapter" data-level="4" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html"><i class="fa fa-check"></i><b>4</b> Data Structures in R</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="data-source.html"><a href="data-source.html#bureau-of-economic-analysis-bea"><i class="fa fa-check"></i><b>14.1</b> Bureau of Economic Analysis (BEA)</a></li>
-<li class="chapter" data-level="14.2" data-path="data-source.html"><a href="data-source.html#u.s.-census-bureau"><i class="fa fa-check"></i><b>14.2</b> U.S. Census Bureau</a></li>
-<li class="chapter" data-level="14.3" data-path="data-source.html"><a href="data-source.html#bureau-of-labor-statistics-bls"><i class="fa fa-check"></i><b>14.3</b> Bureau of Labor Statistics (BLS)</a></li>
-<li class="chapter" data-level="14.4" data-path="data-source.html"><a href="data-source.html#federal-reserve-board-of-governors"><i class="fa fa-check"></i><b>14.4</b> Federal Reserve Board of Governors</a></li>
-<li class="chapter" data-level="14.5" data-path="data-source.html"><a href="data-source.html#u.s.-department-of-the-treasury"><i class="fa fa-check"></i><b>14.5</b> U.S. Department of the Treasury</a></li>
-<li class="chapter" data-level="14.6" data-path="data-source.html"><a href="data-source.html#financial-market-exchanges"><i class="fa fa-check"></i><b>14.6</b> Financial Market Exchanges</a></li>
-<li class="chapter" data-level="14.7" data-path="data-source.html"><a href="data-source.html#federal-reserve-economic-data-fred"><i class="fa fa-check"></i><b>14.7</b> Federal Reserve Economic Data (FRED)</a></li>
-<li class="chapter" data-level="14.8" data-path="data-source.html"><a href="data-source.html#u.s.-department-of-agriculture-economic-research-service-ers"><i class="fa fa-check"></i><b>14.8</b> U.S. Department of Agriculture Economic Research Service (ERS)</a></li>
-<li class="chapter" data-level="14.9" data-path="data-source.html"><a href="data-source.html#bloomberg"><i class="fa fa-check"></i><b>14.9</b> Bloomberg</a></li>
-<li class="chapter" data-level="14.10" data-path="data-source.html"><a href="data-source.html#yahoo-finance"><i class="fa fa-check"></i><b>14.10</b> Yahoo Finance</a></li>
+<li class="chapter" data-level="4.1" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#scalar"><i class="fa fa-check"></i><b>4.1</b> Scalar</a></li>
+<li class="chapter" data-level="4.2" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#vector"><i class="fa fa-check"></i><b>4.2</b> Vector</a></li>
+<li class="chapter" data-level="4.3" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#matrix"><i class="fa fa-check"></i><b>4.3</b> Matrix (<code>matrix</code>)</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#create-a-matrix"><i class="fa fa-check"></i><b>4.3.1</b> Create a Matrix</a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#inspect-a-matrix"><i class="fa fa-check"></i><b>4.3.2</b> Inspect a Matrix</a></li>
+<li class="chapter" data-level="4.3.3" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#select-and-modify-matrix"><i class="fa fa-check"></i><b>4.3.3</b> Select and Modify</a></li>
+<li class="chapter" data-level="4.3.4" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#add-labels-matrix"><i class="fa fa-check"></i><b>4.3.4</b> Add Labels</a></li>
+<li class="chapter" data-level="4.3.5" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#handle-missing-values-matrix"><i class="fa fa-check"></i><b>4.3.5</b> Handle Missing Values</a></li>
+<li class="chapter" data-level="4.3.6" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#element-wise-operations"><i class="fa fa-check"></i><b>4.3.6</b> Element-Wise Operations</a></li>
+<li class="chapter" data-level="4.3.7" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#linear-algebra-operations"><i class="fa fa-check"></i><b>4.3.7</b> Linear Algebra Operations</a></li>
+<li class="chapter" data-level="4.3.8" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#combine-matrices"><i class="fa fa-check"></i><b>4.3.8</b> Combine Matrices</a></li>
+<li class="chapter" data-level="4.3.9" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#apply-family-matrix"><i class="fa fa-check"></i><b>4.3.9</b> Apply Family</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="temporal-patterns.html"><a href="temporal-patterns.html"><i class="fa fa-check"></i><b>15</b> Temporal Patterns</a>
+<li class="chapter" data-level="4.4" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#list"><i class="fa fa-check"></i><b>4.4</b> List (<code>list</code>)</a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="temporal-patterns.html"><a href="temporal-patterns.html#time-series-data-1"><i class="fa fa-check"></i><b>15.1</b> Time Series Data</a>
-<ul>
-<li class="chapter" data-level="15.1.1" data-path="temporal-patterns.html"><a href="temporal-patterns.html#definition"><i class="fa fa-check"></i><b>15.1.1</b> Definition</a></li>
-<li class="chapter" data-level="15.1.2" data-path="temporal-patterns.html"><a href="temporal-patterns.html#features"><i class="fa fa-check"></i><b>15.1.2</b> Features</a></li>
-<li class="chapter" data-level="15.1.3" data-path="temporal-patterns.html"><a href="temporal-patterns.html#visualization"><i class="fa fa-check"></i><b>15.1.3</b> Visualization</a></li>
+<li class="chapter" data-level="4.4.1" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#create-a-list"><i class="fa fa-check"></i><b>4.4.1</b> Create a List</a></li>
+<li class="chapter" data-level="4.4.2" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#inspect-a-list"><i class="fa fa-check"></i><b>4.4.2</b> Inspect a List</a></li>
+<li class="chapter" data-level="4.4.3" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#select-and-modify-list"><i class="fa fa-check"></i><b>4.4.3</b> Select and Modify</a></li>
+<li class="chapter" data-level="4.4.4" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#add-labels-list"><i class="fa fa-check"></i><b>4.4.4</b> Add Labels</a></li>
+<li class="chapter" data-level="4.4.5" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#combine-lists"><i class="fa fa-check"></i><b>4.4.5</b> Combine Lists</a></li>
+<li class="chapter" data-level="4.4.6" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#apply-family-list"><i class="fa fa-check"></i><b>4.4.6</b> Apply Family</a></li>
 </ul></li>
-<li class="chapter" data-level="15.2" data-path="temporal-patterns.html"><a href="temporal-patterns.html#trend"><i class="fa fa-check"></i><b>15.2</b> Trend</a>
+<li class="chapter" data-level="4.5" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#data.frame"><i class="fa fa-check"></i><b>4.5</b> Data Frame (<code>data.frame</code>)</a>
 <ul>
-<li class="chapter" data-level="15.2.1" data-path="temporal-patterns.html"><a href="temporal-patterns.html#sustained-growth"><i class="fa fa-check"></i><b>15.2.1</b> Sustained Growth</a></li>
-<li class="chapter" data-level="15.2.2" data-path="temporal-patterns.html"><a href="temporal-patterns.html#decrease-in-poverty"><i class="fa fa-check"></i><b>15.2.2</b> Decrease in Poverty</a></li>
-<li class="chapter" data-level="15.2.3" data-path="temporal-patterns.html"><a href="temporal-patterns.html#aging-population"><i class="fa fa-check"></i><b>15.2.3</b> Aging Population</a></li>
-<li class="chapter" data-level="15.2.4" data-path="temporal-patterns.html"><a href="temporal-patterns.html#productivity-labor-trade-off"><i class="fa fa-check"></i><b>15.2.4</b> Productivity-Labor Trade-Off</a></li>
-<li class="chapter" data-level="15.2.5" data-path="temporal-patterns.html"><a href="temporal-patterns.html#trend-inflation"><i class="fa fa-check"></i><b>15.2.5</b> Trend Inflation</a></li>
-<li class="chapter" data-level="15.2.6" data-path="temporal-patterns.html"><a href="temporal-patterns.html#decline-in-labor-share"><i class="fa fa-check"></i><b>15.2.6</b> Decline in Labor Share</a></li>
+<li class="chapter" data-level="4.5.1" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#create-a-data-frame"><i class="fa fa-check"></i><b>4.5.1</b> Create a Data Frame</a></li>
+<li class="chapter" data-level="4.5.2" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#inspect-a-data-frame"><i class="fa fa-check"></i><b>4.5.2</b> Inspect a Data Frame</a></li>
+<li class="chapter" data-level="4.5.3" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#select-and-modify-data.frame"><i class="fa fa-check"></i><b>4.5.3</b> Select and Modify</a></li>
+<li class="chapter" data-level="4.5.4" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#add-labels-data.frame"><i class="fa fa-check"></i><b>4.5.4</b> Add Labels</a></li>
+<li class="chapter" data-level="4.5.5" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#handle-missing-values-data.frame"><i class="fa fa-check"></i><b>4.5.5</b> Handle Missing Values</a></li>
+<li class="chapter" data-level="4.5.6" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#combine-data-frames"><i class="fa fa-check"></i><b>4.5.6</b> Combine Data Frames</a></li>
+<li class="chapter" data-level="4.5.7" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#apply-family-data.frame"><i class="fa fa-check"></i><b>4.5.7</b> Apply Family</a></li>
+<li class="chapter" data-level="4.5.8" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#reshape-data-frames"><i class="fa fa-check"></i><b>4.5.8</b> Reshape Data Frames</a></li>
 </ul></li>
-<li class="chapter" data-level="15.3" data-path="temporal-patterns.html"><a href="temporal-patterns.html#seasonality"><i class="fa fa-check"></i><b>15.3</b> Seasonality</a>
+<li class="chapter" data-level="4.6" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#tibble"><i class="fa fa-check"></i><b>4.6</b> Tibble (<code>tbl_df</code>)</a>
 <ul>
-<li class="chapter" data-level="15.3.1" data-path="temporal-patterns.html"><a href="temporal-patterns.html#holiday-season"><i class="fa fa-check"></i><b>15.3.1</b> Holiday Season</a></li>
-<li class="chapter" data-level="15.3.2" data-path="temporal-patterns.html"><a href="temporal-patterns.html#seasonal-weather"><i class="fa fa-check"></i><b>15.3.2</b> Seasonal Weather</a></li>
-<li class="chapter" data-level="15.3.3" data-path="temporal-patterns.html"><a href="temporal-patterns.html#seasonal-employment"><i class="fa fa-check"></i><b>15.3.3</b> Seasonal Employment</a></li>
+<li class="chapter" data-level="4.6.1" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#create-a-tibble"><i class="fa fa-check"></i><b>4.6.1</b> Create a Tibble</a></li>
+<li class="chapter" data-level="4.6.2" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#inspect-a-tibble"><i class="fa fa-check"></i><b>4.6.2</b> Inspect a Tibble</a></li>
+<li class="chapter" data-level="4.6.3" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#select-and-modify-tibble"><i class="fa fa-check"></i><b>4.6.3</b> Select and Modify</a></li>
+<li class="chapter" data-level="4.6.4" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#add-labels-tibble"><i class="fa fa-check"></i><b>4.6.4</b> Add Labels</a></li>
+<li class="chapter" data-level="4.6.5" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#handle-missing-values-tibble"><i class="fa fa-check"></i><b>4.6.5</b> Handle Missing Values</a></li>
+<li class="chapter" data-level="4.6.6" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#combine-tibbles"><i class="fa fa-check"></i><b>4.6.6</b> Combine Tibbles</a></li>
+<li class="chapter" data-level="4.6.7" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#apply-family-tibble"><i class="fa fa-check"></i><b>4.6.7</b> Apply Family</a></li>
+<li class="chapter" data-level="4.6.8" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#reshape-tibbles"><i class="fa fa-check"></i><b>4.6.8</b> Reshape Tibbles</a></li>
 </ul></li>
-<li class="chapter" data-level="15.4" data-path="temporal-patterns.html"><a href="temporal-patterns.html#business-cycle"><i class="fa fa-check"></i><b>15.4</b> Business Cycle</a>
+<li class="chapter" data-level="4.7" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#data.table"><i class="fa fa-check"></i><b>4.7</b> Data Table (<code>data.table</code>)</a></li>
+<li class="chapter" data-level="4.8" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#xts"><i class="fa fa-check"></i><b>4.8</b> Extensible Time Series (<code>xts</code>)</a>
 <ul>
-<li class="chapter" data-level="15.4.1" data-path="temporal-patterns.html"><a href="temporal-patterns.html#costs-of-business-cycles"><i class="fa fa-check"></i><b>15.4.1</b> Costs of Business Cycles</a></li>
-<li class="chapter" data-level="15.4.2" data-path="temporal-patterns.html"><a href="temporal-patterns.html#cyclicality-and-timing"><i class="fa fa-check"></i><b>15.4.2</b> Cyclicality and Timing</a></li>
-<li class="chapter" data-level="15.4.3" data-path="temporal-patterns.html"><a href="temporal-patterns.html#consumption-smoothing"><i class="fa fa-check"></i><b>15.4.3</b> Consumption Smoothing</a></li>
+<li class="chapter" data-level="4.8.1" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#create-an-xts-object"><i class="fa fa-check"></i><b>4.8.1</b> Create an <code>xts</code> Object</a></li>
+<li class="chapter" data-level="4.8.2" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#inspect-an-xts-object"><i class="fa fa-check"></i><b>4.8.2</b> Inspect an <code>xts</code> Object</a></li>
+<li class="chapter" data-level="4.8.3" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#select-and-modify-xts"><i class="fa fa-check"></i><b>4.8.3</b> Select and Modify</a></li>
+<li class="chapter" data-level="4.8.4" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#add-labels-xts"><i class="fa fa-check"></i><b>4.8.4</b> Add Labels</a></li>
+<li class="chapter" data-level="4.8.5" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#handle-missing-values-xts"><i class="fa fa-check"></i><b>4.8.5</b> Handle Missing Values</a></li>
+<li class="chapter" data-level="4.8.6" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#combine-xts-objects"><i class="fa fa-check"></i><b>4.8.6</b> Combine xts Objects</a></li>
+<li class="chapter" data-level="4.8.7" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#time-series-transformations"><i class="fa fa-check"></i><b>4.8.7</b> Time Series Transformations</a></li>
+<li class="chapter" data-level="4.8.8" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#apply-family-xts"><i class="fa fa-check"></i><b>4.8.8</b> Apply Family</a></li>
+<li class="chapter" data-level="4.8.9" data-path="data-structures-in-r.html"><a href="data-structures-in-r.html#resources-xts"><i class="fa fa-check"></i><b>4.8.9</b> Resources</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="regional-patterns.html"><a href="regional-patterns.html"><i class="fa fa-check"></i><b>16</b> Regional Patterns</a>
+<li class="chapter" data-level="5" data-path="process-data-in-r.html"><a href="process-data-in-r.html"><i class="fa fa-check"></i><b>5</b> Process Data in R</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="regional-patterns.html"><a href="regional-patterns.html#county-level"><i class="fa fa-check"></i><b>16.1</b> County-Level</a></li>
-<li class="chapter" data-level="16.2" data-path="regional-patterns.html"><a href="regional-patterns.html#state-level"><i class="fa fa-check"></i><b>16.2</b> State-Level</a></li>
-<li class="chapter" data-level="16.3" data-path="regional-patterns.html"><a href="regional-patterns.html#country-level"><i class="fa fa-check"></i><b>16.3</b> Country-Level</a></li>
-</ul></li>
-<li class="chapter" data-level="17" data-path="causal-relationships.html"><a href="causal-relationships.html"><i class="fa fa-check"></i><b>17</b> Causal Relationships</a></li>
-<li class="chapter" data-level="18" data-path="data-report-on-traditional-economic-indicators.html"><a href="data-report-on-traditional-economic-indicators.html"><i class="fa fa-check"></i><b>18</b> Data Report on Traditional Economic Indicators</a>
+<li class="chapter" data-level="5.1" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-bitcoin-price-data"><i class="fa fa-check"></i><b>5.1</b> Process Bitcoin Price Data</a>
 <ul>
-<li class="chapter" data-level="18.1" data-path="data-report-on-traditional-economic-indicators.html"><a href="data-report-on-traditional-economic-indicators.html#preparations-2"><i class="fa fa-check"></i><b>18.1</b> Preparations</a></li>
-<li class="chapter" data-level="18.2" data-path="data-report-on-traditional-economic-indicators.html"><a href="data-report-on-traditional-economic-indicators.html#data-guidelines-2"><i class="fa fa-check"></i><b>18.2</b> Data Guidelines</a></li>
-<li class="chapter" data-level="18.3" data-path="data-report-on-traditional-economic-indicators.html"><a href="data-report-on-traditional-economic-indicators.html#r-markdown-guidelines-2"><i class="fa fa-check"></i><b>18.3</b> R Markdown Guidelines</a></li>
+<li class="chapter" data-level="5.1.1" data-path="process-data-in-r.html"><a href="process-data-in-r.html#download-dsv-file"><i class="fa fa-check"></i><b>5.1.1</b> Download DSV File</a></li>
+<li class="chapter" data-level="5.1.2" data-path="process-data-in-r.html"><a href="process-data-in-r.html#import-dsv-file"><i class="fa fa-check"></i><b>5.1.2</b> Import DSV File</a></li>
+<li class="chapter" data-level="5.1.3" data-path="process-data-in-r.html"><a href="process-data-in-r.html#inspect-data"><i class="fa fa-check"></i><b>5.1.3</b> Inspect Data</a></li>
+<li class="chapter" data-level="5.1.4" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-bitcoin-price-data-clean-data"><i class="fa fa-check"></i><b>5.1.4</b> Clean Data</a></li>
+<li class="chapter" data-level="5.1.5" data-path="process-data-in-r.html"><a href="process-data-in-r.html#visualize-data"><i class="fa fa-check"></i><b>5.1.5</b> Visualize Data</a></li>
+<li class="chapter" data-level="5.1.6" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-bitcoin-price-data-export-data"><i class="fa fa-check"></i><b>5.1.6</b> Export Data</a></li>
 </ul></li>
-<li class="part"><span><b>Module III</b></span></li>
-<li class="chapter" data-level="" data-path="module-iii.html"><a href="module-iii.html"><i class="fa fa-check"></i><em>Survey- and Text-Based Economic Indicators</em></a></li>
-<li class="chapter" data-level="19" data-path="why-subjective-information-matters.html"><a href="why-subjective-information-matters.html"><i class="fa fa-check"></i><b>19</b> Why Subjective Information Matters</a></li>
-<li class="chapter" data-level="20" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html"><i class="fa fa-check"></i><b>20</b> Michigan Consumer Survey</a>
+<li class="chapter" data-level="5.2" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-stock-and-oil-prices"><i class="fa fa-check"></i><b>5.2</b> Process Stock and Oil Prices</a>
 <ul>
-<li class="chapter" data-level="20.1" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#introduction-1"><i class="fa fa-check"></i><b>20.1</b> Introduction</a></li>
-<li class="chapter" data-level="20.2" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#conducting-the-survey"><i class="fa fa-check"></i><b>20.2</b> Conducting the Survey</a></li>
-<li class="chapter" data-level="20.3" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#michigan-consumer-indices"><i class="fa fa-check"></i><b>20.3</b> Michigan Consumer Indices</a>
-<ul>
-<li class="chapter" data-level="20.3.1" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#index-of-consumer-sentiment-ics"><i class="fa fa-check"></i><b>20.3.1</b> Index of Consumer Sentiment (ICS)</a></li>
-<li class="chapter" data-level="20.3.2" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#index-of-current-economic-conditions-icc"><i class="fa fa-check"></i><b>20.3.2</b> Index of Current Economic Conditions (ICC)</a></li>
-<li class="chapter" data-level="20.3.3" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#index-of-consumer-expectations-ice"><i class="fa fa-check"></i><b>20.3.3</b> Index of Consumer Expectations (ICE)</a></li>
-<li class="chapter" data-level="20.3.4" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#importing-in-r"><i class="fa fa-check"></i><b>20.3.4</b> Importing in R</a></li>
+<li class="chapter" data-level="5.2.1" data-path="process-data-in-r.html"><a href="process-data-in-r.html#web-api"><i class="fa fa-check"></i><b>5.2.1</b> Web API</a></li>
+<li class="chapter" data-level="5.2.2" data-path="process-data-in-r.html"><a href="process-data-in-r.html#download-via-quantmod"><i class="fa fa-check"></i><b>5.2.2</b> Download via <code>quantmod</code></a></li>
+<li class="chapter" data-level="5.2.3" data-path="process-data-in-r.html"><a href="process-data-in-r.html#download-via-quandl"><i class="fa fa-check"></i><b>5.2.3</b> Download via <code>Quandl</code></a></li>
+<li class="chapter" data-level="5.2.4" data-path="process-data-in-r.html"><a href="process-data-in-r.html#clean-data"><i class="fa fa-check"></i><b>5.2.4</b> Clean Data</a></li>
+<li class="chapter" data-level="5.2.5" data-path="process-data-in-r.html"><a href="process-data-in-r.html#plot-apple-stock-prices"><i class="fa fa-check"></i><b>5.2.5</b> Plot Apple Stock Prices</a></li>
+<li class="chapter" data-level="5.2.6" data-path="process-data-in-r.html"><a href="process-data-in-r.html#plot-crude-oil-prices"><i class="fa fa-check"></i><b>5.2.6</b> Plot Crude Oil Prices</a></li>
+<li class="chapter" data-level="5.2.7" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-stock-and-oil-prices-merge-data"><i class="fa fa-check"></i><b>5.2.7</b> Merge Data</a></li>
+<li class="chapter" data-level="5.2.8" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-stock-and-oil-prices-transform-data"><i class="fa fa-check"></i><b>5.2.8</b> Transform Data</a></li>
+<li class="chapter" data-level="5.2.9" data-path="process-data-in-r.html"><a href="process-data-in-r.html#tabulate-key-statistics"><i class="fa fa-check"></i><b>5.2.9</b> Tabulate Key Statistics</a></li>
+<li class="chapter" data-level="5.2.10" data-path="process-data-in-r.html"><a href="process-data-in-r.html#visualize-correlations"><i class="fa fa-check"></i><b>5.2.10</b> Visualize Correlations</a></li>
 </ul></li>
-<li class="chapter" data-level="20.4" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#creating-custom-consumer-indices"><i class="fa fa-check"></i><b>20.4</b> Creating Custom Consumer Indices</a></li>
-<li class="chapter" data-level="20.5" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#importing-and-cleaning-individual-level-surveys"><i class="fa fa-check"></i><b>20.5</b> Importing and Cleaning Individual-Level Surveys</a>
+<li class="chapter" data-level="5.3" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-house-price-data"><i class="fa fa-check"></i><b>5.3</b> Process House Price Data</a>
 <ul>
-<li class="chapter" data-level="20.5.1" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#data-source-1"><i class="fa fa-check"></i><b>20.5.1</b> Data Source</a></li>
-<li class="chapter" data-level="20.5.2" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#data-labels"><i class="fa fa-check"></i><b>20.5.2</b> Data Labels</a></li>
-<li class="chapter" data-level="20.5.3" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#importing-the-data-set"><i class="fa fa-check"></i><b>20.5.3</b> Importing the Data Set</a></li>
-<li class="chapter" data-level="20.5.4" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#long-format"><i class="fa fa-check"></i><b>20.5.4</b> Long Format</a></li>
-<li class="chapter" data-level="20.5.5" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#saving-the-data"><i class="fa fa-check"></i><b>20.5.5</b> Saving the Data</a></li>
+<li class="chapter" data-level="5.3.1" data-path="process-data-in-r.html"><a href="process-data-in-r.html#download-excel-workbook"><i class="fa fa-check"></i><b>5.3.1</b> Download Excel Workbook</a></li>
+<li class="chapter" data-level="5.3.2" data-path="process-data-in-r.html"><a href="process-data-in-r.html#import-excel-workbook"><i class="fa fa-check"></i><b>5.3.2</b> Import Excel Workbook</a></li>
+<li class="chapter" data-level="5.3.3" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-house-price-data-inspect-and-clean-data"><i class="fa fa-check"></i><b>5.3.3</b> Inspect and Clean Data</a></li>
+<li class="chapter" data-level="5.3.4" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-house-price-data-reshape-data"><i class="fa fa-check"></i><b>5.3.4</b> Reshape Data</a></li>
+<li class="chapter" data-level="5.3.5" data-path="process-data-in-r.html"><a href="process-data-in-r.html#layered-line-graphs"><i class="fa fa-check"></i><b>5.3.5</b> Layered Line Graphs</a></li>
+<li class="chapter" data-level="5.3.6" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-house-price-data-merge-data"><i class="fa fa-check"></i><b>5.3.6</b> Merge Data</a></li>
+<li class="chapter" data-level="5.3.7" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-house-price-data-transform-data"><i class="fa fa-check"></i><b>5.3.7</b> Transform Data</a></li>
+<li class="chapter" data-level="5.3.8" data-path="process-data-in-r.html"><a href="process-data-in-r.html#stationary-data"><i class="fa fa-check"></i><b>5.3.8</b> Stationary Data</a></li>
+<li class="chapter" data-level="5.3.9" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-house-price-data-export-data"><i class="fa fa-check"></i><b>5.3.9</b> Export Data</a></li>
+<li class="chapter" data-level="5.3.10" data-path="process-data-in-r.html"><a href="process-data-in-r.html#organize-data"><i class="fa fa-check"></i><b>5.3.10</b> Organize Data</a></li>
+<li class="chapter" data-level="5.3.11" data-path="process-data-in-r.html"><a href="process-data-in-r.html#univariate-statistics"><i class="fa fa-check"></i><b>5.3.11</b> Univariate Statistics</a></li>
+<li class="chapter" data-level="5.3.12" data-path="process-data-in-r.html"><a href="process-data-in-r.html#associative-statistics"><i class="fa fa-check"></i><b>5.3.12</b> Associative Statistics</a></li>
+<li class="chapter" data-level="5.3.13" data-path="process-data-in-r.html"><a href="process-data-in-r.html#layered-scatter-plots"><i class="fa fa-check"></i><b>5.3.13</b> Layered Scatter Plots</a></li>
 </ul></li>
-<li class="chapter" data-level="20.6" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#exploring-individual-level-data"><i class="fa fa-check"></i><b>20.6</b> Exploring Individual-Level Data</a></li>
-<li class="chapter" data-level="20.7" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#replicate-ics"><i class="fa fa-check"></i><b>20.7</b> Replicate ICS</a></li>
-<li class="chapter" data-level="20.8" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#conclusion"><i class="fa fa-check"></i><b>20.8</b> Conclusion</a></li>
+<li class="chapter" data-level="5.4" data-path="process-data-in-r.html"><a href="process-data-in-r.html#process-data-resources"><i class="fa fa-check"></i><b>5.4</b> Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="real-time-and-forecaster-data.html"><a href="real-time-and-forecaster-data.html"><i class="fa fa-check"></i><b>21</b> Real-Time and Forecaster Data</a></li>
-<li class="chapter" data-level="22" data-path="text-based-economic-indicators.html"><a href="text-based-economic-indicators.html"><i class="fa fa-check"></i><b>22</b> Text-Based Economic Indicators</a></li>
-<li class="chapter" data-level="23" data-path="data-report-on-survey--and-text-based-economic-indicators.html"><a href="data-report-on-survey--and-text-based-economic-indicators.html"><i class="fa fa-check"></i><b>23</b> Data Report on Survey- and Text-Based Economic Indicators</a>
+<li class="chapter" data-level="6" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html"><i class="fa fa-check"></i><b>6</b> Write Reports with R Markdown</a>
 <ul>
-<li class="chapter" data-level="23.1" data-path="data-report-on-survey--and-text-based-economic-indicators.html"><a href="data-report-on-survey--and-text-based-economic-indicators.html#preparations-3"><i class="fa fa-check"></i><b>23.1</b> Preparations</a></li>
-<li class="chapter" data-level="23.2" data-path="data-report-on-survey--and-text-based-economic-indicators.html"><a href="data-report-on-survey--and-text-based-economic-indicators.html#data-guidelines-3"><i class="fa fa-check"></i><b>23.2</b> Data Guidelines</a></li>
-<li class="chapter" data-level="23.3" data-path="data-report-on-survey--and-text-based-economic-indicators.html"><a href="data-report-on-survey--and-text-based-economic-indicators.html#r-markdown-guidelines-3"><i class="fa fa-check"></i><b>23.3</b> R Markdown Guidelines</a></li>
+<li class="chapter" data-level="6.1" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html#create-an-r-markdown-document"><i class="fa fa-check"></i><b>6.1</b> Create an R Markdown Document</a></li>
+<li class="chapter" data-level="6.2" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html#yaml-header"><i class="fa fa-check"></i><b>6.2</b> YAML Header</a></li>
+<li class="chapter" data-level="6.3" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html#markdown-syntax"><i class="fa fa-check"></i><b>6.3</b> Markdown Syntax</a></li>
+<li class="chapter" data-level="6.4" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html#r-chunks"><i class="fa fa-check"></i><b>6.4</b> R Chunks</a></li>
+<li class="chapter" data-level="6.5" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html#embed-r-variables-into-text"><i class="fa fa-check"></i><b>6.5</b> Embed R Variables into Text</a></li>
+<li class="chapter" data-level="6.6" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html#latex-syntax-for-math"><i class="fa fa-check"></i><b>6.6</b> LaTeX Syntax for Math</a></li>
+<li class="chapter" data-level="6.7" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html#print-tables"><i class="fa fa-check"></i><b>6.7</b> Print Tables</a></li>
+<li class="chapter" data-level="6.8" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html#escape-characters"><i class="fa fa-check"></i><b>6.8</b> Escape Characters</a>
+<ul>
+<li class="chapter" data-level="" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html#escape-in-markdown-text"><i class="fa fa-check"></i>Escape in Markdown Text</a></li>
+<li class="chapter" data-level="" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html#escape-in-code-chunks"><i class="fa fa-check"></i>Escape in Code Chunks</a></li>
+<li class="chapter" data-level="" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html#escaped-characters"><i class="fa fa-check"></i>Escaped Characters</a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="write-reports-with-r-markdown.html"><a href="write-reports-with-r-markdown.html#summary-and-resources"><i class="fa fa-check"></i><b>6.9</b> Summary and Resources</a></li>
+</ul></li>
+<li class="part"><span><b>Part II</b></span></li>
+<li class="chapter" data-level="" data-path="part-ii.html"><a href="part-ii.html"><i class="fa fa-check"></i><em>Part II: Measurement in Economics</em></a></li>
+<li class="chapter" data-level="7" data-path="economic-data-sources.html"><a href="economic-data-sources.html"><i class="fa fa-check"></i><b>7</b> Economic Data Sources</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="economic-data-sources.html"><a href="economic-data-sources.html#types-of-indicators"><i class="fa fa-check"></i><b>7.1</b> Types of Indicators</a></li>
+<li class="chapter" data-level="7.2" data-path="economic-data-sources.html"><a href="economic-data-sources.html#data-source"><i class="fa fa-check"></i><b>7.2</b> Data Source</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="economic-data-sources.html"><a href="economic-data-sources.html#data-supplier-vs.-distributor"><i class="fa fa-check"></i><b>7.2.1</b> Data Supplier vs. Distributor</a></li>
+<li class="chapter" data-level="7.2.2" data-path="economic-data-sources.html"><a href="economic-data-sources.html#bureau-of-economic-analysis-bea"><i class="fa fa-check"></i><b>7.2.2</b> Bureau of Economic Analysis (BEA)</a></li>
+<li class="chapter" data-level="7.2.3" data-path="economic-data-sources.html"><a href="economic-data-sources.html#u.s.-census-bureau"><i class="fa fa-check"></i><b>7.2.3</b> U.S. Census Bureau</a></li>
+<li class="chapter" data-level="7.2.4" data-path="economic-data-sources.html"><a href="economic-data-sources.html#bureau-of-labor-statistics-bls"><i class="fa fa-check"></i><b>7.2.4</b> Bureau of Labor Statistics (BLS)</a></li>
+<li class="chapter" data-level="7.2.5" data-path="economic-data-sources.html"><a href="economic-data-sources.html#federal-reserve-board-of-governors"><i class="fa fa-check"></i><b>7.2.5</b> Federal Reserve Board of Governors</a></li>
+<li class="chapter" data-level="7.2.6" data-path="economic-data-sources.html"><a href="economic-data-sources.html#u.s.-department-of-the-treasury"><i class="fa fa-check"></i><b>7.2.6</b> U.S. Department of the Treasury</a></li>
+<li class="chapter" data-level="7.2.7" data-path="economic-data-sources.html"><a href="economic-data-sources.html#financial-market-exchanges"><i class="fa fa-check"></i><b>7.2.7</b> Financial Market Exchanges</a></li>
+<li class="chapter" data-level="7.2.8" data-path="economic-data-sources.html"><a href="economic-data-sources.html#federal-reserve-economic-data-fred"><i class="fa fa-check"></i><b>7.2.8</b> Federal Reserve Economic Data (FRED)</a></li>
+<li class="chapter" data-level="7.2.9" data-path="economic-data-sources.html"><a href="economic-data-sources.html#u.s.-department-of-agriculture-economic-research-service-ers"><i class="fa fa-check"></i><b>7.2.9</b> U.S. Department of Agriculture Economic Research Service (ERS)</a></li>
+<li class="chapter" data-level="7.2.10" data-path="economic-data-sources.html"><a href="economic-data-sources.html#bloomberg"><i class="fa fa-check"></i><b>7.2.10</b> Bloomberg</a></li>
+<li class="chapter" data-level="7.2.11" data-path="economic-data-sources.html"><a href="economic-data-sources.html#yahoo-finance"><i class="fa fa-check"></i><b>7.2.11</b> Yahoo Finance</a></li>
+<li class="chapter" data-level="7.2.12" data-path="economic-data-sources.html"><a href="economic-data-sources.html#conclusion-1"><i class="fa fa-check"></i><b>7.2.12</b> Conclusion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="business-accounting.html"><a href="business-accounting.html"><i class="fa fa-check"></i><b>8</b> Business Accounting</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="business-accounting.html"><a href="business-accounting.html#accounting-standards"><i class="fa fa-check"></i><b>8.1</b> Accounting Standards</a></li>
+<li class="chapter" data-level="8.2" data-path="business-accounting.html"><a href="business-accounting.html#accounting-equation"><i class="fa fa-check"></i><b>8.2</b> Accounting Equation</a></li>
+<li class="chapter" data-level="8.3" data-path="business-accounting.html"><a href="business-accounting.html#balance-sheet"><i class="fa fa-check"></i><b>8.3</b> Balance Sheet</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="business-accounting.html"><a href="business-accounting.html#assets"><i class="fa fa-check"></i><b>8.3.1</b> Assets</a></li>
+<li class="chapter" data-level="8.3.2" data-path="business-accounting.html"><a href="business-accounting.html#liabilities"><i class="fa fa-check"></i><b>8.3.2</b> Liabilities</a></li>
+<li class="chapter" data-level="8.3.3" data-path="business-accounting.html"><a href="business-accounting.html#equity"><i class="fa fa-check"></i><b>8.3.3</b> Equity</a></li>
+<li class="chapter" data-level="8.3.4" data-path="business-accounting.html"><a href="business-accounting.html#transactions"><i class="fa fa-check"></i><b>8.3.4</b> Transactions</a></li>
+<li class="chapter" data-level="8.3.5" data-path="business-accounting.html"><a href="business-accounting.html#book-vs.-market-value"><i class="fa fa-check"></i><b>8.3.5</b> Book vs. Market Value</a></li>
+<li class="chapter" data-level="8.3.6" data-path="business-accounting.html"><a href="business-accounting.html#public-company"><i class="fa fa-check"></i><b>8.3.6</b> Public Company</a></li>
+<li class="chapter" data-level="8.3.7" data-path="business-accounting.html"><a href="business-accounting.html#financial-firm"><i class="fa fa-check"></i><b>8.3.7</b> Financial Firm</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="business-accounting.html"><a href="business-accounting.html#ledger"><i class="fa fa-check"></i><b>8.4</b> Ledger</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="business-accounting.html"><a href="business-accounting.html#ledger-accounts"><i class="fa fa-check"></i><b>8.4.1</b> Ledger Accounts</a></li>
+<li class="chapter" data-level="8.4.2" data-path="business-accounting.html"><a href="business-accounting.html#t-accounts"><i class="fa fa-check"></i><b>8.4.2</b> T-Accounts</a></li>
+<li class="chapter" data-level="8.4.3" data-path="business-accounting.html"><a href="business-accounting.html#basis-for-financial-statements"><i class="fa fa-check"></i><b>8.4.3</b> Basis for Financial Statements</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="business-accounting.html"><a href="business-accounting.html#income-statement"><i class="fa fa-check"></i><b>8.5</b> Income Statement</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="business-accounting.html"><a href="business-accounting.html#stock-vs.-flow-variables"><i class="fa fa-check"></i><b>8.5.1</b> Stock vs. Flow Variables</a></li>
+<li class="chapter" data-level="8.5.2" data-path="business-accounting.html"><a href="business-accounting.html#profit-equation"><i class="fa fa-check"></i><b>8.5.2</b> Profit Equation</a></li>
+<li class="chapter" data-level="8.5.3" data-path="business-accounting.html"><a href="business-accounting.html#gross-profit"><i class="fa fa-check"></i><b>8.5.3</b> Gross Profit</a></li>
+<li class="chapter" data-level="8.5.4" data-path="business-accounting.html"><a href="business-accounting.html#operating-income-ebit"><i class="fa fa-check"></i><b>8.5.4</b> Operating Income (EBIT)</a></li>
+<li class="chapter" data-level="8.5.5" data-path="business-accounting.html"><a href="business-accounting.html#net-income-before-taxes-ebt"><i class="fa fa-check"></i><b>8.5.5</b> Net Income Before Taxes (EBT)</a></li>
+<li class="chapter" data-level="8.5.6" data-path="business-accounting.html"><a href="business-accounting.html#net-income-eat"><i class="fa fa-check"></i><b>8.5.6</b> Net Income (EAT)</a></li>
+<li class="chapter" data-level="8.5.7" data-path="business-accounting.html"><a href="business-accounting.html#transactions-1"><i class="fa fa-check"></i><b>8.5.7</b> Transactions</a></li>
+<li class="chapter" data-level="8.5.8" data-path="business-accounting.html"><a href="business-accounting.html#corporate-income-tax"><i class="fa fa-check"></i><b>8.5.8</b> Corporate Income Tax</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="business-accounting.html"><a href="business-accounting.html#cash-flow-statement"><i class="fa fa-check"></i><b>8.6</b> Cash Flow Statement</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="business-accounting.html"><a href="business-accounting.html#operating-activities"><i class="fa fa-check"></i><b>8.6.1</b> Operating Activities</a></li>
+<li class="chapter" data-level="8.6.2" data-path="business-accounting.html"><a href="business-accounting.html#investing-activities"><i class="fa fa-check"></i><b>8.6.2</b> Investing Activities</a></li>
+<li class="chapter" data-level="8.6.3" data-path="business-accounting.html"><a href="business-accounting.html#financing-activities"><i class="fa fa-check"></i><b>8.6.3</b> Financing Activities</a></li>
+<li class="chapter" data-level="8.6.4" data-path="business-accounting.html"><a href="business-accounting.html#net-change-in-cash"><i class="fa fa-check"></i><b>8.6.4</b> Net Change in Cash</a></li>
+<li class="chapter" data-level="8.6.5" data-path="business-accounting.html"><a href="business-accounting.html#supplemental-information"><i class="fa fa-check"></i><b>8.6.5</b> Supplemental Information</a></li>
+<li class="chapter" data-level="8.6.6" data-path="business-accounting.html"><a href="business-accounting.html#free-cash-flows"><i class="fa fa-check"></i><b>8.6.6</b> Free Cash Flows</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="business-accounting.html"><a href="business-accounting.html#conclusion-2"><i class="fa fa-check"></i><b>8.7</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html"><i class="fa fa-check"></i><b>9</b> Financial Performance Indicators</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#profitability-indicators"><i class="fa fa-check"></i><b>9.1</b> Profitability Indicators</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#net-profit-margin"><i class="fa fa-check"></i><b>9.1.1</b> Net Profit Margin</a></li>
+<li class="chapter" data-level="9.1.2" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#return-on-assets-roa"><i class="fa fa-check"></i><b>9.1.2</b> Return on Assets (ROA)</a></li>
+<li class="chapter" data-level="9.1.3" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#return-on-investment-roi"><i class="fa fa-check"></i><b>9.1.3</b> Return on Investment (ROI)</a></li>
+<li class="chapter" data-level="9.1.4" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#return-on-equity-roe"><i class="fa fa-check"></i><b>9.1.4</b> Return on Equity (ROE)</a></li>
+<li class="chapter" data-level="9.1.5" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#earnings-per-share-eps"><i class="fa fa-check"></i><b>9.1.5</b> Earnings Per Share (EPS)</a></li>
+<li class="chapter" data-level="9.1.6" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#operating-margin"><i class="fa fa-check"></i><b>9.1.6</b> Operating Margin</a></li>
+<li class="chapter" data-level="9.1.7" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#dividend-yield"><i class="fa fa-check"></i><b>9.1.7</b> Dividend Yield</a></li>
+<li class="chapter" data-level="9.1.8" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#gross-profit-margin"><i class="fa fa-check"></i><b>9.1.8</b> Gross Profit Margin</a></li>
+<li class="chapter" data-level="9.1.9" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#return-on-capital-employed-roce"><i class="fa fa-check"></i><b>9.1.9</b> Return on Capital Employed (ROCE)</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#liquidity-indicators"><i class="fa fa-check"></i><b>9.2</b> Liquidity Indicators</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#current-ratio"><i class="fa fa-check"></i><b>9.2.1</b> Current Ratio</a></li>
+<li class="chapter" data-level="9.2.2" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#quick-ratio"><i class="fa fa-check"></i><b>9.2.2</b> Quick Ratio</a></li>
+<li class="chapter" data-level="9.2.3" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#cash-ratio"><i class="fa fa-check"></i><b>9.2.3</b> Cash Ratio</a></li>
+<li class="chapter" data-level="9.2.4" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#operating-cash-flow-ratio"><i class="fa fa-check"></i><b>9.2.4</b> Operating Cash Flow Ratio</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#leverage-indicators"><i class="fa fa-check"></i><b>9.3</b> Leverage Indicators</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#debt-to-equity-de-ratio"><i class="fa fa-check"></i><b>9.3.1</b> Debt-to-Equity (D/E) Ratio</a></li>
+<li class="chapter" data-level="9.3.2" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#interest-coverage-ratio"><i class="fa fa-check"></i><b>9.3.2</b> Interest Coverage Ratio</a></li>
+<li class="chapter" data-level="9.3.3" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#debt-ratio"><i class="fa fa-check"></i><b>9.3.3</b> Debt Ratio</a></li>
+<li class="chapter" data-level="9.3.4" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#debt-to-capital-ratio"><i class="fa fa-check"></i><b>9.3.4</b> Debt-to-Capital Ratio</a></li>
+<li class="chapter" data-level="9.3.5" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#equity-multiplier"><i class="fa fa-check"></i><b>9.3.5</b> Equity Multiplier</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#efficiency-indicators"><i class="fa fa-check"></i><b>9.4</b> Efficiency Indicators</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#asset-turnover-ratio"><i class="fa fa-check"></i><b>9.4.1</b> Asset Turnover Ratio</a></li>
+<li class="chapter" data-level="9.4.2" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#inventory-turnover-ratio"><i class="fa fa-check"></i><b>9.4.2</b> Inventory Turnover Ratio</a></li>
+<li class="chapter" data-level="9.4.3" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#receivables-turnover-ratio"><i class="fa fa-check"></i><b>9.4.3</b> Receivables Turnover Ratio</a></li>
+<li class="chapter" data-level="9.4.4" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#payables-turnover-ratio"><i class="fa fa-check"></i><b>9.4.4</b> Payables Turnover Ratio</a></li>
+<li class="chapter" data-level="9.4.5" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#days-sales-outstanding-dso"><i class="fa fa-check"></i><b>9.4.5</b> Days Sales Outstanding (DSO)</a></li>
+<li class="chapter" data-level="9.4.6" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#fixed-asset-turnover-ratio"><i class="fa fa-check"></i><b>9.4.6</b> Fixed Asset Turnover Ratio</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#valuation-indicators"><i class="fa fa-check"></i><b>9.5</b> Valuation Indicators</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#price-to-book-pb-ratio"><i class="fa fa-check"></i><b>9.5.1</b> Price-to-Book (P/B) Ratio</a></li>
+<li class="chapter" data-level="9.5.2" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#price-to-earnings-pe-ratio"><i class="fa fa-check"></i><b>9.5.2</b> Price-to-Earnings (P/E) Ratio</a></li>
+<li class="chapter" data-level="9.5.3" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#price-to-sales-ps-ratio"><i class="fa fa-check"></i><b>9.5.3</b> Price-to-Sales (P/S) Ratio</a></li>
+<li class="chapter" data-level="9.5.4" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#enterprise-value-to-ebitda-evebitda"><i class="fa fa-check"></i><b>9.5.4</b> Enterprise Value-to-EBITDA (EV/EBITDA)</a></li>
+<li class="chapter" data-level="9.5.5" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#dividend-yield-1"><i class="fa fa-check"></i><b>9.5.5</b> Dividend Yield</a></li>
+<li class="chapter" data-level="9.5.6" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#price-to-cash-flow-pcf-ratio"><i class="fa fa-check"></i><b>9.5.6</b> Price-to-Cash Flow (P/CF) Ratio</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#cash-flow-indicators"><i class="fa fa-check"></i><b>9.6</b> Cash Flow Indicators</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#free-cash-flow-to-equity-fcfe-1"><i class="fa fa-check"></i><b>9.6.1</b> Free Cash Flow to Equity (FCFE)</a></li>
+<li class="chapter" data-level="9.6.2" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#free-cash-flow-to-the-firm-fcff-1"><i class="fa fa-check"></i><b>9.6.2</b> Free Cash Flow to the Firm (FCFF)</a></li>
+<li class="chapter" data-level="9.6.3" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#operating-cash-flow-ocf"><i class="fa fa-check"></i><b>9.6.3</b> Operating Cash Flow (OCF)</a></li>
+<li class="chapter" data-level="9.6.4" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#fcf-margin"><i class="fa fa-check"></i><b>9.6.4</b> FCF Margin</a></li>
+<li class="chapter" data-level="9.6.5" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#cash-conversion-cycle-ccc"><i class="fa fa-check"></i><b>9.6.5</b> Cash Conversion Cycle (CCC)</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#temporal-dimensions"><i class="fa fa-check"></i><b>9.7</b> Temporal Dimensions</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#trailing-twelve-months-ttm"><i class="fa fa-check"></i><b>9.7.1</b> Trailing Twelve Months (TTM)</a></li>
+<li class="chapter" data-level="9.7.2" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#annual-reporting"><i class="fa fa-check"></i><b>9.7.2</b> Annual Reporting</a></li>
+<li class="chapter" data-level="9.7.3" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#quarterly-and-monthly-reporting"><i class="fa fa-check"></i><b>9.7.3</b> Quarterly and Monthly Reporting</a></li>
+<li class="chapter" data-level="9.7.4" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#example-and-explanation"><i class="fa fa-check"></i><b>9.7.4</b> Example and Explanation</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="financial-performance-indicators.html"><a href="financial-performance-indicators.html#conclusion-3"><i class="fa fa-check"></i><b>9.8</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html"><i class="fa fa-check"></i><b>10</b> Macroeconomic Accounting</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#important-terms-and-definitions"><i class="fa fa-check"></i><b>10.1</b> Important Terms and Definitions</a></li>
+<li class="chapter" data-level="10.2" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#national-accounts"><i class="fa fa-check"></i><b>10.2</b> National Accounts</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#production-approach"><i class="fa fa-check"></i><b>10.2.1</b> Production Approach</a></li>
+<li class="chapter" data-level="10.2.2" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#expenditure-approach"><i class="fa fa-check"></i><b>10.2.2</b> Expenditure Approach</a></li>
+<li class="chapter" data-level="10.2.3" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#income-approach"><i class="fa fa-check"></i><b>10.2.3</b> Income Approach</a></li>
+<li class="chapter" data-level="10.2.4" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#other-flow-measures"><i class="fa fa-check"></i><b>10.2.4</b> Other Flow Measures</a></li>
+<li class="chapter" data-level="10.2.5" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#stock-measures"><i class="fa fa-check"></i><b>10.2.5</b> Stock Measures</a></li>
+<li class="chapter" data-level="10.2.6" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#implicit-price-deflators"><i class="fa fa-check"></i><b>10.2.6</b> Implicit Price Deflators</a></li>
+<li class="chapter" data-level="10.2.7" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#data-collection"><i class="fa fa-check"></i><b>10.2.7</b> Data Collection</a></li>
+<li class="chapter" data-level="10.2.8" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#resources"><i class="fa fa-check"></i><b>10.2.8</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#balance-of-payments"><i class="fa fa-check"></i><b>10.3</b> Balance of Payments</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#current-account"><i class="fa fa-check"></i><b>10.3.1</b> Current Account</a></li>
+<li class="chapter" data-level="10.3.2" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#capital-account"><i class="fa fa-check"></i><b>10.3.2</b> Capital Account</a></li>
+<li class="chapter" data-level="10.3.3" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#financial-account"><i class="fa fa-check"></i><b>10.3.3</b> Financial Account</a></li>
+<li class="chapter" data-level="10.3.4" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#stock-measures-1"><i class="fa fa-check"></i><b>10.3.4</b> Stock Measures</a></li>
+<li class="chapter" data-level="10.3.5" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#data-collection-1"><i class="fa fa-check"></i><b>10.3.5</b> Data Collection</a></li>
+<li class="chapter" data-level="10.3.6" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#resources-1"><i class="fa fa-check"></i><b>10.3.6</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#labor-market-accounts"><i class="fa fa-check"></i><b>10.4</b> Labor Market Accounts</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#labor-force"><i class="fa fa-check"></i><b>10.4.1</b> Labor Force</a></li>
+<li class="chapter" data-level="10.4.2" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#employment-unemployment-and-hours-worked"><i class="fa fa-check"></i><b>10.4.2</b> Employment, Unemployment, and Hours Worked</a></li>
+<li class="chapter" data-level="10.4.3" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#productivity-measures"><i class="fa fa-check"></i><b>10.4.3</b> Productivity Measures</a></li>
+<li class="chapter" data-level="10.4.4" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#wage-and-labor-earnings"><i class="fa fa-check"></i><b>10.4.4</b> Wage and Labor Earnings</a></li>
+<li class="chapter" data-level="10.4.5" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#job-vacancy-and-turnover-rate"><i class="fa fa-check"></i><b>10.4.5</b> Job Vacancy and Turnover Rate</a></li>
+<li class="chapter" data-level="10.4.6" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#job-creation-and-destruction"><i class="fa fa-check"></i><b>10.4.6</b> Job Creation and Destruction</a></li>
+<li class="chapter" data-level="10.4.7" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#data-collection-2"><i class="fa fa-check"></i><b>10.4.7</b> Data Collection</a></li>
+<li class="chapter" data-level="10.4.8" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#resources-2"><i class="fa fa-check"></i><b>10.4.8</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#fiscal-accounts"><i class="fa fa-check"></i><b>10.5</b> Fiscal Accounts</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#government-budget"><i class="fa fa-check"></i><b>10.5.1</b> Government Budget</a></li>
+<li class="chapter" data-level="10.5.2" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#types-of-taxes"><i class="fa fa-check"></i><b>10.5.2</b> Types of Taxes</a></li>
+<li class="chapter" data-level="10.5.3" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#types-of-subsidies"><i class="fa fa-check"></i><b>10.5.3</b> Types of Subsidies</a></li>
+<li class="chapter" data-level="10.5.4" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#non-tax-revenue"><i class="fa fa-check"></i><b>10.5.4</b> Non-Tax Revenue</a></li>
+<li class="chapter" data-level="10.5.5" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#data-collection-3"><i class="fa fa-check"></i><b>10.5.5</b> Data Collection</a></li>
+<li class="chapter" data-level="10.5.6" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#resources-3"><i class="fa fa-check"></i><b>10.5.6</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#monetary-and-financial-accounts"><i class="fa fa-check"></i><b>10.6</b> Monetary and Financial Accounts</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#monetary-aggregates"><i class="fa fa-check"></i><b>10.6.1</b> Monetary Aggregates</a></li>
+<li class="chapter" data-level="10.6.2" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#interest-rates"><i class="fa fa-check"></i><b>10.6.2</b> Interest Rates</a></li>
+<li class="chapter" data-level="10.6.3" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#banking-reserves"><i class="fa fa-check"></i><b>10.6.3</b> Banking Reserves</a></li>
+<li class="chapter" data-level="10.6.4" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#credit-aggregates"><i class="fa fa-check"></i><b>10.6.4</b> Credit Aggregates</a></li>
+<li class="chapter" data-level="10.6.5" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#exchange-rates"><i class="fa fa-check"></i><b>10.6.5</b> Exchange Rates</a></li>
+<li class="chapter" data-level="10.6.6" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#parity-conditions"><i class="fa fa-check"></i><b>10.6.6</b> Parity Conditions</a></li>
+<li class="chapter" data-level="10.6.7" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#industrial-production-and-capacity-utilization"><i class="fa fa-check"></i><b>10.6.7</b> Industrial Production and Capacity Utilization</a></li>
+<li class="chapter" data-level="10.6.8" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#data-collection-4"><i class="fa fa-check"></i><b>10.6.8</b> Data Collection</a></li>
+<li class="chapter" data-level="10.6.9" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#resources-4"><i class="fa fa-check"></i><b>10.6.9</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#price-level-and-inflation"><i class="fa fa-check"></i><b>10.7</b> Price Level and Inflation</a>
+<ul>
+<li class="chapter" data-level="10.7.1" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#implicit-measurement"><i class="fa fa-check"></i><b>10.7.1</b> Implicit Measurement</a></li>
+<li class="chapter" data-level="10.7.2" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#direct-measurement"><i class="fa fa-check"></i><b>10.7.2</b> Direct Measurement</a></li>
+<li class="chapter" data-level="10.7.3" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#inflation"><i class="fa fa-check"></i><b>10.7.3</b> Inflation</a></li>
+<li class="chapter" data-level="10.7.4" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#data-collection-5"><i class="fa fa-check"></i><b>10.7.4</b> Data Collection</a></li>
+<li class="chapter" data-level="10.7.5" data-path="macroeconomic-accounting.html"><a href="macroeconomic-accounting.html#resources-5"><i class="fa fa-check"></i><b>10.7.5</b> Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="financial-market-indicators.html"><a href="financial-market-indicators.html"><i class="fa fa-check"></i><b>11</b> Financial Market Indicators</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="financial-market-indicators.html"><a href="financial-market-indicators.html#interest-rates-1"><i class="fa fa-check"></i><b>11.1</b> Interest Rates</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="financial-market-indicators.html"><a href="financial-market-indicators.html#import-csv-file"><i class="fa fa-check"></i><b>11.1.1</b> Import CSV File</a></li>
+<li class="chapter" data-level="11.1.2" data-path="financial-market-indicators.html"><a href="financial-market-indicators.html#plotting-historical-yields"><i class="fa fa-check"></i><b>11.1.2</b> Plotting Historical Yields</a></li>
+<li class="chapter" data-level="11.1.3" data-path="financial-market-indicators.html"><a href="financial-market-indicators.html#plotting-yield-curve"><i class="fa fa-check"></i><b>11.1.3</b> Plotting Yield Curve</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Part III</b></span></li>
+<li class="chapter" data-level="" data-path="part-iii.html"><a href="part-iii.html"><i class="fa fa-check"></i><em>Part III: Economic Data Processing</em></a></li>
+<li class="chapter" data-level="12" data-path="data-categorization.html"><a href="data-categorization.html"><i class="fa fa-check"></i><b>12</b> Data Categorization</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="data-categorization.html"><a href="data-categorization.html#qualitative-vs.-quantitative"><i class="fa fa-check"></i><b>12.1</b> Qualitative vs. Quantitative</a></li>
+<li class="chapter" data-level="12.2" data-path="data-categorization.html"><a href="data-categorization.html#discrete-vs.-continuous"><i class="fa fa-check"></i><b>12.2</b> Discrete vs. Continuous</a></li>
+<li class="chapter" data-level="12.3" data-path="data-categorization.html"><a href="data-categorization.html#levels-of-measurement"><i class="fa fa-check"></i><b>12.3</b> Levels of Measurement</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="data-categorization.html"><a href="data-categorization.html#nominal-scale-variables"><i class="fa fa-check"></i><b>12.3.1</b> Nominal Scale Variables</a></li>
+<li class="chapter" data-level="12.3.2" data-path="data-categorization.html"><a href="data-categorization.html#ordinal-scale-variables"><i class="fa fa-check"></i><b>12.3.2</b> Ordinal Scale Variables</a></li>
+<li class="chapter" data-level="12.3.3" data-path="data-categorization.html"><a href="data-categorization.html#interval-scale-variables"><i class="fa fa-check"></i><b>12.3.3</b> Interval Scale Variables</a></li>
+<li class="chapter" data-level="12.3.4" data-path="data-categorization.html"><a href="data-categorization.html#ratio-scale-variables"><i class="fa fa-check"></i><b>12.3.4</b> Ratio Scale Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="data-categorization.html"><a href="data-categorization.html#index-vs.-absolute-data"><i class="fa fa-check"></i><b>12.4</b> Index vs. Absolute Data</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="data-categorization.html"><a href="data-categorization.html#index-data"><i class="fa fa-check"></i><b>12.4.1</b> Index Data</a></li>
+<li class="chapter" data-level="12.4.2" data-path="data-categorization.html"><a href="data-categorization.html#absolute-data"><i class="fa fa-check"></i><b>12.4.2</b> Absolute Data</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="data-categorization.html"><a href="data-categorization.html#stock-vs.-flow"><i class="fa fa-check"></i><b>12.5</b> Stock vs. Flow</a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="data-categorization.html"><a href="data-categorization.html#stock-variables"><i class="fa fa-check"></i><b>12.5.1</b> Stock Variables</a></li>
+<li class="chapter" data-level="12.5.2" data-path="data-categorization.html"><a href="data-categorization.html#flow-variables"><i class="fa fa-check"></i><b>12.5.2</b> Flow Variables</a></li>
+<li class="chapter" data-level="12.5.3" data-path="data-categorization.html"><a href="data-categorization.html#accounting"><i class="fa fa-check"></i><b>12.5.3</b> Accounting</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="data-categorization.html"><a href="data-categorization.html#data-dimensions"><i class="fa fa-check"></i><b>12.6</b> Data Dimensions</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="data-categorization.html"><a href="data-categorization.html#cross-sectional-data"><i class="fa fa-check"></i><b>12.6.1</b> Cross-Sectional Data</a></li>
+<li class="chapter" data-level="12.6.2" data-path="data-categorization.html"><a href="data-categorization.html#time-series-data"><i class="fa fa-check"></i><b>12.6.2</b> Time Series Data</a></li>
+<li class="chapter" data-level="12.6.3" data-path="data-categorization.html"><a href="data-categorization.html#panel-data"><i class="fa fa-check"></i><b>12.6.3</b> Panel Data</a></li>
+<li class="chapter" data-level="12.6.4" data-path="data-categorization.html"><a href="data-categorization.html#spatial-data"><i class="fa fa-check"></i><b>12.6.4</b> Spatial Data</a></li>
+<li class="chapter" data-level="12.6.5" data-path="data-categorization.html"><a href="data-categorization.html#clustered-data"><i class="fa fa-check"></i><b>12.6.5</b> Clustered Data</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="data-categorization.html"><a href="data-categorization.html#conclusion-data-categorization"><i class="fa fa-check"></i><b>12.7</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>13</b> Data Transformation</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="data-transformation.html"><a href="data-transformation.html#example-data"><i class="fa fa-check"></i><b>13.1</b> Example Data</a></li>
+<li class="chapter" data-level="13.2" data-path="data-transformation.html"><a href="data-transformation.html#growth"><i class="fa fa-check"></i><b>13.2</b> Growth</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="data-transformation.html"><a href="data-transformation.html#definition-growth-rates"><i class="fa fa-check"></i><b>13.2.1</b> Definition</a></li>
+<li class="chapter" data-level="13.2.2" data-path="data-transformation.html"><a href="data-transformation.html#log-approximation"><i class="fa fa-check"></i><b>13.2.2</b> Log Approximation</a></li>
+<li class="chapter" data-level="13.2.3" data-path="data-transformation.html"><a href="data-transformation.html#relativity"><i class="fa fa-check"></i><b>13.2.3</b> Relativity</a></li>
+<li class="chapter" data-level="13.2.4" data-path="data-transformation.html"><a href="data-transformation.html#return-and-inflation"><i class="fa fa-check"></i><b>13.2.4</b> Return and Inflation</a></li>
+<li class="chapter" data-level="13.2.5" data-path="data-transformation.html"><a href="data-transformation.html#applicability-growth"><i class="fa fa-check"></i><b>13.2.5</b> Applicability</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="data-transformation.html"><a href="data-transformation.html#differentiation"><i class="fa fa-check"></i><b>13.3</b> Differentiation</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="data-transformation.html"><a href="data-transformation.html#definition-differentiation"><i class="fa fa-check"></i><b>13.3.1</b> Definition</a></li>
+<li class="chapter" data-level="13.3.2" data-path="data-transformation.html"><a href="data-transformation.html#pp"><i class="fa fa-check"></i><b>13.3.2</b> Percentage Points (pp)</a></li>
+<li class="chapter" data-level="13.3.3" data-path="data-transformation.html"><a href="data-transformation.html#bp"><i class="fa fa-check"></i><b>13.3.3</b> Basis Points (bp)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="data-transformation.html"><a href="data-transformation.html#log"><i class="fa fa-check"></i><b>13.4</b> Natural Logarithm</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="data-transformation.html"><a href="data-transformation.html#definition-natural-logarithm"><i class="fa fa-check"></i><b>13.4.1</b> Definition</a></li>
+<li class="chapter" data-level="13.4.2" data-path="data-transformation.html"><a href="data-transformation.html#motivation-natural-logarithm"><i class="fa fa-check"></i><b>13.4.2</b> Motivation</a></li>
+<li class="chapter" data-level="13.4.3" data-path="data-transformation.html"><a href="data-transformation.html#applicability-natural-logarithm"><i class="fa fa-check"></i><b>13.4.3</b> Applicability</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="data-transformation.html"><a href="data-transformation.html#ratio"><i class="fa fa-check"></i><b>13.5</b> Ratio</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="data-transformation.html"><a href="data-transformation.html#definition-ratio"><i class="fa fa-check"></i><b>13.5.1</b> Definition</a></li>
+<li class="chapter" data-level="13.5.2" data-path="data-transformation.html"><a href="data-transformation.html#per-capita"><i class="fa fa-check"></i><b>13.5.2</b> Per Capita</a></li>
+<li class="chapter" data-level="13.5.3" data-path="data-transformation.html"><a href="data-transformation.html#real-vs.-nominal"><i class="fa fa-check"></i><b>13.5.3</b> Real vs. Nominal</a></li>
+<li class="chapter" data-level="13.5.4" data-path="data-transformation.html"><a href="data-transformation.html#growth-of-ratios"><i class="fa fa-check"></i><b>13.5.4</b> Growth of Ratios</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="data-transformation.html"><a href="data-transformation.html#gap"><i class="fa fa-check"></i><b>13.6</b> Gap</a></li>
+<li class="chapter" data-level="13.7" data-path="data-transformation.html"><a href="data-transformation.html#filtering"><i class="fa fa-check"></i><b>13.7</b> Filtering</a>
+<ul>
+<li class="chapter" data-level="13.7.1" data-path="data-transformation.html"><a href="data-transformation.html#frequency-filtering"><i class="fa fa-check"></i><b>13.7.1</b> Frequency Filtering</a></li>
+<li class="chapter" data-level="13.7.2" data-path="data-transformation.html"><a href="data-transformation.html#detrending"><i class="fa fa-check"></i><b>13.7.2</b> Detrending</a></li>
+<li class="chapter" data-level="13.7.3" data-path="data-transformation.html"><a href="data-transformation.html#seasonal-adjustment"><i class="fa fa-check"></i><b>13.7.3</b> Seasonal Adjustment</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="statistical-measures.html"><a href="statistical-measures.html"><i class="fa fa-check"></i><b>14</b> Statistical Measures</a></li>
+<li class="chapter" data-level="15" data-path="data-aggregation.html"><a href="data-aggregation.html"><i class="fa fa-check"></i><b>15</b> Data Aggregation</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="data-aggregation.html"><a href="data-aggregation.html#annualization"><i class="fa fa-check"></i><b>15.1</b> Annualization</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="data-aggregation.html"><a href="data-aggregation.html#motivation"><i class="fa fa-check"></i><b>15.1.1</b> Motivation</a></li>
+<li class="chapter" data-level="15.1.2" data-path="data-aggregation.html"><a href="data-aggregation.html#annualized-flow-variables"><i class="fa fa-check"></i><b>15.1.2</b> Annualized Flow Variables</a></li>
+<li class="chapter" data-level="15.1.3" data-path="data-aggregation.html"><a href="data-aggregation.html#annualized-growth-rates"><i class="fa fa-check"></i><b>15.1.3</b> Annualized Growth Rates</a></li>
+<li class="chapter" data-level="15.1.4" data-path="data-aggregation.html"><a href="data-aggregation.html#annualized-log-difference"><i class="fa fa-check"></i><b>15.1.4</b> Annualized Log-Difference</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="data-aggregation.html"><a href="data-aggregation.html#yoy"><i class="fa fa-check"></i><b>15.2</b> Year over Year (YoY)</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="data-aggregation.html"><a href="data-aggregation.html#year-over-year-yoy-growth-rates"><i class="fa fa-check"></i><b>15.2.1</b> Year over Year (YoY) Growth Rates</a></li>
+<li class="chapter" data-level="15.2.2" data-path="data-aggregation.html"><a href="data-aggregation.html#comparing-yoy-measures-with-moving-averages"><i class="fa fa-check"></i><b>15.2.2</b> Comparing YoY Measures with Moving Averages</a></li>
+<li class="chapter" data-level="15.2.3" data-path="data-aggregation.html"><a href="data-aggregation.html#sliding-window-vs.-fixed-window-aggregation"><i class="fa fa-check"></i><b>15.2.3</b> Sliding Window vs. Fixed Window Aggregation</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Part IV</b></span></li>
+<li class="chapter" data-level="" data-path="part-iv.html"><a href="part-iv.html"><i class="fa fa-check"></i><em>Part IV: Patterns in Economics</em></a></li>
+<li class="chapter" data-level="16" data-path="temporal-patterns.html"><a href="temporal-patterns.html"><i class="fa fa-check"></i><b>16</b> Temporal Patterns</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="temporal-patterns.html"><a href="temporal-patterns.html#time-series-data-1"><i class="fa fa-check"></i><b>16.1</b> Time Series Data</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="temporal-patterns.html"><a href="temporal-patterns.html#definition"><i class="fa fa-check"></i><b>16.1.1</b> Definition</a></li>
+<li class="chapter" data-level="16.1.2" data-path="temporal-patterns.html"><a href="temporal-patterns.html#features"><i class="fa fa-check"></i><b>16.1.2</b> Features</a></li>
+<li class="chapter" data-level="16.1.3" data-path="temporal-patterns.html"><a href="temporal-patterns.html#visualization"><i class="fa fa-check"></i><b>16.1.3</b> Visualization</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="temporal-patterns.html"><a href="temporal-patterns.html#trend"><i class="fa fa-check"></i><b>16.2</b> Trend</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="temporal-patterns.html"><a href="temporal-patterns.html#sustained-growth"><i class="fa fa-check"></i><b>16.2.1</b> Sustained Growth</a></li>
+<li class="chapter" data-level="16.2.2" data-path="temporal-patterns.html"><a href="temporal-patterns.html#decrease-in-poverty"><i class="fa fa-check"></i><b>16.2.2</b> Decrease in Poverty</a></li>
+<li class="chapter" data-level="16.2.3" data-path="temporal-patterns.html"><a href="temporal-patterns.html#aging-population"><i class="fa fa-check"></i><b>16.2.3</b> Aging Population</a></li>
+<li class="chapter" data-level="16.2.4" data-path="temporal-patterns.html"><a href="temporal-patterns.html#productivity-labor-trade-off"><i class="fa fa-check"></i><b>16.2.4</b> Productivity-Labor Trade-Off</a></li>
+<li class="chapter" data-level="16.2.5" data-path="temporal-patterns.html"><a href="temporal-patterns.html#trend-inflation"><i class="fa fa-check"></i><b>16.2.5</b> Trend Inflation</a></li>
+<li class="chapter" data-level="16.2.6" data-path="temporal-patterns.html"><a href="temporal-patterns.html#decline-in-labor-share"><i class="fa fa-check"></i><b>16.2.6</b> Decline in Labor Share</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="temporal-patterns.html"><a href="temporal-patterns.html#seasonality"><i class="fa fa-check"></i><b>16.3</b> Seasonality</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="temporal-patterns.html"><a href="temporal-patterns.html#holiday-season"><i class="fa fa-check"></i><b>16.3.1</b> Holiday Season</a></li>
+<li class="chapter" data-level="16.3.2" data-path="temporal-patterns.html"><a href="temporal-patterns.html#seasonal-weather"><i class="fa fa-check"></i><b>16.3.2</b> Seasonal Weather</a></li>
+<li class="chapter" data-level="16.3.3" data-path="temporal-patterns.html"><a href="temporal-patterns.html#seasonal-employment"><i class="fa fa-check"></i><b>16.3.3</b> Seasonal Employment</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="temporal-patterns.html"><a href="temporal-patterns.html#business-cycle"><i class="fa fa-check"></i><b>16.4</b> Business Cycle</a>
+<ul>
+<li class="chapter" data-level="16.4.1" data-path="temporal-patterns.html"><a href="temporal-patterns.html#costs-of-business-cycles"><i class="fa fa-check"></i><b>16.4.1</b> Costs of Business Cycles</a></li>
+<li class="chapter" data-level="16.4.2" data-path="temporal-patterns.html"><a href="temporal-patterns.html#cyclicality-and-timing"><i class="fa fa-check"></i><b>16.4.2</b> Cyclicality and Timing</a></li>
+<li class="chapter" data-level="16.4.3" data-path="temporal-patterns.html"><a href="temporal-patterns.html#consumption-smoothing"><i class="fa fa-check"></i><b>16.4.3</b> Consumption Smoothing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="regional-patterns.html"><a href="regional-patterns.html"><i class="fa fa-check"></i><b>17</b> Regional Patterns</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="regional-patterns.html"><a href="regional-patterns.html#regional-data"><i class="fa fa-check"></i><b>17.1</b> Regional Data</a></li>
+<li class="chapter" data-level="17.2" data-path="regional-patterns.html"><a href="regional-patterns.html#county-level-patterns"><i class="fa fa-check"></i><b>17.2</b> County-Level Patterns</a></li>
+<li class="chapter" data-level="17.3" data-path="regional-patterns.html"><a href="regional-patterns.html#state-level-patterns"><i class="fa fa-check"></i><b>17.3</b> State-Level Patterns</a></li>
+<li class="chapter" data-level="17.4" data-path="regional-patterns.html"><a href="regional-patterns.html#country-level-patterns"><i class="fa fa-check"></i><b>17.4</b> Country-Level Patterns</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="microeconomic-patterns.html"><a href="microeconomic-patterns.html"><i class="fa fa-check"></i><b>18</b> Microeconomic Patterns</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="microeconomic-patterns.html"><a href="microeconomic-patterns.html#microeconomic-data"><i class="fa fa-check"></i><b>18.1</b> Microeconomic Data</a></li>
+<li class="chapter" data-level="18.2" data-path="microeconomic-patterns.html"><a href="microeconomic-patterns.html#firm-patterns"><i class="fa fa-check"></i><b>18.2</b> Firm Patterns</a></li>
+<li class="chapter" data-level="18.3" data-path="microeconomic-patterns.html"><a href="microeconomic-patterns.html#household-patterns"><i class="fa fa-check"></i><b>18.3</b> Household Patterns</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="causal-relationships.html"><a href="causal-relationships.html"><i class="fa fa-check"></i><b>19</b> Causal Relationships</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="causal-relationships.html"><a href="causal-relationships.html#elasticities"><i class="fa fa-check"></i><b>19.1</b> Elasticities</a></li>
+<li class="chapter" data-level="19.2" data-path="causal-relationships.html"><a href="causal-relationships.html#multipliers"><i class="fa fa-check"></i><b>19.2</b> Multipliers</a></li>
+<li class="chapter" data-level="19.3" data-path="causal-relationships.html"><a href="causal-relationships.html#causality"><i class="fa fa-check"></i><b>19.3</b> Causality</a></li>
+</ul></li>
+<li class="part"><span><b>Part V</b></span></li>
+<li class="chapter" data-level="" data-path="part-v.html"><a href="part-v.html"><i class="fa fa-check"></i><em>Part V: Insights From Real-Time Data and Surveys</em></a></li>
+<li class="chapter" data-level="20" data-path="why-subjective-information-matters.html"><a href="why-subjective-information-matters.html"><i class="fa fa-check"></i><b>20</b> Why Subjective Information Matters</a></li>
+<li class="chapter" data-level="21" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html"><i class="fa fa-check"></i><b>21</b> Insights From Consumer Surveys</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#introduction-1"><i class="fa fa-check"></i><b>21.1</b> Introduction</a></li>
+<li class="chapter" data-level="21.2" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#conducting-the-survey"><i class="fa fa-check"></i><b>21.2</b> Conducting the Survey</a></li>
+<li class="chapter" data-level="21.3" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#michigan-consumer-indices"><i class="fa fa-check"></i><b>21.3</b> Michigan Consumer Indices</a>
+<ul>
+<li class="chapter" data-level="21.3.1" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#index-of-consumer-sentiment-ics"><i class="fa fa-check"></i><b>21.3.1</b> Index of Consumer Sentiment (ICS)</a></li>
+<li class="chapter" data-level="21.3.2" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#index-of-current-economic-conditions-icc"><i class="fa fa-check"></i><b>21.3.2</b> Index of Current Economic Conditions (ICC)</a></li>
+<li class="chapter" data-level="21.3.3" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#index-of-consumer-expectations-ice"><i class="fa fa-check"></i><b>21.3.3</b> Index of Consumer Expectations (ICE)</a></li>
+<li class="chapter" data-level="21.3.4" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#importing-in-r"><i class="fa fa-check"></i><b>21.3.4</b> Importing in R</a></li>
+<li class="chapter" data-level="21.3.5" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#import-tsv-file"><i class="fa fa-check"></i><b>21.3.5</b> Import TSV File</a></li>
+<li class="chapter" data-level="21.3.6" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#plotting-consumer-indices"><i class="fa fa-check"></i><b>21.3.6</b> Plotting Consumer Indices</a></li>
+</ul></li>
+<li class="chapter" data-level="21.4" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#creating-custom-consumer-indices"><i class="fa fa-check"></i><b>21.4</b> Creating Custom Consumer Indices</a></li>
+<li class="chapter" data-level="21.5" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#importing-and-cleaning-individual-level-surveys"><i class="fa fa-check"></i><b>21.5</b> Importing and Cleaning Individual-Level Surveys</a>
+<ul>
+<li class="chapter" data-level="21.5.1" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#data-source-1"><i class="fa fa-check"></i><b>21.5.1</b> Data Source</a></li>
+<li class="chapter" data-level="21.5.2" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#data-labels"><i class="fa fa-check"></i><b>21.5.2</b> Data Labels</a></li>
+<li class="chapter" data-level="21.5.3" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#importing-the-data-set"><i class="fa fa-check"></i><b>21.5.3</b> Importing the Data Set</a></li>
+<li class="chapter" data-level="21.5.4" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#long-format"><i class="fa fa-check"></i><b>21.5.4</b> Long Format</a></li>
+<li class="chapter" data-level="21.5.5" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#saving-the-data"><i class="fa fa-check"></i><b>21.5.5</b> Saving the Data</a></li>
+</ul></li>
+<li class="chapter" data-level="21.6" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#exploring-individual-level-data"><i class="fa fa-check"></i><b>21.6</b> Exploring Individual-Level Data</a></li>
+<li class="chapter" data-level="21.7" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#replicate-ics"><i class="fa fa-check"></i><b>21.7</b> Replicate ICS</a></li>
+<li class="chapter" data-level="21.8" data-path="insights-from-consumer-surveys.html"><a href="insights-from-consumer-surveys.html#conclusion-4"><i class="fa fa-check"></i><b>21.8</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="insights-from-real-time-data.html"><a href="insights-from-real-time-data.html"><i class="fa fa-check"></i><b>22</b> Insights From Real-Time Data</a></li>
+<li class="chapter" data-level="23" data-path="insights-from-forecaster-data.html"><a href="insights-from-forecaster-data.html"><i class="fa fa-check"></i><b>23</b> Insights From Forecaster Data</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="insights-from-forecaster-data.html"><a href="insights-from-forecaster-data.html#tealbook"><i class="fa fa-check"></i><b>23.1</b> Tealbook</a>
+<ul>
+<li class="chapter" data-level="23.1.1" data-path="insights-from-forecaster-data.html"><a href="insights-from-forecaster-data.html#import-excel-workbook-1"><i class="fa fa-check"></i><b>23.1.1</b> Import Excel Workbook</a></li>
+<li class="chapter" data-level="23.1.2" data-path="insights-from-forecaster-data.html"><a href="insights-from-forecaster-data.html#nowcast-and-backcast"><i class="fa fa-check"></i><b>23.1.2</b> Nowcast and Backcast</a></li>
+<li class="chapter" data-level="23.1.3" data-path="insights-from-forecaster-data.html"><a href="insights-from-forecaster-data.html#information-date-and-realization-date"><i class="fa fa-check"></i><b>23.1.3</b> Information Date and Realization Date</a></li>
+<li class="chapter" data-level="23.1.4" data-path="insights-from-forecaster-data.html"><a href="insights-from-forecaster-data.html#plotting-forecasts"><i class="fa fa-check"></i><b>23.1.4</b> Plotting Forecasts</a></li>
+<li class="chapter" data-level="23.1.5" data-path="insights-from-forecaster-data.html"><a href="insights-from-forecaster-data.html#plotting-forecast-errors"><i class="fa fa-check"></i><b>23.1.5</b> Plotting Forecast Errors</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Part VI</b></span></li>
+<li class="chapter" data-level="" data-path="part-vi.html"><a href="part-vi.html"><i class="fa fa-check"></i><em>Part VI: Insights From Textual Data</em></a></li>
+<li class="chapter" data-level="24" data-path="text-analysis-and-mining.html"><a href="text-analysis-and-mining.html"><i class="fa fa-check"></i><b>24</b> Text Analysis and Mining</a></li>
+<li class="chapter" data-level="25" data-path="insights-from-google-trends.html"><a href="insights-from-google-trends.html"><i class="fa fa-check"></i><b>25</b> Insights From Google Trends</a></li>
+<li class="chapter" data-level="26" data-path="insights-from-newspapers.html"><a href="insights-from-newspapers.html"><i class="fa fa-check"></i><b>26</b> Insights From Newspapers</a></li>
+<li class="chapter" data-level="27" data-path="insights-from-social-media.html"><a href="insights-from-social-media.html"><i class="fa fa-check"></i><b>27</b> Insights From Social Media</a></li>
+<li class="appendix"><span><b>Modules</b></span></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html"><i class="fa fa-check"></i><em>Modules</em></a>
+<ul>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#modules-breakdown"><i class="fa fa-check"></i>Modules Breakdown</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#textbook"><i class="fa fa-check"></i>Textbook Engagement</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#datacamp"><i class="fa fa-check"></i>Learn R with DataCamp</a>
+<ul>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#prepare-for-the-course"><i class="fa fa-check"></i>Prepare for the Course</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#xp-system-and-course-completion"><i class="fa fa-check"></i>XP System and Course Completion</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#develope-your-skills"><i class="fa fa-check"></i>Develope Your Skills</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#datareport"><i class="fa fa-check"></i>Data Report Instructions</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#module-a"><i class="fa fa-check"></i>Module A: Introduction to R</a>
+<ul>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#overview-a"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#objectives-a"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#activities-a"><i class="fa fa-check"></i>Learning Activities &amp; Assessments</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#report-a"><i class="fa fa-check"></i>Data Report on Stock Returns</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#module-b"><i class="fa fa-check"></i>Module B: Financial Performance Indicators</a>
+<ul>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#overview-b"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#objectives-b"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#activities-b"><i class="fa fa-check"></i>Learning Activities &amp; Assessments</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#report-b"><i class="fa fa-check"></i>Data Report on Financial Performance Indicators</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#module-c"><i class="fa fa-check"></i>Module C: Macroeconomic Accounting</a>
+<ul>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#overview-c"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#objectives-c"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#activities-c"><i class="fa fa-check"></i>Learning Activities &amp; Assessments</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#report-c"><i class="fa fa-check"></i>Data Report on Macroeconomic Indicators</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#module-d"><i class="fa fa-check"></i>Module D: Financial Market Indicators</a>
+<ul>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#overview-d"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#objectives-d"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#activities-d"><i class="fa fa-check"></i>Learning Activities &amp; Assessments</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#report-d"><i class="fa fa-check"></i>Data Report on Yield Curves</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://www.julianfludwig.com/" target="blank">Julian F. Ludwig</a></li>
@@ -435,17 +824,17 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="why-subjective-information-matters" class="section level1 hasAnchor" number="19">
-<h1><span class="header-section-number">19</span> Why Subjective Information Matters<a href="why-subjective-information-matters.html#why-subjective-information-matters" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="why-subjective-information-matters" class="section level1 hasAnchor" number="20">
+<h1><span class="header-section-number">Chapter 20</span> Why Subjective Information Matters<a href="why-subjective-information-matters.html#why-subjective-information-matters" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Traditional economic indicators primarily focus on objective information, such as the quantity of goods produced in an economy. However, subjective factors, like beliefs and expectations, also play a crucial role in shaping the economy. Unlike some processes in physics, the economy is not driven solely by external factors. Instead, it involves decisions made by individuals, businesses, and policymakers based on their perceptions of the future. Consequently, the trajectory of an economy is influenced not only by its past but also by what people anticipate in the future.</p>
 <p>Moreover, people’s anticipations are not solely based on objective information; they are also influenced by subjective information, which can sometimes lead to mistakes with real implications. This chapter delves into the significance of such subjective information in economic analysis and decision-making, shedding light on how beliefs can have a tangible impact on the overall economy.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:beliefs-matter"></span>
 <img src="files/beliefs-matter.png" alt="Beliefs and their Impact on the Economy" width="80%" />
 <p class="caption">
-Figure 19.1: Beliefs and their Impact on the Economy
+Figure 20.1: Beliefs and their Impact on the Economy
 </p>
 </div>
-<p>The diagram in Figure <a href="why-subjective-information-matters.html#fig:beliefs-matter">19.1</a> illustrates how beliefs can affect the economy. When individuals and firms hold optimistic expectations, anticipating a significant rise in output or economic prosperity, they tend to adjust their behavior accordingly. This optimistic outlook leads to increased spending, heightened investment, and expanded production to cater to the expected high demand in the future.</p>
+<p>The diagram in Figure <a href="why-subjective-information-matters.html#fig:beliefs-matter">20.1</a> illustrates how beliefs can affect the economy. When individuals and firms hold optimistic expectations, anticipating a significant rise in output or economic prosperity, they tend to adjust their behavior accordingly. This optimistic outlook leads to increased spending, heightened investment, and expanded production to cater to the expected high demand in the future.</p>
 <p>Conversely, when people and firms become overly pessimistic about the economic prospects, they tend to reduce their spending and investment, anticipating a decline in demand or adverse economic conditions. Consequently, this pessimistic sentiment results in lower actual output than would be the case if optimism prevailed.</p>
 <p>The significance of subjective information lies in its forward-looking nature. Economic decisions are rarely made based solely on historical data and past performances. Instead, they are heavily influenced by people’s perceptions of what lies ahead. The forward-looking aspect arises from the inherent time lags in various economic processes.</p>
 <p>For firms, the decision-making process involves planning and production, often taking months or even years before the final product reaches the market. Consequently, they must make choices based on their beliefs about future demand, market conditions, and overall economic stability.</p>
@@ -460,8 +849,8 @@ Figure 19.1: Beliefs and their Impact on the Economy
           </div>
         </div>
       </div>
-<a href="module-iii.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="michigan-consumer-survey.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="part-v.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="insights-from-consumer-surveys.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
