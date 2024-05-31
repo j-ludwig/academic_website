@@ -1,0 +1,288 @@
+---
+title: "Stock Return Analysis for Aehr Test Systems"
+author: "Julian F. Ludwig"
+date: "`r gsub(' 0', ' ', format(Sys.Date(), '%B %d, %Y'))`"
+output: 
+  bookdown::pdf_document2:
+    toc: false
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+# Global options
+# -> echo = TRUE for internal version (print R codes)
+# -> echo = FALSE for official version (hide R codes)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE,
+                      fig.align = "center", out.width = "60%")
+```
+
+
+This report analyzes the historical stock returns of Aehr Test Systems (abbreviated as Aehr), a public company listed on the Nasdaq stock exchange.
+
+
+# About Aehr Test Systems
+
+Founded in 1977 and headquartered in Fremont, California, Aehr provides solutions for reliability testing of semiconductor devices (see company logo in Figure \@ref(fig:aehr-logo)). Serving markets like automotive, mobile communications, and computing, Aehr ensures the quality and longevity of semiconductors by detecting early failures before integration into larger systems.
+
+```{r aehr-logo, fig.height=3, out.width = "30%", fig.cap="Company Logo of Aehr Test Systems"}
+# Download company logo
+download.file("https://www.aehr.com/wp-content/uploads/2018/03/Aehr-Test-Systems-Logo.png",
+              destfile = "Aehr-Test-Systems-Logo.png")
+
+# Plot company logo
+knitr::include_graphics("Aehr-Test-Systems-Logo.png")
+```
+
+
+
+# Market Capitalization
+
+```{r}
+# Load xts and quantmod package
+library("xts")
+library("quantmod")
+
+# Download stock indices & stock prices from Yahoo Finance
+NASDAQ_index <- getSymbols(
+  Symbols = "^IXIC",
+  src = "yahoo",
+  auto.assign = FALSE,
+  return.class = "xts")
+
+AAPL_stock_price <- getSymbols(
+  Symbols = "AAPL",
+  src = "yahoo",
+  auto.assign = FALSE,
+  return.class = "xts")
+
+AEHR_stock_price <- getSymbols(
+  Symbols = "AEHR",
+  src = "yahoo",
+  auto.assign = FALSE,
+  return.class = "xts")
+
+# Extract adjusted share price
+NASDAQ_index_adj <- Ad(NASDAQ_index)
+AAPL_stock_price_adj <- Ad(AAPL_stock_price)
+AEHR_stock_price_adj <- Ad(AEHR_stock_price)
+
+# Shares outstanding as of May 28, 2024
+AAPL_n_shares <- 15405856000
+AEHR_n_shares <- 28910000
+
+# Market cap
+AAPL_market_cap <- AAPL_stock_price_adj * AAPL_n_shares
+AEHR_market_cap <- AEHR_stock_price_adj * AEHR_n_shares
+
+# Market cap as of May 28, 2024
+AAPL_mcap <- paste0("$", formatC(as.numeric(AAPL_market_cap["2024-05-28"]) / 10^12, 
+                                 format = "f", digits = 2, big.mark = ","), " trillion")
+AEHR_mcap <- paste0("$", formatC(as.numeric(AEHR_market_cap["2024-05-28"]) / 10^6, 
+                                 format = "f", digits = 2, big.mark = ","), " million")
+
+# Peak market cap
+AEHR_mcap_peak <- paste0("$", formatC(as.numeric(max(AEHR_market_cap)) / 10^6, 
+                                      format = "f", digits = 2, big.mark = ","), " million")
+AEHR_t_peak <- gsub(" 0", " ", format(index(AEHR_market_cap[
+    AEHR_market_cap == max(AEHR_market_cap)]), format = "%B %d, %Y"))
+
+# %-Decline from peak to May 28, 2024
+AEHR_mcap_decline <- -round(100 * (as.numeric(AEHR_market_cap["2024-05-28"]) - 
+                                       max(AEHR_market_cap)) / max(AEHR_market_cap), 2)
+```
+
+
+Aehr Test Systems went public in 1997, listing its shares on the Nasdaq Stock Market under the ticker symbol [AEHR](https://www.nasdaq.com/market-activity/stocks/aehr). As of May 28, 2024, Aehr Test Systems (AEHR) has a market capitalization of `r AEHR_mcap`.^[Market capitalization (or market cap) is the total market value of a company's outstanding shares of stock. It is calculated by multiplying the current stock price by the total number of outstanding shares.] This market cap places Aehr in the small-cap category, which generally includes companies with a market cap between \$300 million and \$2 billion. For comparison, Apple's market capitalization as of May 28, 2024, is `r AAPL_mcap`.
+
+```{r marketcap, fig.cap="Aehr's Market Capitalization Over Time"}
+# Plot market cap
+plot.zoo(AEHR_market_cap / 10^6, plot.type = "single", lwd = 1.5, 
+         xlab = "", ylab = "Million USD")
+```
+
+Figure \@ref(fig:marketcap) plots Aehr's market capitalization over time. It peaked at `r AEHR_mcap_peak` on `r AEHR_t_peak`, and has since declined by `r AEHR_mcap_decline`\% as of May 28, 2024. This decline can be attributed to several factors, including significant delays in customer orders for silicon carbide systems used in electric vehicles and a general reduction in semiconductor capital spending due to inventory gluts, which are excess supplies of semiconductors that reduce new orders (see Aehr's [March 25, 2024 Press Release](https://www.aehr.com/2024/03/aehr-announces-preliminary-financial-results-for-its-fiscal-2024-third-quarter-provides-updated-full-year-revenue-guidance/)).
+
+
+
+# A Visual Analysis of Stock Returns
+
+Key metrics of historical performance for investors include the return an investment generates and its volatility. Higher returns are preferred over lower returns, while lower volatility is preferred over higher volatility, as it implies a lower probability of a significant loss.
+
+Returns on stocks are defined as the percentage change in price, which can be approximated using the log difference as follows:
+\begin{equation}
+r_t =  100 \left( \ln P_t - \ln P_{t-1} \right)\%
+(\#eq:return)
+\end{equation}
+Here, $\ln P_t$ is the natural logarithm of $P_t$. The log difference, $\ln P_t - \ln P_{t-1}$, approximates the arithmetic return, $\%\Delta P_t= \frac{P_t - P_{t-1}}{P_{t-1}}$, particularly for small returns (less than $\pm 20\%$).^[Log returns are better for understanding how money grows over time compared to the the arithmetic return. Imagine you invest \$100 in a stock. During the first month, the stock gains 50\%, so your investment is now worth \$150. The next month, the stock loses 50\%, bringing your investment down to \$75. In contrast, when returns are approximated with logs, a 50\% increase and decline brings your investment back to \$100.]
+
+Year-over-year (YoY) returns are useful for understanding longer-term trends and business cycle patterns, as they compare the current price to the price one year ago, smoothing out short-term volatility and providing a clearer picture of the investment's performance over time. Given prices at a monthly frequency, YoY returns can be approximated using the log difference as follows:
+\begin{equation}
+r^{YoY}_t =  100 \left( \ln P_t - \ln P_{t-12} \right)\%
+= \sum_{i = 0}^{11} r_{t-i}
+(\#eq:yoyreturn)
+\end{equation}
+where $P_{t-12}$ is the price 12 periods ago, which, given monthly frequency, is one year, and $r_{t-i}$ is the monthly return defined in equation \@ref(eq:return).
+
+
+```{r}
+# Merge data
+Prices <- merge(NASDAQ_index_adj, AAPL_stock_price_adj, AEHR_stock_price_adj)
+
+# Remove missing values
+Prices <- na.omit(Prices)
+
+# Aggregate to monthly frequency
+Prices_monthly <- apply.monthly(Prices, FUN = last)
+
+# Compute returns
+Returns <- 100 * diff.xts(Prices_monthly, log = TRUE, na.pad = FALSE, lag = 1)
+
+# Compute year-over-year returns
+YoYReturns <- 100 * diff.xts(Prices_monthly, log = TRUE, na.pad = FALSE, lag = 12)
+```
+
+```{r yoyreturn, fig.cap="Year-Over-Year Stock Returns"}
+# Plot year-over-year returns
+plot.zoo(YoYReturns, plot.type = "single", xlab = "", ylab = "%",
+         col = c(5, 2, 1), lwd = c(3.5, 1.5, 1.5), lty = c(1, 2, 1))
+legend("topleft", legend = c("Nasdaq", "Apple", "Aehr"), 
+       col = c(5, 2, 1), lwd = c(3.5, 1.5, 1.5), lty = c(1, 2, 1), bty = "n")
+```
+
+Figure \@ref(fig:yoyreturn) plots the YoY stock returns as per equation \@ref(eq:yoyreturn) for Aehr, as well as for Apple and the Nasdaq stock market index for benchmarking. Aehr's stock exhibits significant volatility, with dramatic fluctuations and extreme highs and lows compared to the more stable returns of Apple and the Nasdaq index. This higher volatility indicates higher risk, with opportunities for significant gains or losses. As of 2024, Aehr's returns are trending downward, indicating recent challenges.
+
+Aehr's high volatility and dramatic fluctuations can be attributed to its smaller market capitalization and niche focus, making it more susceptible to market dynamics and company-specific events. Additionally, delays in customer orders for silicon carbide systems and a general reduction in semiconductor capital spending due to inventory gluts have recently impacted its performance. Conversely, Apple's stability is due to its large size, wide product range, and strong market presence, which buffer it against market volatility. The Nasdaq index's broad representation and diversification across multiple sectors result in the lowest volatility, serving as a stable benchmark for market performance.
+
+The graph alone does not provide a definitive answer on whether Aehr or Apple was a better investment, as graphs are primarily useful for identifying key periods and cycles rather than providing precise insights. For a more accurate comparison, we will compute sample statistics in the next section.
+
+
+
+# A Statistical Analysis of Stock Returns
+
+## Overall Trend
+
+Table \@ref(tab:stattable) presents the monthly percentage-return statistics for Aehr Test Systems, Apple, and the Nasdaq index from February 2007 to May 2024. These statistics are defined in Appendix \@ref(stats).
+
+```{r}
+# Assemble key statistics in a data frame
+stats_df <- rbind(
+    "Mean" = apply(Returns, 2, mean),
+    "Volatility (Standard Deviation)" = apply(Returns, 2, sd),
+    "Minimum Return" = apply(Returns, 2, min),
+    "Maximum Return" = apply(Returns, 2, max),
+    "Autocorrelation" = apply(Returns, 2, function(x) cor(x, lag.xts(x, 1), 
+                                                          use = "complete.obs")),
+    "Correlation to Nasdaq Index" = cor(Returns)[1, ],
+    "Value" = as.numeric(tail(coredata(Prices), 1) / head(coredata(Prices), 1)))
+value_label <- paste("Value of a $1 Investment in", 
+                     format(start(Returns), "%b %Y"), 
+                     "by", format(end(Returns), "%B %Y"))
+rownames(stats_df)[rownames(stats_df) == "Value"] <- value_label
+colnames(stats_df) <- c("Nasdaq", "Apple", "Aehr")
+
+# Define the time range for the statistics
+time_interval <- format(x = range(index(Returns)), format = "%b %Y")
+
+# Create table title
+stats_title <- paste("Monthly $\\%$-Return Statistics:", 
+                     paste(time_interval, collapse = " to "))
+```
+
+```{r stattable, results='asis'}
+# Load knitr for table rendering
+library("knitr")
+
+# Format table with rounded statistics
+kable(x = round(stats_df, 2), 
+      caption = stats_title,
+      format = "simple")
+```
+
+Aehr exhibits the lowest average monthly return at `r round(stats_df["Mean", "Aehr"], 2)`\%. Its high volatility (`r round(stats_df["Volatility (Standard Deviation)", "Aehr"], 2)`\%) and extreme fluctuations in returns (minimum of -`r round(stats_df["Minimum Return", "Aehr"], 2)`\% and maximum of `r round(stats_df["Maximum Return", "Aehr"], 2)`\%) underscore the significant risk associated with investing in smaller, niche firms. These characteristics highlight Aehr's susceptibility to specific industry developments, making it a high-risk, high-reward investment. The weaker correlation with Nasdaq (`r round(stats_df["Correlation to Nasdaq Index", "Aehr"], 2)` vs. Apple's `r round(stats_df["Correlation to Nasdaq Index", "Apple"], 2)`) suggests that Aehr's performance is less dependent on broader market movements, reflecting its unique market position and operational risks.
+
+The value of a \$1 investment in February 2007 growing to \$`r round(stats_df[value_label, "Aehr"], 2)` by May 2024 for Aehr is much lower than the one for Apple of \$`r round(stats_df[value_label, "Apple"], 2)`, and the Nasdaq in general, of \$`r round(stats_df[value_label, "Nasdaq"], 2)`. However, the high volatility suggests that if the returns were recorded at another time period, the numbers might favor Aehr. This again highlights the potential for significant gains but also the inherent risks associated with small-cap tech firms.
+
+In summary, the table underscores the trade-offs between risk and return among large-cap, broad market, and small-cap investments. Apple offers high returns with moderate risk, Nasdaq provides steady and lower-risk returns through diversification, while Aehr presents a high-risk, high-reward profile, appealing to investors with a higher risk tolerance.
+
+
+## Outlier Analysis
+
+Statistics such as mean, volatility and correlation can be driven by a few outliers, rather than reflecting an overall trend. In order to detect such outliers, it is useful to inspect the time series plot in Figure \@ref(fig:yoyreturn) and conclude that the higher volatility of Aehr is not caused by outliers but rather a consistent phenomenon over time. Another way to detect outliers is using scatter plots, which is done next.
+
+
+```{r corrfigure, out.width = "80%", fig.cap="Scatter Plot of Monthly Stock Returns"}
+# Correlation of Apple and Aehr returns
+x_var <- Returns$AAPL.Adjusted
+y_var <- Returns$AEHR.Adjusted
+plot.default(x = x_var, y = y_var,
+             xlab = "Apple Stock Returns", ylab = "Aehr Stock Returns", type = "n")
+abline(a = lm(y_var ~ x_var), col = "purple", lwd = 2)
+corr_text <- round(x = cor(Returns)[2, 3], digits = 2)
+text(x = x_var, y = y_var, labels = format(index(x_var), "%b %y"), adj = 0, cex = .6) 
+text(x = min(na.omit(x_var)), y = min(na.omit(y_var)) + 10, 
+     labels = paste("Correlation:", corr_text), pos = 4, col = "purple")
+```
+
+
+Figure \@ref(fig:corrfigure) presents a scatter plot illustrating the correlations between monthly stock returns for Apple and Aehr. The plot shows a weak positive correlation of `r round(cor(Returns)[2, 3], 2)` between Apple and Aehr, indicating that their returns are relatively independent. The dispersion of points around the regression line is scattered, suggesting that the performance of one stock does not significantly predict the performance of the other. While some outliers are present, they do not dominate the overall trend.
+
+While Apple's outliers reflect economy-wide recessions such as the 2008 financial crisis, Aehr's biggest outliers, such as October 2023 and February 2017, do not coincide with macroeconomic developments. This shows that Aehr's stock is more influenced by company-specific events and industry-specific factors rather than broader economic conditions. This difference in sensitivity to macroeconomic versus microeconomic factors underscores the unique risks and opportunities associated with investing in smaller, niche companies like Aehr.
+
+The lower correlation of `r round(cor(Returns)[2, 3], 2)` between Apple and Aehr depicted in Figure \@ref(fig:corrfigure) compared to a correlation of `r round(cor(Returns)[1, 3], 2)` between Aehr and Nasdaq shown in Table \@ref(tab:stattable) indicates that Aehr's performance is more closely tied to broader market trends than to Apple's specific performance. This relative independence underscores the benefits of diversification in reducing company-specific risks. For instance, combining investments in Apple and Aehr can help mitigate specific risks associated with each company, as their returns do not move in tandem. 
+
+
+# Conclusion
+
+Aehr Test Systems' stock exhibits significant volatility and smaller market capitalization, making it a high-risk, high-reward investment. While a \$1 investment in February 2007 grew to \$`r round(stats_df[value_label, "Aehr"], 2)` by May 2024, this is much lower compared to Apple's \$`r round(stats_df[value_label, "Apple"], 2)` and Nasdaq's \$`r round(stats_df[value_label, "Nasdaq"], 2)`. However, Aehr's high volatility suggests potential for significant gains in different time periods. Investors should consider the balance of potential returns and risks, emphasizing diversification to mitigate company-specific risks.
+
+
+
+
+
+
+
+
+
+
+# (APPENDIX) Appendix {-}
+
+\begin{center}
+\huge \textbf{Appendix}
+\end{center}
+
+# Table \@ref(tab:stattable) Statistics {#stats}
+
+
+The statistics of Table \@ref(tab:stattable) are defined as follows:
+
+- **Mean** return is defined as:
+\begin{equation}
+\text{Mean} = \bar{r} = \frac{1}{T} \sum_{t=1}^{T} r_t
+(\#eq:mean)
+\end{equation}
+where $r_t$ are the monthly returns defined in \@ref(eq:return) and $T$ is the total number of months.
+
+- **Volatility**, or standard deviation, measures the dispersion of returns and is given by:
+\begin{equation}
+\text{Volatility} = \sigma = \sqrt{\frac{1}{T-1} \sum_{i=1}^{T} (r_i - \bar{r})^2}
+(\#eq:volatility)
+\end{equation}
+where $\bar{r}$ is the mean return defined in \@ref(eq:mean).
+
+- **Minimum** and **maximum** returns represent the lowest and highest monthly returns observed over the period.
+
+- **Correlation** to the Nasdaq index measures how the stock returns move in relation to the Nasdaq returns:
+\begin{equation}
+\text{Correlation} = \rho_{X,Y} = \frac{\sum_{t=1}^{T} (r_{X,t} - \bar{r}_X)(r_{Y,t} - \bar{r}_Y)}{\sqrt{\sum_{t=1}^{T} (r_{X,t} - \bar{r}_X)^2} \sqrt{\sum_{t=1}^{T} (r_{Y,t} - \bar{r}_Y)^2}}
+(\#eq:correlation)
+\end{equation}
+where $r_{X,t}$ and $r_{Y,t}$ are the monthly returns of the stock and the Nasdaq index, respectively, at time $t$.
+
+- **Autocorrelation** at lag 1 measures the correlation of a time series with its own past values:
+\begin{equation}
+\text{Autocorrelation} = \rho_1 = \frac{\sum_{t=2}^{T} (r_t - \bar{r})(r_{t-1} - \bar{r})}{\sum_{t=1}^{T} (r_t - \bar{r})^2}
+(\#eq:autocorrelation)
+\end{equation}
+where $\bar{r}$ is the mean return defined in \@ref(eq:mean).
+
+
