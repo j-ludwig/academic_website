@@ -1302,11 +1302,11 @@ The <code>length()</code> function returns the number of elements in a vector.</
 <span id="cb141-5"><a href="r-basics.html#cb141-5" tabindex="-1"></a>       <span class="at">size =</span> <span class="dv">20</span>,                  <span class="co"># Total number of draws</span></span>
 <span id="cb141-6"><a href="r-basics.html#cb141-6" tabindex="-1"></a>       <span class="at">replace =</span> <span class="cn">TRUE</span>,             <span class="co"># Draw with replacement</span></span>
 <span id="cb141-7"><a href="r-basics.html#cb141-7" tabindex="-1"></a>       <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.80</span>, <span class="fl">0.20</span>))       <span class="co"># Assign probabilities to Head and Tail</span></span></code></pre></div>
-<pre><code>## [1] 2 5 4 1 3
-## [1] 5 4 2
-## [1] 3 4 5
-##  [1] &quot;Tail&quot; &quot;Head&quot; &quot;Head&quot; &quot;Head&quot; &quot;Head&quot; &quot;Head&quot; &quot;Head&quot; &quot;Head&quot; &quot;Head&quot; &quot;Head&quot;
-## [11] &quot;Head&quot; &quot;Head&quot; &quot;Head&quot; &quot;Head&quot; &quot;Head&quot; &quot;Head&quot; &quot;Head&quot; &quot;Tail&quot; &quot;Head&quot; &quot;Head&quot;</code></pre></li>
+<pre><code>## [1] 2 3 4 5 1
+## [1] 1 2 5
+## [1] 3 2 5
+##  [1] &quot;Tail&quot; &quot;Head&quot; &quot;Tail&quot; &quot;Head&quot; &quot;Tail&quot; &quot;Head&quot; &quot;Head&quot; &quot;Head&quot; &quot;Head&quot; &quot;Head&quot;
+## [11] &quot;Head&quot; &quot;Tail&quot; &quot;Head&quot; &quot;Head&quot; &quot;Head&quot; &quot;Head&quot; &quot;Head&quot; &quot;Head&quot; &quot;Head&quot; &quot;Tail&quot;</code></pre></li>
 </ul></li>
 <li><p><strong>Element-Wise Operations</strong>:<br />
 In R, when a function targets a vector, it generally acts on each element individually. This property allows for faster computations without having to write loops.</p>
@@ -2085,8 +2085,8 @@ Tab on output or arbitrary whitespace on input
 <span id="cb260-3"><a href="r-basics.html#cb260-3" tabindex="-1"></a><span class="fu">print</span>(current_time)</span>
 <span id="cb260-4"><a href="r-basics.html#cb260-4" tabindex="-1"></a><span class="fu">format</span>(current_time, <span class="at">format =</span> <span class="st">&quot;The update took place at %I:%M %p (%Z time zone).&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;POSIXct&quot; &quot;POSIXt&quot; 
-## [1] &quot;2024-05-31 13:51:02 CDT&quot;
-## [1] &quot;The update took place at 01:51 PM (CDT time zone).&quot;</code></pre>
+## [1] &quot;2024-05-31 14:04:20 CDT&quot;
+## [1] &quot;The update took place at 02:04 PM (CDT time zone).&quot;</code></pre>
 <p>To determine the time zone set on the system, you can use the <code>Sys.timezone()</code> function:</p>
 <div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="r-basics.html#cb262-1" tabindex="-1"></a><span class="fu">Sys.timezone</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;America/Chicago&quot;</code></pre>
@@ -2296,11 +2296,11 @@ Figure 3.8: Histogram
 <p>Functions can accept multiple arguments. Take the function <code>sample()</code>, which draws random samples from a data set. This function can have arguments like <code>x</code> (the data set) and <code>size</code> (number of items to draw). We can provide these arguments by name for clarity:</p>
 <div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="r-basics.html#cb274-1" tabindex="-1"></a><span class="co"># Using the sample function with named arguments</span></span>
 <span id="cb274-2"><a href="r-basics.html#cb274-2" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">size =</span> <span class="dv">5</span>)</span></code></pre></div>
-<pre><code>## [1]  3  8  6  5 10</code></pre>
+<pre><code>## [1] 7 1 9 3 5</code></pre>
 <p>However, if we’re aware of the default order of the arguments, we might opt to skip naming them:</p>
 <div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="r-basics.html#cb276-1" tabindex="-1"></a><span class="co"># Using the sample function without named arguments</span></span>
 <span id="cb276-2"><a href="r-basics.html#cb276-2" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">5</span>)</span></code></pre></div>
-<pre><code>## [1]  9 10  6  8  7</code></pre>
+<pre><code>## [1]  9  5  4  1 10</code></pre>
 <p>Still, for clarity and to prevent unintended mistakes, using named arguments is generally recommended.</p>
 </div>
 <div id="infix-operators" class="section level3 hasAnchor" number="3.5.2">
