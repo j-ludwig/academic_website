@@ -772,7 +772,7 @@ div.csl-indent {
 <li class="chapter" data-level="26" data-path="insights-from-newspapers.html"><a href="insights-from-newspapers.html"><i class="fa fa-check"></i><b>26</b> Insights From Newspapers</a></li>
 <li class="chapter" data-level="27" data-path="insights-from-social-media.html"><a href="insights-from-social-media.html"><i class="fa fa-check"></i><b>27</b> Insights From Social Media</a></li>
 <li class="appendix"><span><b>Modules</b></span></li>
-<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html"><i class="fa fa-check"></i>Modules Breakdown</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html"><i class="fa fa-check"></i>Modules Overview</a></li>
 <li class="chapter" data-level="" data-path="textbook.html"><a href="textbook.html"><i class="fa fa-check"></i>Textbook Engagement</a></li>
 <li class="chapter" data-level="" data-path="datacamp.html"><a href="datacamp.html"><i class="fa fa-check"></i>Learn R with DataCamp</a>
 <ul>
@@ -839,7 +839,7 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="write-reports-with-r-markdown" class="section level1 hasAnchor" number="6">
 <h1><span class="header-section-number">Chapter 6</span> Write Reports with R Markdown<a href="write-reports-with-r-markdown.html#write-reports-with-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>R Markdown is a tool for creating documents that combine text, R code, and the results of that R code. It simplifies the process of incorporating graphs and other data outputs into a document, removing the need for separate R and word processing operations. It allows for the automation of data retrieval and updating, making it useful for maintaining up-to-date financial reports, among other applications. With R Markdown, you can produce documents in various formats, including HTML, PDF, and Word, directly from your R code. Markdown facilitates the formatting of text in a plain text syntax, while embedded R code chunks ensure the reproducibility of analysis and reports.</p>
+<p>R Markdown is a tool for creating documents that combine text, R code, and the results of that R code, made possible by the R package <code>rmarkdown</code> <span class="citation">(<a href="#ref-R-rmarkdown">Allaire et al. 2024</a>)</span>. It simplifies the process of incorporating graphs and other data outputs into a document, removing the need for separate R and word processing operations. It allows for the automation of data retrieval and updating, making it useful for maintaining up-to-date financial reports, among other applications. With R Markdown, you can produce documents in various formats, including HTML, PDF, and Word, directly from your R code. Markdown facilitates the formatting of text in a plain text syntax, while embedded R code chunks ensure the reproducibility of analysis and reports.</p>
 <div id="create-an-r-markdown-document" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> Create an R Markdown Document<a href="write-reports-with-r-markdown.html#create-an-r-markdown-document" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Here is the step-by-step guide to create a new R Markdown document in RStudio:</p>
@@ -1334,7 +1334,7 @@ Tesla
 </div>
 <div id="referencing" class="section level2 hasAnchor" number="6.8">
 <h2><span class="header-section-number">6.8</span> Referencing<a href="write-reports-with-r-markdown.html#referencing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Books, investment reports, academic papers, and other professional documents typically use numbering for chapters, sections, figures, tables, equations, etc., which are then referred to as Chapter 4 or Figure 2, etc. This referencing is typically automated so that if you add a figure between Figure 3 and Figure 4, the previously labeled Figure 4 changes to Figure 5. Standard R Markdown files allow for some of this labeling and referencing; however, the <code>bookdown</code> package is optimized for this, and its syntax is introduced in this section.</p>
+<p>Books, investment reports, academic papers, and other professional documents typically use numbering for chapters, sections, figures, tables, equations, etc., which are then referred to as Chapter 4 or Figure 2, etc. This referencing is typically automated so that if you add a figure between Figure 3 and Figure 4, the previously labeled Figure 4 changes to Figure 5. Standard R Markdown files allow for some of this labeling and referencing; however, the <code>bookdown</code> package by <span class="citation">Xie (<a href="#ref-R-bookdown">2024a</a>)</span> is optimized for this, and its syntax is introduced in this section.</p>
 <div id="setting-up-bookdown" class="section level3 unnumbered hasAnchor">
 <h3>Setting Up <code>bookdown</code><a href="write-reports-with-r-markdown.html#setting-up-bookdown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To make use of the <code>bookdown</code> functionalities, replace the <code>output: pdf_document</code> or <code>output: html_document</code> line in the YAML header with <code>output: bookdown::pdf_document2</code> or <code>output: bookdown::html_document2</code>:</p>
@@ -1478,7 +1478,7 @@ Figure 6.3: My Figure Caption
 <p>You can reference this section elsewhere in your document using <code>\@ref(my-section-label)</code>. For example:</p>
 <div class="sourceCode" id="cb1069"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1069-1"><a href="write-reports-with-r-markdown.html#cb1069-1" tabindex="-1"></a>For more details, see Section \@ref(my-section-label).</span></code></pre></div>
 <p>If the ID <code>{#my-section-label}</code> is missing, you can use the section title for referencing, using lowercase letters and hyphens (<code>-</code>) instead of spaces. In the example above, you would reference it as <code>\@ref(this-is-my-section)</code>.</p>
-<p>To summarize, <code>bookdown</code> in R Markdown allows for advanced referencing of sections, tables, figures, and equations. This enhances the readability and navigability of your document. For more detailed information, refer to the <a href="https://bookdown.org/yihui/bookdown/">bookdown documentation</a> and the <a href="https://bookdown.org/yihui/rmarkdown-cookbook/">R Markdown Cookbook</a>.</p>
+<p>To summarize, <code>bookdown</code> in R Markdown allows for advanced referencing of sections, tables, figures, and equations. This enhances the readability and navigability of your document. For more detailed information, refer to the <a href="https://bookdown.org/yihui/bookdown/" target="_blank">bookdown documentation</a> and the <a href="https://bookdown.org/yihui/rmarkdown-cookbook/" target="_blank">R Markdown Cookbook</a>.</p>
 </div>
 </div>
 <div id="escape-characters" class="section level2 hasAnchor" number="6.9">
@@ -1593,13 +1593,22 @@ And this new line is indented.</p>
 <div id="summary-and-resources" class="section level2 hasAnchor" number="6.10">
 <h2><span class="header-section-number">6.10</span> Summary and Resources<a href="write-reports-with-r-markdown.html#summary-and-resources" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>R Markdown provides a powerful framework for dynamically generating reports in R. The “dynamic” part of “dynamically generating reports” means that the document is able to update automatically when your data changes. By understanding and effectively using Markdown syntax, R code chunks, chunk options, and YAML headers, you can create sophisticated, reproducible documents with ease like the document you are currently reading.</p>
-<p>For an in-depth understanding of R Markdown, you may want to delve into <a href="https://bookdown.org/yihui/rmarkdown/" target="_blank">R Markdown: The Definitive Guide</a>, an extensive resource on the topic. Additionally, DataCamp’s course <a href="https://learn.datacamp.com/courses/reporting-with-rmarkdown" target="_blank">Reporting with R Markdown</a> provides practical lessons on how to create compelling reports using this tool.</p>
+<p>For an in-depth understanding of R Markdown, you may want to delve into <a href="https://bookdown.org/yihui/rmarkdown/" target="_blank">R Markdown: The Definitive Guide</a>, an extensive resource on the built-in R Markdown output formats and several extension packages. For more practical and relatively short examples, refer to the <a href="https://bookdown.org/yihui/rmarkdown-cookbook/" target="_blank">R Markdown Cookbook</a>, which provides up-to-date solutions and recipes drawn from popular posts on Stack Overflow and other online resources. For more detailed information on advanced referencing of sections, tables, figures, and equations, refer to the <a href="https://bookdown.org/yihui/bookdown/" target="_blank">bookdown documentation</a>. Finally, DataCamp’s course <a href="https://learn.datacamp.com/courses/reporting-with-rmarkdown" target="_blank">Reporting with R Markdown</a> provides practical lessons on how to create compelling reports using this tool.</p>
 
 </div>
 </div>
 
 
 
+<h3><em>References</em><a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-R-rmarkdown" class="csl-entry">
+Allaire, JJ, Yihui Xie, Christophe Dervieux, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, Winston Chang, and Richard Iannone. 2024. <em>Rmarkdown: Dynamic Documents for r</em>. <a href="https://github.com/rstudio/rmarkdown">https://github.com/rstudio/rmarkdown</a>. R package version 2.26.
+</div>
+<div id="ref-R-bookdown" class="csl-entry">
+———. 2024a. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>. <a href="https://github.com/rstudio/bookdown">https://github.com/rstudio/bookdown</a>. R package version 0.38.
+</div>
+</div>
 <div class="footnotes">
 <hr />
 <ol start="2">

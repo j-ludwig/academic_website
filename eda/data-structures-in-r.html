@@ -772,7 +772,7 @@ div.csl-indent {
 <li class="chapter" data-level="26" data-path="insights-from-newspapers.html"><a href="insights-from-newspapers.html"><i class="fa fa-check"></i><b>26</b> Insights From Newspapers</a></li>
 <li class="chapter" data-level="27" data-path="insights-from-social-media.html"><a href="insights-from-social-media.html"><i class="fa fa-check"></i><b>27</b> Insights From Social Media</a></li>
 <li class="appendix"><span><b>Modules</b></span></li>
-<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html"><i class="fa fa-check"></i>Modules Breakdown</a></li>
+<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html"><i class="fa fa-check"></i>Modules Overview</a></li>
 <li class="chapter" data-level="" data-path="textbook.html"><a href="textbook.html"><i class="fa fa-check"></i>Textbook Engagement</a></li>
 <li class="chapter" data-level="" data-path="datacamp.html"><a href="datacamp.html"><i class="fa fa-check"></i>Learn R with DataCamp</a>
 <ul>
@@ -3616,31 +3616,31 @@ Figure 4.2: Time Windows
 <span id="cb910-2"><a href="data-structures-in-r.html#cb910-2" tabindex="-1"></a>dates <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="fu">as.Date</span>(<span class="st">&quot;2022-01-01&quot;</span>), <span class="at">length.out =</span> <span class="dv">10</span>, <span class="at">by =</span> <span class="st">&quot;1 day&quot;</span>)</span>
 <span id="cb910-3"><a href="data-structures-in-r.html#cb910-3" tabindex="-1"></a>eq_mkt <span class="ot">&lt;-</span> <span class="fu">xts</span>(<span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="dv">0</span>, <span class="fl">0.02</span>), <span class="at">order.by =</span> dates)</span>
 <span id="cb910-4"><a href="data-structures-in-r.html#cb910-4" tabindex="-1"></a><span class="fu">print</span>(eq_mkt)</span></code></pre></div>
-<pre><code>##                     [,1]
-## 2022-01-01  0.0028626322
-## 2022-01-02  0.0107482872
-## 2022-01-03 -0.0228411039
-## 2022-01-04 -0.0016891024
-## 2022-01-05 -0.0043531929
-## 2022-01-06  0.0390170771
-## 2022-01-07 -0.0083896107
-## 2022-01-08  0.0495171757
-## 2022-01-09  0.0003810875
-## 2022-01-10  0.0201045337</code></pre>
+<pre><code>##                    [,1]
+## 2022-01-01 -0.001162934
+## 2022-01-02  0.004171978
+## 2022-01-03  0.016940004
+## 2022-01-04 -0.004073950
+## 2022-01-05 -0.009673968
+## 2022-01-06  0.008088119
+## 2022-01-07  0.032500385
+## 2022-01-08  0.013961261
+## 2022-01-09 -0.040027199
+## 2022-01-10 -0.012994785</code></pre>
 <div class="sourceCode" id="cb912"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb912-1"><a href="data-structures-in-r.html#cb912-1" tabindex="-1"></a><span class="co"># Application of rollapply()</span></span>
 <span id="cb912-2"><a href="data-structures-in-r.html#cb912-2" tabindex="-1"></a>rolling_volatility <span class="ot">&lt;-</span> <span class="fu">rollapply</span>(eq_mkt, <span class="at">width =</span> <span class="dv">3</span>, <span class="at">FUN =</span> sd)</span>
 <span id="cb912-3"><a href="data-structures-in-r.html#cb912-3" tabindex="-1"></a><span class="fu">print</span>(rolling_volatility)</span></code></pre></div>
-<pre><code>##                  [,1]
-## 2022-01-01         NA
-## 2022-01-02         NA
-## 2022-01-03 0.01756470
-## 2022-01-04 0.01698206
-## 2022-01-05 0.01152033
-## 2022-01-06 0.02430731
-## 2022-01-07 0.02628265
-## 2022-01-08 0.03085137
-## 2022-01-09 0.03121024
-## 2022-01-10 0.02472675</code></pre>
+<pre><code>##                   [,1]
+## 2022-01-01          NA
+## 2022-01-02          NA
+## 2022-01-03 0.009302331
+## 2022-01-04 0.010587761
+## 2022-01-05 0.014031215
+## 2022-01-06 0.009080821
+## 2022-01-07 0.021174381
+## 2022-01-08 0.012742001
+## 2022-01-09 0.037680020
+## 2022-01-10 0.026994239</code></pre>
 <p>Here’s a breakdown of the <code>rollapply()</code> function and its parameters:</p>
 <ul>
 <li><code>data</code>: This is the <code>xts</code> object (or any time-series object) on which you want to apply the function. In our example, it’s the <code>eq_mkt</code> dataset.</li>
