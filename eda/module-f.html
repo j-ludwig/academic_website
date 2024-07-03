@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 14 Statistical Measures | Economic Data Analysis</title>
-  <meta name="description" content="Chapter 14 Statistical Measures | Economic Data Analysis" />
+  <title>F Temporal Patterns in Economics | Economic Data Analysis</title>
+  <meta name="description" content="F Temporal Patterns in Economics | Economic Data Analysis" />
   <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 14 Statistical Measures | Economic Data Analysis" />
+  <meta property="og:title" content="F Temporal Patterns in Economics | Economic Data Analysis" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://www.julianfludwig.com/eda/files/bookcover.png" />
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 14 Statistical Measures | Economic Data Analysis" />
+  <meta name="twitter:title" content="F Temporal Patterns in Economics | Economic Data Analysis" />
   
   
   <meta name="twitter:image" content="https://www.julianfludwig.com/eda/files/bookcover.png" />
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="data-transformation.html"/>
-<link rel="next" href="data-aggregation.html"/>
+<link rel="prev" href="module-e.html"/>
+<link rel="next" href="module-g.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -865,18 +865,64 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="statistical-measures" class="section level1 hasAnchor" number="14">
-<h1><span class="header-section-number">Chapter 14</span> Statistical Measures<a href="statistical-measures.html#statistical-measures" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This chapter focuses on the statistical measures used to analyze economic and financial data. Content Coming Soon.</p>
-
+<div id="module-f" class="section level1 hasAnchor" number="33">
+<h1><span class="header-section-number">F</span> Temporal Patterns in Economics<a href="module-f.html#module-f" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This module delves into key temporal patterns observed in Economics and Finance, emphasizing the understanding of economic trends, business cycles, and seasonal variations. Economic trends capture long-term shifts, such as sustained economic growth, declining poverty rates observed in many countries over past centuries, the aging demographic in developed nations, and the steady inflation leading to rising prices over time. Business cycles depict regular, non-seasonal variations in economic activity around these trends, often characterized by expansion (or boom) phases and contraction (or recession) phases. Seasonal patterns, on the other hand, reflect predictable annual variations influenced by factors like holidays, weather, and cyclical employment shifts. This module shows how to differentiate, visualize, and interpret these temporal patterns.</p>
+<div id="overview-f" class="section level2 hasAnchor" number="33.1">
+<h2><span class="header-section-number">F.1</span> Overview<a href="module-f.html#overview-f" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Outlined below is the chapter contained in this module:</p>
+<ul>
+<li>Chapter <a href="temporal-patterns.html#temporal-patterns">16</a>: “Temporal Patterns” provides an insight into time series data’s features and characteristics from a macroeconomic lens, examining trends, business cycles, and seasonality.</li>
+</ul>
+<p>Additionally, the following <a href="https://www.datacamp.com" target="_blank">DataCamp</a> course supplements the chapter mentioned above:</p>
+<ul>
+<li><a href="https://app.datacamp.com/learn/courses/Manipulating-Time-Series-Data-in-R" target="_blank">Manipulating Time Series Data in R</a>: This course covers the foundations of time series analysis, including summary statistics, trend interpretation, window functions, and methods for imputing missing data.</li>
+<li><a href="https://app.datacamp.com/learn/courses/Importing-and-Managing-Financial-Data-in-R">Importing and Managing Financial Data in R</a>: This course teaches how to import financial and economic time series data into R from local files and internet sources, addressing the challenges of merging data from various origins.</li>
+</ul>
+<p>The module culminates in the creation of a data report:</p>
+<ul>
+<li><a href="module-f.html#report-f">Data Report on Temporal Patterns</a>: Assessing your expertise in analyzing temporal patterns in macroeconomic indicators.</li>
+</ul>
+</div>
+<div id="objectives-f" class="section level2 hasAnchor" number="33.2">
+<h2><span class="header-section-number">F.2</span> Learning Objectives<a href="module-f.html#objectives-f" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>By the end of this module, you should be able to:</p>
+<ol style="list-style-type: decimal">
+<li>Define and differentiate between economic trends, business cycles, and seasonal patterns.</li>
+<li>Understand and explain the macroeconomic implications of each temporal pattern.</li>
+<li>Use the <code>ggplot2</code> package in R to visualize time series data effectively.</li>
+<li>Analyze and interpret variations in economic data over time.</li>
+<li>Synthesize knowledge from both textual resources and practical applications to draft comprehensive reports on temporal patterns in macroeconomics.</li>
+</ol>
+</div>
+<div id="activities-f" class="section level2 hasAnchor" number="33.3">
+<h2><span class="header-section-number">F.3</span> Learning Activities &amp; Assessments<a href="module-f.html#activities-f" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Throughout this module, you’ll engage in the following activities:</p>
+<ul>
+<li><p><strong>Textbook Engagement</strong>: Read the textbook chapter <a href="temporal-patterns.html#temporal-patterns">16</a> and reproduce the content provided. Input the code from the chapters into RStudio and verify that your results match the chapter outputs.</p></li>
+<li><p><strong>DataCamp Training</strong>: Work through the <a href="https://app.datacamp.com/learn/courses/Manipulating-Time-Series-Data-in-R" target="_blank">Manipulating Time Series Data in R</a> and <a href="https://app.datacamp.com/learn/courses/Importing-and-Managing-Financial-Data-in-R">Importing and Managing Financial Data in R</a> courses on <a href="https://app.datacamp.com" target="_blank">DataCamp</a>. While progressing through the course, keep an R script handy and apply the learned functions to any of the datasets introduced in this module. This preserves the new functions of the course and potentially offers new insights from the chosen dataset.</p></li>
+<li><p><strong>Data Report Creation</strong>: To consolidate your learning, craft a <a href="module-f.html#report-f">Data Report on Temporal Patterns</a> using R Markdown. Your report should clearly display data, provide meaningful analyses, and embody the module’s content.</p></li>
+</ul>
+<p>Your assessment will be based on:</p>
+<ul>
+<li><p><strong>DataCamp Course Completion</strong>: Finish the designated DataCamp courses for this module. Your grade is based on course completion; thus, you receive full credit by completing all chapters and obtaining a minimum of 75% XPs (experience points) by the deadline. Hence, while the <em>Take Hint</em> and <em>Show Answer</em> options reduce your XPs, they won’t affect your module grade if you stay above the 75% threshold.</p></li>
+<li><p><strong>Data Report Evaluation</strong>: The quality of the data report is central to module assessment. It should be professional, suitable for clients, and reflect the module’s content. Ensure you adhere to the data report instructions.</p></li>
+</ul>
+<p>For further guidance on maximizing your textbook and DataCamp experience, consult the <a href="textbook.html#textbook">Textbook Engagement</a> and <a href="datacamp.html#datacamp">Learn R with DataCamp</a> sections. For specifications on the data report’s format and content, consult the <a href="datareport.html#datareport">Data Report Instructions</a> and the subsequent section below.</p>
+</div>
+<div id="report-f" class="section level2 hasAnchor" number="33.4">
+<h2><span class="header-section-number">F.4</span> Data Report on Temporal Patterns<a href="module-f.html#report-f" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Choose at least two economic indicators highlighted in this module and conduct a trend analysis, seasonal assessment, and business cycle analysis.</p>
+<p>As preparation for this assignment, please work through the module chapters and DataCamp courses listed under the <a href="module-f.html#overview-f">overview</a> section above. Ensure your report adheres to the guidelines detailed in <a href="datareport.html#datareport">Data Report Instructions</a>, which dictates the creation of two versions: official and internal. Upon completion, submit both versions on Blackboard.</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="data-transformation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-aggregation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="module-e.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="module-g.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

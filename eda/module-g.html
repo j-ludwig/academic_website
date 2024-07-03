@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 14 Statistical Measures | Economic Data Analysis</title>
-  <meta name="description" content="Chapter 14 Statistical Measures | Economic Data Analysis" />
+  <title>G Regional Patterns in Economics | Economic Data Analysis</title>
+  <meta name="description" content="G Regional Patterns in Economics | Economic Data Analysis" />
   <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 14 Statistical Measures | Economic Data Analysis" />
+  <meta property="og:title" content="G Regional Patterns in Economics | Economic Data Analysis" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://www.julianfludwig.com/eda/files/bookcover.png" />
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 14 Statistical Measures | Economic Data Analysis" />
+  <meta name="twitter:title" content="G Regional Patterns in Economics | Economic Data Analysis" />
   
   
   <meta name="twitter:image" content="https://www.julianfludwig.com/eda/files/bookcover.png" />
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="data-transformation.html"/>
-<link rel="next" href="data-aggregation.html"/>
+<link rel="prev" href="module-f.html"/>
+<link rel="next" href="module-h.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -865,18 +865,61 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="statistical-measures" class="section level1 hasAnchor" number="14">
-<h1><span class="header-section-number">Chapter 14</span> Statistical Measures<a href="statistical-measures.html#statistical-measures" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This chapter focuses on the statistical measures used to analyze economic and financial data. Content Coming Soon.</p>
-
+<div id="module-g" class="section level1 hasAnchor" number="34">
+<h1><span class="header-section-number">G</span> Regional Patterns in Economics<a href="module-g.html#module-g" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Delve into the nuances of economic patterns as they manifest across different geographical regions, comparing and contrasting growth trajectories, economic behaviors, and regional peculiarities. This module delves into county-level variations stemming from the local industrial composition, demographic factors, and institutional quality. State-level differences arise from factors like tax policies, infrastructure quality, education standards, and the presence of major corporations. On a broader scale, country-level variations are shaped by national strategies, international trade dynamics, technological progress, and geopolitical stability. Within the module, you’ll learn how to illustrate these regional trends using scatter and time series plots and how to decipher their implications.</p>
+<div id="overview-g" class="section level2 hasAnchor" number="34.1">
+<h2><span class="header-section-number">G.1</span> Overview<a href="module-g.html#overview-g" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Outlined below is the chapter contained in this module:</p>
+<ul>
+<li>Chapter <a href="regional-patterns.html#regional-patterns">17</a>: “Regional Patterns” delves into the variations in economic performance across regions at various geographical levels, including county, state, and national levels, and delves into the underlying factors influencing these patterns.</li>
+</ul>
+<p>Additionally, the following <a href="https://www.datacamp.com" target="_blank">DataCamp</a> course supplements the chapter mentioned above:</p>
+<ul>
+<li><a href="https://app.datacamp.com/learn/courses/intermediate-data-visualization-with-ggplot2" target="_blank">Intermediate Data Visualization with ggplot2</a>: This advanced <code>ggplot2</code> course enhances your understanding by focusing on explanatory plots, on-the-fly statistics, the use of coordinates and facets, and best practices in data visualization.</li>
+</ul>
+<p>The module culminates in the creation of a data report:</p>
+<ul>
+<li><a href="module-g.html#report-g">Data Report on Regional Patterns</a>: Assessing your expertise in analyzing regional patterns in macroeconomic indicators.</li>
+</ul>
+</div>
+<div id="objectives-g" class="section level2 hasAnchor" number="34.2">
+<h2><span class="header-section-number">G.2</span> Learning Objectives<a href="module-g.html#objectives-g" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>By the end of this module, learners should be able to:</p>
+<ol style="list-style-type: decimal">
+<li>Define and distinguish economic behaviors across county, state, and national levels.</li>
+<li>Identify the factors that contribute to regional variations in economic patterns.</li>
+<li>Apply scatter and time series plotting methods to illustrate regional economic trends.</li>
+<li>Analyze and interpret the implications of regional economic patterns.</li>
+</ol>
+</div>
+<div id="activities-g" class="section level2 hasAnchor" number="34.3">
+<h2><span class="header-section-number">G.3</span> Learning Activities &amp; Assessments<a href="module-g.html#activities-g" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Throughout this module, you’ll engage in the following activities:</p>
+<ul>
+<li><p><strong>Textbook Engagement</strong>: Read the textbook chapter <a href="regional-patterns.html#regional-patterns">17</a> and reproduce the content provided. Input the code from the chapters into RStudio and verify that your results match the chapter outputs.</p></li>
+<li><p><strong>DataCamp Training</strong>: Complete the <a href="https://app.datacamp.com/learn/courses/intermediate-data-visualization-with-ggplot2" target="_blank">Intermediate Data Visualization with ggplot2</a> course on <a href="https://app.datacamp.com" target="_blank">DataCamp</a>. While progressing through the course, keep an R script handy and apply the learned functions to any of the datasets introduced in this module. This preserves the new functions of the course and potentially offers new insights from the chosen dataset.</p></li>
+<li><p><strong>Data Report Creation</strong>: To consolidate your learning, craft a <a href="module-g.html#report-g">Data Report on Regional Patterns</a> using R Markdown. Your report should clearly display data, provide meaningful analyses, and embody the module’s content.</p></li>
+</ul>
+<p>Your assessment will be based on:</p>
+<ul>
+<li><strong>Data Report Evaluation</strong>: The quality of the data report is central to module assessment. It should be professional, suitable for clients, and reflect the module’s content. Ensure you adhere to the data report instructions.</li>
+</ul>
+<p>For further guidance on maximizing your textbook experience, consult the <a href="textbook.html#textbook">Textbook Engagement</a> section. For specifications on the data report’s format and content, consult the <a href="datareport.html#datareport">Data Report Instructions</a> and the subsequent section below.</p>
+</div>
+<div id="report-g" class="section level2 hasAnchor" number="34.4">
+<h2><span class="header-section-number">G.4</span> Data Report on Regional Patterns<a href="module-g.html#report-g" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Craft a comprehensive analysis highlighting the variations in economic performance across different geographical regions. Begin by presenting a clear overview of the regional patterns and the significant factors shaping them. Integrate data visualizations—scatter plots, time series graphs, and any other relevant illustrations—to provide a clear depiction of the trends. Delve into a comparative analysis to reveal the nuances between different regions and the reasons behind them. Your report should not only describe the patterns but also evaluate their broader economic implications, shedding light on potential future trajectories and providing recommendations for stakeholders.</p>
+<p>As preparation for this assignment, please work through the module chapters listed under the <a href="module-g.html#overview-g">overview</a> section above. Ensure your report adheres to the guidelines detailed in <a href="datareport.html#datareport">Data Report Instructions</a>, which dictates the creation of two versions: official and internal. Upon completion, submit both versions on Blackboard.</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="data-transformation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-aggregation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="module-f.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="module-h.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

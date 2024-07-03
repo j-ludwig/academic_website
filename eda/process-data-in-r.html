@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2024-05-31" />
+<meta name="date" content="2024-07-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -816,6 +816,34 @@ div.csl-indent {
 <li class="chapter" data-level="D.3" data-path="module-d.html"><a href="module-d.html#activities-d"><i class="fa fa-check"></i><b>D.3</b> Learning Activities &amp; Assessments</a></li>
 <li class="chapter" data-level="D.4" data-path="module-d.html"><a href="module-d.html#report-d"><i class="fa fa-check"></i><b>D.4</b> Data Report on Yield Curves</a></li>
 </ul></li>
+<li class="chapter" data-level="E" data-path="module-e.html"><a href="module-e.html"><i class="fa fa-check"></i><b>E</b> Economic Data Processing</a>
+<ul>
+<li class="chapter" data-level="E.1" data-path="module-e.html"><a href="module-e.html#overview-e"><i class="fa fa-check"></i><b>E.1</b> Overview</a></li>
+<li class="chapter" data-level="E.2" data-path="module-e.html"><a href="module-e.html#objectives-e"><i class="fa fa-check"></i><b>E.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="E.3" data-path="module-e.html"><a href="module-e.html#activities-e"><i class="fa fa-check"></i><b>E.3</b> Learning Activities &amp; Assessments</a></li>
+<li class="chapter" data-level="E.4" data-path="module-e.html"><a href="module-e.html#report-e"><i class="fa fa-check"></i><b>E.4</b> Data Report on Economic Growth</a></li>
+</ul></li>
+<li class="chapter" data-level="F" data-path="module-f.html"><a href="module-f.html"><i class="fa fa-check"></i><b>F</b> Temporal Patterns in Economics</a>
+<ul>
+<li class="chapter" data-level="F.1" data-path="module-f.html"><a href="module-f.html#overview-f"><i class="fa fa-check"></i><b>F.1</b> Overview</a></li>
+<li class="chapter" data-level="F.2" data-path="module-f.html"><a href="module-f.html#objectives-f"><i class="fa fa-check"></i><b>F.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="F.3" data-path="module-f.html"><a href="module-f.html#activities-f"><i class="fa fa-check"></i><b>F.3</b> Learning Activities &amp; Assessments</a></li>
+<li class="chapter" data-level="F.4" data-path="module-f.html"><a href="module-f.html#report-f"><i class="fa fa-check"></i><b>F.4</b> Data Report on Temporal Patterns</a></li>
+</ul></li>
+<li class="chapter" data-level="G" data-path="module-g.html"><a href="module-g.html"><i class="fa fa-check"></i><b>G</b> Regional Patterns in Economics</a>
+<ul>
+<li class="chapter" data-level="G.1" data-path="module-g.html"><a href="module-g.html#overview-g"><i class="fa fa-check"></i><b>G.1</b> Overview</a></li>
+<li class="chapter" data-level="G.2" data-path="module-g.html"><a href="module-g.html#objectives-g"><i class="fa fa-check"></i><b>G.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="G.3" data-path="module-g.html"><a href="module-g.html#activities-g"><i class="fa fa-check"></i><b>G.3</b> Learning Activities &amp; Assessments</a></li>
+<li class="chapter" data-level="G.4" data-path="module-g.html"><a href="module-g.html#report-g"><i class="fa fa-check"></i><b>G.4</b> Data Report on Regional Patterns</a></li>
+</ul></li>
+<li class="chapter" data-level="H" data-path="module-h.html"><a href="module-h.html"><i class="fa fa-check"></i><b>H</b> Insights From Consumer Surveys</a>
+<ul>
+<li class="chapter" data-level="H.1" data-path="module-h.html"><a href="module-h.html#overview-h"><i class="fa fa-check"></i><b>H.1</b> Overview</a></li>
+<li class="chapter" data-level="H.2" data-path="module-h.html"><a href="module-h.html#objectives-h"><i class="fa fa-check"></i><b>H.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="H.3" data-path="module-h.html"><a href="module-h.html#activities-h"><i class="fa fa-check"></i><b>H.3</b> Learning Activities &amp; Assessments</a></li>
+<li class="chapter" data-level="H.4" data-path="module-h.html"><a href="module-h.html#report-h"><i class="fa fa-check"></i><b>H.4</b> Data Report on Consumer Indices</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><em>References</em></a></li>
 <li class="divider"></li>
 <li><a href="https://www.julianfludwig.com/" target="blank">Julian F. Ludwig</a></li>
@@ -1244,12 +1272,12 @@ Figure 5.1: Bitcoin Prices During 5,000 Trading Minutes
 <span id="cb936-11"><a href="process-data-in-r.html#cb936-11" tabindex="-1"></a><span class="co"># Display the most recent downloaded stock prices</span></span>
 <span id="cb936-12"><a href="process-data-in-r.html#cb936-12" tabindex="-1"></a><span class="fu">tail</span>(AAPL_stock_price)</span></code></pre></div>
 <pre><code>##            AAPL.Open AAPL.High AAPL.Low AAPL.Close AAPL.Volume AAPL.Adjusted
-## 2024-05-22    192.27    192.82   190.27     190.90    34648500        190.90
-## 2024-05-23    190.98    191.00   186.63     186.88    51005900        186.88
-## 2024-05-24    188.82    190.58   188.04     189.98    36294600        189.98
-## 2024-05-28    191.51    193.00   189.10     189.99    52280100        189.99
-## 2024-05-29    189.61    192.25   189.51     190.29    53068000        190.29
-## 2024-05-30    190.76    192.18   190.63     191.29    49889100        191.29</code></pre>
+## 2024-06-25    209.15    211.38   208.61     209.07    56713900        209.07
+## 2024-06-26    211.50    214.86   210.64     213.25    66213200        213.25
+## 2024-06-27    214.69    215.74   212.35     214.10    49772700        214.10
+## 2024-06-28    215.77    216.07   210.30     210.62    82542700        210.62
+## 2024-07-01    212.09    217.51   211.92     216.75    60402900        216.75
+## 2024-07-02    216.15    220.38   215.10     220.27    57960500        220.27</code></pre>
 <p>After running these commands, you’ll have the Apple stock data stored in an <code>xts</code> object, ready for your analysis and visualization tasks.</p>
 <p>The arguments in this context are:</p>
 <ul>
@@ -1267,12 +1295,12 @@ Figure 5.1: Bitcoin Prices During 5,000 Trading Minutes
 <span id="cb938-4"><a href="process-data-in-r.html#cb938-4" tabindex="-1"></a><span class="co"># Display the most recent adjusted stock prices</span></span>
 <span id="cb938-5"><a href="process-data-in-r.html#cb938-5" tabindex="-1"></a><span class="fu">tail</span>(AAPL_stock_price_adj)</span></code></pre></div>
 <pre><code>##            AAPL.Adjusted
-## 2024-05-22        190.90
-## 2024-05-23        186.88
-## 2024-05-24        189.98
-## 2024-05-28        189.99
-## 2024-05-29        190.29
-## 2024-05-30        191.29</code></pre>
+## 2024-06-25        209.07
+## 2024-06-26        213.25
+## 2024-06-27        214.10
+## 2024-06-28        210.62
+## 2024-07-01        216.75
+## 2024-07-02        220.27</code></pre>
 </div>
 <div id="download-via-quandl" class="section level3 hasAnchor" number="5.2.3">
 <h3><span class="header-section-number">5.2.3</span> Download via <code>Quandl</code><a href="process-data-in-r.html#download-via-quandl" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1324,7 +1352,7 @@ Figure 5.1: Bitcoin Prices During 5,000 Trading Minutes
 <div class="sourceCode" id="cb945"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb945-1"><a href="process-data-in-r.html#cb945-1" tabindex="-1"></a><span class="co"># Record the time of data import</span></span>
 <span id="cb945-2"><a href="process-data-in-r.html#cb945-2" tabindex="-1"></a><span class="fu">attr</span>(AAPL_stock_price, <span class="st">&quot;time_of_import&quot;</span>) <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
 <span id="cb945-3"><a href="process-data-in-r.html#cb945-3" tabindex="-1"></a><span class="fu">attr</span>(AAPL_stock_price, <span class="st">&quot;time_of_import&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;2024-05-31 14:04:32 CDT&quot;</code></pre>
+<pre><code>## [1] &quot;2024-07-03 08:48:21 CDT&quot;</code></pre>
 <div class="sourceCode" id="cb947"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb947-1"><a href="process-data-in-r.html#cb947-1" tabindex="-1"></a><span class="co"># Define the function used to import AAPL stock data</span></span>
 <span id="cb947-2"><a href="process-data-in-r.html#cb947-2" tabindex="-1"></a>import_AAPL_data <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
 <span id="cb947-3"><a href="process-data-in-r.html#cb947-3" tabindex="-1"></a>    quantmod<span class="sc">::</span><span class="fu">getSymbols</span>(</span>
@@ -1340,12 +1368,12 @@ Figure 5.1: Bitcoin Prices During 5,000 Trading Minutes
 <span id="cb947-13"><a href="process-data-in-r.html#cb947-13" tabindex="-1"></a><span class="co"># Demonstrate re-import of the data using the saved attribute</span></span>
 <span id="cb947-14"><a href="process-data-in-r.html#cb947-14" tabindex="-1"></a><span class="fu">tail</span>(<span class="fu">attr</span>(AAPL_stock_price, <span class="st">&quot;import_command&quot;</span>)())</span></code></pre></div>
 <pre><code>##            AAPL.Open AAPL.High AAPL.Low AAPL.Close AAPL.Volume AAPL.Adjusted
-## 2024-05-22    192.27    192.82   190.27     190.90    34648500        190.90
-## 2024-05-23    190.98    191.00   186.63     186.88    51005900        186.88
-## 2024-05-24    188.82    190.58   188.04     189.98    36294600        189.98
-## 2024-05-28    191.51    193.00   189.10     189.99    52280100        189.99
-## 2024-05-29    189.61    192.25   189.51     190.29    53068000        190.29
-## 2024-05-30    190.76    192.18   190.63     191.29    49889100        191.29</code></pre>
+## 2024-06-25    209.15    211.38   208.61     209.07    56713900        209.07
+## 2024-06-26    211.50    214.86   210.64     213.25    66213200        213.25
+## 2024-06-27    214.69    215.74   212.35     214.10    49772700        214.10
+## 2024-06-28    215.77    216.07   210.30     210.62    82542700        210.62
+## 2024-07-01    212.09    217.51   211.92     216.75    60402900        216.75
+## 2024-07-02    216.15    220.38   215.10     220.27    57960500        220.27</code></pre>
 <p>By doing so, the data object becomes self-descriptive, facilitating easier data sharing and replication across different project stages or among collaborators.</p>
 <p>Note that data is only available for roughly 252 days per year, as indicated by the table generated below:</p>
 <div class="sourceCode" id="cb949"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb949-1"><a href="process-data-in-r.html#cb949-1" tabindex="-1"></a><span class="co"># Count available data points by year</span></span>
@@ -1354,7 +1382,7 @@ Figure 5.1: Bitcoin Prices During 5,000 Trading Minutes
 ## 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 
 ##  251  253  252  252  252  250  252  252  252  252  251  251  252  253  252  251 
 ## 2023 2024 
-##  250  104</code></pre>
+##  250  126</code></pre>
 <p>That’s because stock market data is only available on trading days, excluding weekends and holidays. The result is an <strong>irregular time series</strong> with gaps varying from one day to over a week. To achieve a regular time series, consider interpolation or aggregating to a lower frequency like monthly data. This process is detailed in a subsequent chapter (see Chapter <a href="process-data-in-r.html#process-stock-and-oil-prices-transform-data">5.2.8</a>) and is also discussed in Chapters <a href="data-structures-in-r.html#xts">4.8</a>.</p>
 </div>
 <div id="plot-apple-stock-prices" class="section level3 hasAnchor" number="5.2.5">
@@ -1469,13 +1497,13 @@ Figure 5.6: Logarithm of OPEC Crude Oil Price
 ## 2022-09-05            NA          99.76
 ## 2022-11-24            NA          81.52</code></pre>
 <p>While OPEC oil prices are globally traded and thus consistently available, AAPL stock prices have gaps due to U.S. market holidays, which are listed in Table <a href="process-data-in-r.html#tab:american-holidays">5.2</a> below.</p>
-<div class="tabwid"><style>.cl-9edaf3de{}.cl-9ecd3974{font-family:'Helvetica';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-9ecd399c{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-9ed2bff2{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-9ed2e8c4{width:1.067in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ed2e8ce{width:2.06in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ed2e8d8{width:1.067in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ed2e8e2{width:2.06in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ed2e8e3{width:1.067in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ed2e8ec{width:2.06in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ed2e8ed{width:1.067in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ed2e8f6{width:2.06in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ed2e8f7{width:1.067in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ed2e900{width:2.06in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ed2e901{width:1.067in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ed2e90a{width:2.06in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-9edaf3de'>
+<div class="tabwid"><style>.cl-eac3fe9a{}.cl-eabd296c{font-family:'Helvetica';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-eabd2976{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-eabfcf6e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-eabfe6e8{width:1.067in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eabfe6f2{width:2.06in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eabfe6f3{width:1.067in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eabfe6fc{width:2.06in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eabfe6fd{width:1.067in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eabfe6fe{width:2.06in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eabfe706{width:1.067in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eabfe707{width:2.06in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eabfe710{width:1.067in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eabfe711{width:2.06in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eabfe712{width:1.067in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eabfe71a{width:2.06in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-eac3fe9a'>
 
 <caption style="display:table-caption;margin:0pt;text-align:center;border-bottom: 0.00pt solid transparent;border-top: 0.00pt solid transparent;border-left: 0.00pt solid transparent;border-right: 0.00pt solid transparent;padding-top:3pt;padding-bottom:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;">
 <span id="tab:american-holidays">Table 5.2: </span><span>Data Gaps in 2022 due to U.S.-Specific Holidays</span>
 </caption>
 
-<thead><tr style="overflow-wrap:break-word;"><th class="cl-9ed2e8c4"><p class="cl-9ed2bff2"><span class="cl-9ecd3974">Date</span></p></th><th class="cl-9ed2e8ce"><p class="cl-9ed2bff2"><span class="cl-9ecd3974">U.S.-Specific Holiday</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-9ed2e8d8"><p class="cl-9ed2bff2"><span class="cl-9ecd399c">2022-01-17</span></p></td><td class="cl-9ed2e8e2"><p class="cl-9ed2bff2"><span class="cl-9ecd399c">Martin Luther King Jr. Day</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-9ed2e8e3"><p class="cl-9ed2bff2"><span class="cl-9ecd399c">2022-02-21</span></p></td><td class="cl-9ed2e8ec"><p class="cl-9ed2bff2"><span class="cl-9ecd399c">Presidents' Day</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-9ed2e8ed"><p class="cl-9ed2bff2"><span class="cl-9ecd399c">2022-05-30</span></p></td><td class="cl-9ed2e8f6"><p class="cl-9ed2bff2"><span class="cl-9ecd399c">Memorial Day</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-9ed2e8f7"><p class="cl-9ed2bff2"><span class="cl-9ecd399c">2022-06-20</span></p></td><td class="cl-9ed2e900"><p class="cl-9ed2bff2"><span class="cl-9ecd399c">Juneteenth</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-9ed2e8e3"><p class="cl-9ed2bff2"><span class="cl-9ecd399c">2022-07-04</span></p></td><td class="cl-9ed2e8ec"><p class="cl-9ed2bff2"><span class="cl-9ecd399c">Independence Day</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-9ed2e8e3"><p class="cl-9ed2bff2"><span class="cl-9ecd399c">2022-09-05</span></p></td><td class="cl-9ed2e8ec"><p class="cl-9ed2bff2"><span class="cl-9ecd399c">Labor Day</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-9ed2e901"><p class="cl-9ed2bff2"><span class="cl-9ecd399c">2022-11-24</span></p></td><td class="cl-9ed2e90a"><p class="cl-9ed2bff2"><span class="cl-9ecd399c">Thanksgiving</span></p></td></tr></tbody></table></div>
+<thead><tr style="overflow-wrap:break-word;"><th class="cl-eabfe6e8"><p class="cl-eabfcf6e"><span class="cl-eabd296c">Date</span></p></th><th class="cl-eabfe6f2"><p class="cl-eabfcf6e"><span class="cl-eabd296c">U.S.-Specific Holiday</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-eabfe6f3"><p class="cl-eabfcf6e"><span class="cl-eabd2976">2022-01-17</span></p></td><td class="cl-eabfe6fc"><p class="cl-eabfcf6e"><span class="cl-eabd2976">Martin Luther King Jr. Day</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eabfe6fd"><p class="cl-eabfcf6e"><span class="cl-eabd2976">2022-02-21</span></p></td><td class="cl-eabfe6fe"><p class="cl-eabfcf6e"><span class="cl-eabd2976">Presidents' Day</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eabfe706"><p class="cl-eabfcf6e"><span class="cl-eabd2976">2022-05-30</span></p></td><td class="cl-eabfe707"><p class="cl-eabfcf6e"><span class="cl-eabd2976">Memorial Day</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eabfe710"><p class="cl-eabfcf6e"><span class="cl-eabd2976">2022-06-20</span></p></td><td class="cl-eabfe711"><p class="cl-eabfcf6e"><span class="cl-eabd2976">Juneteenth</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eabfe6fd"><p class="cl-eabfcf6e"><span class="cl-eabd2976">2022-07-04</span></p></td><td class="cl-eabfe6fe"><p class="cl-eabfcf6e"><span class="cl-eabd2976">Independence Day</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eabfe6fd"><p class="cl-eabfcf6e"><span class="cl-eabd2976">2022-09-05</span></p></td><td class="cl-eabfe6fe"><p class="cl-eabfcf6e"><span class="cl-eabd2976">Labor Day</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eabfe712"><p class="cl-eabfcf6e"><span class="cl-eabd2976">2022-11-24</span></p></td><td class="cl-eabfe71a"><p class="cl-eabfcf6e"><span class="cl-eabd2976">Thanksgiving</span></p></td></tr></tbody></table></div>
 <p>Recognizing these details is important for time-series analysis.</p>
 </div>
 <div id="process-stock-and-oil-prices-transform-data" class="section level3 hasAnchor" number="5.2.8">
@@ -1555,10 +1583,10 @@ Figure 5.7: Stock vs. Commodity Returns
 <span id="cb968-10"><a href="process-data-in-r.html#cb968-10" tabindex="-1"></a><span class="fu">colnames</span>(stats_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Apple Stock Return&quot;</span>, <span class="st">&quot;Crude Oil Return&quot;</span>)</span>
 <span id="cb968-11"><a href="process-data-in-r.html#cb968-11" tabindex="-1"></a><span class="fu">print</span>(stats_df)</span></code></pre></div>
 <pre><code>##                                 Apple Stock Return Crude Oil Return
-## Mean                                     2.1151902        0.2173427
-## Volatility (Standard Deviation)          9.0237217       11.9508115
-## Minimum Return                         -39.9818093      -79.7423517
-## Maximum Return                          21.3255986       47.4494913
+## Mean                                     2.1151903        0.2173427
+## Volatility (Standard Deviation)          9.0237222       11.9508115
+## Minimum Return                         -39.9818045      -79.7423517
+## Maximum Return                          21.3255863       47.4494913
 ## Autocorrelation                          0.1069703        0.3068170
 ## Correlation to Crude Oil Return          0.3273161        1.0000000</code></pre>
 <p>The table title should specify the unit of return (in percent), the data frequency (monthly), and the time range for which the statistics are calculated.</p>
@@ -4262,7 +4290,7 @@ Bank for International Settlements. 2023a. <span>“Policy Rate Statistics.”</
 ———. 2023b. <span>“Residential Property Price Database.”</span> <a href="https://www.bis.org/statistics/pp.htm">https://www.bis.org/statistics/pp.htm</a> (October 20, 2023). Compiled from national sources.
 </div>
 <div id="ref-data-bitstamp-btcusd" class="csl-entry">
-Bitstamp. 2024. <span>“BTC/USD 2023 Minute Data.”</span> <a href="https://www.cryptodatadownload.com/cdd/Bitstamp_BTCUSD_2023_minute.csv">https://www.cryptodatadownload.com/cdd/Bitstamp_BTCUSD_2023_minute.csv</a> (May 31, 2024). Retrieved from CryptoDataDownload.
+Bitstamp. 2024. <span>“BTC/USD 2023 Minute Data.”</span> <a href="https://www.cryptodatadownload.com/cdd/Bitstamp_BTCUSD_2023_minute.csv">https://www.cryptodatadownload.com/cdd/Bitstamp_BTCUSD_2023_minute.csv</a> (July 3, 2024). Retrieved from CryptoDataDownload.
 </div>
 <div id="ref-R-quantmod" class="csl-entry">
 Ryan, Jeffrey A., and Joshua M. Ulrich. 2024a. <em>Quantmod: Quantitative Financial Modelling Framework</em>. <a href="https://www.quantmod.com/">https://www.quantmod.com/</a>. R package version 0.4.26.
