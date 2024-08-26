@@ -62,15 +62,14 @@ $~$
 ECO 3323 Principles of Money, Banking and Credit \
 ECO 3363 Economic Data Analysis I \
 ECO 3364 Economic Data Analysis II \
-ECO 4300 Economic Research: Data-Driven Analysis \
 ECO 4306 Economic and Business Forecasting \
-ECO 5311 Macroeconomic Theory and Policy \
+ECO 5311 Macroeconomics I \
 ECO 5316 Time Series Econometrics
 
 
 #### Textbook
 
-"Economic Data Analysis" by Julian F. Ludwig, accessible for free at [www.julianfludwig.com/eda](https://www.julianfludwig.com/eda){target="_blank"} (preliminary version). This text explains how to use software to present economic and financial data. It is recommended for courses ECO 3323, ECO 3363, ECO 3364, and ECO 4300.
+"Economic Data Analysis" by Julian F. Ludwig, accessible for free at [www.julianfludwig.com/eda](https://www.julianfludwig.com/eda){target="_blank"} (preliminary version). This text explains how to use software to present economic and financial data. It is recommended for courses ECO 3323, ECO 3363, and ECO 3364.
 
 
 #### Course Software
