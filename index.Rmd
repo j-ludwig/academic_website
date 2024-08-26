@@ -59,10 +59,15 @@ $~$
 
 #### Courses Offered
 
+*Undergraduate Courses*
+
 ECO 3323 Principles of Money, Banking and Credit \
 ECO 3363 Economic Data Analysis I \
 ECO 3364 Economic Data Analysis II \
 ECO 4306 Economic and Business Forecasting \
+
+*Graduate Courses*
+
 ECO 5311 Macroeconomics I \
 ECO 5316 Time Series Econometrics
 
