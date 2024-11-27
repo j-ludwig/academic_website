@@ -31,7 +31,7 @@ Lubbock, TX 79409
 
 ##### Email: julian.ludwig@ttu.edu
 
-##### CV: [[PDF](cv/2020.06.26 CV Julian Ludwig.pdf){target="_blank"}]
+##### CV: [[PDF](cv/CV Ludwig.pdf){target="_blank"}]
 
 
 <br>
@@ -43,13 +43,15 @@ My research areas are macroeconomics and time series econometrics, with a focus 
 
 - Local Projections Are VAR Predictions of Increasing Order [[Download This Paper](https://papers.ssrn.com/sol3/abstract_id=4882149){target="_blank"}]
 
+- Identification of Rational Expectations Models Under Information Frictions [[Download This Paper](research/Ludwig ID of RE Models under IF.pdf){target="_blank"}]
+
 - The Effects of Expectation: Evidence from Text-Based Infectious Disease Data (with [Ram Joshi](https://www.linkedin.com/in/ram-joshi-694b09158/){target="_blank"} and [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"}) [[Download This Paper](https://ssrn.com/abstract=4844096){target="_blank"}]
 
 - Diverging Macroeconomic Expectations and Business Cycles (with [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"}) [[Download This Paper](https://ssrn.com/abstract=4739011){target="_blank"}]
 
-- Identification of Rational Expectations Models Under Information Frictions [[Download This Paper](research/Ludwig ID of RE Models under IF.pdf){target="_blank"}]
+- Disentangling Intrinsic and Informational Uncertainty (with [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"})
 
-
+- Oil Prices and Inequality (with [Xiaowen Lei](https://sites.google.com/site/lysfxiaowen/home){target="_blank"} and [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"})
 
 
 
