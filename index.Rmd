@@ -41,17 +41,27 @@ Lubbock, TX 79409
 
 My research areas are macroeconomics, finance, and time series econometrics, with a focus on the estimation of forecasts and impulse response functions (IRFs), as well as the impact of expectations on business cycles. Below are selected papers that highlight my work:
 
-- Local Projections Are VAR Predictions of Increasing Order [[Download This Paper](https://papers.ssrn.com/sol3/abstract_id=4882149){target="_blank"}]
 
-- Identification of Rational Expectations Models Under Information Frictions [[Download This Paper](research/Ludwig ID of RE Models under IF.pdf){target="_blank"}]
+- **Local Projections Are VAR Predictions of Increasing Order**  
+*Revise & Resubmit, Econometrica*  
+[[Download This Paper](https://papers.ssrn.com/sol3/abstract_id=4882149){target="_blank"}]
 
-- The Effects of Expectation: Evidence from Text-Based Infectious Disease Data (with [Ram Joshi](https://www.linkedin.com/in/ram-joshi-694b09158/){target="_blank"} and [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"}) [[Download This Paper](https://ssrn.com/abstract=4844096){target="_blank"}]
+- **Oil Prices and Inequality**  
+(with [Xiaowen Lei](https://sites.google.com/site/lysfxiaowen/home){target="_blank"} and [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"})  
+*Reject & Resubmit, EER*  
+[[Download This Paper](research/Oil_and_wealth_inequality.pdf){target="_blank"}]
 
-- Diverging Macroeconomic Expectations and Business Cycles (with [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"}) [[Download This Paper](https://ssrn.com/abstract=4739011){target="_blank"}]
+- **Identification of Rational Expectations Models Under Information Frictions**  
+[[Download This Paper](research/Ludwig ID of RE Models under IF.pdf){target="_blank"}]
 
-- Oil Prices and Inequality (with [Xiaowen Lei](https://sites.google.com/site/lysfxiaowen/home){target="_blank"} and [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"}) [[Download This Paper](research/Oil_and_wealth_inequality.pdf){target="_blank"}]
+- **The Effects of Expectation: Evidence from Text-Based Infectious Disease Data**  
+(with [Ram Joshi](https://www.linkedin.com/in/ram-joshi-694b09158/){target="_blank"} and [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"})  
+[[Download This Paper](https://ssrn.com/abstract=4844096){target="_blank"}]
 
-- Disentangling Intrinsic and Informational Uncertainty (with [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"})
+- **Diverging Macroeconomic Expectations and Business Cycles**  
+(with [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"})  
+[[Download This Paper](https://ssrn.com/abstract=4739011){target="_blank"}]
+
 
 
 $~$
