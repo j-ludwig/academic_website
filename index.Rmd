@@ -46,27 +46,41 @@ My research areas are macroeconomics, finance, and time series econometrics, wit
 *Revise & Resubmit, Econometrica*  
 [[Download This Paper](https://papers.ssrn.com/sol3/abstract_id=4882149){target="_blank"}]
 
-- **Oil Prices and Inequality**  
-(with [Xiaowen Lei](https://sites.google.com/site/lysfxiaowen/home){target="_blank"} and [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"})  
-*Reject & Resubmit, EER*  
-[[Download This Paper](research/Oil_and_wealth_inequality.pdf){target="_blank"}]
-
 - **Identification of Rational Expectations Models Under Information Frictions**  
 [[Download This Paper](research/Ludwig ID of RE Models under IF.pdf){target="_blank"}]
 
-- **The Effects of Expectation: Evidence from Text-Based Infectious Disease Data**  
-(with [Ram Joshi](https://www.linkedin.com/in/ram-joshi-694b09158/){target="_blank"} and [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"})  
-[[Download This Paper](https://ssrn.com/abstract=4844096){target="_blank"}]
+- **Oil Prices and Inequality**  
+(with [Xiaowen Lei](https://sites.google.com/site/lysfxiaowen/home){target="_blank"} and [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"})  
+*Reject & Resubmit, European Economic Review*  
+[[Download This Paper](research/Oil_and_wealth_inequality.pdf){target="_blank"}]
 
-- **Diverging Macroeconomic Expectations and Business Cycles**  
-(with [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"})  
-[[Download This Paper](https://ssrn.com/abstract=4739011){target="_blank"}]
+<!-- - **The Effects of Expectation: Evidence from Text-Based Infectious Disease Data**   -->
+<!-- (with [Ram Joshi](https://www.linkedin.com/in/ram-joshi-694b09158/){target="_blank"} and [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"})   -->
+<!-- [[Download This Paper](https://ssrn.com/abstract=4844096){target="_blank"}] -->
+
+<!-- - **Diverging Macroeconomic Expectations and Business Cycles**   -->
+<!-- (with [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"})   -->
+<!-- [[Download This Paper](https://ssrn.com/abstract=4739011){target="_blank"}] -->
 
 
 
 $~$
 
 # Teaching
+
+
+I teach undergraduate and Ph.D. courses in macroeconomics and economic data analysis, with an emphasis on real-world applications, programming, and effective data communication. My courses are supported by custom-developed textbooks and materials, freely available online.
+
+
+#### Textbooks
+
+
+- **Economic Data Analysis**  
+Available for free at [www.julianfludwig.com/eda](https://www.julianfludwig.com/eda){target="_blank"} (preliminary version). This text explains how to use software to present economic and financial data. Recommended for ECO 3363 and 3364.
+
+- **Lecture Notes on Linear Time Series Models**  
+Available for free [[here](teaching/arima.pdf){target="_blank"}]. These notes introduce linear time series models, including key tools from polynomial and linear algebra. Recommended for ECO 4306.
+
 
 #### Courses Offered
 
@@ -77,28 +91,24 @@ ECO 3363 Economic Data Analysis I \
 ECO 3364 Economic Data Analysis II \
 ECO 4306 Economic and Business Forecasting \
 
-*Graduate Courses*
+*Ph.D. Courses*
 
 ECO 5311 Macroeconomics I \
 ECO 5316 Time Series Econometrics
 
 
-#### Textbook
 
-"Economic Data Analysis" by Julian F. Ludwig, accessible for free at [www.julianfludwig.com/eda](https://www.julianfludwig.com/eda){target="_blank"} (preliminary version). This text explains how to use software to present economic and financial data. It is recommended for courses ECO 3323, ECO 3363, and ECO 3364.
+<!-- #### Course Software -->
 
-
-#### Course Software
-
-[![asdf](icons/blackboard.png){width=6%}](https://ttu.blackboard.com/){target="_blank"}
-&nbsp; &nbsp;&nbsp;&nbsp;
-[![asdf](icons/datacamp.png){width=15%}](https://app.datacamp.com/learn/){target="_blank"}
-&nbsp; &nbsp;&nbsp;&nbsp;
-[![asdf](icons/r.png){width=5%}](https://www.r-project.org/){target="_blank"}
-&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-[![asdf](icons/rstudio.png){width=11%}](https://posit.co/products/open-source/rstudio/){target="_blank"}
-&nbsp; &nbsp;&nbsp;&nbsp;
-[![asdf](icons/pearsonmylab.png){width=21%}](https://mlm.pearson.com/northamerica/myeconlab/){target="_blank"}
+<!-- [![asdf](icons/blackboard.png){width=6%}](https://ttu.blackboard.com/){target="_blank"} -->
+<!-- &nbsp; &nbsp;&nbsp;&nbsp; -->
+<!-- [![asdf](icons/datacamp.png){width=15%}](https://app.datacamp.com/learn/){target="_blank"} -->
+<!-- &nbsp; &nbsp;&nbsp;&nbsp; -->
+<!-- [![asdf](icons/r.png){width=5%}](https://www.r-project.org/){target="_blank"} -->
+<!-- &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; -->
+<!-- [![asdf](icons/rstudio.png){width=11%}](https://posit.co/products/open-source/rstudio/){target="_blank"} -->
+<!-- &nbsp; &nbsp;&nbsp;&nbsp; -->
+<!-- [![asdf](icons/pearsonmylab.png){width=21%}](https://mlm.pearson.com/northamerica/myeconlab/){target="_blank"} -->
 
 
 
