@@ -42,7 +42,8 @@ USA
 <!-- ##### Office: [253 Holden Hall](http://www.ttu.edu/map/?b=Holden%20Hall){target="_blank"} -->
 
 <!-- ##### Email: julian.ludwig@ttu.edu -->
-##### Email: jludwig@wlu.ca
+##### Email: [jludwig@wlu.ca](mailto:jludwig@wlu.ca) | [julian.ludwig@ttu.edu](mailto:julian.ludwig@ttu.edu)
+
 
 ##### CV: [[PDF](cv/CV Ludwig.pdf){target="_blank"}]
 
