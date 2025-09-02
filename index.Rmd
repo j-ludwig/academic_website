@@ -17,21 +17,35 @@ htmltools::img(src = knitr::include_graphics("photos/Julian oval.png"),
 
 
 
-
-Assistant Professor \
+Assistant Professor, Limited Term Appointment (2025–2026) \
 Department of Economics \
-Texas Tech University \
-253 Holden Hall \
-1011 Boston Ave \
-Lubbock, TX 79409
+Wilfrid Laurier University (WLU) \
+Lazaridis Hall, Mailbox LH3011 \
+75 University Ave W \
+Waterloo, ON N2L 3C5 \
+Canada
 
 <br>
 
-##### Office: [253 Holden Hall](http://www.ttu.edu/map/?b=Holden%20Hall){target="_blank"}
+Assistant Professor (on leave 2025–2026) \
+Department of Economics \
+Texas Tech University (TTU) \
+253 Holden Hall \
+1011 Boston Ave \
+Lubbock, TX 79409 \
+USA
 
-##### Email: julian.ludwig@ttu.edu
+<br>
+
+
+##### Office: [LH3023 Lazaridis Hall](https://www.wlu.ca/academics/faculties/lazaridis-school-of-business-and-economics/assets/resources/lazaridis-hall.html){target="_blank"}
+<!-- ##### Office: [253 Holden Hall](http://www.ttu.edu/map/?b=Holden%20Hall){target="_blank"} -->
+
+<!-- ##### Email: julian.ludwig@ttu.edu -->
+##### Email: jludwig@wlu.ca
 
 ##### CV: [[PDF](cv/CV Ludwig.pdf){target="_blank"}]
+
 
 
 <br>
@@ -86,15 +100,17 @@ Available for free [[here](teaching/arima.pdf){target="_blank"}]. These notes in
 
 *Undergraduate Courses*
 
-ECO 3323 Principles of Money, Banking and Credit \
-ECO 3363 Economic Data Analysis I \
-ECO 3364 Economic Data Analysis II \
-ECO 4306 Economic and Business Forecasting \
+EC 315 Forecasting Methods (WLU) \
+EC 395 Applied Econometrics (WLU) \
+ECO 3323 Principles of Money, Banking and Credit (TTU) \
+ECO 3363 Economic Data Analysis I (TTU) \
+ECO 3364 Economic Data Analysis II (TTU) \
+ECO 4306 Economic and Business Forecasting (TTU) \
 
 *Ph.D. Courses*
 
-ECO 5311 Macroeconomics I \
-ECO 5316 Time Series Econometrics
+ECO 5311 Macroeconomics I (TTU) \
+ECO 5316 Time Series Econometrics (TTU)
 
 
 
