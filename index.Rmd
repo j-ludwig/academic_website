@@ -67,7 +67,7 @@ My research areas are macroeconomics, finance, and time series econometrics, wit
 - **Oil Prices and Inequality**  
 (with [Xiaowen Lei](https://sites.google.com/site/lysfxiaowen/home){target="_blank"} and [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"})  
 *Reject & Resubmit, European Economic Review*  
-[[Download This Paper](research/LLM2025.pdf){target="_blank"}]
+[[Download This Paper](research/Oil_and_wealth_inequality.pdf){target="_blank"}]
 
 <!-- - **The Effects of Expectation: Evidence from Text-Based Infectious Disease Data**   -->
 <!-- (with [Ram Joshi](https://www.linkedin.com/in/ram-joshi-694b09158/){target="_blank"} and [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"})   -->
