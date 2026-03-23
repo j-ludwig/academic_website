@@ -59,7 +59,8 @@ My research areas are macroeconomics, finance, and time series econometrics, wit
 
 - **Local Projections Are VAR Predictions of Increasing Order**  
 *Revise & Resubmit, Econometrica*  
-[[Download This Paper](https://papers.ssrn.com/sol3/abstract_id=4882149){target="_blank"}]
+[[Download This Paper (March 2026 Version)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6441981){target="_blank"}]  
+[[Download This Paper (July 2024 Version)](https://papers.ssrn.com/sol3/abstract_id=4882149){target="_blank"}]
 
 - **Identification of Rational Expectations Models Under Information Frictions**  
 [[Download This Paper](research/Ludwig ID of RE Models under IF.pdf){target="_blank"}]
