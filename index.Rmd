@@ -15,31 +15,24 @@ htmltools::img(src = knitr::include_graphics("photos/Julian oval.png"),
                width="28%")
 ```
 
-Assistant Professor, Limited Term Appointment \
-September 1, 2025–August 31, 2026 \
+Assistant Professor, Limited Term Appointment (2025–2026) \
 Department of Economics \
 Lazaridis School of Business and Economics \
 Wilfrid Laurier University (WLU) \
 Office: [LH2015 Lazaridis Hall](https://www.wlu.ca/academics/faculties/lazaridis-school-of-business-and-economics/assets/resources/lazaridis-hall.html){target="_blank"} \
-(On leave from Texas Tech University) \
+(On leave from Texas Tech University)
 
 <br>
 
-Part-Time Instructor \
-June 1–August 31, 2026 \
+Part-Time Instructor (Summer 2026) \
+Assistant Professor of Practice (starting Fall 2026) \
 Area of Information Systems and Quantitative Sciences (ISQS) \
 Rawls College of Business \
 Texas Tech University (TTU)
 
-<br>
-
-Assistant Professor of Practice \
-Starting September 1, 2026 \
-Area of Information Systems and Quantitative Sciences (ISQS) \
-Rawls College of Business \
-Texas Tech University (TTU)
 
 <br>
+
 
 ##### Email: [julianfludwig@gmail.com](mailto:julianfludwig@gmail.com)
 
@@ -81,8 +74,7 @@ $~$
 
 # Teaching
 
-
-I teach undergraduate and Ph.D. courses in macroeconomics and economic data analysis, with an emphasis on real-world applications, programming, and effective data communication. My courses are supported by custom-developed textbooks and materials, freely available online.
+I teach undergraduate, master’s, and Ph.D. courses in macroeconomics, econometrics, and data science, with an emphasis on real-world applications, programming, and effective data communication. My courses are supported by custom-developed textbooks and materials, freely available online.
 
 
 #### Textbooks
