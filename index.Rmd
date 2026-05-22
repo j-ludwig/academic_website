@@ -15,38 +15,35 @@ htmltools::img(src = knitr::include_graphics("photos/Julian oval.png"),
                width="28%")
 ```
 
-
-
-Assistant Professor, Limited Term Appointment (2025–2026) \
+Assistant Professor, Limited Term Appointment \
+September 1, 2025–August 31, 2026 \
 Department of Economics \
+Lazaridis School of Business and Economics \
 Wilfrid Laurier University (WLU) \
-Lazaridis Hall, Mailbox LH3011 \
-75 University Ave W \
-Waterloo, ON N2L 3C5 \
-Canada
+Office: [LH2015 Lazaridis Hall](https://www.wlu.ca/academics/faculties/lazaridis-school-of-business-and-economics/assets/resources/lazaridis-hall.html){target="_blank"} \
+(On leave from Texas Tech University) \
 
 <br>
 
-Assistant Professor (on leave 2025–2026) \
-Department of Economics \
-Texas Tech University (TTU) \
-253 Holden Hall \
-1011 Boston Ave \
-Lubbock, TX 79409 \
-USA
+Part-Time Instructor \
+June 1–August 31, 2026 \
+Area of Information Systems and Quantitative Sciences (ISQS) \
+Rawls College of Business \
+Texas Tech University (TTU)
 
 <br>
 
+Assistant Professor of Practice \
+Starting September 1, 2026 \
+Area of Information Systems and Quantitative Sciences (ISQS) \
+Rawls College of Business \
+Texas Tech University (TTU)
 
-##### Office: [LH3023 Lazaridis Hall](https://www.wlu.ca/academics/faculties/lazaridis-school-of-business-and-economics/assets/resources/lazaridis-hall.html){target="_blank"}
-<!-- ##### Office: [253 Holden Hall](http://www.ttu.edu/map/?b=Holden%20Hall){target="_blank"} -->
+<br>
 
-<!-- ##### Email: julian.ludwig@ttu.edu -->
-##### Email: [jludwig@wlu.ca](mailto:jludwig@wlu.ca) | [julian.ludwig@ttu.edu](mailto:julian.ludwig@ttu.edu)
-
+##### Email: [julianfludwig@gmail.com](mailto:julianfludwig@gmail.com)
 
 ##### CV: [[PDF](cv/CV Ludwig.pdf){target="_blank"}]
-
 
 
 <br>
@@ -59,14 +56,15 @@ My research areas are macroeconomics, finance, and time series econometrics, wit
 
 - **Local Projections Are VAR Predictions of Increasing Order**  
 *Revise & Resubmit, Econometrica*  
-[[Download This Paper](https://papers.ssrn.com/sol3/abstract_id=4882149){target="_blank"}]
+[[Download This Paper (March 2026 Version)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6441981){target="_blank"}]  
+[[Download This Paper (July 2024 Version)](https://papers.ssrn.com/sol3/abstract_id=4882149){target="_blank"}]
 
 - **Identification of Rational Expectations Models Under Information Frictions**  
 [[Download This Paper](research/Ludwig ID of RE Models under IF.pdf){target="_blank"}]
 
 - **Oil Prices and Inequality**  
 (with [Xiaowen Lei](https://sites.google.com/site/lysfxiaowen/home){target="_blank"} and [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"})  
-*Revise & Resubmit, European Economic Review*  
+*Forthcoming, European Economic Review*  
 [[Download This Paper](research/Oil_and_wealth_inequality.pdf){target="_blank"}]
 
 <!-- - **The Effects of Expectation: Evidence from Text-Based Infectious Disease Data**   -->
@@ -107,6 +105,10 @@ ECO 3323 Principles of Money, Banking and Credit (TTU) \
 ECO 3363 Economic Data Analysis I (TTU) \
 ECO 3364 Economic Data Analysis II (TTU) \
 ECO 4306 Economic and Business Forecasting (TTU) \
+
+*Master’s Courses*
+
+ISQS 5346 Statistics for Data Science (TTU)
 
 *Ph.D. Courses*
 
