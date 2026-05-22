@@ -44,7 +44,7 @@ Texas Tech University (TTU)
 
 # Research
 
-My research areas are macroeconomics, finance, and time series econometrics, with a focus on the estimation of forecasts and impulse response functions (IRFs), as well as the impact of expectations on business cycles. Below are selected papers that highlight my work:
+My research areas are macroeconomics and time series econometrics, with a focus on the estimation of forecasts and impulse response functions (IRFs), as well as the impact of expectations on business cycles. Below are selected papers that highlight my work:
 
 
 - **Local Projections Are VAR Predictions of Increasing Order**  
