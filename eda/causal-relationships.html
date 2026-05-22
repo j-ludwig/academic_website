@@ -867,57 +867,7 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="causal-relationships" class="section level1 hasAnchor" number="19">
 <h1><span class="header-section-number">Chapter 19</span> Causal Relationships<a href="causal-relationships.html#causal-relationships" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Timer series and regional patterns are associative statements not causal statements.</p>
-<p>Leading indicator doesn’t mean it causes the other variables to move.</p>
-<p>Similarly, being a southern country doesn’t cause the country to have a lower economic performance.</p>
-<div id="elasticities" class="section level2 hasAnchor" number="19.1">
-<h2><span class="header-section-number">19.1</span> Elasticities<a href="causal-relationships.html#elasticities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Elasticity is a concept used in economics to understand the relative changes between two variables. In the case of price elasticity of demand, it measures how the quantity demanded of a good changes in response to a change in the good’s price.</p>
-<div class="sourceCode" id="cb1234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1234-1"><a href="causal-relationships.html#cb1234-1" tabindex="-1"></a><span class="co"># Load required libraries</span></span>
-<span id="cb1234-2"><a href="causal-relationships.html#cb1234-2" tabindex="-1"></a><span class="fu">library</span>(quantmod)</span>
-<span id="cb1234-3"><a href="causal-relationships.html#cb1234-3" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1234-4"><a href="causal-relationships.html#cb1234-4" tabindex="-1"></a></span>
-<span id="cb1234-5"><a href="causal-relationships.html#cb1234-5" tabindex="-1"></a><span class="co"># Get commodity price data from World Bank (Example: Crude Oil prices)</span></span>
-<span id="cb1234-6"><a href="causal-relationships.html#cb1234-6" tabindex="-1"></a><span class="co"># Note: You need to find the right symbol or provide a direct URL to download the data.</span></span>
-<span id="cb1234-7"><a href="causal-relationships.html#cb1234-7" tabindex="-1"></a>oil_data <span class="ot">&lt;-</span> <span class="fu">getSymbols</span>(<span class="st">&quot;Crude Oil (petroleum); Dubai Fateh&quot;</span>, <span class="at">src =</span> <span class="st">&quot;FRED&quot;</span>)</span></code></pre></div>
-<p>Here we can calculate the price elasticity of demand, which is the percentage change in quantity demanded divided by the percentage change in price. We would need data on quantity as well, which might need to be sourced from a different provider.</p>
-</div>
-<div id="multipliers" class="section level2 hasAnchor" number="19.2">
-<h2><span class="header-section-number">19.2</span> Multipliers<a href="causal-relationships.html#multipliers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In macroeconomics, multipliers refer to the effect an initial change in a specific input, such as government spending or tax rates, has on output.</p>
-<p>A classic example is the government spending multiplier, which measures the change in aggregate output (GDP) due to an initial change in government spending.</p>
-<div class="sourceCode" id="cb1235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1235-1"><a href="causal-relationships.html#cb1235-1" tabindex="-1"></a><span class="co"># Get GDP and Government Spending data</span></span>
-<span id="cb1235-2"><a href="causal-relationships.html#cb1235-2" tabindex="-1"></a>gdp <span class="ot">&lt;-</span> <span class="fu">getSymbols</span>(<span class="st">&quot;GDP&quot;</span>, <span class="at">src =</span> <span class="st">&quot;FRED&quot;</span>)</span>
-<span id="cb1235-3"><a href="causal-relationships.html#cb1235-3" tabindex="-1"></a>gov_spending <span class="ot">&lt;-</span> <span class="fu">getSymbols</span>(<span class="st">&quot;W068RCQ027SBEA&quot;</span>, <span class="at">src =</span> <span class="st">&quot;FRED&quot;</span>) <span class="co"># symbol for Real federal government consumption expenditures and gross investment</span></span>
-<span id="cb1235-4"><a href="causal-relationships.html#cb1235-4" tabindex="-1"></a></span>
-<span id="cb1235-5"><a href="causal-relationships.html#cb1235-5" tabindex="-1"></a><span class="co"># Create a lagged version of the spending data</span></span>
-<span id="cb1235-6"><a href="causal-relationships.html#cb1235-6" tabindex="-1"></a>gov_spending_lag <span class="ot">&lt;-</span> <span class="fu">lag</span>(gov_spending, <span class="dv">1</span>)</span>
-<span id="cb1235-7"><a href="causal-relationships.html#cb1235-7" tabindex="-1"></a></span>
-<span id="cb1235-8"><a href="causal-relationships.html#cb1235-8" tabindex="-1"></a><span class="co"># Run a simple regression to estimate the multiplier</span></span>
-<span id="cb1235-9"><a href="causal-relationships.html#cb1235-9" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(gdp <span class="sc">~</span> gov_spending <span class="sc">+</span> gov_spending_lag)</span>
-<span id="cb1235-10"><a href="causal-relationships.html#cb1235-10" tabindex="-1"></a></span>
-<span id="cb1235-11"><a href="causal-relationships.html#cb1235-11" tabindex="-1"></a><span class="co"># Print the estimated government spending multiplier</span></span>
-<span id="cb1235-12"><a href="causal-relationships.html#cb1235-12" tabindex="-1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>coefficients[<span class="dv">2</span>, <span class="dv">1</span>]</span></code></pre></div>
-<p>This gives us an estimate of the government spending multiplier, which tells us how much GDP is expected to change in response to a one-unit change in government spending.</p>
-<p>Remember, when using these measures, always consider the underlying assumptions and the economic context. Both elasticity and multiplier values can vary significantly depending on the specifics of the situation and the timeframe being considered.</p>
-</div>
-<div id="causality" class="section level2 hasAnchor" number="19.3">
-<h2><span class="header-section-number">19.3</span> Causality<a href="causal-relationships.html#causality" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Both multipliers and elasticities are causal concepts in the sense that they measure the effect of a change in one variable (the cause) on another variable (the outcome).</p>
-<p>However, establishing causal relationships from observational data is challenging and relies on several assumptions:</p>
-<ol style="list-style-type: decimal">
-<li><p><strong>Stable Unit Treatment Value Assumption (SUTVA):</strong> This assumption implies that there is no interference between units (i.e., the treatment on one unit does not affect the outcome on another unit) and that for each unit, there are potential outcomes for each level of treatment.</p></li>
-<li><p><strong>Unconfoundedness or Ignorability:</strong> This assumption suggests that assignment to the treatment is independent of the potential outcomes, given a set of observed variables. In the context of the examples, this would mean that changes in the treatment variables (oil prices in the first example and government spending in the second) are not systematically related to other unobserved factors that could also be affecting the outcomes (demand for oil and GDP, respectively).</p></li>
-<li><p><strong>Exogeneity:</strong> The changes in the independent variable are not influenced by changes in the dependent variable.</p></li>
-</ol>
-<p>In the two examples provided:</p>
-<ul>
-<li><p>In the <strong>elasticity example</strong>, we implicitly assume that changes in oil prices are not influenced by changes in oil demand (which is typically not true in real-world situations). In reality, supply and demand factors often interact in a complex way to determine oil prices, so isolating a causal effect in this way can be challenging.</p></li>
-<li><p>In the <strong>multiplier example</strong>, we assume that changes in government spending are not influenced by changes in GDP (or are sufficiently controlled by including lagged spending in the regression). In reality, government spending decisions are often influenced by the state of the economy, and this reverse causality can confound our estimates.</p></li>
-</ul>
-<p>These assumptions highlight why careful experimental or quasi-experimental design is important when trying to estimate causal relationships in economics, and why the results from such simple analyses should be interpreted with caution. In practice, economists often use more sophisticated techniques such as instrumental variables, difference-in-differences, or regression discontinuity designs to try to get around these issues and identify causal effects.</p>
-
-</div>
+<p><em>Content coming soon.</em></p>
 </div>
 
 
