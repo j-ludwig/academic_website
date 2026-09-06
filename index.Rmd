@@ -92,6 +92,7 @@ Available for free [[here](teaching/arima.pdf){target="_blank"}]. These notes in
 ISQS 2377 Decision Making in Business (Undergraduate) \
 ISQS 4371 Analytics for Optimal Decision Making (Undergraduate) \
 ISQS 5346 Statistics for Data Science (Master’s) \
+ISQS 6350 Multivariate Analysis (Master’s) \
 
 #### Previous Teaching
 
