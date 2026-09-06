@@ -15,28 +15,24 @@ htmltools::img(src = knitr::include_graphics("photos/Julian oval.png"),
                width="28%")
 ```
 
-Assistant Professor, Limited Term Appointment (2025–2026) \
-Department of Economics \
-Lazaridis School of Business and Economics \
-Wilfrid Laurier University (WLU) \
-Office: [LH2015 Lazaridis Hall](https://www.wlu.ca/academics/faculties/lazaridis-school-of-business-and-economics/assets/resources/lazaridis-hall.html){target="_blank"} \
-(On leave from Texas Tech University)
 
-<br>
-
-Part-Time Instructor (Summer 2026) \
-Assistant Professor of Practice (starting Fall 2026) \
-Area of Information Systems and Quantitative Sciences (ISQS) \
-Rawls College of Business \
-Texas Tech University (TTU)
+Assistant Professor of Practice \
+Area of Information Systems and Quantitative Sciences \
+Jerry S. Rawls College of Business \
+Texas Tech University \
+703 Flint Ave \
+Lubbock, Texas 79409 \
+USA
 
 
 <br>
 
 
-##### Email: [julianfludwig@gmail.com](mailto:julianfludwig@gmail.com)
+##### Email: [julian.ludwig@ttu.edu](mailto:julian.ludwig@ttu.edu)
 
 ##### CV: [[PDF](cv/CV Ludwig.pdf){target="_blank"}]
+
+##### Office: E314 (Rawls College of Business)
 
 
 <br>
@@ -58,15 +54,16 @@ My research areas are macroeconomics and time series econometrics, with a focus 
 - **Oil Prices and Inequality**  
 (with [Xiaowen Lei](https://sites.google.com/site/lysfxiaowen/home){target="_blank"} and [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"})  
 *Forthcoming, European Economic Review*  
-[[Download This Paper](research/Oil_and_wealth_inequality.pdf){target="_blank"}]
+[[Download This Paper](https://dx.doi.org/10.2139/ssrn.5036733){target="_blank"}]
 
-<!-- - **The Effects of Expectation: Evidence from Text-Based Infectious Disease Data**   -->
-<!-- (with [Ram Joshi](https://www.linkedin.com/in/ram-joshi-694b09158/){target="_blank"} and [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"})   -->
-<!-- [[Download This Paper](https://ssrn.com/abstract=4844096){target="_blank"}] -->
+- **The Effects of Expectation: Evidence from Text-Based Infectious Disease Data** \
+(with [Ram Joshi](https://www.linkedin.com/in/ram-joshi-694b09158/){target="_blank"}, [Xiaowen Lei](https://sites.google.com/site/lysfxiaowen/home){target="_blank"}, and [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"}) \
+*Revise & Resubmit, Empirical Economics*  
+[[Download This Paper](https://dx.doi.org/10.2139/ssrn.4844096){target="_blank"}]
 
-<!-- - **Diverging Macroeconomic Expectations and Business Cycles**   -->
-<!-- (with [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"})   -->
-<!-- [[Download This Paper](https://ssrn.com/abstract=4739011){target="_blank"}] -->
+- **Diverging Macroeconomic Expectations and Business Cycles** \
+(with [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"}) \
+[[Download This Paper](https://ssrn.com/abstract=4739011){target="_blank"}]
 
 
 
@@ -74,7 +71,7 @@ $~$
 
 # Teaching
 
-I teach undergraduate, master’s, and Ph.D. courses in macroeconomics, econometrics, and data science, with an emphasis on real-world applications, programming, and effective data communication. My courses are supported by custom-developed textbooks and materials, freely available online.
+I teach courses in data science, economics, and information systems, with an emphasis on real-world applications, programming, and clear, effective data communication. My courses are supported by custom-developed textbooks and teaching materials, all freely available online.
 
 
 #### Textbooks
@@ -87,25 +84,30 @@ Available for free at [www.julianfludwig.com/eda](https://www.julianfludwig.com/
 Available for free [[here](teaching/arima.pdf){target="_blank"}]. These notes introduce linear time series models, including key tools from polynomial and linear algebra. Recommended for ECO 4306.
 
 
-#### Courses Offered
 
-*Undergraduate Courses*
+#### Current Teaching
 
-EC 315 Forecasting Methods (WLU) \
-EC 395 Applied Econometrics (WLU) \
-ECO 3323 Principles of Money, Banking and Credit (TTU) \
-ECO 3363 Economic Data Analysis I (TTU) \
-ECO 3364 Economic Data Analysis II (TTU) \
-ECO 4306 Economic and Business Forecasting (TTU) \
+*Texas Tech University — Jerry S. Rawls College of Business*
 
-*Master’s Courses*
+ISQS 2377 Decision Making in Business (Undergraduate) \
+ISQS 4371 Analytics for Optimal Decision Making (Undergraduate) \
+ISQS 5346 Statistics for Data Science (Master’s) \
 
-ISQS 5346 Statistics for Data Science (TTU)
+#### Previous Teaching
 
-*Ph.D. Courses*
+*Texas Tech University — Department of Economics*
 
-ECO 5311 Macroeconomics I (TTU) \
-ECO 5316 Time Series Econometrics (TTU)
+ECO 3323 Principles of Money, Banking and Credit (Undergraduate) \
+ECO 3363 Economic Data Analysis I (Undergraduate) \
+ECO 3364 Economic Data Analysis II (Undergraduate) \
+ECO 4306 Economic and Business Forecasting (Undergraduate) \
+ECO 5321 Macroeconomics I (Ph.D.) \
+ECO 5383 Time Series Econometrics (Ph.D.) \
+
+*Wilfrid Laurier University — Lazaridis School of Business and Economics*
+
+EC 315 Forecasting Methods (Undergraduate) \
+EC 395 Applied Econometrics (Undergraduate) \
 
 
 
