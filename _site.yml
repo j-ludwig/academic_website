@@ -12,7 +12,7 @@ navbar:
     icon: fa-twitter
   - href: https://scholar.google.com/citations?hl=de&user=AfUsLZQAAAAJ
     icon: glyphicon-education
-  - href: https://www.depts.ttu.edu/economics/faculty/Ludwig
+  - href: https://www.depts.ttu.edu/rawlsbusiness/people/faculty/isqs/Julian-Ludwig
     icon: fa-building
 output:
   html_document:
