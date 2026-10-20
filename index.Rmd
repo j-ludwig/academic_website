@@ -83,6 +83,9 @@ Available for free at [www.julianfludwig.com/eda](https://www.julianfludwig.com/
 - **Lecture Notes on Linear Time Series Models**  
 Available for free [[here](teaching/arima.pdf){target="_blank"}]. These notes introduce linear time series models, including key tools from polynomial and linear algebra. Recommended for ECO 4306.
 
+- **Lecture Notes on Multivariate Analysis**  
+Available for free [[here](https://www.julianfludwig.com/ma){target="_blank"}]. Recommended for ISQS 6350.
+
 
 
 #### Current Teaching

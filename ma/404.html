@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Page not found | Multivariate Analysis</title>
+  <meta name="description" content="Visual course notes on multivariate analysis: data, distributions, identification, PCA, MDS, factor analysis, clustering and SEM." />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Page not found | Multivariate Analysis" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Visual course notes on multivariate analysis: data, distributions, identification, PCA, MDS, factor analysis, clustering and SEM." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Page not found | Multivariate Analysis" />
+  
+  <meta name="twitter:description" content="Visual course notes on multivariate analysis: data, distributions, identification, PCA, MDS, factor analysis, clustering and SEM." />
+  
+
+<meta name="author" content="Julian F. Ludwig" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/jquery-3.6.1/jquery-3.6.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.4/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+<script>
+/* Code folding: R code is hidden behind a "Code" button; chunks with class "fold-show" start open. */
+(function () {
+  function fold() {
+    document.querySelectorAll('pre.sourceCode').forEach(function (pre) {
+      var box = pre.parentElement && pre.parentElement.classList.contains('sourceCode') ? pre.parentElement : pre;
+      if (box.dataset.folded) return;
+      box.dataset.folded = '1';
+      var show = pre.classList.contains('fold-show');
+      var btn = document.createElement('button');
+      btn.className = 'code-toggle';
+      btn.textContent = show ? 'Hide code' : 'Code';
+      box.style.display = show ? '' : 'none';
+      btn.onclick = function () {
+        var hidden = box.style.display === 'none';
+        box.style.display = hidden ? '' : 'none';
+        btn.textContent = hidden ? 'Hide code' : 'Code';
+        if (hidden) window.dispatchEvent(new Event('resize'));
+      };
+      box.parentNode.insertBefore(btn, box);
+    });
+  }
+  document.addEventListener('DOMContentLoaded', fold);
+  if (window.gitbook && gitbook.events) gitbook.events.bind('page.change', fold);
+})();
+</script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Multivariate Analysis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-these-notes"><i class="fa fa-check"></i>How to use these notes</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#textbook"><i class="fa fa-check"></i>Textbook</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#why-do-the-points-move-together"><i class="fa fa-check"></i><b>1.1</b> Why do the points move together?</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#why-not-just-run-a-regression"><i class="fa fa-check"></i><b>1.1.1</b> Why not just run a regression?</a></li>
+<li class="chapter" data-level="1.1.2" data-path="intro.html"><a href="intro.html#a-world-without-relationships"><i class="fa fa-check"></i><b>1.1.2</b> A world without relationships</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#from-shocks-to-data"><i class="fa fa-check"></i><b>1.2</b> From shocks to data</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#each-shock-moves-both-measurements"><i class="fa fa-check"></i><b>1.2.1</b> Each shock moves both measurements</a></li>
+<li class="chapter" data-level="1.2.2" data-path="intro.html"><a href="intro.html#in-matrix-form"><i class="fa fa-check"></i><b>1.2.2</b> In matrix form</a></li>
+<li class="chapter" data-level="1.2.3" data-path="intro.html"><a href="intro.html#a-matrix-moves-space"><i class="fa fa-check"></i><b>1.2.3</b> A matrix moves space</a></li>
+<li class="chapter" data-level="1.2.4" data-path="intro.html"><a href="intro.html#and-back-again-whitening"><i class="fa fa-check"></i><b>1.2.4</b> And back again: whitening</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#intro-many-stories"><i class="fa fa-check"></i><b>1.3</b> The same data, many stories</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="intro.html"><a href="intro.html#what-the-data-can-tell-us-sigma"><i class="fa fa-check"></i><b>1.3.1</b> What the data can tell us: <span class="math inline">\(\Sigma\)</span></a></li>
+<li class="chapter" data-level="1.3.2" data-path="intro.html"><a href="intro.html#what-a-candidate-a-implies-sigma-aa"><i class="fa fa-check"></i><b>1.3.2</b> What a candidate <span class="math inline">\(A\)</span> implies: <span class="math inline">\(\Sigma = AA&#39;\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#intro-identification"><i class="fa fa-check"></i><b>1.4</b> Choosing a useful <span class="math inline">\(A\)</span></a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="intro.html"><a href="intro.html#symmetric-root-a-a"><i class="fa fa-check"></i><b>1.4.1</b> Symmetric root: <span class="math inline">\(A = A&#39;\)</span></a></li>
+<li class="chapter" data-level="1.4.2" data-path="intro.html"><a href="intro.html#cholesky-a_12-0"><i class="fa fa-check"></i><b>1.4.2</b> Cholesky: <span class="math inline">\(a_{12} = 0\)</span></a></li>
+<li class="chapter" data-level="1.4.3" data-path="intro.html"><a href="intro.html#intro-pca"><i class="fa fa-check"></i><b>1.4.3</b> PCA: first column as long as possible</a></li>
+<li class="chapter" data-level="1.4.4" data-path="intro.html"><a href="intro.html#simultaneous-equations-a-known-coefficient"><i class="fa fa-check"></i><b>1.4.4</b> Simultaneous equations: a known coefficient</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#intro-layers"><i class="fa fa-check"></i><b>1.5</b> Structural form, reduced form, sample</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#fewer-coordinates-dimension-reduction"><i class="fa fa-check"></i><b>1.6</b> Fewer coordinates: dimension reduction</a></li>
+<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#other-latent-structures"><i class="fa fa-check"></i><b>1.7</b> Other latent structures</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="intro.html"><a href="intro.html#intro-factor"><i class="fa fa-check"></i><b>1.7.1</b> More shocks than variables: factor analysis</a></li>
+<li class="chapter" data-level="1.7.2" data-path="intro.html"><a href="intro.html#intro-clustering"><i class="fa fa-check"></i><b>1.7.2</b> A discrete latent variable: clustering</a></li>
+<li class="chapter" data-level="1.7.3" data-path="intro.html"><a href="intro.html#intro-mds"><i class="fa fa-check"></i><b>1.7.3</b> A different distance: multidimensional scaling</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#roadmap"><i class="fa fa-check"></i><b>1.8</b> The road ahead</a></li>
+<li class="chapter" data-level="1.9" data-path="intro.html"><a href="intro.html#summary"><i class="fa fa-check"></i><b>1.9</b> Summary</a>
+<ul>
+<li class="chapter" data-level="1.9.1" data-path="intro.html"><a href="intro.html#further-reading"><i class="fa fa-check"></i><b>1.9.1</b> Further reading</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>2</b> Looking at Multivariate Data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="data.html"><a href="data.html#the-data-matrix"><i class="fa fa-check"></i><b>2.1</b> The data matrix</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="data.html"><a href="data.html#observations-are-points"><i class="fa fa-check"></i><b>2.1.1</b> Observations are points</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="data.html"><a href="data.html#types-of-variables"><i class="fa fa-check"></i><b>2.2</b> Types of variables</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="data.html"><a href="data.html#why-type"><i class="fa fa-check"></i><b>2.2.1</b> Why the type matters</a></li>
+<li class="chapter" data-level="2.2.2" data-path="data.html"><a href="data.html#categorical-variables-in-r-factors"><i class="fa fa-check"></i><b>2.2.2</b> Categorical variables in R: factors</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="data.html"><a href="data.html#plot-each-type"><i class="fa fa-check"></i><b>2.3</b> A plot for each type</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="data.html"><a href="data.html#many-numeric-variables-the-scatterplot-matrix"><i class="fa fa-check"></i><b>2.3.1</b> Many numeric variables: the scatterplot matrix</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="data.html"><a href="data.html#third-variable"><i class="fa fa-check"></i><b>2.4</b> A third variable, in two dimensions</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="data.html"><a href="data.html#why-not-just-plot-in-3d"><i class="fa fa-check"></i><b>2.4.1</b> Why not just plot in 3D?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="data.html"><a href="data.html#categorical-third-variable-colour"><i class="fa fa-check"></i><b>2.4.2</b> Categorical third variable: colour</a></li>
+<li class="chapter" data-level="2.4.3" data-path="data.html"><a href="data.html#numeric-third-variable-size"><i class="fa fa-check"></i><b>2.4.3</b> Numeric third variable: size</a></li>
+<li class="chapter" data-level="2.4.4" data-path="data.html"><a href="data.html#categorical-third-variable-panels"><i class="fa fa-check"></i><b>2.4.4</b> Categorical third variable: panels</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="data.html"><a href="data.html#summaries"><i class="fa fa-check"></i><b>2.5</b> Summaries of the cloud</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="data.html"><a href="data.html#mean-and-standard-deviation"><i class="fa fa-check"></i><b>2.5.1</b> Mean and standard deviation</a></li>
+<li class="chapter" data-level="2.5.2" data-path="data.html"><a href="data.html#covariance"><i class="fa fa-check"></i><b>2.5.2</b> Covariance</a></li>
+<li class="chapter" data-level="2.5.3" data-path="data.html"><a href="data.html#the-sample-covariance-matrix"><i class="fa fa-check"></i><b>2.5.3</b> The sample covariance matrix</a></li>
+<li class="chapter" data-level="2.5.4" data-path="data.html"><a href="data.html#correlation"><i class="fa fa-check"></i><b>2.5.4</b> Correlation</a></li>
+<li class="chapter" data-level="2.5.5" data-path="data.html"><a href="data.html#what-correlation-misses"><i class="fa fa-check"></i><b>2.5.5</b> What correlation misses</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="data.html"><a href="data.html#unusual"><i class="fa fa-check"></i><b>2.6</b> Unusual combinations</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="data.html"><a href="data.html#hawaii-ordinary-on-each-variable"><i class="fa fa-check"></i><b>2.6.1</b> Hawaii: ordinary on each variable</a></li>
+<li class="chapter" data-level="2.6.2" data-path="data.html"><a href="data.html#mahalanobis"><i class="fa fa-check"></i><b>2.6.2</b> The Mahalanobis distance</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="data.html"><a href="data.html#summary-1"><i class="fa fa-check"></i><b>2.7</b> Summary</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="data.html"><a href="data.html#further-reading-1"><i class="fa fa-check"></i><b>2.7.1</b> Further reading</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="distributions.html"><a href="distributions.html"><i class="fa fa-check"></i><b>3</b> From Data to Distributions</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="distributions.html"><a href="distributions.html#random-variables"><i class="fa fa-check"></i><b>3.1</b> Random experiments and random variables</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="distributions.html"><a href="distributions.html#experiments-outcomes-and-events"><i class="fa fa-check"></i><b>3.1.1</b> Experiments, outcomes and events</a></li>
+<li class="chapter" data-level="3.1.2" data-path="distributions.html"><a href="distributions.html#random-variables-1"><i class="fa fa-check"></i><b>3.1.2</b> Random variables</a></li>
+<li class="chapter" data-level="3.1.3" data-path="distributions.html"><a href="distributions.html#the-distribution-of-a-discrete-random-variable"><i class="fa fa-check"></i><b>3.1.3</b> The distribution of a discrete random variable</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="distributions.html"><a href="distributions.html#random-vectors"><i class="fa fa-check"></i><b>3.2</b> Random vectors</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="distributions.html"><a href="distributions.html#two-dice-two-random-variables"><i class="fa fa-check"></i><b>3.2.1</b> Two dice, two random variables</a></li>
+<li class="chapter" data-level="3.2.2" data-path="distributions.html"><a href="distributions.html#joint-marginal-and-conditional-distributions"><i class="fa fa-check"></i><b>3.2.2</b> Joint, marginal and conditional distributions</a></li>
+<li class="chapter" data-level="3.2.3" data-path="distributions.html"><a href="distributions.html#independence"><i class="fa fa-check"></i><b>3.2.3</b> Independence</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="distributions.html"><a href="distributions.html#sampling"><i class="fa fa-check"></i><b>3.3</b> From random vectors to a data matrix</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="distributions.html"><a href="distributions.html#repeating-the-experiment"><i class="fa fa-check"></i><b>3.3.1</b> Repeating the experiment</a></li>
+<li class="chapter" data-level="3.3.2" data-path="distributions.html"><a href="distributions.html#what-the-data-reveal-about-the-distribution"><i class="fa fa-check"></i><b>3.3.2</b> What the data reveal about the distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="distributions.html"><a href="distributions.html#continuous"><i class="fa fa-check"></i><b>3.4</b> Continuous random variables and vectors</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="distributions.html"><a href="distributions.html#densities"><i class="fa fa-check"></i><b>3.4.1</b> Densities</a></li>
+<li class="chapter" data-level="3.4.2" data-path="distributions.html"><a href="distributions.html#two-continuous-variables-the-multivariate-normal"><i class="fa fa-check"></i><b>3.4.2</b> Two continuous variables: the multivariate normal</a></li>
+<li class="chapter" data-level="3.4.3" data-path="distributions.html"><a href="distributions.html#from-3d-to-2d-the-contour-plot"><i class="fa fa-check"></i><b>3.4.3</b> From 3D to 2D: the contour plot</a></li>
+<li class="chapter" data-level="3.4.4" data-path="distributions.html"><a href="distributions.html#chisq"><i class="fa fa-check"></i><b>3.4.4</b> How much probability inside each ellipse?</a></li>
+<li class="chapter" data-level="3.4.5" data-path="distributions.html"><a href="distributions.html#marginal-and-conditional-densities"><i class="fa fa-check"></i><b>3.4.5</b> Marginal and conditional densities</a></li>
+<li class="chapter" data-level="3.4.6" data-path="distributions.html"><a href="distributions.html#not-every-distribution-is-one-hill"><i class="fa fa-check"></i><b>3.4.6</b> Not every distribution is one hill</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="distributions.html"><a href="distributions.html#moments"><i class="fa fa-check"></i><b>3.5</b> Moments</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="distributions.html"><a href="distributions.html#expected-value-and-variance"><i class="fa fa-check"></i><b>3.5.1</b> Expected value and variance</a></li>
+<li class="chapter" data-level="3.5.2" data-path="distributions.html"><a href="distributions.html#covariance-and-correlation"><i class="fa fa-check"></i><b>3.5.2</b> Covariance and correlation</a></li>
+<li class="chapter" data-level="3.5.3" data-path="distributions.html"><a href="distributions.html#mean-vector-and-covariance-matrix"><i class="fa fa-check"></i><b>3.5.3</b> Mean vector and covariance matrix</a></li>
+<li class="chapter" data-level="3.5.4" data-path="distributions.html"><a href="distributions.html#linear-transformations"><i class="fa fa-check"></i><b>3.5.4</b> Linear transformations</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="distributions.html"><a href="distributions.html#more-data"><i class="fa fa-check"></i><b>3.6</b> Learning the distribution from data</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="distributions.html"><a href="distributions.html#every-sample-gives-a-different-estimate"><i class="fa fa-check"></i><b>3.6.1</b> Every sample gives a different estimate</a></li>
+<li class="chapter" data-level="3.6.2" data-path="distributions.html"><a href="distributions.html#the-law-of-large-numbers"><i class="fa fa-check"></i><b>3.6.2</b> The law of large numbers</a></li>
+<li class="chapter" data-level="3.6.3" data-path="distributions.html"><a href="distributions.html#the-central-limit-theorem"><i class="fa fa-check"></i><b>3.6.3</b> The central limit theorem</a></li>
+<li class="chapter" data-level="3.6.4" data-path="distributions.html"><a href="distributions.html#not-identical"><i class="fa fa-check"></i><b>3.6.4</b> When the rows are not identically distributed</a></li>
+<li class="chapter" data-level="3.6.5" data-path="distributions.html"><a href="distributions.html#alaska"><i class="fa fa-check"></i><b>3.6.5</b> Back to the states: is Alaska surprising?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="distributions.html"><a href="distributions.html#structural"><i class="fa fa-check"></i><b>3.7</b> From the reduced form to structural models</a></li>
+<li class="chapter" data-level="3.8" data-path="distributions.html"><a href="distributions.html#summary-2"><i class="fa fa-check"></i><b>3.8</b> Summary</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="distributions.html"><a href="distributions.html#further-reading-2"><i class="fa fa-check"></i><b>3.8.1</b> Further reading</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="pca.html"><a href="pca.html"><i class="fa fa-check"></i><b>4</b> Principal Components Analysis</a></li>
+<li class="chapter" data-level="5" data-path="mds.html"><a href="mds.html"><i class="fa fa-check"></i><b>5</b> Multidimensional Scaling</a></li>
+<li class="chapter" data-level="6" data-path="efa.html"><a href="efa.html"><i class="fa fa-check"></i><b>6</b> Exploratory Factor Analysis</a></li>
+<li class="chapter" data-level="7" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>7</b> Cluster Analysis</a></li>
+<li class="chapter" data-level="8" data-path="cfa-sem.html"><a href="cfa-sem.html"><i class="fa fa-check"></i><b>8</b> Confirmatory Factor Analysis and Structural Equation Models</a></li>
+<li class="divider"></li>
+<li class="divider"></li>
+<li><strong>&nbsp;&nbsp;Slides</strong></li>
+<li><a href="slides/introduction_slides.html" target="_blank">Introduction</a></li>
+<li><a href="slides/looking_at_data_slides.html" target="_blank">Looking at Multivariate Data</a></li>
+<li><a href="slides/distributions_slides.html" target="_blank">From Data to Distributions</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Multivariate Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="page-not-found" class="section level1">
+<h1>Page not found</h1>
+<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
+<p>You may want to try searching to find the page's new location, or use
+the table of contents to find the page you are looking for.</p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
