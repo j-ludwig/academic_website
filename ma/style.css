@@ -31,3 +31,6 @@
 
 /* table headers left-aligned, like the entries */
 .book .book-body .page-wrapper .page-inner section.normal table th { text-align: left; }
+
+/* the Change in Notation page is linked below the slides, not in the list of chapters */
+.book .book-summary ul.summary li.chapter[data-path="notation.html"] { display: none; }

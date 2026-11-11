@@ -382,43 +382,43 @@ fig_inner <- function() {
 # =============================================================================
 # Step 1 picks an orientation for the map (the slider: any angle fits the distances). Step 2 runs PCA on those
 # coordinates. The scores (right) do not move: PCA undoes whatever orientation step 1 chose.
-# The roommates of Chapter 4: the covariance matrix of the two GPAs. From distances alone we would know the map only up
-# to a turn. The symmetric root computed on the map turned by deg gives the peer effects gamma_12 (2 on 1) and gamma_21
-# (1 on 2) of Chapter 4: they depend on the turn, so step 1 cannot be skipped.
+# The roommates of Chapter 4: the covariance matrix of the two GPAs, and the standard deviations of its two principal
+# components. On the map that MDS returns, the long axis of the cloud is horizontal. Random pairing gives the roommates
+# no order, so swapping them must leave the cloud unchanged: their GPA axes lie at 45 degrees to the axes of the cloud,
+# and the symmetric root, with its peer effect, follows from the two standard deviations alone.
 room_S <- matrix(c(0.26, 0.10, 0.10, 0.26), 2, 2)
-room_peer <- function(deg) {
-  Q <- rotation_matrix(deg * pi / 180); A <- sym_root(Q %*% room_S %*% t(Q))
-  g <- c(A[1, 2] / A[2, 2], A[2, 1] / A[1, 1]); g[abs(g) < 0.005] <- 0; g
-}
-room_tab <- tibble(turn = c(0, 30, 90, -45),                  # at -45 degrees the long axis is horizontal: the MDS map
-                   label = c("0°, the roommates' own axes", "30°", "90°", "−45°, the map that MDS returns"),
-                   g12 = sapply(turn, function(a) room_peer(a)[1]), g21 = sapply(turn, function(a) room_peer(a)[2]))
 room_sd <- sqrt(eigen(room_S)$values)                          # standard deviations of the two principal components
+room_peer <- (room_sd[1] - room_sd[2]) / (room_sd[1] + room_sd[2])   # the peer effect, from the map alone
 
-# The same cloud of 200 pairs of roommates (covariance matrix exactly room_S), turned by each angle of room_tab. Read
-# with the axes as the two roommates' GPAs, each turn implies a different peer effect; every turn fits the same D.
+# 200 pairs of roommates, with covariance matrix exactly room_S, drawn on the MDS map (the principal component scores)
 room_pts <- local({ set.seed(6350); Z <- scale(matrix(rnorm(400), 200), scale = FALSE)
   Z %*% solve(chol(cov(Z))) %*% chol(room_S) })
-fig_room_turns <- function() {
-  panel <- function(i) {
-    a <- room_tab$turn[i]; Q <- rotation_matrix(a * pi / 180); Sa <- Q %*% room_S %*% t(Q)
-    P <- room_pts %*% t(Q); E <- t(ellipse_xy(sym_root(Sa), r = 2))
-    v <- eigen(Sa, symmetric = TRUE); ax <- 2 * sqrt(v$values[1]) * v$vectors[, 1]
-    g <- c(room_tab$g12[i], room_tab$g21[i])
-    sub <- if (all(g == 0)) "no peer effect" else if (abs(g[1] - g[2]) < 0.005) sprintf("peer effect %s", f2(g[1])) else
-      sprintf("peer effects %s and %s", f2(g[1]), f2(g[2]))
-    ttl <- c("The roommates' own axes", sprintf("Turned by %d°", a), sprintf("Turned by %d°", a), "The MDS map (−45°)")[i]
-    ggplot() + axes0 +
-      geom_point(data = tibble(x = P[, 1], y = P[, 2]), aes(x, y), colour = col_a1, alpha = 0.35, size = 1.2) +
-      geom_path(data = tibble(x = E[, 1], y = E[, 2]), aes(x, y), colour = "#2c3e50", linewidth = 0.8) +
-      annotate("segment", x = -ax[1], y = -ax[2], xend = ax[1], yend = ax[2], colour = col_a2, linewidth = 0.9,
-               linetype = "22") +
-      coord_equal(xlim = c(-1.35, 1.35), ylim = c(-1.35, 1.35)) +
-      labs(title = ttl, subtitle = sub, x = "roommate 1's GPA", y = "roommate 2's GPA") +
-      theme(plot.title = element_text(size = 13, face = "bold"), plot.subtitle = element_text(size = 12, colour = col_a2),
-            axis.text = element_blank(), panel.grid = element_blank())
-  }
-  wrap_plots(lapply(seq_len(nrow(room_tab)), panel), nrow = 1)
+room_map <- room_pts %*% (cbind(c(1, 1), c(1, -1)) / sqrt(2))  # long axis (both GPAs up) first, short axis second
+fig_room_axes <- function() {
+  E <- t(ellipse_xy(diag(room_sd), r = 2))
+  ax <- tibble(xend = 1.25 / sqrt(2) * c(1, 1), yend = 1.25 / sqrt(2) * c(1, -1),
+               lab = c("roommate 1's GPA", "roommate 2's GPA"), vj = c(0, 1))
+  arc <- function(a0, a1, r = 0.42) { t <- seq(a0, a1, length.out = 30); tibble(x = r * cos(t), y = r * sin(t)) }
+  ggplot() + axes0 +
+    geom_point(data = tibble(x = room_map[, 1], y = room_map[, 2]), aes(x, y), colour = "grey60", alpha = 0.55,
+               size = 1.3) +
+    geom_path(data = tibble(x = E[, 1], y = E[, 2]), aes(x, y), colour = "#2c3e50", linewidth = 0.8) +
+    geom_path(data = arc(0, pi / 4), aes(x, y), colour = col_a2, linewidth = 0.6) +
+    geom_path(data = arc(-pi / 4, 0), aes(x, y), colour = col_a2, linewidth = 0.6) +
+    annotate("text", x = 0.6 * cos(c(pi / 8, -pi / 8)), y = 0.6 * sin(c(pi / 8, -pi / 8)), label = "45°", size = 3.8,
+             colour = col_a2) +
+    geom_segment(data = ax, aes(0, 0, xend = xend, yend = yend), colour = col_a2, linewidth = 1.1,
+                 arrow = arrow(length = unit(0.22, "cm"), type = "closed")) +
+    geom_text(data = ax, aes(xend + 0.04, yend, label = lab, vjust = vj), hjust = 0, size = 4.2, colour = col_a2,
+              fontface = "bold") +
+    annotate("text", x = 2.15, y = 0.04, label = "long axis:\nboth GPAs rise", hjust = 1, vjust = 0, size = 3.6,
+             colour = "grey35", lineheight = 0.9) +
+    coord_equal(xlim = c(-1.65, 2.15), ylim = c(-1.15, 1.15)) +
+    labs(x = "first dimension of the MDS map", y = "second dimension",
+         title = "The MDS map of 200 pairs of roommates",
+         subtitle = "No order: the two GPA axes lie at 45° to the axes of the cloud") +
+    theme(plot.title = element_text(size = 13, face = "bold"), plot.subtitle = element_text(size = 12),
+          axis.text = element_blank(), panel.grid = element_blank())
 }
 
 us_scores <- function(X) {                                     # PCA scores, signs fixed (Maine positive on both)
@@ -697,7 +697,7 @@ fig_loop_eigen <- function() {
     geom_line(linewidth = 1.2) +
     scale_colour_manual(values = c(largest = col_a1, second = col_a2, third = "#7b4fb5",
                                    `smallest (most negative)` = "grey35"), name = NULL) +
-    labs(x = "waiting time at the construction site (minutes)", y = "eigenvalue of B") +
+    labs(x = "waiting time at the construction site (minutes)", y = expression("eigenvalue of"~bold(B))) +
     theme(legend.position = "right")
 }
 

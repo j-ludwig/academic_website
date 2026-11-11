@@ -33,11 +33,11 @@ air_structural <- function(S) {
 air_presets <- function(S, root) {
   P <- matrix(c(0, 1, 1, 0), 2)
   eg <- eigen(S, symmetric = TRUE)
-  c("Σ½ (symmetric root)"  = phi_from_A(sym_root(S), root),
-    "Cholesky"             = phi_from_A(t(chol(S)), root),
-    "Cholesky (X₂ first)"  = phi_from_A(P %*% t(chol(P %*% S %*% P)), root),
-    "PCA"                  = phi_from_A(eg$vectors %*% diag(sqrt(eg$values)), root),
-    "Simultaneous eq. (6 t/h)" = phi_from_A(air_structural(S), root))
+  c("Σ½ (symmetric root)"  = theta_from_A(sym_root(S), root),
+    "Cholesky"             = theta_from_A(t(chol(S)), root),
+    "Cholesky (X₂ first)"  = theta_from_A(P %*% t(chol(P %*% S %*% P)), root),
+    "PCA"                  = theta_from_A(eg$vectors %*% diag(sqrt(eg$values)), root),
+    "Simultaneous eq. (6 t/h)" = theta_from_A(air_structural(S), root))
 }
 app_presets <- air_presets(app_Sigma, app_root)
 app_restr   <- fa_restrictions(app_Sigma)
@@ -59,7 +59,7 @@ highlight_flights <- apply(targets, 1, function(t)
 # ---- Numbers quoted in the text -------------------------------------------------
 num <- list(
   corr      = cor(flights$time, flights$fuel),
-  phi_struc = app_presets[["Simultaneous eq. (6 t/h)"]],
+  theta_struc = app_presets[["Simultaneous eq. (6 t/h)"]],
   beta      = app_Sigma[1, 2] / app_Sigma[1, 1],
   sig1      = sqrt(app_Sigma[1, 1]),
   sig2_reg  = sqrt(app_Sigma[2, 2] - app_Sigma[1, 2]^2 / app_Sigma[1, 1]),
@@ -330,48 +330,6 @@ fig_dimred <- function() {
   p_proj + p_line + plot_layout(widths = c(1, 1.1))
 }
 
-# ---- Factor model: four restrictions ------------------------------------------------
-fig_factor_choices <- function(nrow = 2, pick = 1:4, critics = FALSE,
-                               panels = c("No noise in X₁", "No noise in X₂", "Equal communalities", "Equal noise")) {
-  restr_pick <- c("ψ₁ = 0 (X₁ is the factor)", "ψ₂ = 0 (X₂ is the factor)",
-                  "equal communalities h₁ = h₂", "equal noise ψ₁ = ψ₂")[pick]
-  panel_names <- panels[pick]
-  fa_models <- lapply(restr_pick, function(nm) fa_from_split(app_Sigma, app_restr[[nm]]))
-  fa_vectors <- purrr::map2_dfr(fa_models, panel_names, function(m, nm) {
-    tibble(method = nm, which = c("λ", "σ1", "σ2"),
-           xend = c(m$lambda[1], sqrt(m$psi[1]), 0),
-           yend = c(m$lambda[2], 0, sqrt(m$psi[2])))
-  }) |>
-    mutate(method = factor(method, levels = panel_names),
-           label_x = xend + ifelse(which == "λ", 0.3, ifelse(which == "σ1", 0.15, -0.35)),
-           label_y = yend + ifelse(which == "λ", 0.25, ifelse(which == "σ1", -0.3, 0.1)))
-  fa_lines <- purrr::map2_dfr(fa_models, panel_names, function(m, nm)
-    tibble(method = nm, x = c(-4, 4) * m$lambda[1], y = c(-4, 4) * m$lambda[2])) |>
-    mutate(method = factor(method, levels = panel_names))
-  fa_pts <- purrr::map_dfr(panel_names, function(nm)
-    tibble(method = nm, x1 = app_X[, 1], x2 = app_X[, 2])) |>
-    mutate(method = factor(method, levels = panel_names))
-  fa_ell <- purrr::map_dfr(panel_names, function(nm) {
-    e <- ellipse_xy(app_root, 1); tibble(method = nm, x1 = e[1, ], x2 = e[2, ])
-  }) |> mutate(method = factor(method, levels = panel_names))
-
-  ggplot(fa_pts, aes(x1, x2)) +
-    geom_line(data = fa_lines, aes(x, y), colour = col_f, linetype = 2, alpha = 0.5) +
-    geom_point(alpha = 0.18, colour = "#6f7a8c", size = 1) +
-    geom_path(data = fa_ell, linewidth = 0.8) +
-    geom_segment(data = fa_vectors |> dplyr::filter(xend^2 + yend^2 > 1e-6),
-                 aes(x = 0, y = 0, xend = xend, yend = yend, colour = which),
-                 arrow = grid::arrow(length = grid::unit(0.16, "cm")), linewidth = 1.3) +
-    geom_text(data = fa_vectors |> dplyr::filter(xend^2 + yend^2 > 0.01),
-              aes(label_x, label_y, label = which, colour = which), size = 4.2, fontface = "bold") +
-    scale_colour_manual(values = c("λ" = col_f, "σ1" = col_a1, "σ2" = col_a2), guide = "none") +
-    facet_wrap(~ method, nrow = nrow) +
-    coord_equal(xlim = c(-3, 3), ylim = c(-3, 3)) +
-    (if (critics) labs(x = "critic 1's rating", y = "critic 2's rating")
-     else labs(x = expression(x[1]~"(flight time)"), y = expression(x[2]~"(fuel)"))) +
-    (if (critics) theme(axis.text = element_blank()) else NULL)
-}
-
 # ---- From factors to clusters ---------------------------------------------------------
 fig_factor_to_cluster <- function() {
   set.seed(11)
@@ -503,7 +461,7 @@ fig_grid_inverse <- function()
                       xlab = "flight time → headwind", ylab = "fuel → load")
 
 fig_rotation <- function() make_rotation_figure()
-fig_factor   <- function() make_factor_figure(notation = "sigma")
+fig_factor   <- function() make_factor_figure()
 
 # ---- MDS: the loop road ------------------------------------------------------------
 t_road <- seq(0, 2 * pi, length.out = 2001)
@@ -531,7 +489,11 @@ D_wait <- function(w) {
 w_star <- 2 * max(abs(outer(s_min, s_min, "-"))) - T_loop
 w_switch <- T_loop - 2 * (T_loop - (s_min[places$place == "Stadium"] - s_min[places$place == "Grocery"]))
 
-fig_mds <- function(height = 660) {
+col_wait <- "#e67e22"        # the construction site and everything it changes
+
+# The town (left) and the map rebuilt from the travel times (right), the same figure as in Chapter 5. Drag the
+# slider to add waiting time at the construction site.
+fig_loop <- function(height = 660) {
   pair  <- c("Stadium", "Grocery")
   c_frac <- 0.95
   site <- tibble(east  = approx(road$s, road$east,  c_frac * L_road)$y,
@@ -541,10 +503,19 @@ fig_mds <- function(height = 660) {
   theta <- 2 * pi * places$frac
   prev  <- cbind(cos(theta), sin(theta)) * T_loop / (2 * pi)
   mds_frames <- purrr::map_dfr(w_grid, function(w) {
-    Y <- cmdscale(as.dist(D_wait(w)), k = 2)
-    Y <- procrustes_align(Y, prev); prev <<- Y
-    places |> dplyr::select(place) |> mutate(d1 = Y[, 1], d2 = Y[, 2], k = wlab(w))
+    Y <- suppressWarnings(cmdscale(as.dist(D_wait(w)), k = 2))  # classical MDS as it comes
+    if (ncol(Y) < 2) Y <- cbind(Y, 0)                           # a line: the second eigenvalue is zero
+    Y <- sweep(Y, 2, ifelse(colSums(Y * prev) < 0, -1, 1), "*"); prev <<- Y   # signs are arbitrary: keep them steady
+    line <- max(abs(Y[, 2])) < 1e-6                             # a line: alternate the labels above and below it
+    tp <- if (line) c("top center", "bottom center")[rank(Y[, 1], ties.method = "first") %% 2 + 1] else
+      dplyr::case_when(abs(Y[, 1]) >= abs(Y[, 2]) & Y[, 1] >= 0 ~ "middle right", abs(Y[, 1]) >= abs(Y[, 2]) ~ "middle left",
+                       Y[, 2] >= 0 ~ "top center", TRUE ~ "bottom center")   # a ring: labels point outwards
+    gap <- mean(abs(dist(Y) - as.dist(D_wait(w))))               # how far the map distances are from the table
+    places |> dplyr::select(place) |> mutate(d1 = Y[, 1], d2 = Y[, 2], k = wlab(w), tp = tp, gap = gap)
   })
+  fit_txt <- mds_frames |> dplyr::distinct(k, gap) |>
+    mutate(x = 0, y = -16, txt = ifelse(gap < 0.005, "average distance error: 0 min (exact)",
+                                        sprintf("average distance error: %.1f min", gap)))
   road_mds <- mds_frames |> group_by(k) |>
     dplyr::group_modify(~ dplyr::bind_rows(.x, .x[1, ])) |> ungroup()
   pair_mds <- mds_frames |> dplyr::filter(place %in% pair)
@@ -552,7 +523,7 @@ fig_mds <- function(height = 660) {
 
   p_map <- plot_ly() |>
     add_trace(data = road, x = ~east, y = ~north, type = "scatter", mode = "lines", color = I("grey80"),
-              line = list(color = "grey80", width = 10), hoverinfo = "skip") |>
+              line = list(color = "#cccccc", width = 10), hoverinfo = "skip") |>
     add_trace(x = pr$east, y = pr$north, type = "scatter", mode = "lines", color = I(col_a2),
               line = list(color = col_a2, dash = "dash", width = 1.5), hoverinfo = "skip") |>
     add_trace(data = places, x = ~east, y = ~north, type = "scatter", mode = "markers+text",
@@ -561,16 +532,18 @@ fig_mds <- function(height = 660) {
                                               places$north > 0 ~ "top center", TRUE ~ "bottom center"),
               marker = list(color = "#2c3e50", size = 9), textfont = list(size = 12), hoverinfo = "skip") |>
     add_trace(data = site, x = ~east, y = ~north, type = "scatter", mode = "markers+text",
-              text = "construction", textposition = "bottom right", color = I("#e67e22"),
-              marker = list(symbol = "x", color = "#e67e22", size = 16, line = list(width = 2)),
-              textfont = list(color = "#e67e22", size = 12), hoverinfo = "skip")
+              text = "construction", textposition = "bottom right", color = I(col_wait),
+              marker = list(symbol = "x", color = col_wait, size = 16, line = list(width = 2)),
+              textfont = list(color = col_wait, size = 12), hoverinfo = "skip")
   p_mds <- plot_ly() |>
     add_trace(data = road_mds, x = ~d1, y = ~d2, frame = ~k, type = "scatter", mode = "lines",
-              color = I("grey80"), line = list(color = "grey80", width = 6), hoverinfo = "skip") |>
+              color = I("grey80"), line = list(color = "#cccccc", width = 6), hoverinfo = "skip") |>
     add_trace(data = mds_frames, x = ~d1, y = ~d2, frame = ~k, text = ~place, type = "scatter",
-              mode = "markers+text", textposition = "middle right", color = I("#2c3e50"),
+              mode = "markers+text", textposition = ~tp, color = I("#2c3e50"),
               marker = list(color = "#2c3e50", size = 9), textfont = list(size = 12),
               hovertemplate = "%{text}<extra></extra>") |>
+    add_trace(data = fit_txt, x = ~x, y = ~y, frame = ~k, text = ~txt, type = "scatter", mode = "text",
+              textfont = list(size = 12, color = col_wait), hoverinfo = "skip") |>
     add_trace(data = pair_mds, x = ~d1, y = ~d2, frame = ~k, type = "scatter", mode = "lines",
               color = I(col_a2), line = list(color = col_a2, dash = "dash", width = 1.5), hoverinfo = "skip")
   p <- subplot(p_map, p_mds, widths = c(0.42, 0.58), margin = 0.05) |>
@@ -642,9 +615,9 @@ fig_sigma <- function() {
 }
 
 # Several candidate A's: all arrow tips lie on the same ellipse
-fig_many_A <- function(phis = c(-60, -20, 25, 70, 115)) {
-  arr <- purrr::map_dfr(seq_along(phis), function(i) {
-    M <- app_root %*% rotation_matrix(phis[i] * pi / 180)
+fig_many_A <- function(thetas = c(-60, -20, 25, 70, 115)) {
+  arr <- purrr::map_dfr(seq_along(thetas), function(i) {
+    M <- app_root %*% rotation_matrix(thetas[i] * pi / 180)
     tibble(g = i, j = factor(1:2), xend = M[1, ], yend = M[2, ])
   })
   ggplot() + cloud_base(alpha = 0.15) +
@@ -661,20 +634,43 @@ fig_choice <- function(name) {
     theme(strip.text = element_blank(), plot.title = element_text(face = "bold"))
 }
 
-# Classical MDS of the loop road: ring (no waiting) and line (long wait), static
-fig_mds_static <- function() {
-  L <- 1.25 * max(abs(cmdscale(as.dist(D_wait(0)), k = 2)), abs(cmdscale(as.dist(D_wait(ceiling(w_star) + 2)), k = 2)))
-  one <- function(w, ttl) {
-    Y <- cmdscale(as.dist(D_wait(w)), k = 2)
-    d <- places |> dplyr::select(place) |> mutate(d1 = Y[, 1], d2 = Y[, 2])
-    ggplot(d, aes(d1, d2)) +
-      geom_path(data = dplyr::bind_rows(d, d[1, ]), colour = "grey80", linewidth = 2.5) +
-      geom_point(colour = "#2c3e50", size = 2.6) +
-      (if (w == 0) geom_text(aes(label = place), size = 3.6, vjust = -0.9)
-       else geom_text(aes(label = place), size = 3.6, angle = 60, hjust = 0, nudge_y = 1.2)) +
-      coord_equal(xlim = c(-L, L), ylim = c(-L, L)) + labs(title = ttl, x = "MDS 1 (minutes)", y = "MDS 2")
+# The two ends of the slider of fig_loop() as static panels: no waiting (a ring) and a long wait (a line), with the
+# same coordinates, signs and labels as the frames of the interactive figure
+fig_loop_static <- function(w_line = ceiling(w_star) + 2) {
+  w_grid <- sort(unique(c(0:36, round(w_star, 1))))
+  theta <- 2 * pi * places$frac
+  prev  <- cbind(cos(theta), sin(theta)) * T_loop / (2 * pi)
+  frames <- list()
+  for (w in w_grid) {                                             # the same sequence of frames as fig_loop()
+    Y <- suppressWarnings(cmdscale(as.dist(D_wait(w)), k = 2))
+    if (ncol(Y) < 2) Y <- cbind(Y, 0)
+    Y <- sweep(Y, 2, ifelse(colSums(Y * prev) < 0, -1, 1), "*"); prev <- Y
+    frames[[sprintf("%.1f", w)]] <- Y
   }
-  one(0, "No waiting: a ring") + one(ceiling(w_star) + 2, sprintf("Wait > %.0f min: a line", w_star))
+  one <- function(w, ttl) {
+    Y <- frames[[sprintf("%.1f", w)]]
+    line <- max(abs(Y[, 2])) < 1e-6
+    d <- places |> dplyr::select(place) |> mutate(d1 = Y[, 1], d2 = Y[, 2])
+    pos <- if (line) c("top", "bottom")[rank(Y[, 1], ties.method = "first") %% 2 + 1] else
+      dplyr::case_when(abs(Y[, 1]) >= abs(Y[, 2]) & Y[, 1] >= 0 ~ "right", abs(Y[, 1]) >= abs(Y[, 2]) ~ "left",
+                       Y[, 2] >= 0 ~ "top", TRUE ~ "bottom")      # as in fig_loop(): outwards on the ring
+    d <- d |> mutate(lx = d1 + 1.2 * (pos == "right") - 1.2 * (pos == "left"),
+                     ly = d2 + 1.6 * (pos == "top") - 1.6 * (pos == "bottom"),
+                     hj = c(right = 0, left = 1, top = 0.5, bottom = 0.5)[pos],
+                     vj = c(right = 0.5, left = 0.5, top = 0, bottom = 1)[pos])
+    gap <- mean(abs(dist(Y) - as.dist(D_wait(w))))
+    err <- if (gap < 0.005) "average distance error: 0 min (exact)" else sprintf("average distance error: %.1f min", gap)
+    pair <- dplyr::filter(d, place %in% c("Stadium", "Grocery"))   # the pair marked in fig_loop()
+    ggplot(d, aes(d1, d2)) +
+      geom_path(data = dplyr::bind_rows(d, d[1, ]), colour = "#cccccc", linewidth = 2.5) +
+      geom_path(data = pair, colour = col_a2, linetype = "22", linewidth = 0.6) +
+      geom_point(colour = "#2c3e50", size = 2.6) +
+      geom_text(aes(lx, ly, label = place, hjust = hj, vjust = vj), size = 3.4, colour = "#2c3e50") +
+      annotate("text", x = 0, y = -16, label = err, size = 3.6, colour = col_wait) +
+      coord_equal(xlim = c(-22, 22), ylim = c(-20, 20)) +
+      labs(title = ttl, x = "MDS dimension 1 (minutes)", y = "MDS dimension 2")
+  }
+  one(0, "No waiting: a ring") + one(w_line, sprintf("A wait of %d minutes: a line", w_line))
 }
 ggrepel_or_text <- function(d) geom_text(data = d, aes(label = place), size = 3.6, vjust = -0.9)
 
@@ -777,20 +773,6 @@ fig_choice_example <- function(name) {
     theme(axis.text = element_blank(), plot.title = element_text(face = "bold"))
 }
 
-
-# The food-critics version of the factor slider: same picture, axes named for the example.
-fig_factor_critics <- function() {
-  fig <- make_factor_figure(notation = "sigma")
-  L <- fig$x$layout
-  L$xaxis$title  <- list(text = "critic 1's rating x<sub>1</sub>")
-  L$yaxis$title  <- list(text = "critic 2's rating x<sub>2</sub>")
-  L$xaxis2$title <- list(text = "critic 1's quirks ε<sub>1</sub>")
-  L$yaxis2$title <- list(text = "critic 2's quirks ε<sub>2</sub>")
-  L$annotations[[1]]$text <- "<b>Ratings</b> (colour = restaurant quality f)"
-  L$annotations[[2]]$text <- "<b>Quirks (ε<sub>1</sub>, ε<sub>2</sub>), quality f as colour</b>"
-  fig$x$layout <- L
-  fig
-}
 
 # The tempting regression: fuel on flight time, with the two "reasons for an extra minute"
 fig_regression <- function() {

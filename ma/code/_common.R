@@ -332,15 +332,15 @@ app_W <- app_W3[, 1:2]                            # drives the observed cloud
 app_V <- app_W3[, 3]                              # position along the unidentified latent direction
 
 
-# Rotation phi (degrees) that turns a given factorization A (AA' = Sigma)
-# into root %*% Q(phi). Column signs are flipped if needed so det(Q) = 1.
-phi_from_A <- function(A, root) {
+# Rotation theta (degrees) that turns a given factorization A (AA' = Sigma)
+# into root %*% Q(theta). Column signs are flipped if needed so det(Q) = 1.
+theta_from_A <- function(A, root) {
   Q <- solve(root) %*% A
   if (det(Q) < 0) Q[, 2] <- -Q[, 2]
   unname(atan2(Q[2, 1], Q[1, 1]) * 180 / pi)
 }
 
-preset_phis <- function(S, root) {
+preset_thetas <- function(S, root) {
   A_chol <- t(chol(S))                                    # Cholesky, x1 first
   P <- matrix(c(0, 1, 1, 0), 2)
   A_chol2 <- P %*% t(chol(P %*% S %*% P))                 # Cholesky, x2 first
@@ -353,11 +353,11 @@ preset_phis <- function(S, root) {
   if (a2[1] > 0) a2 <- -a2
 
   c(
-    "Σ½ (symmetric root)" = phi_from_A(sym_root(S), root),
-    "Cholesky"            = phi_from_A(A_chol, root),
-    "Cholesky (X₂ first)" = phi_from_A(A_chol2, root),
-    "PCA"                 = phi_from_A(A_pca, root),
-    "Structural (ηₛ = 1)" = phi_from_A(cbind(a1, a2), root)
+    "Σ½ (symmetric root)" = theta_from_A(sym_root(S), root),
+    "Cholesky"            = theta_from_A(A_chol, root),
+    "Cholesky (X₂ first)" = theta_from_A(A_chol2, root),
+    "PCA"                 = theta_from_A(A_pca, root),
+    "Structural (ηₛ = 1)" = theta_from_A(cbind(a1, a2), root)
   )
 }
 
@@ -435,9 +435,9 @@ fa_restrictions <- function(S) {
 }
 # ---- The data, held fixed throughout the chapter -----------------------------
 app_Sigma <- matrix(c(1, 0.75, 0.75, 1.25), 2, 2)
-app_root <- sym_root(app_Sigma)              # symmetric square root; phi = 0 in the rotation app
+app_root <- sym_root(app_Sigma)              # symmetric square root; theta = 0 in the rotation app
 app_X <- app_W %*% t(app_root)                # the observed cloud (sample covariance exactly Sigma)
-app_presets <- preset_phis(app_Sigma, app_root)
+app_presets <- preset_thetas(app_Sigma, app_root)
 app_restr <- fa_restrictions(app_Sigma)
 
 # ---- MDS helpers ----------------------------------------------------------------
@@ -486,19 +486,19 @@ finalize_animation <- function(p, jump_buttons, start_frame, prefix, suffix = ""
 
 # ---- Interactive figure 1: rotating the columns of A --------------------------
 make_rotation_figure <- function() {
-  phi_lab <- function(phi) sprintf("%.1f", phi)
+  theta_lab <- function(theta) sprintf("%.1f", theta)
 
-  phi_grid <- sort(unique(round(c(seq(-180, 175, by = 5), unname(app_presets)), 1)))
-  levs <- phi_lab(phi_grid)
-  fk <- function(phi) factor(phi_lab(phi), levels = levs)
-  A_of <- function(phi) app_root %*% rotation_matrix(phi * pi / 180)
+  theta_grid <- sort(unique(round(c(seq(-180, 175, by = 5), unname(app_presets)), 1)))
+  levs <- theta_lab(theta_grid)
+  fk <- function(theta) factor(theta_lab(theta), levels = levs)
+  A_of <- function(theta) app_root %*% rotation_matrix(theta * pi / 180)
 
   # ---------- per-frame data ----------
-  arrows <- lapply(1:2, function(j) purrr::map_dfr(phi_grid, function(ph)
+  arrows <- lapply(1:2, function(j) purrr::map_dfr(theta_grid, function(ph)
     arrow_geometry(A_of(ph)[, j], head_length = 0.2, head_width = 0.1, shaft_width = 0.022)$arrow |>
       mutate(k = fk(ph))))
 
-  arrow_labels <- purrr::map_dfr(phi_grid, function(ph) {
+  arrow_labels <- purrr::map_dfr(theta_grid, function(ph) {
     M <- A_of(ph)
     tibble(x = M[1, ] * (1 + 0.32 / sqrt(colSums(M^2))),
            y = M[2, ] * (1 + 0.32 / sqrt(colSums(M^2))),
@@ -506,24 +506,24 @@ make_rotation_figure <- function() {
            col = c("#1f77b4", "#d62728"), k = fk(ph))
   })
 
-  para <- purrr::map_dfr(phi_grid, function(ph) {
+  para <- purrr::map_dfr(theta_grid, function(ph) {
     M <- A_of(ph)
     cn <- M %*% cbind(c(1, 1), c(-1, 1), c(-1, -1), c(1, -1), c(1, 1))
     tibble(x = cn[1, ], y = cn[2, ], k = fk(ph))
   })
 
-  col_lines <- lapply(1:2, function(j) purrr::map_dfr(phi_grid, function(ph) {
+  col_lines <- lapply(1:2, function(j) purrr::map_dfr(theta_grid, function(ph) {
     v <- A_of(ph)[, j]
     tibble(x = c(-20, 20) * v[1], y = c(-20, 20) * v[2], k = fk(ph))
   }))
 
-  latent <- purrr::map_dfr(phi_grid, function(ph) {
+  latent <- purrr::map_dfr(theta_grid, function(ph) {
     z <- app_X %*% t(solve(A_of(ph)))
     tibble(id = seq_len(nrow(z)), z1 = z[, 1], z2 = z[, 2], k = fk(ph))
   })
 
   preset_names_short <- names(app_presets)
-  readout <- purrr::map_dfr(phi_grid, function(ph) {
+  readout <- purrr::map_dfr(theta_grid, function(ph) {
     M <- A_of(ph)
     ang <- acos(sum(M[, 1] * M[, 2]) / sqrt(sum(M[, 1]^2) * sum(M[, 2]^2))) * 180 / pi
     near <- which(abs(wrap180(ph - app_presets)) < 0.06 | abs(wrap180(ph - app_presets - 180)) < 0.06)
@@ -601,7 +601,7 @@ make_rotation_figure <- function() {
 
   preset_buttons <- lapply(seq_along(app_presets), function(i) list(
     label = preset_names_short[i], method = "animate",
-    args = list(list(phi_lab(round(app_presets[[i]], 1))),
+    args = list(list(theta_lab(round(app_presets[[i]], 1))),
                 list(mode = "immediate", frame = list(duration = 0, redraw = TRUE),
                      transition = list(duration = 0)))
   ))
@@ -622,18 +622,16 @@ make_rotation_figure <- function() {
       showlegend = FALSE
     ) |>
     animation_opts(frame = 80, transition = 0, redraw = TRUE) |>
-    animation_slider(currentvalue = list(prefix = "rotation φ = ", suffix = "°")) |>
+    animation_slider(currentvalue = list(prefix = "rotation θ = ", suffix = "°")) |>
     animation_button(x = 0, xanchor = "left", y = -0.3, yanchor = "top", label = "Play") |>
-    finalize_animation(preset_buttons, start_frame = "0.0", prefix = "rotation φ = ", suffix = "°")
+    finalize_animation(preset_buttons, start_frame = "0.0", prefix = "rotation θ = ", suffix = "°")
 }
 
 # ---- Interactive figure 2: the one-factor model ---------------------------------
-make_factor_figure <- function(notation = c("psi", "sigma")) {
-  notation <- match.arg(notation)
-  # "psi": x_i = lambda_i f + sqrt(psi_i) u_i (book notation, Chapter 5)
-  # "sigma": x_i = lambda_i f + sigma_i epsilon_i (Introduction notation)
-  sym <- if (notation == "psi") c(sh = "u", sd = "ψ") else c(sh = "ε", sd = "σ")
-  relabel <- function(x) if (notation == "psi") x else gsub("ψ", "σ", x)
+make_factor_figure <- function() {
+  # x_i = lambda_i f + sqrt(psi_i) epsilon_i: loadings lambda_i, quirk variances psi_i, unit-variance quirks epsilon_i
+  sym <- c(sh = "ε", sd = "ψ")
+  relabel <- function(x) x
   s_lab <- function(s) sprintf("%.3f", s)
   restr_ok <- app_restr[!is.na(app_restr)]
   s_grid <- sort(unique(round(c(seq(0, 1, by = 0.025), unname(restr_ok)), 3)))
@@ -681,10 +679,7 @@ make_factor_figure <- function(notation = c("psi", "sigma")) {
       x = 4.4, y = -4.35,
       text = paste0(
         "λ = (", sprintf("%.3f", m$lambda[1]), ", ", sprintf("%.3f", m$lambda[2]), ")<br>",
-        if (notation == "psi")
-          paste0("ψ = (", sprintf("%.3f", m$psi[1]), ", ", sprintf("%.3f", m$psi[2]), ")<br>")
-        else
-          paste0("σ = (", sprintf("%.3f", sqrt(m$psi[1])), ", ", sprintf("%.3f", sqrt(m$psi[2])), ")<br>"),
+        "ψ = (", sprintf("%.3f", m$psi[1]), ", ", sprintf("%.3f", m$psi[2]), ")<br>",
         "h = (", sprintf("%.3f", m$h[1]), ", ", sprintf("%.3f", m$h[2]), "), h₁h₂ = ", sprintf("%.3f", prod(m$h)), "<br>",
         "Var(f | x) = ", sprintf("%.3f", m$n[1]^2), "<br>",
         if (length(near)) paste0("<b>", relabel(restr_names[near[1]]), "</b>") else " "
@@ -777,4 +772,60 @@ make_factor_figure <- function(notation = c("psi", "sigma")) {
     animation_slider(currentvalue = list(prefix = "relative noise in X₁ vs X₂ = ")) |>
     animation_button(x = 0, xanchor = "left", y = -0.3, yanchor = "top", label = "Play") |>
     finalize_animation(restr_buttons, start_frame = "0.500", prefix = "relative noise in X₁ vs X₂ = ")
+}
+
+# ---- Factor model: four restrictions ------------------------------------------------
+fig_factor_choices <- function(nrow = 2, pick = 1:4, critics = FALSE,
+                               panels = c("No noise in X₁", "No noise in X₂", "Equal communalities", "Equal noise")) {
+  restr_pick <- c("ψ₁ = 0 (X₁ is the factor)", "ψ₂ = 0 (X₂ is the factor)",
+                  "equal communalities h₁ = h₂", "equal noise ψ₁ = ψ₂")[pick]
+  panel_names <- panels[pick]
+  fa_models <- lapply(restr_pick, function(nm) fa_from_split(app_Sigma, app_restr[[nm]]))
+  fa_vectors <- purrr::map2_dfr(fa_models, panel_names, function(m, nm) {
+    tibble(method = nm, which = c("λ", "√ψ₁", "√ψ₂"),
+           xend = c(m$lambda[1], sqrt(m$psi[1]), 0),
+           yend = c(m$lambda[2], 0, sqrt(m$psi[2])))
+  }) |>
+    mutate(method = factor(method, levels = panel_names),
+           label_x = xend + ifelse(which == "λ", 0.3, ifelse(which == "√ψ₁", 0.15, -0.45)),
+           label_y = yend + ifelse(which == "λ", 0.25, ifelse(which == "√ψ₁", -0.3, 0.1)))
+  fa_lines <- purrr::map2_dfr(fa_models, panel_names, function(m, nm)
+    tibble(method = nm, x = c(-4, 4) * m$lambda[1], y = c(-4, 4) * m$lambda[2])) |>
+    mutate(method = factor(method, levels = panel_names))
+  fa_pts <- purrr::map_dfr(panel_names, function(nm)
+    tibble(method = nm, x1 = app_X[, 1], x2 = app_X[, 2])) |>
+    mutate(method = factor(method, levels = panel_names))
+  fa_ell <- purrr::map_dfr(panel_names, function(nm) {
+    e <- ellipse_xy(app_root, 1); tibble(method = nm, x1 = e[1, ], x2 = e[2, ])
+  }) |> mutate(method = factor(method, levels = panel_names))
+
+  ggplot(fa_pts, aes(x1, x2)) +
+    geom_line(data = fa_lines, aes(x, y), colour = col_f, linetype = 2, alpha = 0.5) +
+    geom_point(alpha = 0.18, colour = "#6f7a8c", size = 1) +
+    geom_path(data = fa_ell, linewidth = 0.8) +
+    geom_segment(data = fa_vectors |> dplyr::filter(xend^2 + yend^2 > 1e-6),
+                 aes(x = 0, y = 0, xend = xend, yend = yend, colour = which),
+                 arrow = grid::arrow(length = grid::unit(0.16, "cm")), linewidth = 1.3) +
+    geom_text(data = fa_vectors |> dplyr::filter(xend^2 + yend^2 > 0.01),
+              aes(label_x, label_y, label = which, colour = which), size = 4.2, fontface = "bold") +
+    scale_colour_manual(values = c("λ" = col_f, "√ψ₁" = col_a1, "√ψ₂" = col_a2), guide = "none") +
+    facet_wrap(~ method, nrow = nrow) +
+    coord_equal(xlim = c(-3, 3), ylim = c(-3, 3)) +
+    (if (critics) labs(x = "critic 1's rating", y = "critic 2's rating")
+     else labs(x = expression(x[1]~"(flight time)"), y = expression(x[2]~"(fuel)"))) +
+    (if (critics) theme(axis.text = element_blank()) else NULL)
+}
+
+# The food-critics version of the factor slider: same picture, axes named for the example.
+fig_factor_critics <- function() {
+  fig <- make_factor_figure()
+  L <- fig$x$layout
+  L$xaxis$title  <- list(text = "critic 1's rating x<sub>1</sub>")
+  L$yaxis$title  <- list(text = "critic 2's rating x<sub>2</sub>")
+  L$xaxis2$title <- list(text = "critic 1's quirks ε<sub>1</sub>")
+  L$yaxis2$title <- list(text = "critic 2's quirks ε<sub>2</sub>")
+  L$annotations[[1]]$text <- "<b>Ratings</b> (colour = restaurant quality f)"
+  L$annotations[[2]]$text <- "<b>Quirks (ε<sub>1</sub>, ε<sub>2</sub>), quality f as colour</b>"
+  fig$x$layout <- L
+  fig
 }

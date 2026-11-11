@@ -308,7 +308,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="pca.html"><a href="pca.html"><i class="fa fa-check"></i><b>4</b> Principal Components Analysis</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="pca.html"><a href="pca.html#pca-units"><i class="fa fa-check"></i><b>4.1</b> Factors with units: <span class="math inline">\(A=\Gamma D\)</span></a>
+<li class="chapter" data-level="4.1" data-path="pca.html"><a href="pca.html#pca-units"><i class="fa fa-check"></i><b>4.1</b> Factors with units: <span class="math inline">\(A=C\Delta\)</span></a>
 <ul>
 <li class="chapter" data-level="4.1.1" data-path="pca.html"><a href="pca.html#shocks-have-no-units"><i class="fa fa-check"></i><b>4.1.1</b> Shocks have no units</a></li>
 <li class="chapter" data-level="4.1.2" data-path="pca.html"><a href="pca.html#scale-then-combine"><i class="fa fa-check"></i><b>4.1.2</b> Scale, then combine</a></li>
@@ -372,10 +372,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="mds.html"><a href="mds.html#mds-two-steps"><i class="fa fa-check"></i><b>5.4</b> From distances to latent coordinates: two steps or one</a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="mds.html"><a href="mds.html#two-steps"><i class="fa fa-check"></i><b>5.4.1</b> Two steps</a></li>
-<li class="chapter" data-level="5.4.2" data-path="mds.html"><a href="mds.html#the-second-step-undoes-the-first"><i class="fa fa-check"></i><b>5.4.2</b> The second step undoes the first</a></li>
-<li class="chapter" data-level="5.4.3" data-path="mds.html"><a href="mds.html#what-starting-from-mathbf-d-costs"><i class="fa fa-check"></i><b>5.4.3</b> What starting from <span class="math inline">\(\mathbf D\)</span> costs</a></li>
-<li class="chapter" data-level="5.4.4" data-path="mds.html"><a href="mds.html#one-step"><i class="fa fa-check"></i><b>5.4.4</b> One step</a></li>
+<li class="chapter" data-level="5.4.1" data-path="mds.html"><a href="mds.html#pca-needs-no-first-step"><i class="fa fa-check"></i><b>5.4.1</b> PCA needs no first step</a></li>
+<li class="chapter" data-level="5.4.2" data-path="mds.html"><a href="mds.html#the-roommates-need-no-first-step-either"><i class="fa fa-check"></i><b>5.4.2</b> The roommates need no first step either</a></li>
+<li class="chapter" data-level="5.4.3" data-path="mds.html"><a href="mds.html#when-the-first-step-is-needed"><i class="fa fa-check"></i><b>5.4.3</b> When the first step is needed</a></li>
 </ul></li>
 <li class="chapter" data-level="5.5" data-path="mds.html"><a href="mds.html#mds-embeddings"><i class="fa fa-check"></i><b>5.5</b> Distances learned from text: embeddings</a>
 <ul>
@@ -401,9 +400,72 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.9.1" data-path="mds.html"><a href="mds.html#further-reading-4"><i class="fa fa-check"></i><b>5.9.1</b> Further reading</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="efa.html"><a href="efa.html"><i class="fa fa-check"></i><b>6</b> Exploratory Factor Analysis</a></li>
+<li class="chapter" data-level="6" data-path="efa.html"><a href="efa.html"><i class="fa fa-check"></i><b>6</b> Exploratory Factor Analysis</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="efa.html"><a href="efa.html#efa-two"><i class="fa fa-check"></i><b>6.1</b> Two critics, one quality</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="efa.html"><a href="efa.html#why-two-ratings-move-together"><i class="fa fa-check"></i><b>6.1.1</b> Why two ratings move together</a></li>
+<li class="chapter" data-level="6.1.2" data-path="efa.html"><a href="efa.html#only-quality-creates-covariance"><i class="fa fa-check"></i><b>6.1.2</b> Only quality creates covariance</a></li>
+<li class="chapter" data-level="6.1.3" data-path="efa.html"><a href="efa.html#more-shocks-than-ratings"><i class="fa fa-check"></i><b>6.1.3</b> More shocks than ratings</a></li>
+<li class="chapter" data-level="6.1.4" data-path="efa.html"><a href="efa.html#the-data-leave-one-number-open"><i class="fa fa-check"></i><b>6.1.4</b> The data leave one number open</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="efa.html"><a href="efa.html#efa-model"><i class="fa fa-check"></i><b>6.2</b> The factor model</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="efa.html"><a href="efa.html#four-critics"><i class="fa fa-check"></i><b>6.2.1</b> Four critics</a></li>
+<li class="chapter" data-level="6.2.2" data-path="efa.html"><a href="efa.html#many-variables-several-factors"><i class="fa fa-check"></i><b>6.2.2</b> Many variables, several factors</a></li>
+<li class="chapter" data-level="6.2.3" data-path="efa.html"><a href="efa.html#the-covariances"><i class="fa fa-check"></i><b>6.2.3</b> The covariances</a></li>
+<li class="chapter" data-level="6.2.4" data-path="efa.html"><a href="efa.html#more-shocks-than-variables"><i class="fa fa-check"></i><b>6.2.4</b> More shocks than variables</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="efa.html"><a href="efa.html#efa-critics"><i class="fa fa-check"></i><b>6.3</b> One factor: how many variables does it take?</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="efa.html"><a href="efa.html#two-critics-a-curve-of-answers"><i class="fa fa-check"></i><b>6.3.1</b> Two critics: a curve of answers</a></li>
+<li class="chapter" data-level="6.3.2" data-path="efa.html"><a href="efa.html#a-third-critic-pins-it-down"><i class="fa fa-check"></i><b>6.3.2</b> A third critic pins it down</a></li>
+<li class="chapter" data-level="6.3.3" data-path="efa.html"><a href="efa.html#efa-heywood"><i class="fa fa-check"></i><b>6.3.3</b> Impossible answers: Heywood cases</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="efa.html"><a href="efa.html#efa-restrictions"><i class="fa fa-check"></i><b>6.4</b> Four critics: a restriction to test</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="efa.html"><a href="efa.html#only-the-factor-creates-covariance"><i class="fa fa-check"></i><b>6.4.1</b> Only the factor creates covariance</a></li>
+<li class="chapter" data-level="6.4.2" data-path="efa.html"><a href="efa.html#counting-restrictions"><i class="fa fa-check"></i><b>6.4.2</b> Counting restrictions</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="efa.html"><a href="efa.html#efa-estimate"><i class="fa fa-check"></i><b>6.5</b> Estimating and testing with data</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="efa.html"><a href="efa.html#a-sample-of-200-restaurants"><i class="fa fa-check"></i><b>6.5.1</b> A sample of 200 restaurants</a></li>
+<li class="chapter" data-level="6.5.2" data-path="efa.html"><a href="efa.html#maximum-likelihood"><i class="fa fa-check"></i><b>6.5.2</b> Maximum likelihood</a></li>
+<li class="chapter" data-level="6.5.3" data-path="efa.html"><a href="efa.html#testing-the-restrictions"><i class="fa fa-check"></i><b>6.5.3</b> Testing the restrictions</a></li>
+<li class="chapter" data-level="6.5.4" data-path="efa.html"><a href="efa.html#efa-units"><i class="fa fa-check"></i><b>6.5.4</b> The units do not matter</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="efa.html"><a href="efa.html#efa-rotation"><i class="fa fa-check"></i><b>6.6</b> Two factors: the rotation returns</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="efa.html"><a href="efa.html#six-tests-two-abilities"><i class="fa fa-check"></i><b>6.6.1</b> Six tests, two abilities</a></li>
+<li class="chapter" data-level="6.6.2" data-path="efa.html"><a href="efa.html#every-turn-fits-the-data"><i class="fa fa-check"></i><b>6.6.2</b> Every turn fits the data</a></li>
+<li class="chapter" data-level="6.6.3" data-path="efa.html"><a href="efa.html#simple-structure-and-varimax"><i class="fa fa-check"></i><b>6.6.3</b> Simple structure and varimax</a></li>
+<li class="chapter" data-level="6.6.4" data-path="efa.html"><a href="efa.html#the-data-find-the-groups-we-name-them"><i class="fa fa-check"></i><b>6.6.4</b> The data find the groups, we name them</a></li>
+<li class="chapter" data-level="6.6.5" data-path="efa.html"><a href="efa.html#efa-promax"><i class="fa fa-check"></i><b>6.6.5</b> Correlated factors: promax</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="efa.html"><a href="efa.html#efa-scores"><i class="fa fa-check"></i><b>6.7</b> Factor scores</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="efa.html"><a href="efa.html#efa-shocks"><i class="fa fa-check"></i><b>6.7.1</b> Parameters, but not shocks</a></li>
+<li class="chapter" data-level="6.7.2" data-path="efa.html"><a href="efa.html#estimating-quality-from-four-ratings"><i class="fa fa-check"></i><b>6.7.2</b> Estimating quality from four ratings</a></li>
+<li class="chapter" data-level="6.7.3" data-path="efa.html"><a href="efa.html#the-scores-are-never-exact"><i class="fa fa-check"></i><b>6.7.3</b> The scores are never exact</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="efa.html"><a href="efa.html#efa-states"><i class="fa fa-check"></i><b>6.8</b> The US states</a></li>
+<li class="chapter" data-level="6.9" data-path="efa.html"><a href="efa.html#efa-pca"><i class="fa fa-check"></i><b>6.9</b> Factor analysis and PCA</a></li>
+<li class="chapter" data-level="6.10" data-path="efa.html"><a href="efa.html#summary-5"><i class="fa fa-check"></i><b>6.10</b> Summary</a>
+<ul>
+<li class="chapter" data-level="6.10.1" data-path="efa.html"><a href="efa.html#further-reading-5"><i class="fa fa-check"></i><b>6.10.1</b> Further reading</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>7</b> Cluster Analysis</a></li>
 <li class="chapter" data-level="8" data-path="cfa-sem.html"><a href="cfa-sem.html"><i class="fa fa-check"></i><b>8</b> Confirmatory Factor Analysis and Structural Equation Models</a></li>
+<li class="chapter" data-level="" data-path="notation.html"><a href="notation.html"><i class="fa fa-check"></i>Change in Notation</a>
+<ul>
+<li class="chapter" data-level="" data-path="notation.html"><a href="notation.html#conventions"><i class="fa fa-check"></i>Conventions</a></li>
+<li class="chapter" data-level="" data-path="notation.html"><a href="notation.html#chapter-1-introduction"><i class="fa fa-check"></i>Chapter 1: Introduction</a></li>
+<li class="chapter" data-level="" data-path="notation.html"><a href="notation.html#chapter-2-looking-at-multivariate-data"><i class="fa fa-check"></i>Chapter 2: Looking at Multivariate Data</a></li>
+<li class="chapter" data-level="" data-path="notation.html"><a href="notation.html#chapter-3-from-data-to-distributions"><i class="fa fa-check"></i>Chapter 3: From Data to Distributions</a></li>
+<li class="chapter" data-level="" data-path="notation.html"><a href="notation.html#chapter-4-principal-components-analysis"><i class="fa fa-check"></i>Chapter 4: Principal Components Analysis</a></li>
+<li class="chapter" data-level="" data-path="notation.html"><a href="notation.html#chapter-5-multidimensional-scaling"><i class="fa fa-check"></i>Chapter 5: Multidimensional Scaling</a></li>
+</ul></li>
 <li class="divider"></li>
 <li class="divider"></li>
 <li><strong>&nbsp;&nbsp;Slides</strong></li>
@@ -412,6 +474,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="slides/distributions_slides.html" target="_blank">From Data to Distributions</a></li>
 <li><a href="slides/pca_slides.html" target="_blank">Principal Components Analysis</a></li>
 <li><a href="slides/mds_slides.html" target="_blank">Multidimensional Scaling</a></li>
+<li><a href="slides/efa_slides.html" target="_blank">Exploratory Factor Analysis</a></li>
+<li class="divider"></li>
+<li class="notation-link"><a href="notation.html"><strong>Change in Notation</strong></a></li>
 
 </ul>
 

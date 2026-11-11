@@ -47,8 +47,8 @@ fig_die <- function() {
     geom_point(colour = col_a1, size = 3.5) +
     scale_x_continuous(breaks = 1:6, limits = c(0.5, 6.5)) +
     scale_y_continuous(limits = c(0, 0.25), breaks = c(0, 1 / 6), labels = c("0", "1/6")) +
-    labs(title = "Probability mass function", subtitle = expression(italic(p)(italic(x)) == italic(P)(italic(X) == italic(x))),
-         x = expression("number shown"~italic(x)), y = expression(italic(p)(italic(x))))
+    labs(title = "Probability mass function", subtitle = "the probability of each value",
+         x = expression("number shown"~italic(x)), y = expression(italic(P)(italic(X) == italic(x))))
   cd <- tibble(x0 = c(0, 1:6), x1 = c(1:6, 7), F = (0:6) / 6)
   p2 <- ggplot(cd) +
     geom_segment(aes(x = x0, xend = x1, y = F, yend = F), colour = col_a2, linewidth = 1.2) +
@@ -229,7 +229,7 @@ fig_pmf_pdf <- function() {
     scale_x_continuous(breaks = seq(0, 13, by = 2)) +
     labs(title = "Discrete: customers in ten minutes",
          subtitle = sprintf("pmf, Poisson with mean %d. Red: P(X ≤ 2) = %.2f", lambda, ppois(2, lambda)),
-         x = "number of customers x", y = "p(x) = P(X = x)")
+         x = "number of customers x", y = "P(X = x)")
   a_lo <- 1000; b_hi <- 1500
   p_ab <- pgamma(b_hi, coffee_k, scale = mu_A / coffee_k) - pgamma(a_lo, coffee_k, scale = mu_A / coffee_k)
   dens <- tibble(x = seq(0, 4000, length.out = 400)) |> mutate(f = dgamma(x, coffee_k, scale = mu_A / coffee_k))
@@ -258,7 +258,7 @@ fig_moments_pair <- function() {
     scale_x_continuous(breaks = 1:6, limits = c(0.5, 6.5)) +
     scale_y_continuous(limits = c(0, 0.25), breaks = c(0, 1 / 6), labels = c("0", "1/6")) +
     labs(title = "Discrete: one die", subtitle = "pmf: probabilities are heights",
-         x = expression("number shown"~italic(x)), y = expression(italic(p)(italic(x))))
+         x = expression("number shown"~italic(x)), y = expression(italic(P)(italic(X) == italic(x))))
   dens <- tibble(x = seq(0, 4000, length.out = 400)) |> mutate(f = dgamma(x, coffee_k, scale = mu_A / coffee_k))
   ytop <- max(dens$f)
   p_c <- ggplot(dens, aes(x, f)) +
