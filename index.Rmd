@@ -46,7 +46,7 @@ My research areas are macroeconomics and time series econometrics, with a focus 
 - **Local Projections Are VAR Predictions of Increasing Order**  
 *Revise & Resubmit, Econometrica*  
 [[Download This Paper (March 2026 Version)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6441981){target="_blank"}]  
-[[Download This Paper (July 2024 Version)](https://papers.ssrn.com/sol3/abstract_id=4882149){target="_blank"}]
+[[Download This Paper (July 2024 Version)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4882149){target="_blank"}]
 
 - **Identification of Rational Expectations Models Under Information Frictions**  
 [[Download This Paper](research/Ludwig ID of RE Models under IF.pdf){target="_blank"}]
@@ -58,12 +58,12 @@ DOI: [10.1016/j.euroecorev.2026.105479](https://doi.org/10.1016/j.euroecorev.202
 
 - **The Effects of Expectation: Evidence from Text-Based Infectious Disease Data** \
 (with [Ram Joshi](https://www.linkedin.com/in/ram-joshi-694b09158/){target="_blank"}, [Xiaowen Lei](https://sites.google.com/site/lysfxiaowen/home){target="_blank"}, and [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"}) \
-*Revise & Resubmit, Empirical Economics*  
-[[Download This Paper](https://dx.doi.org/10.2139/ssrn.4844096){target="_blank"}]
+*Conditionally accepted, Empirical Economics (revision resubmitted November 4, 2026)* \
+[[Download This Paper](https://doi.org/10.2139/ssrn.4844096){target="_blank"}]
 
 - **Diverging Macroeconomic Expectations and Business Cycles** \
 (with [Xiaohan Ma](https://sites.google.com/view/xiaohanma){target="_blank"}) \
-[[Download This Paper](https://ssrn.com/abstract=4739011){target="_blank"}]
+[[Download This Paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4739011){target="_blank"}]
 
 
 
@@ -71,10 +71,10 @@ $~$
 
 # Teaching
 
-I teach courses in data science, economics, and information systems, with an emphasis on real-world applications, programming, and clear, effective data communication. My courses are supported by custom-developed textbooks and teaching materials, all freely available online.
+I teach courses in data science, economics, and information systems, with an emphasis on real-world applications, programming, and clear, effective data communication. My courses are supported by custom-developed lecture notes and teaching materials, all freely available online.
 
 
-#### Textbooks
+#### Lecture Notes
 
 
 - **Economic Data Analysis**  
